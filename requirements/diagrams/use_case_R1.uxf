@@ -61,10 +61,10 @@
     <coordinates>
       <x>600</x>
       <y>324</y>
-      <w>144</w>
+      <w>180</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>Εγγραφή Χρήστη</panel_attributes>
+    <panel_attributes>Διαχείριση Χρήστη</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
