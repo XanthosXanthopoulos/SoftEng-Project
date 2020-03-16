@@ -18,7 +18,7 @@
 
 ### Επισκόπηση μοντέλου περιπτώσεων χρήσης
 
-![Use case diagram](requirements/diagrams/use_case_R1.png)
+![Use case diagram](requirements/diagrams/use_case.png)
 
 ## Σύντομη περιγραφή περιπτώσεων χρήσεων
 
