@@ -46,3 +46,9 @@ Actor | Εδώ τι??
 ### Περιγραφές περιπτώσεων χρήσης
 
 #### [ΠΧ1. Διαχείριση λογαρισμού](requirments/uc1_user_managment.md)
+
+#### [ΠΧ2. Αναζήτηση](requirments/uc2-search-technician.md)
+
+#### [ΠΧ3. Δημιουργία ραντεβού](requirments/uc3-create-appointment.md)
+
+#### [ΠΧ4. Ολοκλήρωση εργασίας](requirments/uc4-work-completion.md)
