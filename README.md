@@ -52,11 +52,11 @@ Actor | Εδώ τι??
 
 ### Περιγραφές περιπτώσεων χρήσης
 
-#### [ΠΧ1. Εγγραφή πελάτη](requirments/uc1_user_managment.md)
+#### [ΠΧ1. Εγγραφή Τεχνικού](requirments/uc1-register-technician.md)
 
-#### [ΠΧ2. Εγγραφή τεχνικού](requirments/uc2-search-technician.md)
+#### [ΠΧ2. Εγγραφή Πελάτη](requirments/uc2-register-customer.md)
 
-#### [ΠΧ3. Αναζήτηση](requirments/uc3-create-appointment.md)
+#### [ΠΧ3. Αναζήτηση](requirments/uc3-search-technician.md)
 
 #### [ΠΧ4. Δημιουργία Ραντεβού](requirments/uc3-create-appointment.md)
 
@@ -64,4 +64,6 @@ Actor | Εδώ τι??
 
 #### [ΠΧ6. Επιβεβαίωση ραντεβού](requirments/uc4-work-completion.md)
 
-#### [ΠΧ7. Εξόφληση τεχνικού](requirments/uc4-work-completion.md)
+#### [ΠΧ7. Εξόφληση τεχνικού](requirments/uc7-technician-payoff.md)
+
+#### [ΠΧ8. Ταυτοποίηση Χρήστη](requirments/uc8-validate-user.md)
