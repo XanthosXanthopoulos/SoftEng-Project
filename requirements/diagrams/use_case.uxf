@@ -97,7 +97,7 @@
       <w>180</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>Εγγραφή Τεχνικού</panel_attributes>
+    <panel_attributes>Εγγραφή τεχνικού</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -108,7 +108,7 @@
       <w>168</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>Εγγραφή Πελάτη</panel_attributes>
+    <panel_attributes>Εγγραφή πελάτη</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -153,7 +153,7 @@
       <w>204</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>Επιβεβαίωση Ραντεβού</panel_attributes>
+    <panel_attributes>Επιβεβαίωση ραντεβού</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -175,7 +175,7 @@
       <w>216</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>Εξόφληση Τεχνικού</panel_attributes>
+    <panel_attributes>Εξόφληση τεχνικού</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
