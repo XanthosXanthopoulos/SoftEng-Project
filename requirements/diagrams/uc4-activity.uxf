@@ -4,7 +4,7 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>0</y>
       <w>24</w>
       <h>24</h>
@@ -15,7 +15,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>588</x>
+      <x>636</x>
       <y>84</y>
       <w>228</w>
       <h>48</h>
@@ -26,7 +26,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>0</y>
       <w>36</w>
       <h>108</h>
@@ -37,7 +37,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>588</x>
+      <x>636</x>
       <y>204</y>
       <w>228</w>
       <h>48</h>
@@ -48,7 +48,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>120</y>
       <w>36</w>
       <h>108</h>
@@ -59,7 +59,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>588</x>
+      <x>636</x>
       <y>336</y>
       <w>228</w>
       <h>48</h>
@@ -71,7 +71,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>240</y>
       <w>36</w>
       <h>120</h>
@@ -82,7 +82,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>588</x>
+      <x>636</x>
       <y>516</y>
       <w>228</w>
       <h>48</h>
@@ -93,7 +93,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>372</y>
       <w>36</w>
       <h>84</h>
@@ -104,7 +104,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>576</x>
+      <x>624</x>
       <y>720</y>
       <w>228</w>
       <h>48</h>
@@ -116,7 +116,7 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>660</x>
+      <x>708</x>
       <y>432</y>
       <w>48</w>
       <h>48</h>
@@ -127,7 +127,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
+      <x>744</x>
       <y>444</y>
       <w>216</w>
       <h>36</h>
@@ -138,7 +138,7 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>888</x>
+      <x>936</x>
       <y>444</y>
       <w>24</w>
       <h>24</h>
@@ -149,7 +149,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>456</y>
       <w>36</w>
       <h>84</h>
@@ -160,7 +160,7 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>660</x>
+      <x>708</x>
       <y>612</y>
       <w>48</w>
       <h>48</h>
@@ -171,7 +171,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>552</y>
       <w>36</w>
       <h>84</h>
@@ -182,7 +182,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>648</y>
       <w>36</w>
       <h>96</h>
@@ -193,7 +193,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
+      <x>744</x>
       <y>624</y>
       <w>216</w>
       <h>36</h>
@@ -204,7 +204,7 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>888</x>
+      <x>936</x>
       <y>624</y>
       <w>24</w>
       <h>24</h>
@@ -215,7 +215,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>756</y>
       <w>36</w>
       <h>84</h>
@@ -226,7 +226,7 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>660</x>
+      <x>708</x>
       <y>816</y>
       <w>48</w>
       <h>48</h>
@@ -237,7 +237,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
+      <x>744</x>
       <y>828</y>
       <w>216</w>
       <h>36</h>
@@ -248,7 +248,7 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>888</x>
+      <x>936</x>
       <y>828</y>
       <w>24</w>
       <h>24</h>
@@ -259,7 +259,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>708</x>
+      <x>756</x>
       <y>600</y>
       <w>132</w>
       <h>108</h>
@@ -270,7 +270,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>648</x>
+      <x>696</x>
       <y>480</y>
       <w>132</w>
       <h>108</h>
@@ -282,7 +282,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>588</x>
+      <x>636</x>
       <y>600</y>
       <w>132</w>
       <h>108</h>
@@ -293,7 +293,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>588</x>
+      <x>636</x>
       <y>792</y>
       <w>132</w>
       <h>108</h>
@@ -304,7 +304,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>600</x>
+      <x>648</x>
       <y>420</y>
       <w>132</w>
       <h>108</h>
@@ -315,7 +315,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>732</x>
+      <x>780</x>
       <y>456</y>
       <w>132</w>
       <h>108</h>
@@ -326,7 +326,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>720</x>
+      <x>768</x>
       <y>804</y>
       <w>132</w>
       <h>108</h>
@@ -337,7 +337,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>624</x>
+      <x>672</x>
       <y>840</y>
       <w>132</w>
       <h>108</h>
@@ -349,7 +349,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>648</x>
+      <x>696</x>
       <y>660</y>
       <w>132</w>
       <h>108</h>
@@ -361,8 +361,8 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>672</x>
-      <y>1020</y>
+      <x>720</x>
+      <y>1032</y>
       <w>24</w>
       <h>24</h>
     </coordinates>
@@ -372,8 +372,19 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>720</x>
       <y>852</y>
+      <w>36</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>972</y>
       <w>36</w>
       <h>84</h>
     </coordinates>
@@ -383,24 +394,14 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>576</x>
+      <x>612</x>
       <y>912</y>
-      <w>252</w>
-      <h>48</h>
+      <w>288</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Ενημέρωση τεχνικού
-(sms/e-mail/τηλ) για το ραντεβού</panel_attributes>
+(sms/e-mail/τηλ) για το ραντεβού
+type=sender</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>672</x>
-      <y>948</y>
-      <w>36</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
