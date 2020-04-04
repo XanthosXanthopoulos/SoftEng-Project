@@ -33,4 +33,8 @@
 
 ![Activity diagram](diagrams/uc4-activity.png)
 
+### Διάγραμμα ακολουθίας
+
+![Activity diagram](diagrams/sq4-create-app.png)
+
 
