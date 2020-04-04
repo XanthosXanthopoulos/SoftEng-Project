@@ -57,3 +57,7 @@
 ### Διάγραμμα δραστηριότητας
 
 ![Activity diagram](diagrams/uc1-activity.png)
+
+### Διάγραμμα ακολουθίας 
+
+![Sequence diagram](diagrams/sq1-tech-reg.png)

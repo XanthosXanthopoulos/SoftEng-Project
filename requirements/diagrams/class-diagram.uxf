@@ -34,8 +34,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>770</x>
-      <y>671</y>
+      <x>792</x>
+      <y>616</y>
       <w>176</w>
       <h>66</h>
     </coordinates>
@@ -141,31 +141,31 @@ m2= 1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>847</x>
+      <x>869</x>
       <y>495</y>
-      <w>154</w>
-      <h>198</h>
+      <w>132</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>120.0;10.0;10.0;160.0</additional_attributes>
+    <additional_attributes>100.0;10.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>979</x>
       <y>495</y>
-      <w>165</w>
-      <h>198</h>
+      <w>154</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;160.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1210</x>
       <y>473</y>
-      <w>209</w>
+      <w>176</w>
       <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumaration&gt;&gt;
@@ -184,8 +184,8 @@ m2= 1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>990</x>
-      <y>671</y>
+      <x>979</x>
+      <y>616</y>
       <w>264</w>
       <h>66</h>
     </coordinates>
@@ -229,19 +229,17 @@ m2=0..n
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1232</x>
-      <y>297</y>
+      <x>1210</x>
+      <y>341</y>
       <w>176</w>
-      <h>143</h>
+      <h>99</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 LengthUnit
 --
 m
-km
-cm
-mm
-inch
+m^2
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -259,5 +257,32 @@ m1=0..n
 m2=1
 εμπλέκει &gt;</panel_attributes>
     <additional_attributes>10.0;190.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>682</x>
+      <y>605</y>
+      <w>99</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>70.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>682</x>
+      <y>715</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Εργασία
+--
+Ποσότητα : int
+
+
+</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
