@@ -251,7 +251,7 @@ create</panel_attributes>
       <x>1152</x>
       <y>492</y>
       <w>24</w>
-      <h>48</h>
+      <h>36</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -284,7 +284,7 @@ SetDate(date)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>696</x>
-      <y>540</y>
+      <y>528</y>
       <w>480</w>
       <h>48</h>
     </coordinates>
@@ -347,7 +347,7 @@ SetPayment()</panel_attributes>
       <x>456</x>
       <y>372</y>
       <w>24</w>
-      <h>84</h>
+      <h>192</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -400,9 +400,9 @@ SetPayment()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1152</x>
-      <y>552</y>
+      <y>540</y>
       <w>24</w>
-      <h>48</h>
+      <h>36</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -435,7 +435,7 @@ SetPayment()</panel_attributes>
       <x>1152</x>
       <y>756</y>
       <w>24</w>
-      <h>48</h>
+      <h>24</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
