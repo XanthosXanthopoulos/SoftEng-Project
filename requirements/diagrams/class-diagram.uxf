@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.3.0">
+<diagram program="umlet" version="14.2">
   <zoom_level>11</zoom_level>
   <element>
     <id>UMLClass</id>
@@ -41,8 +41,15 @@
     </coordinates>
     <panel_attributes>Επισκευή
 --
+<<<<<<< HEAD
 Ποσότητα: double
 /Κόστος: double
+=======
+Ημερομηνία Δημιουργίας: Date
+Ημερομηνία Διεξαγωγής: Date
+Τοποθεσία: Διεύθυνση
+Επιβεβαιωμένο: boolean
+>>>>>>> 2194cf55f1bc2673fb48b89adcb1f4e09fa56614
 
 </panel_attributes>
     <additional_attributes/>
@@ -61,7 +68,7 @@
 Επίθετο: String
 Τηλέφωνο: String
 E-mail: String
-Λογαριασμό Τραπέζης: String
+Λογαριασμός Τραπέζης: String
 Username: String
 Password : String
 
@@ -230,7 +237,7 @@ m2=1</panel_attributes>
       <w>176</w>
       <h>88</h>
     </coordinates>
-    <panel_attributes>Εξόφλυση
+    <panel_attributes>Εξόφληση
 --
 Ημερομηνία: Date
 Τρόπος Εξόφλυσης

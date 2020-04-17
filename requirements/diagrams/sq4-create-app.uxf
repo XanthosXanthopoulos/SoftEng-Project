@@ -86,7 +86,7 @@
       <x>456</x>
       <y>156</y>
       <w>24</w>
-      <h>756</h>
+      <h>108</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -97,7 +97,7 @@
       <x>684</x>
       <y>168</y>
       <w>24</w>
-      <h>744</h>
+      <h>84</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -154,7 +154,7 @@ SetTechnician
       <x>972</x>
       <y>156</y>
       <w>24</w>
-      <h>756</h>
+      <h>84</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -251,7 +251,7 @@ create</panel_attributes>
       <x>1152</x>
       <y>492</y>
       <w>24</w>
-      <h>420</h>
+      <h>36</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -284,7 +284,7 @@ SetDate(date)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>696</x>
-      <y>540</y>
+      <y>528</y>
       <w>480</w>
       <h>48</h>
     </coordinates>
@@ -334,11 +334,132 @@ SetAddress(Address)</panel_attributes>
     <coordinates>
       <x>696</x>
       <y>744</y>
-      <w>468</w>
+      <w>480</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 SetPayment()</panel_attributes>
-    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>456</x>
+      <y>372</y>
+      <w>24</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>684</x>
+      <y>384</y>
+      <w>24</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>456</x>
+      <y>576</y>
+      <w>24</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>684</x>
+      <y>612</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1152</x>
+      <y>624</y>
+      <w>24</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1152</x>
+      <y>540</y>
+      <w>24</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>456</x>
+      <y>696</y>
+      <w>24</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>684</x>
+      <y>720</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1152</x>
+      <y>756</y>
+      <w>24</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>684</x>
+      <y>864</y>
+      <w>24</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>972</x>
+      <y>876</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
   </element>
 </diagram>
