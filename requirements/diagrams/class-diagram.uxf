@@ -96,13 +96,13 @@ Password : String
       <x>77</x>
       <y>363</y>
       <w>198</w>
-      <h>462</h>
+      <h>242</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2= 1
-κλείνει &gt;</panel_attributes>
-    <additional_attributes>160.0;390.0;10.0;390.0;10.0;10.0</additional_attributes>
+δημιουργεί &gt;</panel_attributes>
+    <additional_attributes>160.0;190.0;10.0;190.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
