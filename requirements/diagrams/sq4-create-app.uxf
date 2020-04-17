@@ -131,10 +131,10 @@ SetTechnician
     <coordinates>
       <x>1104</x>
       <y>432</y>
-      <w>120</w>
+      <w>132</w>
       <h>36</h>
     </coordinates>
-    <panel_attributes>_:Appointment_</panel_attributes>
+    <panel_attributes>_:RepairRequest_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -181,7 +181,7 @@ SetTechnician
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-SetAppointment
+SetRepairRequest
 (date, hour)</panel_attributes>
     <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -265,7 +265,7 @@ create</panel_attributes>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-setAppointment(Appointment)</panel_attributes>
+setRepairRequest(RepairRequest)</panel_attributes>
     <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
