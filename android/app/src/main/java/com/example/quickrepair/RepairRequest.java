@@ -9,6 +9,7 @@ public class RepairRequest {
     private Date conductionDate;
     private String address;
     private boolean isConfirmed;
+    private Repair repair;
 
     private PaymentType paymentType;
 

@@ -1,29 +1,39 @@
 package com.example.quickrepair;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Payment {
-    private Date date;
+    private LocalDateTime date;
     private PaymentType paymentType;
 
-    public Payment(Date date, PaymentType paymentType) {
+    /**
+     * Empty Constructor
+     */
+    public Payment(){}
+
+    /**
+     * Payment's Constructor
+     * @param date payment's title
+     * @param paymentType payment's type
+     */
+    public Payment(LocalDateTime date, PaymentType paymentType) {
         this.date = date;
         this.paymentType = paymentType;
     }
 
-    public Date getDate() {
+    //Setters and Getters
+    /**
+     * return payment's date
+     */
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
+    /**
+     * return payment's type
+     */
     public PaymentType getPaymentType() {
         return paymentType;
     }
 
-    public void setPaymentType(PaymentType paymentType) {
-        this.paymentType = paymentType;
-    }
 }
