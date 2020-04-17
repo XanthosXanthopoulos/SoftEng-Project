@@ -21,7 +21,6 @@ public class Payment {
         this.paymentType = paymentType;
     }
 
-    //Setters and Getters
     /**
      * return payment's date
      */

@@ -13,6 +13,8 @@ public class RepairRequest {
 
     private PaymentType paymentType;
 
+
+
     public void setDate(Date date){
         this.conductionDate = date;
     }

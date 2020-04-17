@@ -31,33 +31,40 @@ public class Repair {
         this.payment = payment;
     }
 
-    //Setters and Getters
-    //return repair's quantity
+    /**
+     * return repair's quantity
+     */
     public double getQuantity() {
         return quantity;
     }
 
-    //change repair's quantity
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
-
-    //return repair's payment
+    /**
+     * return repair's payment
+     */
     public Payment getPayment() {
         return payment;
     }
 
-    //create repair's payment
+    /**
+     * set repair's payment
+     * @param payment customer's payment
+     */
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
 
     //return repair's evaluation
+    /**
+     * return repair's evaluation
+     */
     public Evaluation getEvaluation() {
         return evaluation;
     }
 
-    //create repair's evaluation
+    /**
+     * set repair's evaluation
+     * @param evaluation customer's evaluation
+     */
     public void setEvaluation(Evaluation evaluation) {
         this.evaluation = evaluation;
     }
