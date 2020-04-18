@@ -1,24 +1,16 @@
 package com.example.quickrepair;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class RepairUnitTest {
 
     //Constructor Tests
     @Test
-    public void constructorDefault(){
-        Repair repair = new Repair();
-        Assert.assertEquals(null, repair.getQuantity());
-        Assert.assertEquals(null, repair.getPayment());
-        Assert.assertEquals(null, repair.getEvaluation());
-    }
-    @Test
     public void constructorWithQuantity(){
         double quantity = 1;
         Repair repair = new Repair(quantity);
-        Assert.assertEquals(quantity, repair.getQuantity());
+        Assert.assertEquals(quantity, repair.getQuantity(),.0);
         Assert.assertEquals(null, repair.getPayment());
         Assert.assertEquals(null, repair.getEvaluation());
     }
@@ -27,7 +19,7 @@ public class RepairUnitTest {
         double quantity = 1;
         Payment payment = new Payment();
         Repair repair = new Repair(quantity, payment);
-        Assert.assertEquals(quantity, repair.getQuantity());
+        Assert.assertEquals(quantity, repair.getQuantity(), .0);
         Assert.assertEquals(payment, repair.getPayment());
         Assert.assertEquals(null, repair.getEvaluation());
     }
@@ -106,7 +98,7 @@ public class RepairUnitTest {
         Repair repair = new Repair();
         Evaluation evaluation = new Evaluation();
         repair.setEvaluation(evaluation);
-        Assert.assertEquals(evaluation, repair.getPayment());
+        Assert.assertEquals(evaluation, repair.getEvaluation());
     }
 
     @Test (expected = IllegalArgumentException.class)

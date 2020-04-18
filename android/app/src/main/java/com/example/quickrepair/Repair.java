@@ -93,7 +93,7 @@ public class Repair {
     public void setEvaluation(Evaluation evaluation) {
         if(evaluation != null) {
             //max 1 evaluation, can't reset it
-            if(getEvaluation()!=null) {
+            if(getEvaluation()==null) {
                 this.evaluation = evaluation;
             }else{
                 throw new IllegalArgumentException("only one evaluation, can't reset it.");
