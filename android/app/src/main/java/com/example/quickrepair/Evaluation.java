@@ -13,16 +13,16 @@ public class Evaluation {
      */
     public Evaluation(){}
 
-    /**
-     * Evaluation's Constructor
-     * @param title evaluation's title
-     * @param comment evaluation's comments and details about repair and technician's job in general
-     * @param rate evaluation's rate, [1, 5]
-     */
+        /**
+         * Evaluation's Constructor
+         * @param title evaluation's title
+         * @param comment evaluation's comments and details about repair and technician's job in general
+         * @param rate evaluation's rate, [1, 5]
+         */
     public Evaluation(String title, String comment, int rate) {
         this.title = title;
         this.comment = comment;
-        this.rate = rate;
+        setRate(rate);
     }
 
     //Setters and Getters
@@ -34,6 +34,22 @@ public class Evaluation {
     }
 
     /**
+     * set evaluation's title
+     * @param title evaluation's title
+     */
+    public void setTitle(String title) {
+        if(title !=null) {
+            if (title.length() > 0) {
+                this.title = title;
+            } else {
+                this.title = "No title";
+            }
+        }else{
+            throw new NullPointerException("null title");
+        }
+    }
+
+    /**
      * return evaluation's comment
      */
     public String getComment() {
@@ -41,10 +57,34 @@ public class Evaluation {
     }
 
     /**
-     * return evaluation's rate
+     * set evaluation's comment
+     * @param comment evaluation's comment
      */
-    public int getRate() {
-        return rate;
+    public void setComment(String comment) {
+        if(comment != null) {
+            if (comment.length() > 0) {
+                this.comment = comment;
+            } else {
+                this.comment = "No comment";
+            }
+        }else{
+            throw new NullPointerException("null comment");
+        }
     }
 
+    /**
+     * return evaluation's rate
+     */
+    public int getRate() { return rate; }
+    /**
+     * set evaluation's rate
+     * @param rate evaluation's rate, [1, 5]
+     */
+    public void setRate(int rate) {
+        if(rate >=1 && rate<=5) {
+            this.rate = rate;
+        }else{
+            throw new IllegalArgumentException("[1,5] stars");
+        }
+    }
 }
