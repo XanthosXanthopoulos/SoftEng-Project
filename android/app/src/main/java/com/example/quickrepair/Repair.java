@@ -17,7 +17,7 @@ public class Repair {
      * @param quantity job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
      */
     public Repair(double quantity) {
-        this.quantity = quantity;
+        setQuantity(quantity);
     }
 
     /**
@@ -27,8 +27,8 @@ public class Repair {
      * @param payment customer's payment
      */
     public Repair(double quantity, Payment payment) {
-        this.quantity = quantity;
-        this.payment = payment;
+        setQuantity(quantity);
+        setPayment(payment);
     }
 
     /**
@@ -36,6 +36,21 @@ public class Repair {
      */
     public double getQuantity() {
         return quantity;
+    }
+
+    /**
+     * set repair's quantity
+     * only possitive and non zero quantity
+     *
+     * @param quantity customer's quantity
+     */
+    public void setQuantity(double quantity){
+        if(quantity > 0){
+            //TODO: #1 elegxos analoga me to eidos ergasias
+            this.quantity = quantity;
+        }else{
+            throw new IllegalArgumentException("positive quantity");
+        }
     }
 
     /**
@@ -50,7 +65,17 @@ public class Repair {
      * @param payment customer's payment
      */
     public void setPayment(Payment payment) {
-        this.payment = payment;
+        //given payment not null
+        if(payment!=null) {
+            //max 1 payment, can't reset it
+            if(getPayment()==null) {
+                this.payment = payment;
+            }else{
+                throw new IllegalArgumentException("only one payment, can't reset it.");
+            }
+        }else{
+            throw new NullPointerException("null payment");
+        }
     }
 
     //return repair's evaluation
@@ -66,6 +91,16 @@ public class Repair {
      * @param evaluation customer's evaluation
      */
     public void setEvaluation(Evaluation evaluation) {
-        this.evaluation = evaluation;
+        if(evaluation != null) {
+            //max 1 evaluation, can't reset it
+            if(getEvaluation()!=null) {
+                this.evaluation = evaluation;
+            }else{
+                throw new IllegalArgumentException("only one evaluation, can't reset it.");
+            }
+        }else{
+            throw new NullPointerException("null evaluation");
+        }
     }
+
 }

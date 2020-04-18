@@ -1,6 +1,7 @@
 package com.example.quickrepair;
 
 import org.junit.Before;
+import org.junit.Test;
 
 public class PaymentUnitTest {
     private Payment payment;
@@ -8,4 +9,5 @@ public class PaymentUnitTest {
     public void setUp() {
         payment = new Payment();
     }
+
 }
