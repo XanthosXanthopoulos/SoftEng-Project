@@ -13,12 +13,12 @@ public class Payment {
 
     /**
      * Payment's Constructor
-     * @param date payment's title
+     * @param date payment's date
      * @param paymentType payment's type
      */
     public Payment(LocalDateTime date, PaymentType paymentType) {
-        this.date = date;
-        this.paymentType = paymentType;
+        setDate(date);
+        setPaymentType(paymentType);
     }
 
     /**
@@ -29,10 +29,32 @@ public class Payment {
     }
 
     /**
+     * set payment's date
+     * @param date payment's date
+     */
+    public void setDate(LocalDateTime date) {
+        if(date != null) {
+            this.date = date;
+        }else{
+            throw new NullPointerException("null date");
+        }
+    }
+    /**
      * return payment's type
      */
     public PaymentType getPaymentType() {
         return paymentType;
     }
 
+    /**
+     * set Payment's type
+     * @param paymentType payment's type
+     */
+    public void setPaymentType(PaymentType paymentType) {
+        if(paymentType != null) {
+            this.paymentType = paymentType;
+        }else{
+            throw new NullPointerException("null paymentType");
+        }
+    }
 }
