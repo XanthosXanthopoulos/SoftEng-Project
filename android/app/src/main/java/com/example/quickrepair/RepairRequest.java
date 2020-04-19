@@ -1,27 +1,32 @@
 package com.example.quickrepair;
 
-import android.location.Address;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class RepairRequest {
-    private Date creationDate;
-    private Date conductionDate;
-    private String address;
+    //TODO replace with job slot for conductionTime
+    private LocalDateTime creationDate;
+    private LocalDateTime conductionDate;
+    private Address address;
     private boolean isConfirmed;
     private Repair repair;
+    private Customer customer;
 
     private PaymentType paymentType;
 
 
 
-    public void setDate(Date date){
+    public void setDate(LocalDateTime date){
         this.conductionDate = date;
     }
-    public void setAddress(String address){
+    public void setAddress(Address address){
         this.address = address;
     }
     public void setPaymentType(PaymentType type){
         this.paymentType = type;
+    }
+    public void setCustomer(Customer customer){
+        this.customer = customer;
     }
 }

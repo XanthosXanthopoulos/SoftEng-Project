@@ -28,12 +28,19 @@ public class User {
         setEmail(email);
         setBankAccount(bankAccount);
     }
+    //TODO  null pointer checks that throw nullpointer exceptions and not illegalargument
 
     private void setName(String name) {
+        if(name == null){
+            throw new NullPointerException();
+        }
         this.name = name;
     }
 
     private void setSurname(String surname) {
+        if(surname == null){
+            throw new NullPointerException();
+        }
         this.surname = surname;
     }
 
@@ -90,4 +97,6 @@ public class User {
             throw new IllegalArgumentException("bankAccount");
         }
     }
+
+    //TODO set username password
 }
