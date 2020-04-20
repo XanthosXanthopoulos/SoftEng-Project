@@ -5,12 +5,16 @@ public class Repair
     private double quantity;
     private Payment payment;
     private Evaluation evaluation;
+    private boolean isCompleted;
+    private RepairRequest repairRequest;
 
     //constructors
     /**
      * Empty Constructor
      */
-    public  Repair(){}
+    public  Repair(){
+        isCompleted = false;
+    }
 
     /**
      * Repair's constructor with quantity
@@ -106,4 +110,32 @@ public class Repair
         }
     }
 
+    /**
+     * Checks if the repair has been marked as completed
+     * @return true if it is completed
+     */
+    public boolean isCompleted(){
+        return isCompleted;
+    }
+    /**
+     * Marks this repair as completed
+     */
+    public void markAsCompleted(){
+        isCompleted = true;
+    }
+    /**
+     * Returns the repair request that was the cause of the repair
+     */
+    public RepairRequest getRepairRequest() {
+        return repairRequest;
+    }
+    /**
+     * Sets the repair request of thie object
+     */
+    public void setRepairRequest(RepairRequest repairRequest) {
+        if(repairRequest != null) {
+            this.repairRequest = repairRequest;
+        }
+        throw new NullPointerException("null repairRequest");
+    }
 }
