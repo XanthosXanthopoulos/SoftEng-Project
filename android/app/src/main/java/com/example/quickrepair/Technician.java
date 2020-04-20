@@ -1,12 +1,13 @@
 package com.example.quickrepair;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Technician extends User
 {
-    private Set<Job> jobs;
+    private Set<Job> jobs = new HashSet<>();
 
     private List<RepairRequest> pendingRequests = new ArrayList<>();
     private Specialty specialty;
@@ -57,11 +58,27 @@ public class Technician extends User
         pendingRequests.add(repairRequest);
     }
 
+    public Set<Job> getJobs() {
+        return jobs;
+    }
+
+    public List<RepairRequest> getPendingRequests() {
+        return pendingRequests;
+    }
+
+    public Specialty getSpecialty() {
+        return specialty;
+    }
+
+    public List<String> getAreas() {
+        return areas;
+    }
     /**
      *  Returns the list of all repairs of this technician completed and in progress
      * @return
      */
-    public List<Repair> getRepairs(){
+    public List<Repair> getRepairsList() {
         return repairsList;
     }
+    //TODO add areas
 }

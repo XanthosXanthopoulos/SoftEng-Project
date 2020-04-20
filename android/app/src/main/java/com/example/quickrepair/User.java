@@ -58,7 +58,7 @@ public class User {
             this.phoneNumber = phoneNumber;
         }
         else{
-            throw new IllegalArgumentException("phoneNumber");
+            throw new IllegalArgumentException("Wrong phone number format");
         }
     }
 
@@ -68,6 +68,7 @@ public class User {
      *
      *  @throws IllegalArgumentException if the input is not
      *       in the form (\\w@\\w\\.\\w)
+     *   //TODO Change regex to accept numbers in the email
      */
     private void setEmail(String email) {
         //Checks if the email is xxx@xxxxx.xxxx
@@ -76,7 +77,7 @@ public class User {
             this.email = email;
         }
         else{
-            throw new IllegalArgumentException("email");
+            throw new IllegalArgumentException("Wrong email address format");
         }
     }
 
@@ -94,9 +95,50 @@ public class User {
             this.bankAccount = bankAccount;
         }
         else{
-            throw new IllegalArgumentException("bankAccount");
+            throw new IllegalArgumentException("Wrong bank account format");
         }
     }
 
-    //TODO set username password
+    public void setUsername(String username) {
+        if(username == null){
+            throw new NullPointerException();
+        }
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        if(password == null){
+            throw new NullPointerException();
+        }
+        this.password = password;
+    }
+    //GETTERS
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getBankAccount() {
+        return bankAccount;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
