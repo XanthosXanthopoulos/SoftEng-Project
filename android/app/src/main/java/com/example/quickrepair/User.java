@@ -31,16 +31,15 @@ public class User {
     //TODO  null pointer checks that throw nullpointer exceptions and not illegalargument
 
     private void setName(String name) {
-        if(name == null){
-            throw new NullPointerException();
-        }
+        if(name == null) throw new NullPointerException("Name can not be null.");
+
         this.name = name;
     }
 
-    private void setSurname(String surname) {
-        if(surname == null){
-            throw new NullPointerException();
-        }
+    private void setSurname(String surname)
+    {
+        if(surname == null) throw new NullPointerException("Surname can not be null.");
+
         this.surname = surname;
     }
 
@@ -53,13 +52,9 @@ public class User {
      */
     private void setPhoneNumber(String phoneNumber) {
         //Checks if the phone number is exactly 10 digits long
-        if (phoneNumber.matches("(\\d{10})") ) {
+        if (!phoneNumber.matches("\\d{10}")) throw new IllegalArgumentException("Phone number must have ten digits.");
 
-            this.phoneNumber = phoneNumber;
-        }
-        else{
-            throw new IllegalArgumentException("phoneNumber");
-        }
+        this.phoneNumber = phoneNumber;
     }
 
     /**
@@ -71,7 +66,7 @@ public class User {
      */
     private void setEmail(String email) {
         //Checks if the email is xxx@xxxxx.xxxx
-        if (email.matches("(\\w+\\@\\w+\\.\\w+)") ) {
+        if (email.matches("(\\w+\\@\\w+\\.\\w+)")) {
 
             this.email = email;
         }

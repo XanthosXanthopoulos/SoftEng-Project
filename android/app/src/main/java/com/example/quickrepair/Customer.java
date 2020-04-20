@@ -1,14 +1,31 @@
 package com.example.quickrepair;
 
-public class Customer extends User {
+import java.time.LocalDateTime;
 
-    public void chargeAccount(int totalCost){
-        if (totalCost <= 0){
+public class Customer extends User
+{
+
+    public void chargeAccount(int totalCost)
+    {
+        if (totalCost <= 0)
+        {
             throw new IllegalArgumentException("totalCost");
         }
-        else{
+        else
+        {
             // The customers account is charged for the amount
         }
     }
 
+    public RepairRequest requestRepair(LocalDateTime dateTime, Job job)
+    {
+        RepairRequest repairRequest = new RepairRequest();
+
+        repairRequest.setConductionDate(dateTime);
+        repairRequest.setCustomer(this);
+
+        job.getTechnician().addRepairRequest(repairRequest);
+
+        return repairRequest;
+    }
 }

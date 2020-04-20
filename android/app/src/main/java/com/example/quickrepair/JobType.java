@@ -6,6 +6,7 @@ import java.util.Set;
 public class JobType
 {
     private String name;
+    private Specialty specialty;
 
     private Set<Job> jobs;
 
@@ -30,5 +31,18 @@ public class JobType
         if (name.isEmpty()) throw new IllegalArgumentException();
 
         this.name = name;
+    }
+
+
+    public Specialty getSpecialty()
+    {
+        return specialty;
+    }
+
+    public void setSpecialty(Specialty specialty)
+    {
+        if (specialty == null) throw new NullPointerException("Speciality can not be null.");
+
+        this.specialty = specialty;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.quickrepair;
 
-public class Repair {
+public class Repair
+{
     private double quantity;
     private Payment payment;
     private Evaluation evaluation;
@@ -16,7 +17,8 @@ public class Repair {
      * technician is going to be paid later
      * @param quantity job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
      */
-    public Repair(double quantity) {
+    public Repair(double quantity)
+    {
         setQuantity(quantity);
     }
 
@@ -26,7 +28,8 @@ public class Repair {
      * @param quantity job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
      * @param payment customer's payment
      */
-    public Repair(double quantity, Payment payment) {
+    public Repair(double quantity, Payment payment)
+    {
         setQuantity(quantity);
         setPayment(payment);
     }

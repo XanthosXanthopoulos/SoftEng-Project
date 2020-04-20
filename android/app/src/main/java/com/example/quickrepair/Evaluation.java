@@ -3,7 +3,8 @@ package com.example.quickrepair;
 /**
  * Customer's Evaluation about an Repair
  */
-public class Evaluation {
+public class Evaluation
+{
     private String title;
     private String comment;
     private int rate;
@@ -11,7 +12,7 @@ public class Evaluation {
     /**
      * Empty Constructor
      */
-    public Evaluation(){}
+    public Evaluation() { }
 
         /**
          * Evaluation's Constructor
@@ -19,7 +20,8 @@ public class Evaluation {
          * @param comment evaluation's comments and details about repair and technician's job in general
          * @param rate evaluation's rate, [1, 5]
          */
-    public Evaluation(String title, String comment, int rate) {
+    public Evaluation(String title, String comment, int rate)
+    {
         this.title = title;
         this.comment = comment;
         setRate(rate);
@@ -37,22 +39,25 @@ public class Evaluation {
      * set evaluation's title
      * @param title evaluation's title
      */
-    public void setTitle(String title) {
-        if(title !=null) {
-            if (title.length() > 0) {
-                this.title = title;
-            } else {
-                this.title = "No title";
-            }
-        }else{
-            throw new NullPointerException("null title");
+    public void setTitle(String title)
+    {
+        if(title == null) throw new NullPointerException("null title");
+
+        if (title.length() > 0)
+        {
+            this.title = title;
+        }
+        else
+        {
+            this.title = "No title";
         }
     }
 
     /**
      * return evaluation's comment
      */
-    public String getComment() {
+    public String getComment()
+    {
         return comment;
     }
 
@@ -60,15 +65,17 @@ public class Evaluation {
      * set evaluation's comment
      * @param comment evaluation's comment
      */
-    public void setComment(String comment) {
-        if(comment != null) {
-            if (comment.length() > 0) {
-                this.comment = comment;
-            } else {
-                this.comment = "No comment";
-            }
-        }else{
-            throw new NullPointerException("null comment");
+    public void setComment(String comment)
+    {
+        if(comment == null) throw new NullPointerException("null comment");
+
+        if (comment.length() > 0)
+        {
+            this.comment = comment;
+        }
+        else
+        {
+            this.comment = "No comment";
         }
     }
 
@@ -80,11 +87,10 @@ public class Evaluation {
      * set evaluation's rate
      * @param rate evaluation's rate, [1, 5]
      */
-    public void setRate(int rate) {
-        if(rate >=1 && rate<=5) {
-            this.rate = rate;
-        }else{
-            throw new IllegalArgumentException("[1,5] stars");
-        }
+    public void setRate(int rate)
+    {
+        if (rate < 1 && rate > 5) throw new IllegalArgumentException("[1,5] stars");
+
+        this.rate = rate;
     }
 }
