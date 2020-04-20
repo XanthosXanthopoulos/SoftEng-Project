@@ -72,18 +72,13 @@ public class Repair
      * set repair's payment
      * @param payment customer's payment
      */
-    public void setPayment(Payment payment) {
-        //given payment not null
-        if(payment!=null) {
-            //max 1 payment, can't reset it
-            if(getPayment()==null) {
-                this.payment = payment;
-            }else{
-                throw new IllegalArgumentException("only one payment, can't reset it.");
-            }
-        }else{
-            throw new NullPointerException("null payment");
-        }
+    public void setPayment(Payment payment)
+    {
+        if (payment == null) throw new NullPointerException("Payment can not be null.");
+        if (this.payment != null) throw new IllegalStateException("The repair already has a payment.");
+
+        this.payment = payment;
+        isPaid = true;
     }
 
     //return repair's evaluation
@@ -127,14 +122,6 @@ public class Repair
     }
 
     /**
-     * Marks this repair as completed
-     */
-    public void markAsPaid()
-    {
-        isPaid = true;
-    }
-
-    /**
      * Returns the repair request that was the cause of the repair
      */
     public RepairRequest getRepairRequest()
@@ -150,5 +137,24 @@ public class Repair
         if(repairRequest == null) throw new NullPointerException("null repairRequest");
 
         this.repairRequest = repairRequest;
+    }
+
+    public Evaluation evaluate(String title, String comment, int rate)
+    {
+        Evaluation evaluation = new Evaluation(title, comment, rate);
+
+        setEvaluation(evaluation);
+
+        return evaluation;
+    }
+
+    public Payment pay(PaymentType paymentType)
+    {
+        Payment payment = new Payment();
+
+        payment.setPaymentType(paymentType);
+        setPayment(payment);
+
+        return payment;
     }
 }

@@ -36,7 +36,7 @@ public class Technician extends User
      */
     public void setSpecialty(Specialty specialty)
     {
-        if(specialty == null) throw new NullPointerException();
+        if(specialty == null) throw new NullPointerException("Speciality can not be null.");
 
         this.specialty = specialty;
     }
@@ -45,7 +45,7 @@ public class Technician extends User
      */
     public void addJob(Job job)
     {
-        if(job == null) throw new NullPointerException();
+        if(job == null) throw new NullPointerException("Job can not be null.");
 
         this.jobs.add(job);
     }

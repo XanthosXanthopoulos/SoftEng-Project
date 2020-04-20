@@ -26,7 +26,8 @@ public class Payment
     /**
      * return payment's date
      */
-    public LocalDateTime getDate() {
+    public LocalDateTime getDate()
+    {
         return date;
     }
 

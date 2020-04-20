@@ -105,11 +105,25 @@ public class RepairRequest
         isCompleted = true;
     }
 
-    public Job getJob() {
+    public Job getJob()
+    {
         return job;
     }
 
-    public void setJob(Job job) {
+    public void setJob(Job job)
+    {
         this.job = job;
+    }
+
+    public Repair conductRepair(double quantity)
+    {
+        Repair repair = new Repair();
+
+        repair.setQuantity(quantity);
+        repair.setRepairRequest(this);
+
+        setRepair(repair);
+
+        return repair;
     }
 }
