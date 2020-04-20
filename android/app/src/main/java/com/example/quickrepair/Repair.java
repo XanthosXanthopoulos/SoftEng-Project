@@ -5,7 +5,7 @@ public class Repair
     private double quantity;
     private Payment payment;
     private Evaluation evaluation;
-    private boolean isCompleted;
+    private boolean isPaid;
     private RepairRequest repairRequest;
 
     //constructors
@@ -14,7 +14,7 @@ public class Repair
      */
     public  Repair()
     {
-        isCompleted = false;
+        isPaid = false;
     }
 
     /**
@@ -99,14 +99,20 @@ public class Repair
      * @param evaluation customer's evaluation
      */
     public void setEvaluation(Evaluation evaluation) {
-        if(evaluation != null) {
+        if (evaluation != null)
+        {
             //max 1 evaluation, can't reset it
-            if(getEvaluation()==null) {
+            if (getEvaluation() == null)
+            {
                 this.evaluation = evaluation;
-            }else{
+            }
+            else
+            {
                 throw new IllegalArgumentException("only one evaluation, can't reset it.");
             }
-        }else{
+        }
+        else
+        {
             throw new NullPointerException("null evaluation");
         }
     }
@@ -115,28 +121,34 @@ public class Repair
      * Checks if the repair has been marked as completed
      * @return true if it is completed
      */
-    public boolean isCompleted(){
-        return isCompleted;
+    public boolean isPaid()
+    {
+        return isPaid;
     }
+
     /**
      * Marks this repair as completed
      */
-    public void markAsCompleted(){
-        isCompleted = true;
+    public void markAsPaid()
+    {
+        isPaid = true;
     }
+
     /**
      * Returns the repair request that was the cause of the repair
      */
-    public RepairRequest getRepairRequest() {
+    public RepairRequest getRepairRequest()
+    {
         return repairRequest;
     }
+
     /**
-     * Sets the repair request of thie object
+     * Sets the repair request of this object
      */
-    public void setRepairRequest(RepairRequest repairRequest) {
-        if(repairRequest != null) {
-            this.repairRequest = repairRequest;
-        }
-        throw new NullPointerException("null repairRequest");
+    public void setRepairRequest(RepairRequest repairRequest)
+    {
+        if(repairRequest == null) throw new NullPointerException("null repairRequest");
+
+        this.repairRequest = repairRequest;
     }
 }

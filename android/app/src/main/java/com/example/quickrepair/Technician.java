@@ -53,7 +53,7 @@ public class Technician extends User
     /**
      *  Adds a repair request to this technicians list
      */
-    public void setRepairRequest(RepairRequest repairRequest)
+    public void addRepairRequest(RepairRequest repairRequest)
     {
         if(repairRequest == null) throw new NullPointerException();
 

@@ -85,6 +85,11 @@ public class RepairRequest
         this.creationDate = creationDate;
     }
 
+    public void setConductionDate(LocalDateTime conductionDate)
+    {
+        this.conductionDate = conductionDate;
+    }
+
     public void confirm()
     {
         if (isConfirmed) throw new IllegalStateException("Repair request is already confirmed.");

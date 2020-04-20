@@ -1,6 +1,7 @@
 package com.example.quickrepair;
 
-public class User {
+public class User
+{
     private String name;
     private String surname;
     private String phoneNumber;
@@ -15,13 +16,8 @@ public class User {
      * @throws IllegalArgumentException if the input info is not correct
      *
      */
-    public void setUserInfo(
-            String name,
-            String surname,
-            String phoneNumber,
-            String email,
-            String bankAccount
-    ){
+    public void setUserInfo(String name, String surname, String phoneNumber, String email, String bankAccount)
+    {
         setName(name);
         setSurname(surname);
         setPhoneNumber(phoneNumber);
@@ -30,17 +26,16 @@ public class User {
     }
     //TODO  null pointer checks that throw nullpointer exceptions and not illegalargument
 
-    private void setName(String name) {
-        if(name == null){
-            throw new NullPointerException();
-        }
+    private void setName(String name)
+    {
+        if(name == null) throw new NullPointerException("Name can not be null.");
+
         this.name = name;
     }
 
     private void setSurname(String surname) {
-        if(surname == null){
-            throw new NullPointerException();
-        }
+        if(surname == null) throw new NullPointerException("Surname can not be null.");
+
         this.surname = surname;
     }
 
@@ -51,15 +46,11 @@ public class User {
      * @throws IllegalArgumentException if the input is not
      * in the form \d{10}
      */
-    private void setPhoneNumber(String phoneNumber) {
-        //Checks if the phone number is exactly 10 digits long
-        if (phoneNumber.matches("(\\d{10})") ) {
+    private void setPhoneNumber(String phoneNumber)
+    {
+        if (!phoneNumber.matches("\\d{10}")) throw new IllegalArgumentException("Wrong phone number format");
 
-            this.phoneNumber = phoneNumber;
-        }
-        else{
-            throw new IllegalArgumentException("Wrong phone number format");
-        }
+        this.phoneNumber = phoneNumber;
     }
 
     /**
@@ -99,46 +90,52 @@ public class User {
         }
     }
 
-    public void setUsername(String username) {
-        if(username == null){
-            throw new NullPointerException();
-        }
+    public void setUsername(String username)
+    {
+        if(username == null) throw new NullPointerException("Username can not be null.");
+
         this.username = username;
     }
 
-    public void setPassword(String password) {
-        if(password == null){
-            throw new NullPointerException();
-        }
+    public void setPassword(String password)
+    {
+        if(password == null) throw new NullPointerException("Password can not be null.");
+
         this.password = password;
     }
-    //GETTERS
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public String getSurname() {
+    public String getSurname()
+    {
         return surname;
     }
 
-    public String getPhoneNumber() {
+    public String getPhoneNumber()
+    {
         return phoneNumber;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public String getBankAccount() {
+    public String getBankAccount()
+    {
         return bankAccount;
     }
 
-    public String getUsername() {
+    public String getUsername()
+    {
         return username;
     }
 
-    public String getPassword() {
+    public String getPassword()
+    {
         return password;
     }
 }

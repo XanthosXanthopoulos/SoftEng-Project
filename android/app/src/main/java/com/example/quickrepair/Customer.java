@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class Customer extends User
 {
+    public Customer() { }
 
     public void chargeAccount(int totalCost)
     {
