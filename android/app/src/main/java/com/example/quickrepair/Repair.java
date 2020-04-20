@@ -12,7 +12,8 @@ public class Repair
     /**
      * Empty Constructor
      */
-    public  Repair(){
+    public  Repair()
+    {
         isCompleted = false;
     }
 

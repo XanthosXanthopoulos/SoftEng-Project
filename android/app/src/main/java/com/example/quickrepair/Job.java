@@ -6,11 +6,11 @@ public class Job
     private JobType jobType;
 
     private double price;
-    private double duration;
+    private int duration;
 
     public Job() { }
 
-    public Job(Technician technician, JobType jobType, double price, double duration)
+    public Job(Technician technician, JobType jobType, double price, int duration)
     {
         setTechnician(technician);
         setJobType(jobType);
@@ -55,11 +55,11 @@ public class Job
         this.price = price;
     }
 
-    public double getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(double duration)
+    public void setDuration(int duration)
     {
         if (price < 0) throw new NumberFormatException("Duration can not be negative.");
         if (price == 0) throw new NumberFormatException("Duration can not be zero.");
