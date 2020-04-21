@@ -97,7 +97,7 @@ public class RepairUnitTest {
         Assert.assertEquals(payment, repair.getPayment());
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test (expected = IllegalStateException.class)
     public void addPaymentSecondTime(){
         Repair repair = new Repair();
         Payment payment1 = new Payment();
