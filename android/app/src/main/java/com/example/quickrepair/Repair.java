@@ -1,40 +1,43 @@
 package com.example.quickrepair;
 
+import java.time.LocalDateTime;
+
 public class Repair
 {
     private double quantity;
     private Payment payment;
     private Evaluation evaluation;
-    private boolean isPaid;
     private RepairRequest repairRequest;
 
     //constructors
     /**
      * Empty Constructor
      */
-    public  Repair()
-    {
-        isPaid = false;
-    }
+    public  Repair(){}
 
     /**
      * Repair's constructor with quantity
      * technician is going to be paid later
+     * @param repairRequest Repair's request
      * @param quantity job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
      */
-    public Repair(double quantity)
+    public Repair(RepairRequest repairRequest, double quantity)
     {
+        setRepairRequest(repairRequest);
         setQuantity(quantity);
+
     }
 
     /**
      * Repair's constructor with quantity and payment
      * technician is already paid
+     * @param repairRequest Repair's request
      * @param quantity job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
      * @param payment customer's payment
      */
-    public Repair(double quantity, Payment payment)
+    public Repair(RepairRequest repairRequest, double quantity, Payment payment)
     {
+        setRepairRequest(repairRequest);
         setQuantity(quantity);
         setPayment(payment);
     }
@@ -78,7 +81,6 @@ public class Repair
         if (this.payment != null) throw new IllegalStateException("The repair already has a payment.");
 
         this.payment = payment;
-        isPaid = true;
     }
 
     //return repair's evaluation
@@ -118,11 +120,11 @@ public class Repair
      */
     public boolean isPaid()
     {
-        return isPaid;
+       return getPayment()!=null;
     }
 
     /**
-     * Returns the repair request that was the cause of the repair
+     * @return repair request that was the cause of the repair
      */
     public RepairRequest getRepairRequest()
     {
@@ -131,6 +133,7 @@ public class Repair
 
     /**
      * Sets the repair request of this object
+     * @param repairRequest
      */
     public void setRepairRequest(RepairRequest repairRequest)
     {
@@ -139,6 +142,12 @@ public class Repair
         this.repairRequest = repairRequest;
     }
 
+    /**
+     * set evaluation
+     * @param title evaluation's title
+     * @param comment evaluation's comment
+     * @param rate evaluation's rate
+     */
     public Evaluation evaluate(String title, String comment, int rate)
     {
         Evaluation evaluation = new Evaluation(title, comment, rate);
@@ -148,13 +157,14 @@ public class Repair
         return evaluation;
     }
 
-    public Payment pay(PaymentType paymentType)
+    /**
+     * pay for repair
+     * @param date payment's date
+     * @param paymentType payment's type
+     */
+    public Payment pay(LocalDateTime date, PaymentType paymentType)
     {
-        Payment payment = new Payment();
-
-        payment.setPaymentType(paymentType);
-        setPayment(payment);
-
+        Payment payment = new Payment(date, paymentType);
         return payment;
     }
 }

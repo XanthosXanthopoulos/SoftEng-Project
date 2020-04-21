@@ -9,7 +9,9 @@ public class RepairUnitTest {
     @Test
     public void constructorWithQuantity(){
         double quantity = 1;
-        Repair repair = new Repair(quantity);
+        RepairRequest repairRequest = new RepairRequest();
+        Repair repair = new Repair(repairRequest,quantity);
+        Assert.assertEquals(repairRequest,repair.getRepairRequest());
         Assert.assertEquals(quantity, repair.getQuantity(),.0);
         Assert.assertEquals(null, repair.getPayment());
         Assert.assertEquals(null, repair.getEvaluation());
@@ -17,11 +19,27 @@ public class RepairUnitTest {
     @Test
     public void constructorWithQuantityAndPayment(){
         double quantity = 1;
+        RepairRequest repairRequest = new RepairRequest();
         Payment payment = new Payment();
-        Repair repair = new Repair(quantity, payment);
+        Repair repair = new Repair(repairRequest, quantity, payment);
+        Assert.assertEquals(repairRequest,repair.getRepairRequest());
         Assert.assertEquals(quantity, repair.getQuantity(), .0);
         Assert.assertEquals(payment, repair.getPayment());
         Assert.assertEquals(null, repair.getEvaluation());
+    }
+
+    //repairRequest Tests
+    @Test (expected = NullPointerException.class)
+    public void nullRepairRequest(){
+        Repair repair = new Repair();
+        repair.setRepairRequest(null);
+    }
+    @Test
+    public void okRepairRequest(){
+        RepairRequest repairRequest = new RepairRequest();
+        Repair repair = new Repair();
+        repair.setRepairRequest(repairRequest);
+        Assert.assertEquals(repairRequest,repair.getRepairRequest());
     }
 
     //Quantity Tests
@@ -43,6 +61,7 @@ public class RepairUnitTest {
     @Test
     public void repairWithOkQuantityAtConsistentJob(){
         double quantity = 1;
+
 
     }
 

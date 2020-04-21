@@ -15,12 +15,22 @@ public class RepairRequest
     private Customer customer;
     private PaymentType paymentType;
 
+    //constructors
+    /**
+    * Empty Contructor
+     */
+    public RepairRequest(){ }
 
     //TODO validity checks on setters
+    //SETTERS
 
-    public void setDate(LocalDateTime date)
+    public void setConductionDate(LocalDateTime conductionDate)
     {
-        this.conductionDate = date;
+        this.conductionDate = conductionDate;
+    }
+    public void setCreationDate(LocalDateTime creationDate)
+    {
+        this.creationDate = creationDate;
     }
 
     public void setAddress(Address address)
@@ -37,58 +47,30 @@ public class RepairRequest
     {
         this.customer = customer;
     }
+    public void setRepair(Repair repair){
+        this.repair = repair;
+    }
+    public void setJob(Job job) { this.job = job; }
 
     //GETTERS
 
-    public LocalDateTime getCreationDate()
-    {
-        return creationDate;
-    }
+    public LocalDateTime getCreationDate() { return creationDate; }
 
-    public LocalDateTime getConductionDate()
-    {
-        return conductionDate;
-    }
+    public LocalDateTime getConductionDate() { return conductionDate; }
 
-    public Address getAddress()
-    {
-        return address;
-    }
+    public Address getAddress() { return address; }
 
-    public boolean isConfirmed()
-    {
-        return isConfirmed;
-    }
+    public Repair getRepair() { return repair; }
 
-    public Repair getRepair()
-    {
-        return repair;
-    }
+    public Customer getCustomer() { return customer; }
 
-    public Customer getCustomer()
-    {
-        return customer;
-    }
+    public PaymentType getPaymentType() { return paymentType; }
 
-    public PaymentType getPaymentType()
-    {
-        return paymentType;
-    }
+    public boolean isConfirmed() { return isConfirmed; }
 
-    public void setRepair(Repair repair)
-    {
-        this.repair = repair;
-    }
+    public boolean isCompleted(){ return repair!=null; }
 
-    public void setCreationDate(LocalDateTime creationDate)
-    {
-        this.creationDate = creationDate;
-    }
-
-    public void setConductionDate(LocalDateTime conductionDate)
-    {
-        this.conductionDate = conductionDate;
-    }
+    public Job getJob() { return job; }
 
     public void confirm()
     {
@@ -105,15 +87,6 @@ public class RepairRequest
         isCompleted = true;
     }
 
-    public Job getJob()
-    {
-        return job;
-    }
-
-    public void setJob(Job job)
-    {
-        this.job = job;
-    }
 
     public Repair conductRepair(double quantity)
     {

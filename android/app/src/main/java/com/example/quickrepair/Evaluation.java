@@ -14,12 +14,12 @@ public class Evaluation
      */
     public Evaluation() { }
 
-        /**
-         * Evaluation's Constructor
-         * @param title evaluation's title
-         * @param comment evaluation's comments and details about repair and technician's job in general
-         * @param rate evaluation's rate, [1, 5]
-         */
+    /**
+     * Evaluation's Constructor
+     * @param title evaluation's title
+     * @param comment evaluation's comments and details about repair and technician's job in general
+     * @param rate evaluation's rate, [1, 5]
+     */
     public Evaluation(String title, String comment, int rate)
     {
         this.title = title;
