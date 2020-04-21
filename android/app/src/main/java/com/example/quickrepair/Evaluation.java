@@ -79,7 +79,7 @@ public class Evaluation{
      * @param rate evaluation's rate, [1, 5]
      */
     public void setRate(int rate){
-        if (rate < 1 && rate > 5) throw new IllegalArgumentException("[1,5] stars");
+        if (rate < 1 || rate > 5) throw new IllegalArgumentException("[1,5] stars");
 
         this.rate = rate;
     }
