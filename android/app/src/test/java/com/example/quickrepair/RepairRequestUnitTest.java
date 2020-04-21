@@ -17,7 +17,7 @@ public class RepairRequestUnitTest {
         exampleAddress.setNumber("15");
         exampleAddress.setStreetName("ath");
         req.setAddress(exampleAddress);
-        req.setDate(standardDate);
+        req.setConductionDate(standardDate);;
     }
     @Test
     public void testExampleAddress(){

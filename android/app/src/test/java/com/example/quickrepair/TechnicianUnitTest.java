@@ -13,14 +13,18 @@ public class TechnicianUnitTest {
     Technician technicianToTest;
     Address exampleAddress;
     Job exampleJob;
+    JobType exampleJobType;
+    Specialty exampleSpecialty;
     @Before
     public void setUpTests() {
         technicianToTest = new Technician();
         Address address = new Address();
         address.setStreetName("ath");
         address.setNumber("15");
+        exampleJobType = new JobType("Allagi plakakia");
         exampleAddress = address;
-        exampleJob = new Job(technicianToTest , new JobType("plakakia") , 15);
+        exampleJob = new Job(technicianToTest , exampleJobType , 15 ,10);
+        exampleSpecialty = new Specialty("Electrician");
 
     }
     @Test
@@ -42,13 +46,13 @@ public class TechnicianUnitTest {
     public void setRepairRequest(){
         RepairRequest repairRequest = new RepairRequest();
         repairRequest.setAddress(new Address());
-        repairRequest.setDate(LocalDateTime.now());
+        repairRequest.setConductionDate(LocalDateTime.now());
         repairRequest.setPaymentType(PaymentType.CASH);
-        technicianToTest.setRepairRequest(repairRequest);
+        technicianToTest.addRepairRequest(repairRequest);
     }
     @Test
     public void setSpecialty(){
-        technicianToTest.setSpecialty(Specialty.ELECTRICIAN);
+        technicianToTest.setSpecialty(exampleSpecialty);
     }
 
     @Test (expected = NullPointerException.class)
@@ -61,7 +65,7 @@ public class TechnicianUnitTest {
     }
     @Test (expected = NullPointerException.class)
     public void setNullRepairRequest(){
-        technicianToTest.setRepairRequest(null);
+        technicianToTest.addRepairRequest(null);
     }
     @Test
     public void newtechnicianRepairsAreNotNull(){
@@ -70,13 +74,13 @@ public class TechnicianUnitTest {
 
     @Test
     public void testGetters(){
-        technicianToTest.setSpecialty(Specialty.ELECTRICIAN);
-        assertEquals(technicianToTest.getSpecialty() , Specialty.ELECTRICIAN);
+        technicianToTest.setSpecialty(exampleSpecialty);
+        assertEquals(technicianToTest.getSpecialty() , exampleSpecialty);
 
         RepairRequest req = new RepairRequest();
         req.setPaymentType(PaymentType.CASH);
         req.setAddress(exampleAddress);
-        technicianToTest.setRepairRequest(req);
+        technicianToTest.addRepairRequest(req);
 
         assertEquals(
                 technicianToTest.getPendingRequests().get(
