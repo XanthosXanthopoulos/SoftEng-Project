@@ -2,8 +2,7 @@ package com.example.quickrepair;
 
 import java.time.LocalDateTime;
 
-public class Payment
-{
+public class Payment{
     private LocalDateTime date;
     private PaymentType paymentType;
 
@@ -17,8 +16,7 @@ public class Payment
      * @param date payment's date
      * @param paymentType payment's type
      */
-    public Payment(LocalDateTime date, PaymentType paymentType)
-    {
+    public Payment(LocalDateTime date, PaymentType paymentType){
         setDate(date);
         setPaymentType(paymentType);
     }
@@ -26,8 +24,7 @@ public class Payment
     /**
      * return payment's date
      */
-    public LocalDateTime getDate()
-    {
+    public LocalDateTime getDate(){
         return date;
     }
 
@@ -35,14 +32,11 @@ public class Payment
      * set payment's date
      * @param date payment's date
      */
-    public void setDate(LocalDateTime date)
-    {
-        if (date != null)
-        {
+    public void setDate(LocalDateTime date){
+        if (date != null){
             this.date = date;
         }
-        else
-        {
+        else{
             throw new NullPointerException("null date");
         }
     }
@@ -57,14 +51,11 @@ public class Payment
      * set Payment's type
      * @param paymentType payment's type
      */
-    public void setPaymentType(PaymentType paymentType)
-    {
-        if (paymentType != null)
-        {
+    public void setPaymentType(PaymentType paymentType){
+        if (paymentType != null){
             this.paymentType = paymentType;
         }
-        else
-        {
+        else{
             throw new NullPointerException("null paymentType");
         }
     }

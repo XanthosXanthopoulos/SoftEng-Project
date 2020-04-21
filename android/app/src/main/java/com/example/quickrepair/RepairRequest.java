@@ -2,8 +2,7 @@ package com.example.quickrepair;
 
 import java.time.LocalDateTime;
 
-public class RepairRequest
-{
+public class RepairRequest{
     //TODO replace with job slot for conductionDate
     private LocalDateTime creationDate;
     private LocalDateTime conductionDate;
@@ -14,6 +13,7 @@ public class RepairRequest
     private Repair repair;
     private Customer customer;
     private PaymentType paymentType;
+    //TODO Constuctor on repair request
 
     //constructors
     /**
@@ -24,27 +24,22 @@ public class RepairRequest
     //TODO validity checks on setters
     //SETTERS
 
-    public void setConductionDate(LocalDateTime conductionDate)
-    {
+    public void setConductionDate(LocalDateTime conductionDate){
         this.conductionDate = conductionDate;
     }
-    public void setCreationDate(LocalDateTime creationDate)
-    {
+    public void setCreationDate(LocalDateTime creationDate){
         this.creationDate = creationDate;
     }
 
-    public void setAddress(Address address)
-    {
+    public void setAddress(Address address){
         this.address = address;
     }
 
-    public void setPaymentType(PaymentType type)
-    {
+    public void setPaymentType(PaymentType type){
         this.paymentType = type;
     }
 
-    public void setCustomer(Customer customer)
-    {
+    public void setCustomer(Customer customer){
         this.customer = customer;
     }
     public void setRepair(Repair repair){
@@ -72,15 +67,13 @@ public class RepairRequest
 
     public Job getJob() { return job; }
 
-    public void confirm()
-    {
+    public void confirm(){
         if (isConfirmed) throw new IllegalStateException("Repair request is already confirmed.");
 
         isConfirmed = true;
     }
 
-    public void complete()
-    {
+    public void complete(){
         if (!isConfirmed) throw new IllegalStateException("Repair request is not confirmed.");
         if (isCompleted) throw new IllegalStateException("Repair request is already completed.");
 
@@ -88,8 +81,7 @@ public class RepairRequest
     }
 
 
-    public Repair conductRepair(double quantity)
-    {
+    public Repair conductRepair(double quantity){
         Repair repair = new Repair();
 
         repair.setQuantity(quantity);
