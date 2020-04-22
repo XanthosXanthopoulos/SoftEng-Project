@@ -1,10 +1,11 @@
 package com.example.quickrepair;
 
-public enum PaymentType {
+public enum PaymentType
+{
     /**
      * Pay by Card
      */
-    CARD ,
+    CARD,
     /**
      * Pay in Cash
      */

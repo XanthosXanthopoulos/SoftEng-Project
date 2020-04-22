@@ -2,7 +2,8 @@ package com.example.quickrepair;
 
 import java.time.LocalDateTime;
 
-public class RepairRequest{
+public class RepairRequest
+{
     //TODO replace with job slot for conductionDate
     private LocalDateTime creationDate;
     private LocalDateTime conductionDate;
@@ -17,64 +18,108 @@ public class RepairRequest{
     //TODO Constructor on repair request
 
     //constructors
+
     /**
-    * Empty Contructor
+     * Empty Contructor
      */
-    public RepairRequest(){ }
+    public RepairRequest()
+    {
+    }
 
     //TODO validity checks on setters
     //SETTERS
 
-    public void setConductionDate(LocalDateTime conductionDate){
+    public void setConductionDate(LocalDateTime conductionDate)
+    {
         this.conductionDate = conductionDate;
     }
-    public void setCreationDate(LocalDateTime creationDate){
+
+    public void setCreationDate(LocalDateTime creationDate)
+    {
         this.creationDate = creationDate;
     }
 
-    public void setAddress(Address address){
+    public void setAddress(Address address)
+    {
         this.address = address;
     }
 
-    public void setPaymentType(PaymentType type){
+    public void setPaymentType(PaymentType type)
+    {
         this.paymentType = type;
     }
 
-    public void setCustomer(Customer customer){
+    public void setCustomer(Customer customer)
+    {
         this.customer = customer;
     }
-    public void setRepair(Repair repair){
+
+    public void setRepair(Repair repair)
+    {
         this.repair = repair;
     }
-    public void setJob(Job job) { this.job = job; }
+
+    public void setJob(Job job)
+    {
+        this.job = job;
+    }
 
     //GETTERS
 
-    public LocalDateTime getCreationDate() { return creationDate; }
+    public LocalDateTime getCreationDate()
+    {
+        return creationDate;
+    }
 
-    public LocalDateTime getConductionDate() { return conductionDate; }
+    public LocalDateTime getConductionDate()
+    {
+        return conductionDate;
+    }
 
-    public Address getAddress() { return address; }
+    public Address getAddress()
+    {
+        return address;
+    }
 
-    public Repair getRepair() { return repair; }
+    public Repair getRepair()
+    {
+        return repair;
+    }
 
-    public Customer getCustomer() { return customer; }
+    public Customer getCustomer()
+    {
+        return customer;
+    }
 
-    public PaymentType getPaymentType() { return paymentType; }
+    public PaymentType getPaymentType()
+    {
+        return paymentType;
+    }
 
-    public boolean isConfirmed() { return isConfirmed; }
+    public boolean isConfirmed()
+    {
+        return isConfirmed;
+    }
 
-    public boolean isCompleted(){ return repair!=null; }
+    public boolean isCompleted()
+    {
+        return repair != null;
+    }
 
-    public Job getJob() { return job; }
+    public Job getJob()
+    {
+        return job;
+    }
 
-    public void confirm(){
+    public void confirm()
+    {
         if (isConfirmed) throw new IllegalStateException("Repair request is already confirmed.");
 
         isConfirmed = true;
     }
 
-    public void complete(){
+    public void complete()
+    {
         if (!isConfirmed) throw new IllegalStateException("Repair request is not confirmed.");
         if (isCompleted) throw new IllegalStateException("Repair request is already completed.");
 
@@ -82,7 +127,8 @@ public class RepairRequest{
     }
 
 
-    public Repair conductRepair(double quantity){
+    public Repair conductRepair(double quantity)
+    {
         Repair repair = new Repair();
 
         repair.setQuantity(quantity);
