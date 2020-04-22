@@ -21,13 +21,17 @@ public class Technician extends User{
 
     //TODO  Technician constructor
 
-    public Technician() { }
+    public Technician(String name, String surname, String phoneNumber, String email,
+                      String bankAccount, String username , String password , Specialty specialty) {
+        super(name,surname,phoneNumber,email,bankAccount,username,password);
+        setSpecialty(specialty);
+    }
 
     /**
      * Sets the technician personal info performing the necessary checks
      */
-    public void setTechnicianInfo(String name, String surname, String phoneNumber, String email, String bankAccount){
-        setUserInfo(name,surname,phoneNumber,email,bankAccount);
+    public void setTechnicianInfo(String name, String surname, String phoneNumber, String email, String bankAccount, String username){
+        setUserInfo(name,surname,phoneNumber,email,bankAccount,username);
     }
 
     /**

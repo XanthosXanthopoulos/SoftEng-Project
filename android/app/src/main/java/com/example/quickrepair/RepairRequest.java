@@ -8,12 +8,13 @@ public class RepairRequest{
     private LocalDateTime conductionDate;
     private Address address;
     private boolean isConfirmed;
+    //TODO isCompleted is not needded because we cn check if the repair is null
     private boolean isCompleted;
     private Job job;
     private Repair repair;
     private Customer customer;
     private PaymentType paymentType;
-    //TODO Constuctor on repair request
+    //TODO Constructor on repair request
 
     //constructors
     /**

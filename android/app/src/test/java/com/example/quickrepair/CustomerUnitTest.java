@@ -9,7 +9,9 @@ public class CustomerUnitTest{
 
     @Before
     public void setUpTests(){
-        customerToTest = new Customer();
+        customerToTest = new Customer("nick" , "sm" , "6958375634" ,
+                "sss222@asdm.com" , "123121231123" , "nicksm" ,
+                "0j19283j1");
     }
 
     @Test (expected = IllegalArgumentException.class)

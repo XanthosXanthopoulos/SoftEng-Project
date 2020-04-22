@@ -9,18 +9,25 @@ public class User{
     private String username;
     private String password;
 
+
+    //TODO Store password as an md5 / sha1 / sha265 sum and provide method of validation
+    public User(String name, String surname, String phoneNumber, String email, String bankAccount , String username , String password){
+        setUserInfo(name,surname,phoneNumber,email,bankAccount,username);
+        setPassword(password);
+    }
     /**
      *  Sets the user's personal info performing the necessary checks
      *
      * @throws IllegalArgumentException if the input info is not correct
      *
      */
-    public void setUserInfo(String name, String surname, String phoneNumber, String email, String bankAccount){
+    public void setUserInfo(String name, String surname, String phoneNumber, String email, String bankAccount , String username){
         setName(name);
         setSurname(surname);
         setPhoneNumber(phoneNumber);
         setEmail(email);
         setBankAccount(bankAccount);
+        setUsername(username);
     }
     //TODO  null pointer checks that throw nullpointer exceptions and not illegalargument
 
@@ -56,7 +63,6 @@ public class User{
      *
      *  @throws IllegalArgumentException if the input is not
      *       in the form ((\w|\d)+\@(\w|\d)+\.\w+)
-     *   //TODO Change regex to accept numbers in the email
      */
     private void setEmail(String email) {
         //Checks if the email is xxx@xxxxx.xxxx

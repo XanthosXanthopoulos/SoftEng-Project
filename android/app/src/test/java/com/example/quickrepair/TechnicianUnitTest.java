@@ -17,7 +17,9 @@ public class TechnicianUnitTest {
     Specialty exampleSpecialty;
     @Before
     public void setUpTests() {
-        technicianToTest = new Technician();
+        technicianToTest = new Technician("nikos", "sm" , "6958475635",
+                "asdih@ausdh.asdh" , "mybankaccount" , "nikos" ,
+                "123" , new Specialty("test"));
         Address address = new Address();
         address.setStreetName("ath");
         address.setNumber("15");
@@ -30,17 +32,17 @@ public class TechnicianUnitTest {
     @Test
     public void setCorrectTechnicianInfo(){
         technicianToTest.setTechnicianInfo("nikos", "sm" , "6958475635",
-                "asdih@ausdh.asdh" , "mybankaccount");
+                "asdih@ausdh.asdh" , "mybankaccount" , "username");
     }
     @Test (expected = IllegalArgumentException.class)
     public void setIncorrectEmail(){
         technicianToTest.setTechnicianInfo("nikos", "sm" , "6958475635",
-                "asdihausdh.asdh" , "mybankaccount");
+                "asdihausdh.asdh" , "mybankaccount" , "username");
     }
     @Test (expected = IllegalArgumentException.class)
     public void setIncorrectPhoneNumber(){
         technicianToTest.setTechnicianInfo("nikos", "sm" , ";DROP TABLE USERS",
-                "asdihausdh.asdh" , "mybankaccount");
+                "asdihausdh.asdh" , "mybankaccount" , "username");
     }
     @Test
     public void setRepairRequest(){
@@ -89,7 +91,7 @@ public class TechnicianUnitTest {
         );
 
         technicianToTest.setTechnicianInfo("nikos" , "sm" ,
-                "6958692431" , "asd@gmail.com" , "1111");
+                "6958692431" , "asd@gmail.com" , "1111" , "username");
         assertEquals(technicianToTest.getEmail() , "asd@gmail.com");
         assertEquals(technicianToTest.getName() , "nikos");
         assertEquals(technicianToTest.getSurname() , "sm");
@@ -124,12 +126,12 @@ public class TechnicianUnitTest {
     @Test (expected = NullPointerException.class)
     public void setNullName(){
         technicianToTest.setTechnicianInfo(null , "" , ""
-                , "" , "");
+                , "" , "" , "");
     }
 
     @Test (expected = NullPointerException.class)
     public void setNullSurname(){
         technicianToTest.setTechnicianInfo("" , null , ""
-                , "" , "");
+                , "" , "", "");
     }
 }

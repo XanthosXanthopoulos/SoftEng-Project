@@ -3,7 +3,9 @@ package com.example.quickrepair;
 import java.time.LocalDateTime;
 
 public class Customer extends User{
-    public Customer() { }
+    public Customer(String name, String surname, String phoneNumber, String email, String bankAccount , String username , String password) {
+        super(name,surname,phoneNumber,email,bankAccount,username , password);
+    }
 
     public void chargeAccount(int totalCost){
         if (totalCost <= 0){
