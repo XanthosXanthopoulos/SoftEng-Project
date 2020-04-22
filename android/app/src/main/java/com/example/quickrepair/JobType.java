@@ -7,6 +7,7 @@ public class JobType
 {
     private String name;
     private Specialty specialty;
+    private MeasurementUnit measurementUnit;
 
     private Set<Job> jobs;
 
@@ -44,5 +45,15 @@ public class JobType
         if (specialty == null) throw new NullPointerException("Speciality can not be null.");
 
         this.specialty = specialty;
+    }
+
+    public MeasurementUnit getMeasurementUnit()
+    {
+        return measurementUnit;
+    }
+
+    public void setMeasurementUnit(MeasurementUnit measurementUnit)
+    {
+        this.measurementUnit = measurementUnit;
     }
 }

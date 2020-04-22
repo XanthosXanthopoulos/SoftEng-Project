@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,6 +20,8 @@ public class Technician extends User
     private List<String> areas = new ArrayList<>();
 
     private List<Repair> repairsList = new ArrayList<>();
+
+    private Calendar[][] schedule = new Calendar[7][2];
 
     //TODO  Technician constructor
 
@@ -118,5 +121,10 @@ public class Technician extends User
         }
 
         return availableDates;
+    }
+
+    public Calendar[][] getSchedule()
+    {
+        return schedule;
     }
 }
