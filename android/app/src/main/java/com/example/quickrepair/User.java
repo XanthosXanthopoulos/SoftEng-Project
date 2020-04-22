@@ -55,12 +55,12 @@ public class User{
      *  is xxx@xxxxx.xxxx
      *
      *  @throws IllegalArgumentException if the input is not
-     *       in the form (\\w@\\w\\.\\w)
+     *       in the form ((\w|\d)+\@(\w|\d)+\.\w+)
      *   //TODO Change regex to accept numbers in the email
      */
     private void setEmail(String email) {
         //Checks if the email is xxx@xxxxx.xxxx
-        if (email.matches("(\\w+\\@\\w+\\.\\w+)") ) {
+        if (email.matches("((\\w|\\d)+\\@(\\w|\\d)+\\.\\w+)") ) {
 
             this.email = email;
         }
