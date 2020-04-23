@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
@@ -239,7 +240,7 @@ public class Technician extends User
      *                  Current
      *                  Example usage :  setAvailableOnDay(Calendar.0 , 15 , 20)  to mark a technician available
      *                  * on monday from 15:00 to 20:00
-     * @param day
+     * @param day 0 for Monday - 6 for Sunday
      * @param hourStart
      * @param hourEnd
      */
