@@ -63,15 +63,21 @@ public class Repair
      */
     public void setQuantity(double quantity)
     {
-        if (quantity > 0)
-        {
-            //TODO: #1 elegxos analoga me to eidos ergasias
-            this.quantity = quantity;
+        if (quantity <= 0){ throw new IllegalArgumentException("non positive quantity");}
+
+        if(repairRequest == null) { throw new IllegalStateException("We can't have a repair, without a repair request"); }
+        if(!repairRequest.isCompleted()) { throw new IllegalStateException("We set quantity when the repair is completed"); }
+        if(repairRequest.getJob() == null) { throw new IllegalStateException("null job"); }
+        if(repairRequest.getJob().getJobType() == null) { throw new IllegalStateException("null job type"); }
+
+        //fixed price job
+        if(repairRequest.getJob().getJobType().getMeasurementUnit() == MeasurementUnit.NONE){
+            //quantity must be integer
+            if((int)quantity != quantity){
+                throw new IllegalArgumentException("for fixed price the quantity must be integer");
+            }
         }
-        else
-        {
-            throw new IllegalArgumentException("positive quantity");
-        }
+        this.quantity = quantity;
     }
 
     /**

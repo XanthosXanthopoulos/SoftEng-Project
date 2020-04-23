@@ -59,25 +59,27 @@ public class RepairUnitTest {
 
     //TODO: #1 Test otan prosthethei h Ergasia oti analoga me ton typo ths ergasias exei dothei to sosto quantity dhladh, akeraios an einai ergasia statheri an oxi otidhpote
     @Test
-    public void repairWithOkQuantityAtConsistentJob(){
+    public void repairWithOkQuantityAtFixedPriceJob(){
+        //create jobType of a ConsistentJob
+        //a consistent job, null
         double quantity = 1;
 
 
     }
 
     @Test
-    public void repairWithNonOkQuantityAtConsistentJob(){
+    public void repairWithNonOkQuantityAtFixedPriceJob(){
         double quantity = 1.1;
 
     }
 
     @Test
-    public void repairWithDoubleOkQuantityAtNonConsistentJob(){
+    public void repairWithDoubleOkQuantityAtNonFixedPriceJob(){
         double quantity = 1.1;
 
     }
     @Test
-    public void repairWithIntegerOkQuantityAtNonConsistentJob(){
+    public void repairWithIntegerOkQuantityAtNonFixedPriceJob(){
         double quantity = 1;
 
     }
