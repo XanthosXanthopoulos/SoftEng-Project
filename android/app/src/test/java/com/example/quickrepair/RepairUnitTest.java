@@ -3,6 +3,9 @@ package com.example.quickrepair;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+
 public class RepairUnitTest {
 
     //Constructor Tests
@@ -230,5 +233,47 @@ public class RepairUnitTest {
         Evaluation evaluation2 = new Evaluation();
         repair.setEvaluation(evaluation1);
         repair.setEvaluation(evaluation2);
+    }
+
+    //evaluate test
+    @Test
+    public void evaluateTest(){
+        Repair repair = new Repair();
+        String title = "Title";
+        String com = "Comment";
+        int rate = 1;
+        repair.evaluate(title, com, rate);
+        Evaluation evaluation= new Evaluation(title, com, rate);
+        Assert.assertEquals(evaluation, repair.getEvaluation());
+    }
+
+    //pay test
+    @Test
+    public void payTest(){
+        Repair repair = new Repair();
+        LocalDateTime date = LocalDateTime.of(2020, Month.APRIL, 18, 19, 30, 40);
+        PaymentType paymentType = PaymentType.CARD;
+
+        Payment payment = new Payment(date, paymentType);
+        repair.pay(date ,paymentType);
+        Assert.assertEquals(payment, repair.getPayment());
+    }
+
+    //isPaid
+    @Test
+    public void isPaidTestTrue(){
+        Repair repair = new Repair();
+        LocalDateTime date = LocalDateTime.of(2020, Month.APRIL, 18, 19, 30, 40);
+        PaymentType paymentType = PaymentType.CARD;
+        Payment payment = new Payment(date, paymentType);
+
+        repair.pay(date ,paymentType);
+        Assert.assertEquals(true, repair.isPaid());
+    }
+    //isPaid
+    @Test
+    public void isPaidTestFalse(){
+        Repair repair = new Repair();
+        Assert.assertEquals(false, repair.isPaid());
     }
 }

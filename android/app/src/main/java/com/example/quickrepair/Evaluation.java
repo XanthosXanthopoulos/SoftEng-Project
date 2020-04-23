@@ -1,5 +1,7 @@
 package com.example.quickrepair;
 
+import androidx.annotation.Nullable;
+
 /**
  * Customer's Evaluation about an Repair
  */
@@ -104,5 +106,14 @@ public class Evaluation
         if (rate < 1 || rate > 5) throw new IllegalArgumentException("[1,5] stars");
 
         this.rate = rate;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object o) {
+        if (o == this) { return true; }
+        if (!(o instanceof Evaluation)) { return false; }
+        // typecast
+        Evaluation evaluation = (Evaluation) o;
+        return evaluation.getTitle().equals(this.getTitle()) && evaluation.getComment().equals(this.getComment()) && evaluation.getRate() == this.getRate();
     }
 }

@@ -191,6 +191,7 @@ public class Repair
     public Payment pay(LocalDateTime date, PaymentType paymentType)
     {
         Payment payment = new Payment(date, paymentType);
+        setPayment(payment);
         return payment;
     }
 }

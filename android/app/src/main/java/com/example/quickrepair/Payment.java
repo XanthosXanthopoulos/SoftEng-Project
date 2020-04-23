@@ -1,5 +1,10 @@
 package com.example.quickrepair;
 
+import android.os.Build;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
 import java.time.LocalDateTime;
 
 public class Payment
@@ -66,13 +71,19 @@ public class Payment
      */
     public void setPaymentType(PaymentType paymentType)
     {
-        if (paymentType != null)
-        {
-            this.paymentType = paymentType;
-        }
-        else
-        {
-            throw new NullPointerException("null paymentType");
-        }
+        if (paymentType == null){throw new NullPointerException("null paymentType");}
+        this.paymentType = paymentType;
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public boolean equals(@Nullable Object o) {
+        if (o == this) { return true; }
+        if (!(o instanceof Payment)) { return false; }
+        // typecast
+        Payment payment = (Payment) o;
+        // Compare the data members and return accordingly
+        return payment.getDate().compareTo(this.getDate())==0 && payment.getPaymentType()==this.getPaymentType();
     }
 }
