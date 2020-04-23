@@ -17,7 +17,7 @@ public class TechnicianUnitTest {
     Job exampleJob;
     JobType exampleJobType;
     Specialty exampleSpecialty;
-    Calendar[][] exampleSchedule;
+    Integer[][] exampleSchedule;
     @Before
     public void setUpTests() {
         technicianToTest = new Technician("nikos", "sm" , "6958475635",
@@ -32,14 +32,12 @@ public class TechnicianUnitTest {
         exampleJob = new Job(technicianToTest , exampleJobType , 15 ,10);
 
         //Initializing schedule
-        exampleSchedule = new Calendar[7][2];
+        exampleSchedule = new Integer[7][2];
         for (int i = 0 ; i < 7 ; i ++){
             //example Technician works from 9
-            exampleSchedule[i][0] = Calendar.getInstance();
-            exampleSchedule[i][0].set(Calendar.HOUR_OF_DAY , 9);
+            exampleSchedule[i][0] = 9;
             //example Technician works until 5  (17 : 00)
-            exampleSchedule[i][1] = Calendar.getInstance();
-            exampleSchedule[i][1].set(Calendar.HOUR_OF_DAY , 17);
+            exampleSchedule[i][1] = 17;
             //System.out.println(exampleSchedule[i][0]);
             //System.out.println(exampleSchedule[i][1]);
             //System.out.println();
@@ -63,7 +61,7 @@ public class TechnicianUnitTest {
     }
     @Test (expected = IllegalArgumentException.class)
     public void setMalformedSchedule(){
-        Calendar[][] malformedSchedule = new Calendar[5][10];
+        Integer[][] malformedSchedule = new Integer[5][10];
         technicianToTest.setSchedule(malformedSchedule);
     }
     @Test (expected = IllegalArgumentException.class)
@@ -98,12 +96,11 @@ public class TechnicianUnitTest {
     }
     @Test (expected = NullPointerException.class)
     public void setScheduleWithNullEntries(){
-        Calendar[][] malformedSchedule = new Calendar[7][2];
+        Integer[][] malformedSchedule = new Integer[7][2];
         for (int i = 0 ; i < 7 ; i ++){
             //example Technician works from 9
-            exampleSchedule[i][0] = Calendar.getInstance();
-            exampleSchedule[i][0].set(Calendar.HOUR_OF_DAY , 9);
-            //example Technician works until 5  (17 : 00)
+            exampleSchedule[i][0] = 9;
+            //example Technician works until 5  (24 : 00)
             exampleSchedule[i][1] = null;
         }
 
@@ -140,7 +137,7 @@ public class TechnicianUnitTest {
     public void setRepairRequest(){
         RepairRequest repairRequest = new RepairRequest();
         repairRequest.setAddress(new Address());
-        repairRequest.setConductionDate(LocalDateTime.now());
+        repairRequest.setConductionDate(Calendar.getInstance());
         repairRequest.setPaymentType(PaymentType.CASH);
         technicianToTest.addRepairRequest(repairRequest);
     }

@@ -1,6 +1,7 @@
 package com.example.quickrepair;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 
 public class Customer extends User
 {
@@ -21,11 +22,12 @@ public class Customer extends User
         }
     }
 
-    public RepairRequest requestRepair(LocalDateTime dateTime, Job job)
+    //TODO This doesnt belog here
+    public RepairRequest requestRepair(Calendar date, Job job)
     {
         RepairRequest repairRequest = new RepairRequest();
 
-        repairRequest.setConductionDate(dateTime);
+        repairRequest.setConductionDate(date);
         repairRequest.setCustomer(this);
 
         job.getTechnician().addRepairRequest(repairRequest);

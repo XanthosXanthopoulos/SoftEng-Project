@@ -13,9 +13,8 @@ public class Technician extends User
 
     private Set<Job> jobs = new HashSet<>();
 
-    private HashSet<RepairRequest> pendingRequests = new HashSet<>();
+    private List<RepairRequest> pendingRequests = new ArrayList<>();
     private Specialty specialty;
-    //TODO:
     private HashSet<String> areas = new HashSet<String>();
 
     private List<Repair> repairsList = new ArrayList<>();
@@ -78,7 +77,7 @@ public class Technician extends User
         this.areas = areas;
     }
 
-    public void setPendingRequests(HashSet<RepairRequest> pendingRequests) {
+    public void setPendingRequests(List<RepairRequest> pendingRequests) {
         this.pendingRequests = pendingRequests;
     }
 
@@ -94,6 +93,7 @@ public class Technician extends User
      *
      * @param schedule
      */
+    //TODO input hours of day can be set until 24 if the technician can literally work al ldayt
     public void setSchedule(Integer[][] schedule)
     {
         if (schedule == null)
@@ -112,15 +112,11 @@ public class Technician extends User
             {
                 throw new IllegalArgumentException("Every entry must  have 2 calendars");
             }
+            if (schedule[i][0] == null || schedule[i][1] == null)
+            {
+                throw new NullPointerException("null schedule entries on " + i);
+            }
 
-            if (schedule[i][0] == null && schedule[i][1] != null)
-            {
-                throw new NullPointerException("null schedule entries on " + i);
-            }
-            else if (schedule[i][0] != null && schedule[i][1] == null)
-            {
-                throw new NullPointerException("null schedule entries on " + i);
-            }
         }
 
         this.schedule = schedule;
@@ -134,7 +130,7 @@ public class Technician extends User
         return jobs;
     }
 
-    public HashSet<RepairRequest> getPendingRequests()
+    public List<RepairRequest> getPendingRequests()
     {
         return pendingRequests;
     }
@@ -232,8 +228,8 @@ public class Technician extends User
         {
             throw new IllegalArgumentException();
         }
-        getSchedule()[day][0].set(Calendar.HOUR_OF_DAY, hourStart);
-        getSchedule()[day][1].set(Calendar.HOUR_OF_DAY, hourEnd);
+        getSchedule()[day][0]= hourStart;
+        getSchedule()[day][1]= hourEnd;
     }
 
     /**
@@ -251,8 +247,8 @@ public class Technician extends User
             throw new IllegalArgumentException();
         }
 
-        boolean isAfterStart = getSchedule()[day][0].get(Calendar.HOUR_OF_DAY) <= hourOfDay;
-        boolean isBeforeEnd = getSchedule()[day][1].get(Calendar.HOUR_OF_DAY) > hourOfDay;
+        boolean isAfterStart = getSchedule()[day][0] <= hourOfDay;
+        boolean isBeforeEnd = getSchedule()[day][1] > hourOfDay;
         return isAfterStart && isBeforeEnd;
     }
 
