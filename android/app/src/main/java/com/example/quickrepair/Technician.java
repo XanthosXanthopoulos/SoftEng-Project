@@ -226,7 +226,7 @@ public class Technician extends User
         if (day < 0 || day > 6 || hourStart < 0
                 || hourStart > 23 || hourEnd < 0 || hourEnd > 23 || hourStart >= hourEnd)
         {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("out of range");
         }
         getSchedule()[day][0]= hourStart;
         getSchedule()[day][1]= hourEnd;
@@ -244,7 +244,7 @@ public class Technician extends User
         if (day < 0 || day > 6 || hourOfDay < 0
                 || hourOfDay > 23)
         {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("out of range");
         }
 
         boolean isAfterStart = getSchedule()[day][0] <= hourOfDay;
@@ -252,8 +252,28 @@ public class Technician extends User
         return isAfterStart && isBeforeEnd;
     }
 
-    /*
-    * When a technician Confirm a request this are going to added to his calendar
+    /**
+     * Checks if the technician is available on the given day of the week and hour of the week
+     * without checking if the technician has a repair scheduled at that time
+     *
+     * @return true if the technician is available
+     */
+    public boolean isDayAvailable(int day)
+    {
+        //Argument checks
+        if (day < 0 || day > 6)
+        {
+            throw new IllegalArgumentException("out of range");
+        }
+
+        boolean isAfterStart = !(getSchedule()[day][0] == 0);
+        boolean isBeforeEnd = !(getSchedule()[day][1] == 0);
+        return isAfterStart || isBeforeEnd;
+    }
+
+    /**
+     * When a technician Confirm a request this are going to added to his calendar
+     * @param repairRequest confirm this request
      */
     public void confirmAPendingRequest(RepairRequest repairRequest){
         if(!getPendingRequests().contains(repairRequest)){ throw new IllegalStateException("technician have access onle to requests that exists");}
@@ -274,15 +294,18 @@ public class Technician extends User
         }
     }
 
-    /*
+    /**
      * Reject request, deleted from set with rairrequests
+     * @param repairRequest reject this request
      */
     public void rejectAPendingRequest(RepairRequest repairRequest){
         if(!getPendingRequests().contains(repairRequest)){ throw new IllegalStateException("technician have access onle to requests that exists");}
         getPendingRequests().remove(repairRequest);
     }
-    /*
-     * add a ready repair to
+
+    /**
+     * add a ready repair to technician's list
+     * @param repairRequest ready repair request, with a done repair
      */
     public void readyRepairRequest(RepairRequest repairRequest){
         if(repairRequest.getRepair()==null){ throw new IllegalStateException("only when repair is done");}
@@ -299,6 +322,12 @@ public class Technician extends User
         }
 
     }
+
+    /**
+     * get the day, month, year of a Calendar
+     * don't include the hour, minute, second
+     * @param actualDate
+    */
     private Calendar getYearMonthDay(Calendar actualDate){
         //get the day, month, year
         //don't include the hour
