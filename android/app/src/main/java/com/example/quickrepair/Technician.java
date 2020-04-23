@@ -261,21 +261,9 @@ public class Technician extends User
         getPendingRequests().remove(repairRequest);
         //confirm it
         repairRequest.confirm();
-        //get the day, month, year
-        //don't include the hour
-        Calendar actualDate = repairRequest.getConductionDate();
-        int day = actualDate.DAY_OF_MONTH;
-        int month = actualDate.MONTH;
-        int year = actualDate.YEAR;
 
-        // focus on the particular day
-        Calendar newDate = Calendar.getInstance();
-        newDate.set(Calendar.HOUR_OF_DAY, 0);
-        newDate.set(Calendar.MINUTE, 0);
-        newDate.set(Calendar.SECOND, 0);
-        newDate.set(Calendar.DAY_OF_MONTH, day);
-        newDate.set(Calendar.MONTH, month);
-        newDate.set(Calendar.YEAR, year);
+        Calendar actualDate = repairRequest.getConductionDate();
+        Calendar newDate = getYearMonthDay(actualDate);
 
         //add it to the calendarWithConfirmRequests
         if(!calendarWithConfirmRequests.containsKey(newDate)){
@@ -292,6 +280,41 @@ public class Technician extends User
     public void rejectAPendingRequest(RepairRequest repairRequest){
         if(!getPendingRequests().contains(repairRequest)){ throw new IllegalStateException("technician have access onle to requests that exists");}
         getPendingRequests().remove(repairRequest);
+    }
+    /*
+     * add a ready repair to
+     */
+    public void readyRepairRequest(RepairRequest repairRequest){
+        if(repairRequest.getRepair()==null){ throw new IllegalStateException("only when repair is done");}
+        //add it to repair List
+        getRepairsList().add(repairRequest.getRepair());
+        //delete it from calendarWithConfirmRequests for optimization
+        //smaller Set
+        Calendar actualDate = repairRequest.getConductionDate();
+        Calendar newDate = getYearMonthDay(actualDate);
+        if(!calendarWithConfirmRequests.containsKey(newDate)){
+            throw new IllegalStateException("at least the current repairRequest for this date");
+        }else{
+            calendarWithConfirmRequests.get(newDate).remove(repairRequest);
+        }
+
+    }
+    private Calendar getYearMonthDay(Calendar actualDate){
+        //get the day, month, year
+        //don't include the hour
+        int day = actualDate.DAY_OF_MONTH;
+        int month = actualDate.MONTH;
+        int year = actualDate.YEAR;
+
+        // focus on the particular day
+        Calendar newDate = Calendar.getInstance();
+        newDate.set(Calendar.HOUR_OF_DAY, 0);
+        newDate.set(Calendar.MINUTE, 0);
+        newDate.set(Calendar.SECOND, 0);
+        newDate.set(Calendar.DAY_OF_MONTH, day);
+        newDate.set(Calendar.MONTH, month);
+        newDate.set(Calendar.YEAR, year);
+        return newDate;
     }
 
 }
