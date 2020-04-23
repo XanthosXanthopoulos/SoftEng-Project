@@ -2,6 +2,7 @@ package com.example.quickrepair;
 
 import android.os.Build;
 
+//TODO Find alternative to java time package maybe calendar ?
 import androidx.annotation.RequiresApi;
 
 import java.time.LocalDateTime;
@@ -52,6 +53,7 @@ public class Technician extends User
     /**
      * Adds a job to the technician's list of jobs
      */
+    //TODO Job can be added  only if the technician has the jobs specialty
     public void addJob(Job job)
     {
         if (job == null) throw new NullPointerException("Job can not be null.");
@@ -62,6 +64,7 @@ public class Technician extends User
     /**
      * Adds a repair request to this technicians list
      */
+    //TODO Check if the technician can service the repairRequest
     public void addRepairRequest(RepairRequest repairRequest)
     {
         if (repairRequest == null) throw new NullPointerException();
