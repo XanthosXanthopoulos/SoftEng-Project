@@ -3,7 +3,6 @@ package com.example.quickrepair;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -295,62 +294,10 @@ public class Technician extends User
     }
 
     /**
-     * When a technician Confirm a request this are going to added to his calendar
-     * @param repairRequest confirm this request
-     */
-    public void confirmAPendingRequest(RepairRequest repairRequest){
-        if(!getPendingRequests().contains(repairRequest)){ throw new IllegalStateException("technician have access onle to requests that exists");}
-        //remove it
-        getPendingRequests().remove(repairRequest);
-        //confirm it
-        repairRequest.confirm();
-
-        Calendar actualDate = repairRequest.getConductionDate();
-        Calendar newDate = getYearMonthDay(actualDate);
-
-        //add it to the calendarWithConfirmRequests
-        if(!calendarWithConfirmRequests.containsKey(newDate)){
-            calendarWithConfirmRequests.put(newDate, new ArrayList<RepairRequest>());
-            calendarWithConfirmRequests.get(newDate).add(repairRequest);
-        }else{
-            calendarWithConfirmRequests.get(newDate).add(repairRequest);
-        }
-    }
-
-    /**
-     * Reject request, deleted from set with rairrequests
-     * @param repairRequest reject this request
-     */
-    public void rejectAPendingRequest(RepairRequest repairRequest){
-        if(!getPendingRequests().contains(repairRequest)){ throw new IllegalStateException("technician have access onle to requests that exists");}
-        getPendingRequests().remove(repairRequest);
-    }
-
-    /**
-     * add a ready repair to technician's list
-     * @param repairRequest ready repair request, with a done repair
-     */
-    public void readyRepairRequest(RepairRequest repairRequest){
-        if(repairRequest.getRepair()==null){ throw new IllegalStateException("only when repair is done");}
-        //add it to repair List
-        getRepairsList().add(repairRequest.getRepair());
-        //delete it from calendarWithConfirmRequests for optimization
-        //smaller Set
-        Calendar actualDate = repairRequest.getConductionDate();
-        Calendar newDate = getYearMonthDay(actualDate);
-        if(!calendarWithConfirmRequests.containsKey(newDate)){
-            throw new IllegalStateException("at least the current repairRequest for this date");
-        }else{
-            calendarWithConfirmRequests.get(newDate).remove(repairRequest);
-        }
-
-    }
-
-    /**
      * get the day, month, year of a Calendar
      * don't include the hour, minute, second
      * @param actualDate
-    */
+     */
     private Calendar getYearMonthDay(Calendar actualDate){
         //get the day, month, year
         //don't include the hour
@@ -358,15 +305,7 @@ public class Technician extends User
         int month = actualDate.MONTH;
         int year = actualDate.YEAR;
 
-        // focus on the particular day
-        Calendar newDate = Calendar.getInstance();
-        newDate.set(Calendar.HOUR_OF_DAY, 0);
-        newDate.set(Calendar.MINUTE, 0);
-        newDate.set(Calendar.SECOND, 0);
-        newDate.set(Calendar.DAY_OF_MONTH, day);
-        newDate.set(Calendar.MONTH, month);
-        newDate.set(Calendar.YEAR, year);
+        Calendar newDate = new GregorianCalendar(day,month,year);
         return newDate;
     }
-
 }

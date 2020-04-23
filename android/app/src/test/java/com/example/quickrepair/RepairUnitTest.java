@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class RepairUnitTest {
 
@@ -250,7 +251,7 @@ public class RepairUnitTest {
     @Test
     public void payTest(){
         Repair repair = new Repair();
-        Calendar date = Calendar.getInstance();
+        Calendar date = new GregorianCalendar(2019,12,12);
         PaymentType paymentType = PaymentType.CARD;
 
         Payment payment = new Payment(date, paymentType);
@@ -262,7 +263,7 @@ public class RepairUnitTest {
     @Test
     public void isPaidTestTrue(){
         Repair repair = new Repair();
-        Calendar date = Calendar.getInstance();
+        Calendar date = new GregorianCalendar(2019,12,12);
         PaymentType paymentType = PaymentType.CARD;
         Payment payment = new Payment(date, paymentType);
         repair.setPayment(payment);

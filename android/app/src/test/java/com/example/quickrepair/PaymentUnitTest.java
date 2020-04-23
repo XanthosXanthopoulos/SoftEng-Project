@@ -4,12 +4,13 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class PaymentUnitTest {
 
     @Test
     public void constructorTest() {
-        Calendar date = Calendar.getInstance();
+        Calendar date = new GregorianCalendar(2019,12,12);
         PaymentType paymentType = PaymentType.CARD;
         Payment payment = new Payment(date, paymentType);
         Assert.assertEquals(date, payment.getDate());
@@ -26,7 +27,7 @@ public class PaymentUnitTest {
     @Test
     public void okDate(){
         Payment payment = new Payment();
-        Calendar date = Calendar.getInstance();
+        Calendar date = new GregorianCalendar(2019,12,12);
         payment.setDate(date);
         Assert.assertEquals(date, payment.getDate());
     }

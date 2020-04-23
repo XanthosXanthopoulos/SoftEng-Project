@@ -3,12 +3,8 @@ package com.example.quickrepair;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
+
+import java.util.GregorianCalendar;
 
 import static org.junit.Assert.*;
 public class TechnicianUnitTest {
@@ -137,7 +133,7 @@ public class TechnicianUnitTest {
     public void setRepairRequest(){
         RepairRequest repairRequest = new RepairRequest();
         repairRequest.setAddress(new Address());
-        repairRequest.setConductionDate(Calendar.getInstance());
+        repairRequest.setConductionDate(new GregorianCalendar(2019,12,12));
         repairRequest.setPaymentType(PaymentType.CASH);
         technicianToTest.addRepairRequest(repairRequest);
     }
