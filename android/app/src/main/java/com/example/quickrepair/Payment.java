@@ -3,13 +3,12 @@ package com.example.quickrepair;
 import android.os.Build;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
-import java.time.LocalDateTime;
+import java.util.Calendar;
 
 public class Payment
 {
-    private LocalDateTime date;
+    private Calendar date;
     private PaymentType paymentType;
 
     /**
@@ -25,7 +24,7 @@ public class Payment
      * @param date        payment's date
      * @param paymentType payment's type
      */
-    public Payment(LocalDateTime date, PaymentType paymentType)
+    public Payment(Calendar date, PaymentType paymentType)
     {
         setDate(date);
         setPaymentType(paymentType);
@@ -34,7 +33,7 @@ public class Payment
     /**
      * return payment's date
      */
-    public LocalDateTime getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -44,7 +43,7 @@ public class Payment
      *
      * @param date payment's date
      */
-    public void setDate(LocalDateTime date)
+    public void setDate(Calendar date)
     {
         if (date != null)
         {
@@ -76,7 +75,6 @@ public class Payment
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public boolean equals(@Nullable Object o) {
         if (o == this) { return true; }

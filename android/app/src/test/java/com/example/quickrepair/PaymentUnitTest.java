@@ -4,14 +4,15 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.time.Month;
+import java.util.GregorianCalendar;
 
 public class PaymentUnitTest {
 
     @Test
     public void constructorTest() {
-        LocalDateTime date = LocalDateTime.of(2020, Month.APRIL, 18, 19, 30, 40);
+        Calendar date = new GregorianCalendar(2019,1,28,13,24,56);
         PaymentType paymentType = PaymentType.CARD;
         Payment payment = new Payment(date, paymentType);
         Assert.assertEquals(date, payment.getDate());
@@ -24,10 +25,11 @@ public class PaymentUnitTest {
         Payment payment = new Payment();
         payment.setDate(null);
     }
+
     @Test
     public void okDate(){
         Payment payment = new Payment();
-        LocalDateTime date = LocalDateTime.of(2020, Month.APRIL, 18, 19, 30, 40);
+        Calendar date = new GregorianCalendar(2019,1,28,13,24,56);
         payment.setDate(date);
         Assert.assertEquals(date, payment.getDate());
     }
@@ -38,6 +40,7 @@ public class PaymentUnitTest {
         Payment payment = new Payment();
         payment.setPaymentType(null);
     }
+
     @Test
     public void okPaymentType(){
         Payment payment = new Payment();

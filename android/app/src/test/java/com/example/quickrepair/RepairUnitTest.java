@@ -3,8 +3,9 @@ package com.example.quickrepair;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.time.Month;
+import java.util.GregorianCalendar;
 
 public class RepairUnitTest {
 
@@ -251,7 +252,8 @@ public class RepairUnitTest {
     @Test
     public void payTest(){
         Repair repair = new Repair();
-        LocalDateTime date = LocalDateTime.of(2020, Month.APRIL, 18, 19, 30, 40);
+        Calendar date = new GregorianCalendar(2013,1,28,13,24,56);
+
         PaymentType paymentType = PaymentType.CARD;
 
         Payment payment = new Payment(date, paymentType);
@@ -263,7 +265,7 @@ public class RepairUnitTest {
     @Test
     public void isPaidTestTrue(){
         Repair repair = new Repair();
-        LocalDateTime date = LocalDateTime.of(2020, Month.APRIL, 18, 19, 30, 40);
+        Calendar date = new GregorianCalendar(2013,1,28,13,24,56);
         PaymentType paymentType = PaymentType.CARD;
         Payment payment = new Payment(date, paymentType);
 

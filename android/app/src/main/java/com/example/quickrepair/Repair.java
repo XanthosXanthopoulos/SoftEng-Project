@@ -1,6 +1,7 @@
 package com.example.quickrepair;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 
 public class Repair
 {
@@ -188,7 +189,7 @@ public class Repair
      * @param date        payment's date
      * @param paymentType payment's type
      */
-    public Payment pay(LocalDateTime date, PaymentType paymentType)
+    public Payment pay(Calendar date, PaymentType paymentType)
     {
         Payment payment = new Payment(date, paymentType);
         setPayment(payment);

@@ -2,10 +2,6 @@ package com.example.quickrepair;
 
 import android.os.Build;
 
-//TODO Find alternative to java time package maybe calendar ?
-import androidx.annotation.RequiresApi;
-
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
@@ -14,10 +10,12 @@ import java.util.Set;
 
 public class Technician extends User
 {
+
     private Set<Job> jobs = new HashSet<>();
 
     private List<RepairRequest> pendingRequests = new ArrayList<>();
     private Specialty specialty;
+    //TODO:
     private List<String> areas = new ArrayList<>();
 
     private List<Repair> repairsList = new ArrayList<>();
