@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Calendar;
-import java.time.Month;
-import java.util.GregorianCalendar;
 
 public class RepairUnitTest {
 
@@ -252,8 +250,7 @@ public class RepairUnitTest {
     @Test
     public void payTest(){
         Repair repair = new Repair();
-        Calendar date = new GregorianCalendar(2013,1,28,13,24,56);
-
+        Calendar date = Calendar.getInstance();
         PaymentType paymentType = PaymentType.CARD;
 
         Payment payment = new Payment(date, paymentType);
@@ -265,11 +262,10 @@ public class RepairUnitTest {
     @Test
     public void isPaidTestTrue(){
         Repair repair = new Repair();
-        Calendar date = new GregorianCalendar(2013,1,28,13,24,56);
+        Calendar date = Calendar.getInstance();
         PaymentType paymentType = PaymentType.CARD;
         Payment payment = new Payment(date, paymentType);
-
-        repair.pay(date ,paymentType);
+        repair.setPayment(payment);
         Assert.assertEquals(true, repair.isPaid());
     }
     //isPaid

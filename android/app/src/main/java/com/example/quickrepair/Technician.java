@@ -96,6 +96,7 @@ public class Technician extends User
      *
      * @return
      */
+    /*
     public List<Repair> getRepairsList()
     {
         return repairsList;
@@ -122,7 +123,7 @@ public class Technician extends User
         }
 
         return availableDates;
-    }
+    }*/
 
     /**
      * Marks this technician as available the given day of the week from @param hourStart until

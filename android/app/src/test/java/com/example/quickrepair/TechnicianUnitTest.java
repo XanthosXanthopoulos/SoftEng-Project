@@ -161,10 +161,11 @@ public class TechnicianUnitTest {
     public void setNullRepairRequest(){
         technicianToTest.addRepairRequest(null);
     }
+    /*
     @Test
     public void newtechnicianRepairsAreNotNull(){
         assertNotNull(technicianToTest.getRepairsList());
-    }
+    }*/
 
     @Test
     public void testGetters(){
