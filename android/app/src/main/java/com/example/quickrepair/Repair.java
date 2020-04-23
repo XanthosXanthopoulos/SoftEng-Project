@@ -66,7 +66,6 @@ public class Repair
         if (quantity <= 0){ throw new IllegalArgumentException("non positive quantity");}
 
         if(repairRequest == null) { throw new IllegalStateException("We can't have a repair, without a repair request"); }
-        if(!repairRequest.isCompleted()) { throw new IllegalStateException("We set quantity when the repair is completed"); }
         if(repairRequest.getJob() == null) { throw new IllegalStateException("null job"); }
         if(repairRequest.getJob().getJobType() == null) { throw new IllegalStateException("null job type"); }
 

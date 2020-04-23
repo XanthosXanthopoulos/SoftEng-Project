@@ -29,7 +29,7 @@ public class JobType
         setMeasurementUnit(measurementUnit);
         setJobs(jobs);
     }
-    
+
     //getters
     public String getName()
     {
