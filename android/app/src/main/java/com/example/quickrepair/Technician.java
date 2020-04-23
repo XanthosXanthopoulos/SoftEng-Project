@@ -23,7 +23,6 @@ public class Technician extends User
 
     private Calendar[][] schedule = new Calendar[7][2];
 
-    //TODO  Technician constructor
 
     public Technician(String name, String surname, String phoneNumber, String email,
                       String bankAccount, String username, String password, Specialty specialty)
@@ -123,8 +122,80 @@ public class Technician extends User
         return availableDates;
     }
 
+    /**
+     * Marks this technician as available the given day of the week from @param hourStart until
+     * @param hourEnd
+     *
+     * Ideal
+     * Example usage :  setAvailableOnDay(Calendar.MONDAY , 15 , 20)  to mark a technician available
+     * on monday from 15:00 to 20:00
+     *
+     * Current
+     * Example usage :  setAvailableOnDay(Calendar.0 , 15 , 20)  to mark a technician available
+     *      * on monday from 15:00 to 20:00
+     * @param day
+     * @param hourStart
+     * @param hourEnd
+     */
+    public void setAvailableOnDay(int day , int hourStart , int hourEnd){
+        //Argument checks
+        if(day < 0 || day > 6 || hourStart < 0
+                || hourStart > 23 || hourEnd < 0 || hourEnd > 23 || hourStart >= hourEnd){
+            throw new IllegalArgumentException();
+        }
+        getSchedule()[day][0].set(Calendar.HOUR_OF_DAY , hourStart);
+        getSchedule()[day][1].set(Calendar.HOUR_OF_DAY , hourEnd);
+    }
+
+    /**
+     * Checks if the technician is available on the given day of the week and hour of the week
+     * without checking if the technician has a repair scheduled at that time
+     *
+     * @return true if the technician is available
+     */
+    public boolean isNormallyAvailable(int day , int hourOfDay){
+        //Argument checks
+        if(day < 0 || day > 6 || hourOfDay < 0
+                || hourOfDay > 23 ){
+            throw new IllegalArgumentException();
+        }
+
+        boolean isAfterStart = getSchedule()[day][0].get(Calendar.HOUR_OF_DAY) <= hourOfDay;
+        boolean isBeforeEnd = getSchedule()[day][1].get(Calendar.HOUR_OF_DAY) > hourOfDay;
+        return  isAfterStart && isBeforeEnd;
+    }
+
+
     public Calendar[][] getSchedule()
     {
         return schedule;
+    }
+
+    /**
+     *  Sets the technicians schedule performing the necessary checks
+     * @param schedule
+     */
+    public void setSchedule(Calendar[][] schedule)
+    {
+        if(schedule == null){
+            throw new NullPointerException("null schedule");
+        }
+        if(schedule.length != 7){
+            throw new IllegalArgumentException("The schedule must have 7 entries");
+        }
+        for(int i = 0 ; i < 7 ; i ++){
+            //for(int j = 0 ; j < 7 ; j ++) {
+            //    System.err.println(getSchedule()[j][0]);
+            //    System.err.println(getSchedule()[j][1]);
+            //}
+            //If the entry is null then it means the technician is available all day
+            if(schedule[i][0] == null || schedule[i][1] == null){
+                throw new NullPointerException("null schedule entries on " + i);
+            }
+            if(schedule[i] != null && schedule[i].length != 2){
+                throw new IllegalArgumentException("Every entry must  have 2 calendars");
+            }
+        }
+        this.schedule = schedule;
     }
 }

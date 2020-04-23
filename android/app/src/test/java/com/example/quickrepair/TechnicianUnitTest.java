@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -15,6 +17,7 @@ public class TechnicianUnitTest {
     Job exampleJob;
     JobType exampleJobType;
     Specialty exampleSpecialty;
+    Calendar[][] exampleSchedule;
     @Before
     public void setUpTests() {
         technicianToTest = new Technician("nikos", "sm" , "6958475635",
@@ -27,7 +30,64 @@ public class TechnicianUnitTest {
         exampleAddress = address;
         exampleJob = new Job(technicianToTest , exampleJobType , 15 ,10);
         exampleSpecialty = new Specialty("Electrician");
+        //Initializing schedule
+        exampleSchedule = new Calendar[7][2];
+        for (int i = 0 ; i < 7 ; i ++){
+            //example Technician works from 9
+            exampleSchedule[i][0] = Calendar.getInstance();
+            exampleSchedule[i][0].set(Calendar.HOUR_OF_DAY , 9);
+            //example Technician works until 5  (17 : 00)
+            exampleSchedule[i][1] = Calendar.getInstance();
+            exampleSchedule[i][1].set(Calendar.HOUR_OF_DAY , 17);
+            //System.out.println(exampleSchedule[i][0]);
+            //System.out.println(exampleSchedule[i][1]);
+            //System.out.println();
+        }
 
+
+
+    }
+    @Test
+    public void setCorrectSchedule(){
+        technicianToTest.setSchedule(exampleSchedule);
+        assertTrue(technicianToTest.isNormallyAvailable(0 , 13));
+        assertFalse(technicianToTest.isNormallyAvailable(0 , 5));
+        assertFalse(technicianToTest.isNormallyAvailable(0 , 23));
+        assertFalse(technicianToTest.isNormallyAvailable(0 , 0));
+        assertFalse(technicianToTest.isNormallyAvailable(6 , 0));
+    }
+    @Test (expected = NullPointerException.class)
+    public void setNullSchedule(){
+        technicianToTest.setSchedule(null);
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void setMalformedSchedule(){
+        Calendar[][] malformedSchedule = new Calendar[5][10];
+        technicianToTest.setSchedule(malformedSchedule);
+    }
+    @Test (expected = NullPointerException.class)
+    public void setScheduleWithNullEntries(){
+        Calendar[][] malformedSchedule = new Calendar[7][2];
+        for (int i = 0 ; i < 7 ; i ++){
+            //example Technician works from 9
+            exampleSchedule[i][0] = Calendar.getInstance();
+            exampleSchedule[i][0].set(Calendar.HOUR_OF_DAY , 9);
+            //example Technician works until 5  (17 : 00)
+            exampleSchedule[i][1] = null;
+        }
+
+        technicianToTest.setSchedule(malformedSchedule);
+    }
+    @Test
+    public void changeScheduleForMonday(){
+        technicianToTest.setSchedule(exampleSchedule);
+        technicianToTest.setAvailableOnDay(0 , 2 , 5);
+        for(int i = 5 ; i < 24 ; i ++){
+            assertFalse(technicianToTest.isNormallyAvailable(0,i));
+        }
+        for(int i = 2 ; i < 5 ; i ++){
+            assertTrue(technicianToTest.isNormallyAvailable(0,i));
+        }
     }
     @Test
     public void setCorrectTechnicianInfo(){
