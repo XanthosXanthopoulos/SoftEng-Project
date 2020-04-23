@@ -8,9 +8,18 @@ public class RepairUnitTest {
     //Constructor Tests
     @Test
     public void constructorWithQuantity(){
-        double quantity = 1;
+        //create repair with job
         RepairRequest repairRequest = new RepairRequest();
+        Job job = new Job();
+        JobType jobType = new JobType();
+        jobType.setMeasurementUnit(MeasurementUnit.NONE);
+        job.setJobType(jobType);
+        repairRequest.setJob(job);
+        repairRequest.confirm();
+
+        double quantity = 1;
         Repair repair = new Repair(repairRequest,quantity);
+
         Assert.assertEquals(repairRequest,repair.getRepairRequest());
         Assert.assertEquals(quantity, repair.getQuantity(),.0);
         Assert.assertEquals(null, repair.getPayment());
@@ -18,10 +27,19 @@ public class RepairUnitTest {
     }
     @Test
     public void constructorWithQuantityAndPayment(){
-        double quantity = 1;
+        //create repair with job
         RepairRequest repairRequest = new RepairRequest();
+        Job job = new Job();
+        JobType jobType = new JobType();
+        jobType.setMeasurementUnit(MeasurementUnit.NONE);
+        job.setJobType(jobType);
+        repairRequest.setJob(job);
+        repairRequest.confirm();
+
+        double quantity = 1;
         Payment payment = new Payment();
         Repair repair = new Repair(repairRequest, quantity, payment);
+
         Assert.assertEquals(repairRequest,repair.getRepairRequest());
         Assert.assertEquals(quantity, repair.getQuantity(), .0);
         Assert.assertEquals(payment, repair.getPayment());
@@ -57,20 +75,73 @@ public class RepairUnitTest {
         repair.setQuantity(quantity);
     }
 
-    //TODO: #1 Test otan prosthethei h Ergasia oti analoga me ton typo ths ergasias exei dothei to sosto quantity dhladh, akeraios an einai ergasia statheri an oxi otidhpote
-    @Test
-    public void repairWithOkQuantityAtFixedPriceJob(){
-        //create jobType of a ConsistentJob
-        //a consistent job, null
+    @Test (expected =  IllegalStateException.class)
+    public void repairWithNullRepairRequest(){
         double quantity = 1;
+        Repair repair = new Repair();
+        repair.setQuantity(quantity);
+    }
 
+    @Test (expected =  IllegalStateException.class)
+    public void repairWithNullJob(){
+        //create repair with job
+        RepairRequest repairRequest = new RepairRequest();
+        double quantity = 1;
+        Repair repair = new Repair();
+        repair.setRepairRequest(repairRequest);
+        repair.setQuantity(quantity);
+    }
 
+    @Test (expected =  IllegalStateException.class)
+    public void repairWithNullJobType(){
+        //create repair with job
+        RepairRequest repairRequest = new RepairRequest();
+        Job job = new Job();
+        repairRequest.setJob(job);
+
+        double quantity = 1;
+        Repair repair = new Repair();
+        repair.setQuantity(quantity);
     }
 
     @Test
-    public void repairWithNonOkQuantityAtFixedPriceJob(){
-        double quantity = 1.1;
+    public void repairWithOkQuantityAtFixedPriceJob(){
+        //create repair with job
+        RepairRequest repairRequest = new RepairRequest();
+        Job job = new Job();
+        JobType jobType = new JobType();
+        //create jobType of a ConsistentJob
+        //a consistent job, have NONE MeasurementUnit
+        jobType.setMeasurementUnit(MeasurementUnit.NONE);
+        job.setJobType(jobType);
+        repairRequest.setJob(job);
+        repairRequest.confirm();
 
+        double quantity = 1;
+        Repair repair = new Repair(repairRequest,quantity);
+
+        repair.setQuantity(quantity);
+        Assert.assertEquals(quantity, repair.getQuantity(), .0);
+    }
+
+    @Test (expected =  IllegalArgumentException.class)
+    public void repairWithNonOkQuantityAtFixedPriceJob(){
+        //create repair with job
+        RepairRequest repairRequest = new RepairRequest();
+        Job job = new Job();
+        JobType jobType = new JobType();
+        //create jobType of a ConsistentJob
+        //a consistent job, have NONE MeasurementUnit
+        jobType.setMeasurementUnit(MeasurementUnit.NONE);
+        job.setJobType(jobType);
+        repairRequest.setJob(job);
+        repairRequest.confirm();
+
+        //set wrong quantity
+        double quantity = 1.1;
+        Repair repair = new Repair(repairRequest,quantity);
+
+        repair.setQuantity(quantity);
     }
 
     @Test

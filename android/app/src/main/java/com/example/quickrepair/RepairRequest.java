@@ -5,16 +5,15 @@ import java.time.LocalDateTime;
 public class RepairRequest
 {
     //TODO replace with job slot for conductionDate
+    private Customer customer;
+    private PaymentType paymentType;
+    private Job job;
     private LocalDateTime creationDate;
     private LocalDateTime conductionDate;
     private Address address;
     private boolean isConfirmed;
-    //TODO isCompleted is not needded because we cn check if the repair is null
-    private boolean isCompleted;
-    private Job job;
+
     private Repair repair;
-    private Customer customer;
-    private PaymentType paymentType;
     //TODO Constructor on repair request
 
     //constructors
@@ -22,13 +21,24 @@ public class RepairRequest
     /**
      * Empty Contructor
      */
-    public RepairRequest()
-    {
+    public RepairRequest() { }
+
+    /*
+    * Constructor when the Repair Request initialize from Costumer
+     */
+    public RepairRequest(Customer customer, PaymentType paymentType, Job job,LocalDateTime creationDate, LocalDateTime conductionDate, Address address) {
+        setCustomer(customer);
+        setPaymentType(paymentType);
+        setJob(job);
+        setCreationDate(creationDate);
+        setConductionDate(conductionDate);
+        setAddress(address);
+        isConfirmed = false;
     }
+
 
     //TODO validity checks on setters
     //SETTERS
-
     public void setConductionDate(LocalDateTime conductionDate)
     {
         this.conductionDate = conductionDate;
@@ -118,12 +128,12 @@ public class RepairRequest
         isConfirmed = true;
     }
 
-    public void complete()
+    public void complete(Repair repair)
     {
         if (!isConfirmed) throw new IllegalStateException("Repair request is not confirmed.");
-        if (isCompleted) throw new IllegalStateException("Repair request is already completed.");
+        if (this.repair!=null) throw new IllegalStateException("Repair request is already completed.");
 
-        isCompleted = true;
+        this.repair = repair;
     }
 
 
