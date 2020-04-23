@@ -1,6 +1,6 @@
 package com.example.quickrepair;
 
-import java.time.LocalDateTime;
+import java.util.Calendar;
 
 public class RepairRequest
 {
@@ -8,8 +8,8 @@ public class RepairRequest
     private Customer customer;
     private PaymentType paymentType;
     private Job job;
-    private LocalDateTime creationDate;
-    private LocalDateTime conductionDate;
+    private Calendar creationDate;
+    private Calendar conductionDate;
     private Address address;
     private boolean isConfirmed;
 
@@ -26,7 +26,7 @@ public class RepairRequest
     /*
     * Constructor when the Repair Request initialize from Costumer
      */
-    public RepairRequest(Customer customer, PaymentType paymentType, Job job,LocalDateTime creationDate, LocalDateTime conductionDate, Address address) {
+    public RepairRequest(Customer customer, PaymentType paymentType, Job job,Calendar creationDate, Calendar conductionDate, Address address) {
         setCustomer(customer);
         setPaymentType(paymentType);
         setJob(job);
@@ -39,12 +39,12 @@ public class RepairRequest
 
     //TODO validity checks on setters
     //SETTERS
-    public void setConductionDate(LocalDateTime conductionDate)
+    public void setConductionDate(Calendar conductionDate)
     {
         this.conductionDate = conductionDate;
     }
 
-    public void setCreationDate(LocalDateTime creationDate)
+    public void setCreationDate(Calendar creationDate)
     {
         this.creationDate = creationDate;
     }
@@ -76,12 +76,12 @@ public class RepairRequest
 
     //GETTERS
 
-    public LocalDateTime getCreationDate()
+    public Calendar getCreationDate()
     {
         return creationDate;
     }
 
-    public LocalDateTime getConductionDate()
+    public Calendar getConductionDate()
     {
         return conductionDate;
     }

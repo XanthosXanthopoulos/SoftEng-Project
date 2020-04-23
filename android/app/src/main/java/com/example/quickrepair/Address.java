@@ -12,21 +12,16 @@ public class Address
 
     public void setStreetName(String streetName)
     {
-        if (streetName == null) throw new NullPointerException();
+        if (streetName == null){ throw new NullPointerException();}
 
         this.streetName = streetName;
     }
 
-    public String getNumber()
-    {
-        return number;
-    }
+    public String getNumber() { return number; }
 
     public void setNumber(String number)
     {
-        if (!number.matches("\\d+"))
-            throw new IllegalArgumentException("Address number is invalid");
-
+        if (!number.matches("\\d+")) { throw new IllegalArgumentException("Address number is invalid");}
         this.number = number;
     }
 }

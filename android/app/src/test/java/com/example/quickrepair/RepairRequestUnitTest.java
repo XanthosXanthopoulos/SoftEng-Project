@@ -4,13 +4,14 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 
 public class RepairRequestUnitTest {
     RepairRequest req;
-    LocalDateTime standardDate;
+    Calendar standardDate;
     @Before
     public void setUpTests(){
-        standardDate = LocalDateTime.now();
+        standardDate = Calendar.getInstance();
         req = new RepairRequest();
         req.setPaymentType(PaymentType.CARD);
         Address exampleAddress = new Address();

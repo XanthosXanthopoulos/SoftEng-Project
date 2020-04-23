@@ -1,10 +1,10 @@
 package com.example.quickrepair;
 
-import android.os.Build;
-
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
 
@@ -13,21 +13,73 @@ public class Technician extends User
 
     private Set<Job> jobs = new HashSet<>();
 
-    private List<RepairRequest> pendingRequests = new ArrayList<>();
+    private HashSet<RepairRequest> pendingRequests = new HashSet<>();
     private Specialty specialty;
     //TODO:
-    private List<String> areas = new ArrayList<>();
+    private HashSet<String> areas = new HashSet<String>();
 
     private List<Repair> repairsList = new ArrayList<>();
 
-    private Calendar[][] schedule = new Calendar[7][2];
+    //This structure will set up by the technician
+    //it is necessary for a costumer to know when the technician is on duty
+    //for each day of the week -> (startHour, endHour)
+    private Integer[][] schedule = new Integer[7][2];
 
+    // Day,Month,Year -> Array with confirmed repairs
+    //this structure will help Technician to organize his repairs and his schedule
+    //and will give the necessary information to the costumer when a Technician is free
+    private Hashtable<Calendar,ArrayList<RepairRequest>> calendarWithConfirmRequests = new Hashtable<Calendar,ArrayList<RepairRequest>>();
 
+    // Constructors
     public Technician(String name, String surname, String phoneNumber, String email,
                       String bankAccount, String username, String password, Specialty specialty)
     {
         super(name, surname, phoneNumber, email, bankAccount, username, password);
         setSpecialty(specialty);
+    }
+
+    public Technician(String name, String surname, String phoneNumber, String email,
+                      String bankAccount, String username, String password, Specialty specialty,HashSet<String> areas)
+    {
+        super(name, surname, phoneNumber, email, bankAccount, username, password);
+        setSpecialty(specialty);
+        setAreas(areas);
+    }
+
+    //SETTERS
+    //TODO: Comments and checks at setters
+    /**
+     * Set's this technician's specialty
+     * @param specialty Technician's specialty
+     */
+    public void setSpecialty(Specialty specialty)
+    {
+        if (specialty == null) throw new NullPointerException("Speciality can not be null.");
+
+        this.specialty = specialty;
+    }
+
+    /**
+     *
+     * @param repairsList
+     */
+    public void setRepairsList(List<Repair> repairsList) {
+        this.repairsList = repairsList;
+    }
+    /**
+     *
+     * @param jobs
+     */
+    public void setJobs(Set<Job> jobs) {
+        this.jobs = jobs;
+    }
+
+    public void setAreas(HashSet<String> areas) {
+        this.areas = areas;
+    }
+
+    public void setPendingRequests(HashSet<RepairRequest> pendingRequests) {
+        this.pendingRequests = pendingRequests;
     }
 
     /**
@@ -37,16 +89,76 @@ public class Technician extends User
     {
         setUserInfo(name, surname, phoneNumber, email, bankAccount, username);
     }
-
     /**
-     * Set's this technician's specialty
+     * Sets the technicians schedule performing the necessary checks
+     *
+     * @param schedule
      */
-    public void setSpecialty(Specialty specialty)
+    public void setSchedule(Integer[][] schedule)
     {
-        if (specialty == null) throw new NullPointerException("Speciality can not be null.");
+        if (schedule == null)
+        {
+            throw new NullPointerException("null schedule");
+        }
 
-        this.specialty = specialty;
+        if (schedule.length != 7)
+        {
+            throw new IllegalArgumentException("The schedule must have 7 entries");
+        }
+
+        for (int i = 0; i < 7; i++)
+        {
+            if (schedule[i] == null || schedule[i].length != 2)
+            {
+                throw new IllegalArgumentException("Every entry must  have 2 calendars");
+            }
+
+            if (schedule[i][0] == null && schedule[i][1] != null)
+            {
+                throw new NullPointerException("null schedule entries on " + i);
+            }
+            else if (schedule[i][0] != null && schedule[i][1] == null)
+            {
+                throw new NullPointerException("null schedule entries on " + i);
+            }
+        }
+
+        this.schedule = schedule;
     }
+
+
+    //GETTERS
+    //TODO: comments to getters
+    public Set<Job> getJobs()
+    {
+        return jobs;
+    }
+
+    public HashSet<RepairRequest> getPendingRequests()
+    {
+        return pendingRequests;
+    }
+
+    public Specialty getSpecialty()
+    {
+        return specialty;
+    }
+
+    public List<Repair> getRepairsList() {
+        return repairsList;
+    }
+
+    public HashSet<String> getAreas()
+    {
+        return areas;
+    }
+
+    public Integer[][] getSchedule()
+    {
+        return schedule;
+    }
+
+    //Add methods
 
     /**
      * Adds a job to the technician's list of jobs
@@ -69,39 +181,12 @@ public class Technician extends User
 
         pendingRequests.add(repairRequest);
     }
-
-    public Set<Job> getJobs()
-    {
-        return jobs;
+    //TODO Check for null maybe
+    public void addNewArea(String area){
     }
 
-    public List<RepairRequest> getPendingRequests()
-    {
-        return pendingRequests;
-    }
 
-    public Specialty getSpecialty()
-    {
-        return specialty;
-    }
-
-    //TODO Convert areas to hashset and
-    public List<String> getAreas()
-    {
-        return areas;
-    }
-
-    /**
-     * Returns the list of all repairs of this technician completed and in progress
-     *
-     * @return
-     */
     /*
-    public List<Repair> getRepairsList()
-    {
-        return repairsList;
-    }
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     public ArrayList<LocalDateTime> getAvailableDate(LocalDateTime dateTime, Job job)
     {
@@ -171,46 +256,46 @@ public class Technician extends User
         return isAfterStart && isBeforeEnd;
     }
 
-
-    public Calendar[][] getSchedule()
-    {
-        return schedule;
-    }
-
-    /**
-     * Sets the technicians schedule performing the necessary checks
-     *
-     * @param schedule
+    /*
+    * When a technician Confirm a request this are going to added to his calendar
      */
-    public void setSchedule(Calendar[][] schedule)
-    {
-        if (schedule == null)
-        {
-            throw new NullPointerException("null schedule");
+    public void confirmAPendingRequest(RepairRequest repairRequest){
+        if(!getPendingRequests().contains(repairRequest)){ throw new IllegalStateException("technician have access onle to requests that exists");}
+        //remove it
+        getPendingRequests().remove(repairRequest);
+        //confirm it
+        repairRequest.confirm();
+        //get the day, month, year
+        //don't include the hour
+        Calendar actualDate = repairRequest.getConductionDate();
+        int day = actualDate.DAY_OF_MONTH;
+        int month = actualDate.MONTH;
+        int year = actualDate.YEAR;
+
+        // focus on the particular day
+        Calendar newDate = Calendar.getInstance();
+        newDate.set(Calendar.HOUR_OF_DAY, 0);
+        newDate.set(Calendar.MINUTE, 0);
+        newDate.set(Calendar.SECOND, 0);
+        newDate.set(Calendar.DAY_OF_MONTH, day);
+        newDate.set(Calendar.MONTH, month);
+        newDate.set(Calendar.YEAR, year);
+
+        //add it to the calendarWithConfirmRequests
+        if(!calendarWithConfirmRequests.containsKey(newDate)){
+            calendarWithConfirmRequests.put(newDate, new ArrayList<RepairRequest>());
+            calendarWithConfirmRequests.get(newDate).add(repairRequest);
+        }else{
+            calendarWithConfirmRequests.get(newDate).add(repairRequest);
         }
-
-        if (schedule.length != 7)
-        {
-            throw new IllegalArgumentException("The schedule must have 7 entries");
-        }
-
-        for (int i = 0; i < 7; i++)
-        {
-            if (schedule[i] == null || schedule[i].length != 2)
-            {
-                throw new IllegalArgumentException("Every entry must  have 2 calendars");
-            }
-
-            if (schedule[i][0] == null && schedule[i][1] != null)
-            {
-                throw new NullPointerException("null schedule entries on " + i);
-            }
-            else if (schedule[i][0] != null && schedule[i][1] == null)
-            {
-                throw new NullPointerException("null schedule entries on " + i);
-            }
-        }
-
-        this.schedule = schedule;
     }
+
+    /*
+     * Reject request, deleted from set with rairrequests
+     */
+    public void rejectAPendingRequest(RepairRequest repairRequest){
+        if(!getPendingRequests().contains(repairRequest)){ throw new IllegalStateException("technician have access onle to requests that exists");}
+        getPendingRequests().remove(repairRequest);
+    }
+
 }
