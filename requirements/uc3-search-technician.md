@@ -18,4 +18,7 @@
 
 ![Activity diagram](diagrams/uc3-activity.png)
 
+### Διάγραμμα ακολουθίας
+
+![Sequence diagram](diagrams/sq3-search-tech.png)
 

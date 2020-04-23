@@ -84,6 +84,7 @@ public class Technician extends User
         return specialty;
     }
 
+    //TODO Convert areas to hashset and
     public List<String> getAreas()
     {
         return areas;

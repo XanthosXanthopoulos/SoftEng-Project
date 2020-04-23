@@ -26,10 +26,11 @@ public class TechnicianUnitTest {
         Address address = new Address();
         address.setStreetName("ath");
         address.setNumber("15");
-        exampleJobType = new JobType("Allagi plakakia");
+        exampleSpecialty = new Specialty("Electrician");
+        exampleJobType = new JobType("Allagi plakakia" , exampleSpecialty , MeasurementUnit.METER);
         exampleAddress = address;
         exampleJob = new Job(technicianToTest , exampleJobType , 15 ,10);
-        exampleSpecialty = new Specialty("Electrician");
+
         //Initializing schedule
         exampleSchedule = new Calendar[7][2];
         for (int i = 0 ; i < 7 ; i ++){
@@ -65,6 +66,36 @@ public class TechnicianUnitTest {
         Calendar[][] malformedSchedule = new Calendar[5][10];
         technicianToTest.setSchedule(malformedSchedule);
     }
+    @Test (expected = IllegalArgumentException.class)
+    public void setAvailableOnWithWrongParameters1(){
+        technicianToTest.setSchedule(exampleSchedule);
+        technicianToTest.setAvailableOnDay(0 , 1029839 , 1 );
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void setAvailableOnWithWrongParameters2(){
+        technicianToTest.setSchedule(exampleSchedule);
+        technicianToTest.setAvailableOnDay(-5 , 9 , 17 );
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void setAvailableOnWithWrongParameters3(){
+        technicianToTest.setSchedule(exampleSchedule);
+        technicianToTest.setAvailableOnDay(0 , 0 , 24 );
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void setAvailableOnWithWrongParameters4(){
+        technicianToTest.setSchedule(exampleSchedule);
+        technicianToTest.setAvailableOnDay(0 , 23 , 23 );
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void isNormallyAvailableWithWrongParameters1(){
+        technicianToTest.setSchedule(exampleSchedule);
+        technicianToTest.isNormallyAvailable(7 , 5);
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void isNormallyAvailableWithWrongParameters2(){
+        technicianToTest.setSchedule(exampleSchedule);
+        technicianToTest.isNormallyAvailable(6 , 24);
+    }
     @Test (expected = NullPointerException.class)
     public void setScheduleWithNullEntries(){
         Calendar[][] malformedSchedule = new Calendar[7][2];
@@ -94,6 +125,7 @@ public class TechnicianUnitTest {
         technicianToTest.setTechnicianInfo("nikos", "sm" , "6958475635",
                 "asdih@ausdh.asdh" , "mybankaccount" , "username");
     }
+
     @Test (expected = IllegalArgumentException.class)
     public void setIncorrectEmail(){
         technicianToTest.setTechnicianInfo("nikos", "sm" , "6958475635",
