@@ -146,12 +146,42 @@ public class RepairUnitTest {
 
     @Test
     public void repairWithDoubleOkQuantityAtNonFixedPriceJob(){
+        //create repair with job
+        RepairRequest repairRequest = new RepairRequest();
+        Job job = new Job();
+        JobType jobType = new JobType();
+        //create jobType of a ConsistentJob
+        //a consistent job, have NONE MeasurementUnit
+        jobType.setMeasurementUnit(MeasurementUnit.METER);
+        job.setJobType(jobType);
+        repairRequest.setJob(job);
+        repairRequest.confirm();
+
         double quantity = 1.1;
+        Repair repair = new Repair(repairRequest,quantity);
+
+        repair.setQuantity(quantity);
+        Assert.assertEquals(quantity, repair.getQuantity(), .0);
 
     }
     @Test
     public void repairWithIntegerOkQuantityAtNonFixedPriceJob(){
+        //create repair with job
+        RepairRequest repairRequest = new RepairRequest();
+        Job job = new Job();
+        JobType jobType = new JobType();
+        //create jobType of a ConsistentJob
+        //a consistent job, have NONE MeasurementUnit
+        jobType.setMeasurementUnit(MeasurementUnit.METER);
+        job.setJobType(jobType);
+        repairRequest.setJob(job);
+        repairRequest.confirm();
+
         double quantity = 1;
+        Repair repair = new Repair(repairRequest,quantity);
+
+        repair.setQuantity(quantity);
+        Assert.assertEquals(quantity, repair.getQuantity(), .0);
 
     }
 
