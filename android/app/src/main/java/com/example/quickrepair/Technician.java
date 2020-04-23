@@ -1,5 +1,6 @@
 package com.example.quickrepair;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,7 +16,9 @@ public class Technician extends User
     private Set<Job> jobs = new HashSet<>();
 
     private List<RepairRequest> pendingRequests = new ArrayList<>();
+
     private Specialty specialty;
+
     private HashSet<String> areas = new HashSet<String>();
 
     private List<Repair> repairsList = new ArrayList<>();
@@ -182,13 +185,10 @@ public class Technician extends User
     public void addNewArea(String area){
     }
 
-
-    /*
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public ArrayList<LocalDateTime> getAvailableDate(LocalDateTime dateTime, Job job)
     {
         ArrayList<LocalDateTime> availableDates = new ArrayList<>();
-
+        /*
         for (int i = 0; i < pendingRequests.size() - 1; ++i)
         {
             if (pendingRequests.get(i).getConductionDate().getDayOfYear() == dateTime.getDayOfYear())
@@ -202,10 +202,33 @@ public class Technician extends User
                     }
                 }
             }
-        }
+        }*/
 
         return availableDates;
-    }*/
+    }
+    /*
+    *
+     */
+    public ArrayList<ArrayList<Integer>> getGaps(Calendar date, Job job){
+        int dayOFWeek = date.DAY_OF_WEEK;
+        //technician doesn't work this day
+        if(isDayAvailable(dayOFWeek-1)){return null;}
+        if(!this.getJobs().contains(job)){ throw new IllegalArgumentException("costumer have access only to technicians with a particular job"); }
+        int start = getSchedule()[dayOFWeek-1][0];
+        int end = getSchedule()[dayOFWeek-1][0];
+        Calendar newDate = getYearMonthDay(date);
+        ArrayList<RepairRequest> repairRequests = calendarWithConfirmRequests.get(newDate);
+        if(repairRequests ==null || repairRequests.size()==0){
+            //only one gap, all the time that he works
+            ArrayList<ArrayList<Integer>> gaps = new ArrayList<ArrayList<Integer>>();
+            ArrayList<Integer> gap = new ArrayList<Integer>();
+            gaps.add(gap);
+        }else{
+            //create gaps
+            //Collections.sort();
+        }
+        return null;
+    }
 
     /**
      * Marks this technician as available the given day of the week from @param hourStart until
@@ -254,10 +277,9 @@ public class Technician extends User
     }
 
     /**
-     * Checks if the technician is available on the given day of the week and hour of the week
-     * without checking if the technician has a repair scheduled at that time
-     *
-     * @return true if the technician is available
+     * Checks if the technician is available on the given day of the week
+     * @param day
+     * @return true if the technician is available the given day
      */
     public boolean isDayAvailable(int day)
     {
