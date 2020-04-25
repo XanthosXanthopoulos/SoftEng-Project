@@ -195,42 +195,17 @@ public class Technician extends User
     {
     }
 
-    public ArrayList<LocalDateTime> getAvailableDate(LocalDateTime dateTime, Job job)
-    {
-        ArrayList<LocalDateTime> availableDates = new ArrayList<>();
-        /*
-        for (int i = 0; i < pendingRequests.size() - 1; ++i)
-        {
-            if (pendingRequests.get(i).getConductionDate().getDayOfYear() == dateTime.getDayOfYear())
-            {
-                if (pendingRequests.get(i).getConductionDate().getDayOfYear() == pendingRequests.get(i + 1).getConductionDate().getDayOfYear())
-                {
-                    if (pendingRequests.get(i + 1).getConductionDate().getMinute() - pendingRequests.get(i).getConductionDate().getMinute() - pendingRequests.get(i).getJob().getDuration() >= job.getDuration())
-                    {
-                        availableDates.add(pendingRequests.get(i).getConductionDate().plusMinutes(job.getDuration()));
-                        availableDates.add(pendingRequests.get(i + 1).getConductionDate());
-                    }
-                }
-            }
-        }*/
-
-        return availableDates;
-    }
 
     /*
      *
      */
-    public ArrayList<ArrayList<GregorianCalendar>> getAvailableHours(GregorianCalendar date, Job job)
+    public ArrayList<ArrayList<GregorianCalendar>> getAvailableHourRanges(GregorianCalendar date)
     {
         int dayOFWeek = date.DAY_OF_WEEK;
         //technician doesn't work this day
         if (isDayAvailable(dayOFWeek - 1))
         {
             return null;
-        }
-        if (!this.getJobs().contains(job))
-        {
-            throw new IllegalArgumentException("costumer have access only to technicians with a particular job");
         }
         int start = getSchedule()[dayOFWeek - 1][0];
         int end = getSchedule()[dayOFWeek - 1][0];
@@ -280,7 +255,7 @@ public class Technician extends User
                 GregorianCalendar nextRepairReqCalendar = (GregorianCalendar) nextRepairRequest.getConductionDate().clone();
 
                 beforeRepairReqCalendar.add(beforeRepairReqCalendar.MINUTE, beforeRepairRequest.getEstimatedDuration());
-                if (beforeRepairReqCalendar.compareTo(nextRepairReqCalendar) < 0)
+                if (beforeRepairReqCalendar.before(nextRepairReqCalendar))
                 {
                     //new gap
                     ArrayList<GregorianCalendar> gap = new ArrayList<GregorianCalendar>();
