@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>6</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>342</x>
-      <y>78</y>
-      <w>192</w>
-      <h>120</h>
+      <x>635</x>
+      <y>130</y>
+      <w>160</w>
+      <h>115</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 User
@@ -21,16 +21,17 @@ _#username: String_
 #bankAccount: String
 --
 +sendReceipt():void
-+validatePassword(password : String): boolean</panel_attributes>
++validatePassword(password : String): boolean
++setPassword(String password): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>354</x>
-      <y>270</y>
-      <w>270</w>
-      <h>144</h>
+      <x>645</x>
+      <y>290</y>
+      <w>225</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Technician
@@ -46,16 +47,18 @@ Technician
 +getAvailableHourRanges(date: Calendar): List&lt;List&lt;Calendar&gt;&gt;
 +addRepairRequest(repairRequest: RepairRequest): void
 +addEvaluation(evaluation: Evaluation): void
-+getRepairRequests(): List&lt;RepairRequest&gt;</panel_attributes>
++getRepairRequests(): List&lt;RepairRequest&gt;
++getEvaluations(): List&lt;Evaluation&gt;
++notifyOfConfirmation(RepairRequest): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>18</x>
-      <y>336</y>
-      <w>252</w>
-      <h>72</h>
+      <x>365</x>
+      <y>345</y>
+      <w>210</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Customer
@@ -72,32 +75,32 @@ Customer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>192</y>
-      <w>78</w>
-      <h>90</h>
+      <x>680</x>
+      <y>240</y>
+      <w>65</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>126</x>
-      <y>192</y>
-      <w>288</w>
-      <h>156</h>
+      <x>455</x>
+      <y>240</y>
+      <w>240</w>
+      <h>115</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>460.0;10.0;10.0;240.0</additional_attributes>
+    <additional_attributes>460.0;10.0;10.0;210.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1074</x>
-      <y>618</y>
-      <w>132</w>
-      <h>60</h>
+      <x>1245</x>
+      <y>580</y>
+      <w>110</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;value&gt;&gt;
 Evaluation
@@ -112,10 +115,10 @@ rate: int
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>366</x>
-      <y>702</y>
-      <w>180</w>
-      <h>54</h>
+      <x>650</x>
+      <y>680</y>
+      <w>145</w>
+      <h>75</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Repair
@@ -123,16 +126,19 @@ Repair
 #completionDate : Calendar
 #evaluation : Evaluation
 #payment : Payment
+--
++payOff(payment : Payment)
++evaluate(evaluation : Evaluation)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1134</x>
-      <y>444</y>
-      <w>72</w>
-      <h>60</h>
+      <x>1295</x>
+      <y>435</y>
+      <w>60</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enum&gt;&gt;
 PaymentType
@@ -144,10 +150,10 @@ CASH</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
-      <y>72</y>
-      <w>102</w>
-      <h>48</h>
+      <x>1130</x>
+      <y>125</y>
+      <w>85</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Specialty
@@ -161,10 +167,10 @@ Specialty
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1098</x>
-      <y>528</y>
-      <w>108</w>
-      <h>60</h>
+      <x>1265</x>
+      <y>505</y>
+      <w>90</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;value&gt;&gt;
 Address
@@ -177,17 +183,17 @@ Address
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>612</x>
-      <y>72</y>
-      <w>162</w>
-      <h>72</h>
+      <x>860</x>
+      <y>125</y>
+      <w>145</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 JobType
 --
 #name: String
-#specialty: String
 #measurementUnit: MeasurementUnit
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -195,26 +201,27 @@ JobType
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>828</x>
-      <y>204</y>
-      <w>132</w>
-      <h>60</h>
+      <x>1040</x>
+      <y>235</y>
+      <w>110</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Job
 --
 #price : double
-
+--
++getJobType() : JobType
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
-      <y>456</y>
-      <w>174</w>
-      <h>156</h>
+      <x>645</x>
+      <y>475</y>
+      <w>150</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 RepairRequest
@@ -226,6 +233,9 @@ RepairRequest
 #confirmed: boolean
 #completed: boolean
 --
++isConfirmed() : boolean
++isRejected() : boolean
++isPending() : boolean
 +confirm(estimatedDuration: int): void
 +reject(): void
 +complete(repair: Repair): void
@@ -237,10 +247,10 @@ RepairRequest
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1134</x>
-      <y>324</y>
-      <w>72</w>
-      <h>102</h>
+      <x>1295</x>
+      <y>335</y>
+      <w>60</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enum&gt;&gt;
 MeasurementUnit
@@ -257,10 +267,10 @@ SQR_FOOT</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1074</x>
-      <y>702</y>
-      <w>132</w>
-      <h>60</h>
+      <x>1245</x>
+      <y>650</y>
+      <w>110</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;value&gt;&gt;
 Payment
@@ -273,94 +283,94 @@ Payment
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>108</x>
-      <y>402</y>
-      <w>264</w>
-      <h>84</h>
+      <x>440</x>
+      <y>400</y>
+      <w>215</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=1
 m2=0..n
 creates &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0;420.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0;410.0;170.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>474</x>
-      <y>408</y>
-      <w>150</w>
-      <h>78</h>
+      <x>745</x>
+      <y>425</y>
+      <w>125</w>
+      <h>75</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=0..n
 m2=1
 involves &gt;</panel_attributes>
-    <additional_attributes>100.0;100.0;170.0;100.0;170.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>100.0;120.0;170.0;120.0;170.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>444</x>
-      <y>606</y>
-      <w>84</w>
-      <h>108</h>
+      <x>715</x>
+      <y>610</y>
+      <w>70</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
 m2=1
 is completed by &gt;</panel_attributes>
-    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>768</x>
-      <y>72</y>
-      <w>180</w>
-      <h>30</h>
+      <x>1000</x>
+      <y>125</y>
+      <w>140</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..n
 m2=1
 can be done by &gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>684</x>
-      <y>138</y>
-      <w>156</w>
-      <h>96</h>
+      <x>920</x>
+      <y>165</y>
+      <w>130</w>
+      <h>95</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-&gt;
+    <panel_attributes>lt=&lt;-
 m1=1
 m2=0..n
 &lt; involves</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0;240.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0;240.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>618</x>
-      <y>258</y>
-      <w>306</w>
-      <h>42</h>
+      <x>865</x>
+      <y>270</y>
+      <w>255</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m1=1
 m2=0..n
 offers &gt;</panel_attributes>
-    <additional_attributes>10.0;40.0;470.0;40.0;470.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;470.0;60.0;470.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>618</x>
-      <y>114</y>
-      <w>390</w>
-      <h>228</h>
+      <x>865</x>
+      <y>160</y>
+      <w>325</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m1=0..n
@@ -371,15 +381,15 @@ has &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>138</y>
-      <w>150</w>
-      <h>402</h>
+      <x>790</x>
+      <y>165</y>
+      <w>125</w>
+      <h>380</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m1=0..n
 m2=1
 requests &gt;</panel_attributes>
-    <additional_attributes>10.0;640.0;230.0;640.0;230.0;10.0</additional_attributes>
+    <additional_attributes>10.0;730.0;230.0;730.0;230.0;10.0</additional_attributes>
   </element>
 </diagram>
