@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>658</x>
+      <y>42</y>
+      <w>154</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+User
+--
+#username: String
+#password: String
+#name: String
+#surname: String
+#phoneNumber: String
+#email: String
+#bankAccount: String
+_-ClassAttribute: Long_
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>448</x>
+      <y>259</y>
+      <w>308</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Technician
+--
+#specialty: Specialty
+#areas: HashSet&lt;String&gt;
+#schedule: Integer[][]
+--
+#hasSpecialty(specialty: Specialty): boolean
+#servesArea(area: String): boolean
+#isAvailable(day:int , HourFrom: int , HourTo: int): boolean
+#sendReceipt():void
+#offersJobForLessThanPrice(job:JobType , price: double):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>826</x>
+      <y>259</y>
+      <w>147</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Customer
+--
+#sendReceipt():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>224</y>
+      <w>161</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>210.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>735</x>
+      <y>224</y>
+      <w>175</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1029</x>
+      <y>476</y>
+      <w>182</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Payment
+--
+#date: Calendar
+#paymentType: PaymentType
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>763</x>
+      <y>637</y>
+      <w>182</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Repair
+--
+#quantity: double
+#payment: Payment
+#evaluation: Evaluation
+#paid :boolean
+#repairRequest: RepairRequest
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1155</x>
+      <y>329</y>
+      <w>84</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+PaymentType
+--
+CARD
+CASH</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>483</x>
+      <y>609</y>
+      <w>224</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+Specialty
+--
+#name: String
+#jobTypes: Set&lt;JobType&gt;
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>399</x>
+      <y>441</y>
+      <w>224</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+Specialty
+--
+#name: String
+#jobTypes: Set&lt;JobType&gt;
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>105</x>
+      <y>252</y>
+      <w>224</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+JobType
+--
+#name: String
+#specialty: String
+#measurementUnit: MeasurementUnit
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>462</y>
+      <w>224</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+Job
+--
+#technician: Technician
+#jobType: JobType
+#price: double
+#duration: int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>763</x>
+      <y>420</y>
+      <w>217</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+RepairRequest
+--
+#conductionDate: Calendar
+#creationDate: Calendar
+#address: Address
+#paymentType: PaymentType
+#customer : Customer
+#repair : Repair
+#job : Job
+#confirmed: boolean
+#completed: boolean
+--
+#complete(): void
+#confirm(): void
+#reject(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>112</x>
+      <y>56</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
+Package::FatClass
+{Some Properties}
+--
+-id: Long {composite}
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
