@@ -1,7 +1,5 @@
 package com.example.quickrepair;
 
-import android.os.Build;
-
 import androidx.annotation.Nullable;
 
 import java.util.Calendar;

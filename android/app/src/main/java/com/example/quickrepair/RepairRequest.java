@@ -1,6 +1,7 @@
 package com.example.quickrepair;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class RepairRequest implements Comparable<RepairRequest>
 {
@@ -8,8 +9,8 @@ public class RepairRequest implements Comparable<RepairRequest>
     private Customer customer;
     private PaymentType paymentType;
     private Job job;
-    private Calendar creationDate;
-    private Calendar conductionDate;
+    private GregorianCalendar creationDate;
+    private GregorianCalendar conductionDate;
     private Address address;
     private boolean isConfirmed;
 
@@ -29,7 +30,7 @@ public class RepairRequest implements Comparable<RepairRequest>
     /*
     * Constructor when the Repair Request initialize from Costumer
      */
-    public RepairRequest(Customer customer, PaymentType paymentType, Job job,Calendar creationDate, Calendar conductionDate, Address address) {
+    public RepairRequest(Customer customer, PaymentType paymentType, Job job,GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address) {
         setCustomer(customer);
         setPaymentType(paymentType);
         setJob(job);
@@ -42,12 +43,12 @@ public class RepairRequest implements Comparable<RepairRequest>
 
     //TODO validity checks on setters
     //SETTERS
-    public void setConductionDate(Calendar conductionDate)
+    public void setConductionDate(GregorianCalendar conductionDate)
     {
         this.conductionDate = conductionDate;
     }
 
-    public void setCreationDate(Calendar creationDate)
+    public void setCreationDate(GregorianCalendar creationDate)
     {
         this.creationDate = creationDate;
     }
@@ -82,16 +83,20 @@ public class RepairRequest implements Comparable<RepairRequest>
     }
 
     public void setEstimatedDuration(int estimatedDuration) {
+        if (estimatedDuration < 0) throw new NumberFormatException("Duration can not be negative.");
+        if (estimatedDuration == 0) throw new NumberFormatException("Duration can not be zero.");
+        if (estimatedDuration > 480) throw new NumberFormatException("Duration can not be greater tha 480 minutes.");
+
         this.estimatedDuration = estimatedDuration;
     }
-    //GETTERS
 
-    public Calendar getCreationDate()
+    //GETTERS
+    public GregorianCalendar getCreationDate()
     {
         return creationDate;
     }
 
-    public Calendar getConductionDate()
+    public GregorianCalendar getConductionDate()
     {
         return conductionDate;
     }

@@ -6,7 +6,6 @@ public class Job
     private JobType jobType;
 
     private double price;
-    private int duration;
 
     public Job()
     {
@@ -17,7 +16,6 @@ public class Job
         setTechnician(technician);
         setJobType(jobType);
         setPrice(price);
-        setDuration(duration);
     }
 
     public Technician getTechnician()
@@ -57,18 +55,4 @@ public class Job
         this.price = price;
     }
 
-    public int getDuration()
-    {
-        return duration;
-    }
-
-    public void setDuration(int duration)
-    {
-        if (price < 0) throw new NumberFormatException("Duration can not be negative.");
-        if (price == 0) throw new NumberFormatException("Duration can not be zero.");
-        if (price > 480)
-            throw new NumberFormatException("Duration can not be greater tha 480 minutes.");
-
-        this.duration = duration;
-    }
 }

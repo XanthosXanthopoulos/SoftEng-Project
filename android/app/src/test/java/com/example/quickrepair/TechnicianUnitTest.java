@@ -218,14 +218,5 @@ public class TechnicianUnitTest {
                 , "" , "", "");
     }
 
-    /*@Test
-    public void testGetYearMonthDay(){
-        Calendar actualDate = new GregorianCalendar(2018, 1, 1 ,1 ,1,1);
-        Calendar importantDate = new GregorianCalendar(2018, 1,1);
-
-        Calendar newDate = technicianToTest.getYearMonthDay(actualDate);
-
-
-    }*/
 
 }
