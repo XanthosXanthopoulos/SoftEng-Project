@@ -266,12 +266,23 @@ public class Technician extends User
                     gap.add(startCal);
                     gap.add(endCal);
                     gaps.add(gap);
-                }
+                }//else no gap between these repairRequests
+                beforeRepairRequest = nextRepairRequest;
+                beforeRepairReqCalendar = nextRepairReqCalendar;
             }
 
+            beforeRepairReqCalendar.add(beforeRepairReqCalendar.MINUTE, beforeRepairRequest.getEstimatedDuration());
             //last gap
-            
-
+            if (beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR) < end ) {
+                //create gap
+                //new gap
+                ArrayList<GregorianCalendar> gap = new ArrayList<GregorianCalendar>();
+                GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH),date.get(date.DAY_OF_MONTH), beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR), beforeRepairReqCalendar.get(beforeRepairReqCalendar.MINUTE));
+                GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH),date.get(date.DAY_OF_MONTH) , end , 0);
+                gap.add(startCal);
+                gap.add(endCal);
+                gaps.add(gap);
+            }
         }
         return gaps;
     }
