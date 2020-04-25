@@ -48,6 +48,7 @@ public class Technician extends User
         setSpecialty(specialty);
         setAreas(areas);
     }
+    //TODO Constructors with input sets of areas and jobs
 
     //SETTERS
     //TODO: Comments and checks at setters

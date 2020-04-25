@@ -5,7 +5,7 @@
     <id>UMLActor</id>
     <coordinates>
       <x>333</x>
-      <y>135</y>
+      <y>180</y>
       <w>72</w>
       <h>99</h>
     </coordinates>
@@ -16,7 +16,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>513</x>
-      <y>198</y>
+      <y>243</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -27,7 +27,7 @@
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>216</y>
+      <y>261</y>
       <w>27</w>
       <h>621</h>
     </coordinates>
@@ -38,7 +38,7 @@
     <id>Relation</id>
     <coordinates>
       <x>549</x>
-      <y>216</y>
+      <y>261</y>
       <w>27</w>
       <h>621</h>
     </coordinates>
@@ -49,7 +49,7 @@
     <id>Relation</id>
     <coordinates>
       <x>720</x>
-      <y>216</y>
+      <y>261</y>
       <w>27</w>
       <h>612</h>
     </coordinates>
@@ -60,7 +60,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>666</x>
-      <y>198</y>
+      <y>243</y>
       <w>126</w>
       <h>27</h>
     </coordinates>
@@ -71,7 +71,7 @@
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>243</y>
+      <y>288</y>
       <w>207</w>
       <h>45</h>
     </coordinates>
@@ -84,9 +84,9 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>549</x>
-      <y>252</y>
+      <y>297</y>
       <w>18</w>
-      <h>81</h>
+      <h>108</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -95,9 +95,9 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>720</x>
-      <y>279</y>
+      <y>324</y>
       <w>18</w>
-      <h>54</h>
+      <h>27</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -106,7 +106,7 @@
     <id>Relation</id>
     <coordinates>
       <x>558</x>
-      <y>261</y>
+      <y>306</y>
       <w>180</w>
       <h>45</h>
     </coordinates>
@@ -119,7 +119,7 @@ setSpecialty
     <id>UMLGeneric</id>
     <coordinates>
       <x>900</x>
-      <y>198</y>
+      <y>243</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -130,7 +130,7 @@ setSpecialty
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>405</y>
+      <y>450</y>
       <w>207</w>
       <h>36</h>
     </coordinates>
@@ -142,7 +142,7 @@ setSpecialty
     <id>Relation</id>
     <coordinates>
       <x>558</x>
-      <y>423</y>
+      <y>468</y>
       <w>180</w>
       <h>45</h>
     </coordinates>
@@ -155,7 +155,7 @@ setJobType(JobType)
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>648</y>
+      <y>693</y>
       <w>207</w>
       <h>36</h>
     </coordinates>
@@ -167,7 +167,7 @@ setJobType(JobType)
     <id>Relation</id>
     <coordinates>
       <x>558</x>
-      <y>675</y>
+      <y>720</y>
       <w>180</w>
       <h>45</h>
     </coordinates>
@@ -180,7 +180,7 @@ filterArea
     <id>Relation</id>
     <coordinates>
       <x>729</x>
-      <y>432</y>
+      <y>477</y>
       <w>225</w>
       <h>36</h>
     </coordinates>
@@ -192,7 +192,7 @@ offers(JobType)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>567</y>
+      <y>612</y>
       <w>207</w>
       <h>36</h>
     </coordinates>
@@ -204,7 +204,7 @@ offers(JobType)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>558</x>
-      <y>585</y>
+      <y>630</y>
       <w>180</w>
       <h>45</h>
     </coordinates>
@@ -217,7 +217,7 @@ filterAvailable
     <id>Relation</id>
     <coordinates>
       <x>729</x>
-      <y>603</y>
+      <y>648</y>
       <w>234</w>
       <h>45</h>
     </coordinates>
@@ -230,7 +230,7 @@ isAvailable
     <id>Relation</id>
     <coordinates>
       <x>729</x>
-      <y>693</y>
+      <y>738</y>
       <w>225</w>
       <h>36</h>
     </coordinates>
@@ -242,7 +242,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>549</x>
-      <y>414</y>
+      <y>459</y>
       <w>18</w>
       <h>72</h>
     </coordinates>
@@ -253,7 +253,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>720</x>
-      <y>441</y>
+      <y>486</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -264,7 +264,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>549</x>
-      <y>585</y>
+      <y>630</y>
       <w>18</w>
       <h>63</h>
     </coordinates>
@@ -275,7 +275,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>720</x>
-      <y>594</y>
+      <y>639</y>
       <w>18</w>
       <h>54</h>
     </coordinates>
@@ -286,7 +286,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>549</x>
-      <y>657</y>
+      <y>702</y>
       <w>18</w>
       <h>72</h>
     </coordinates>
@@ -297,7 +297,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>720</x>
-      <y>693</y>
+      <y>738</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
@@ -308,7 +308,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>936</x>
-      <y>450</y>
+      <y>495</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
@@ -319,7 +319,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>936</x>
-      <y>621</y>
+      <y>666</y>
       <w>18</w>
       <h>27</h>
     </coordinates>
@@ -330,7 +330,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>936</x>
-      <y>711</y>
+      <y>756</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -341,7 +341,7 @@ servesArea(Area)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>936</x>
-      <y>216</y>
+      <y>261</y>
       <w>27</w>
       <h>612</h>
     </coordinates>
@@ -352,7 +352,7 @@ servesArea(Area)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>729</y>
+      <y>774</y>
       <w>207</w>
       <h>36</h>
     </coordinates>
@@ -364,7 +364,7 @@ servesArea(Area)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>549</x>
-      <y>738</y>
+      <y>783</y>
       <w>18</w>
       <h>63</h>
     </coordinates>
@@ -375,7 +375,7 @@ servesArea(Area)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>558</x>
-      <y>738</y>
+      <y>783</y>
       <w>189</w>
       <h>36</h>
     </coordinates>
@@ -387,7 +387,7 @@ filterJobPrice(Price)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>720</x>
-      <y>756</y>
+      <y>801</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
@@ -398,7 +398,7 @@ filterJobPrice(Price)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>720</x>
-      <y>756</y>
+      <y>801</y>
       <w>243</w>
       <h>36</h>
     </coordinates>
@@ -410,9 +410,54 @@ offersJobForLessThan(JobType , price)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>936</x>
-      <y>774</y>
+      <y>819</y>
       <w>18</w>
       <h>18</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1026</x>
+      <y>243</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>_:Specialty_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1062</x>
+      <y>261</y>
+      <w>27</w>
+      <h>603</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>558</x>
+      <y>351</y>
+      <w>522</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+getJobTypes()</panel_attributes>
+    <additional_attributes>560.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1062</x>
+      <y>360</y>
+      <w>18</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
