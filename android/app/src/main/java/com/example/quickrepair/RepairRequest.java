@@ -1,7 +1,6 @@
 package com.example.quickrepair;
 
 import java.util.Calendar;
-import java.util.Comparator;
 
 public class RepairRequest implements Comparable<RepairRequest>
 {
@@ -15,7 +14,7 @@ public class RepairRequest implements Comparable<RepairRequest>
     private boolean isConfirmed;
 
     private String commentsFromCustomer;
-    private int duration;
+    private int estimatedDuration;
 
     private Repair repair;
     //TODO Constructor on repair request
@@ -78,6 +77,13 @@ public class RepairRequest implements Comparable<RepairRequest>
         this.job = job;
     }
 
+    public void setCommentsFromCustomer(String commentsFromCustomer) {
+        this.commentsFromCustomer = commentsFromCustomer;
+    }
+
+    public void setEstimatedDuration(int estimatedDuration) {
+        this.estimatedDuration = estimatedDuration;
+    }
     //GETTERS
 
     public Calendar getCreationDate()
@@ -118,6 +124,14 @@ public class RepairRequest implements Comparable<RepairRequest>
     public boolean isCompleted()
     {
         return repair != null;
+    }
+
+    public String getCommentsFromCustomer() {
+        return commentsFromCustomer;
+    }
+
+    public int getEstimatedDuration() {
+        return estimatedDuration;
     }
 
     public Job getJob()

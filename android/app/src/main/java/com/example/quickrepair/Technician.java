@@ -236,25 +236,25 @@ public class Technician extends User
             Collections.sort(repairRequests);
 
             //first gap
-            int hour = repairRequests.get(0).getConductionDate().HOUR;
-            int min = repairRequests.get(0).getConductionDate().MINUTE;
+            RepairRequest firstRepairRequest = repairRequests.get(0);
+            Calendar firstRepairReqCalendar = (GregorianCalendar)firstRepairRequest.getConductionDate().clone();
 
-            if(hour == start && min == 0){
+            int hour = firstRepairReqCalendar.get(firstRepairReqCalendar.HOUR);
+            int min = firstRepairReqCalendar.get(firstRepairReqCalendar.MINUTE);
+
+            if(!(hour == start && min == 0)){
                 ArrayList<Calendar> gap = new ArrayList<Calendar>();
-                Calendar startCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, start ,0);
-                Calendar endCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, start ,min);
+                Calendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH),date.get(date.DAY_OF_MONTH) , start ,0);
+                Calendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH),date.get(date.DAY_OF_MONTH) , hour ,min);
                 gap.add(startCal);
                 gap.add(endCal);
                 gaps.add(gap);
             }
 
-            ArrayList<Calendar> gap = new ArrayList<Calendar>();
-            Calendar startCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, start ,0);
-            Calendar endCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, start ,min);
+            for(int i = 1; i<repairRequests.size(); i++){
+                firstRepairReqCalendar.add(firstRepairReqCalendar.MINUTE, firstRepairRequest.getEstimatedDuration());
 
-            //for(int i = 1; i<repairRequests.size(); i++){
-
-            //}
+            }
 
         }
         return gaps;
@@ -332,9 +332,9 @@ public class Technician extends User
     private Calendar getYearMonthDay(Calendar actualDate){
         //get the day, month, year
         //don't include the hour
-        int day = actualDate.DAY_OF_MONTH;
-        int month = actualDate.MONTH;
-        int year = actualDate.YEAR;
+        int day = actualDate.get(actualDate.DAY_OF_MONTH);
+        int month = actualDate.get(actualDate.MONTH);
+        int year = actualDate.get(actualDate.YEAR);
 
         Calendar newDate = new GregorianCalendar(day,month,year);
         return newDate;
