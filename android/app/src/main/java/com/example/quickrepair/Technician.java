@@ -249,18 +249,28 @@ public class Technician extends User
                 gap.add(endCal);
                 gaps.add(gap);
             }
-            RepairRequest nextRepairRequest = firstRepairRequest;
-            GregorianCalendar nextRepairReqCalendar = firstRepairReqCalendar;
+            RepairRequest beforeRepairRequest = firstRepairRequest;
+            GregorianCalendar beforeRepairReqCalendar = firstRepairReqCalendar;
 
             for(int i = 1; i<repairRequests.size(); i++){
-                nextRepairReqCalendar.add(firstRepairReqCalendar.MINUTE, firstRepairRequest.getEstimatedDuration());
-
                 //next step
-                nextRepairRequest = repairRequests.get(i);
-                nextRepairReqCalendar = (GregorianCalendar)firstRepairRequest.getConductionDate().clone();
+                RepairRequest nextRepairRequest = repairRequests.get(i);
+                GregorianCalendar nextRepairReqCalendar = (GregorianCalendar)nextRepairRequest.getConductionDate().clone();
+
+                beforeRepairReqCalendar.add(beforeRepairReqCalendar.MINUTE, beforeRepairRequest.getEstimatedDuration());
+                if(beforeRepairReqCalendar.compareTo(nextRepairReqCalendar) < 0 ){
+                    //new gap
+                    ArrayList<GregorianCalendar> gap = new ArrayList<GregorianCalendar>();
+                    GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH),date.get(date.DAY_OF_MONTH), beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR), beforeRepairReqCalendar.get(beforeRepairReqCalendar.MINUTE));
+                    GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH),date.get(date.DAY_OF_MONTH) , nextRepairReqCalendar.get(nextRepairReqCalendar.HOUR) , nextRepairReqCalendar.get(nextRepairReqCalendar.MINUTE));
+                    gap.add(startCal);
+                    gap.add(endCal);
+                    gaps.add(gap);
+                }
             }
 
             //last gap
+            
 
         }
         return gaps;
