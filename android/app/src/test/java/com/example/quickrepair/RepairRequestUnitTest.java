@@ -134,4 +134,23 @@ public class RepairRequestUnitTest {
         Assert.assertEquals(repairRequest1 , repairRequests.get(1));
     }
 
+    @Test
+    public void sortedArrayOk2(){
+        ArrayList<RepairRequest> repairRequests = new ArrayList<RepairRequest>();
+        RepairRequest repairRequest1 = new RepairRequest();
+        RepairRequest repairRequest2 = new RepairRequest();
+        Calendar c1 = new GregorianCalendar(2018,1,1,1,0);
+        Calendar c2 = new GregorianCalendar(2018,1,1,2,0);
+        repairRequest1.setConductionDate(c1);
+        repairRequest2.setConductionDate(c2);
+
+        repairRequests.add(repairRequest1);
+        repairRequests.add(repairRequest2);
+
+        Collections.sort(repairRequests);
+
+        Assert.assertEquals(repairRequest1 , repairRequests.get(0));
+        Assert.assertEquals(repairRequest2 , repairRequests.get(1));
+    }
+
 }
