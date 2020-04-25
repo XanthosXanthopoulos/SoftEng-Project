@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>12</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>168</x>
-      <y>0</y>
-      <w>96</w>
-      <h>132</h>
+      <x>108</x>
+      <y>162</y>
+      <w>72</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Τεχνικός</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>408</x>
-      <y>84</y>
-      <w>120</w>
-      <h>36</h>
+      <x>324</x>
+      <y>225</y>
+      <w>90</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>_:ConfirmUI_</panel_attributes>
     <additional_attributes/>
@@ -26,43 +26,43 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>204</x>
-      <y>108</y>
-      <w>36</w>
-      <h>696</h>
+      <x>135</x>
+      <y>243</y>
+      <w>27</w>
+      <h>567</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;610.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>456</x>
-      <y>108</y>
-      <w>36</w>
-      <h>696</h>
+      <x>360</x>
+      <y>243</y>
+      <w>27</w>
+      <h>558</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;600.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>684</x>
-      <y>108</y>
-      <w>36</w>
-      <h>696</h>
+      <x>648</x>
+      <y>243</y>
+      <w>27</w>
+      <h>558</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;600.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>612</x>
-      <y>84</y>
-      <w>168</w>
-      <h>36</h>
+      <x>594</x>
+      <y>225</y>
+      <w>126</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>_:ConfirmController_</panel_attributes>
     <additional_attributes/>
@@ -70,22 +70,22 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>204</x>
-      <y>144</y>
-      <w>276</w>
-      <h>48</h>
+      <x>135</x>
+      <y>270</y>
+      <w>243</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Προβολή αιτημάτων επισκευής</panel_attributes>
-    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>456</x>
-      <y>156</y>
-      <w>24</w>
-      <h>120</h>
+      <x>360</x>
+      <y>279</y>
+      <w>18</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -93,10 +93,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>684</x>
-      <y>180</y>
-      <w>24</w>
-      <h>96</h>
+      <x>648</x>
+      <y>297</y>
+      <w>18</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -104,22 +104,22 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>468</x>
-      <y>156</y>
-      <w>240</w>
-      <h>48</h>
+      <x>369</x>
+      <y>279</y>
+      <w>297</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-getPendingRequests()</panel_attributes>
-    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+showRepairRequests()</panel_attributes>
+    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>924</x>
-      <y>84</y>
-      <w>120</w>
-      <h>36</h>
+      <x>828</x>
+      <y>225</y>
+      <w>90</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>_:Technician_</panel_attributes>
     <additional_attributes/>
@@ -127,10 +127,10 @@ getPendingRequests()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1104</x>
-      <y>84</y>
-      <w>132</w>
-      <h>36</h>
+      <x>963</x>
+      <y>225</y>
+      <w>99</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>_:RepairRequest_</panel_attributes>
     <additional_attributes/>
@@ -138,21 +138,21 @@ getPendingRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>972</x>
-      <y>108</y>
-      <w>36</w>
-      <h>696</h>
+      <x>864</x>
+      <y>243</y>
+      <w>27</w>
+      <h>549</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;590.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>972</x>
-      <y>192</y>
-      <w>24</w>
-      <h>72</h>
+      <x>864</x>
+      <y>306</y>
+      <w>18</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -160,150 +160,184 @@ getPendingRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>204</x>
-      <y>360</y>
-      <w>276</w>
-      <h>48</h>
+      <x>135</x>
+      <y>432</y>
+      <w>243</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Προβολή λεπτομέρειων ραντεβού</panel_attributes>
-    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>468</x>
-      <y>384</y>
-      <w>240</w>
-      <h>60</h>
+      <x>369</x>
+      <y>450</y>
+      <w>297</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-getRequestDetails
+showRepairRequest
 (RepairRequest)</panel_attributes>
-    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
-      <y>168</y>
-      <w>300</w>
-      <h>48</h>
+      <x>657</x>
+      <y>288</y>
+      <w>225</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-getPendingRequests()</panel_attributes>
+getRepairRequests()</panel_attributes>
     <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>204</x>
-      <y>576</y>
-      <w>276</w>
-      <h>48</h>
+      <x>135</x>
+      <y>594</y>
+      <w>243</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-Επιβεβαίωση αίτησης</panel_attributes>
-    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+Εισαγωγή εκτιμώμενου χρόνου</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1152</x>
-      <y>108</y>
-      <w>36</w>
-      <h>696</h>
+      <x>999</x>
+      <y>243</y>
+      <w>27</w>
+      <h>558</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;600.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>432</x>
-      <y>600</y>
-      <w>324</w>
-      <h>48</h>
+      <x>369</x>
+      <y>612</y>
+      <w>306</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-ConfirmRepairRequest(RepairRequest)</panel_attributes>
-    <additional_attributes>220.0;20.0;40.0;20.0</additional_attributes>
+setEstimatedCompletionTime(duration)</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>456</x>
-      <y>372</y>
-      <w>24</w>
+      <x>360</x>
+      <y>441</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>648</x>
+      <y>468</y>
+      <w>18</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>360</x>
+      <y>612</y>
+      <w>18</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>648</x>
+      <y>630</y>
+      <w>18</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>135</x>
+      <y>666</y>
+      <w>243</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Αποδοχή</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>360</x>
+      <y>684</y>
+      <w>18</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>684</y>
+      <w>306</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+accept()</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>648</x>
+      <y>702</y>
+      <w>18</w>
       <h>72</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>684</x>
-      <y>408</y>
-      <w>24</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>456</x>
-      <y>600</y>
-      <w>24</w>
-      <h>144</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>684</x>
-      <y>624</y>
-      <w>24</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
-      <y>624</y>
-      <w>492</w>
-      <h>48</h>
+      <x>657</x>
+      <y>693</y>
+      <w>369</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-setConfirmed()</panel_attributes>
+confirm(estimatedCompletionDuration)</panel_attributes>
     <additional_attributes>390.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>696</x>
-      <y>660</y>
-      <w>312</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-removeFromPendingRequest()</panel_attributes>
-    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1152</x>
-      <y>648</y>
-      <w>24</w>
-      <h>48</h>
+      <x>999</x>
+      <y>711</y>
+      <w>18</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -311,10 +345,44 @@ removeFromPendingRequest()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>972</x>
-      <y>684</y>
-      <w>24</w>
-      <h>60</h>
+      <x>1080</x>
+      <y>225</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>_:Customer_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1116</x>
+      <y>243</y>
+      <w>27</w>
+      <h>567</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;610.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>657</x>
+      <y>720</y>
+      <w>477</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+notifyOfCompletion(RepairRequest)</panel_attributes>
+    <additional_attributes>510.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1116</x>
+      <y>738</y>
+      <w>18</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
