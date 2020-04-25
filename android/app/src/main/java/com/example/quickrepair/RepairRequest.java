@@ -165,11 +165,11 @@ public class RepairRequest implements Comparable<RepairRequest>
         && (this.getConductionDate().get(this.conductionDate.MINUTE) == o.getConductionDate().get(o.conductionDate.MINUTE))) {
             return 0;
         }else if(this.getConductionDate().get(this.conductionDate.HOUR) < o.getConductionDate().get(o.conductionDate.HOUR)){
-            return 1;
+            return -1;
         }else if((this.getConductionDate().get(this.conductionDate.HOUR) == o.getConductionDate().get(o.conductionDate.HOUR))
                 && this.getConductionDate().get(this.conductionDate.MINUTE) < o.getConductionDate().get(o.conductionDate.MINUTE)){
-            return 1;
+            return -1;
         }
-        return -1;
+        return 1;
     }
 }

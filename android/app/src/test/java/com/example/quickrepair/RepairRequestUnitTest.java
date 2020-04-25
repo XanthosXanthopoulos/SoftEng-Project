@@ -3,8 +3,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 
 public class RepairRequestUnitTest {
@@ -75,7 +79,7 @@ public class RepairRequestUnitTest {
         Calendar c2 = new GregorianCalendar(2018,1,1,2,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
-        Assert.assertEquals(1, repairRequest1.compareTo(repairRequest2));
+        Assert.assertEquals(-1, repairRequest1.compareTo(repairRequest2));
     }
 
     @Test
@@ -86,7 +90,7 @@ public class RepairRequestUnitTest {
         Calendar c2 = new GregorianCalendar(2018,1,1,1,1);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
-        Assert.assertEquals(1, repairRequest1.compareTo(repairRequest2));
+        Assert.assertEquals(-1, repairRequest1.compareTo(repairRequest2));
     }
 
     @Test
@@ -97,7 +101,7 @@ public class RepairRequestUnitTest {
         Calendar c2 = new GregorianCalendar(2018,1,1,1,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
-        Assert.assertEquals(-1, repairRequest1.compareTo(repairRequest2));
+        Assert.assertEquals(1, repairRequest1.compareTo(repairRequest2));
     }
 
     @Test
@@ -108,7 +112,26 @@ public class RepairRequestUnitTest {
         Calendar c2 = new GregorianCalendar(2018,1,1,1,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
-        Assert.assertEquals(-1, repairRequest1.compareTo(repairRequest2));
+        Assert.assertEquals(1, repairRequest1.compareTo(repairRequest2));
+    }
+
+    @Test
+    public void sortedArrayOk(){
+        ArrayList<RepairRequest> repairRequests = new ArrayList<RepairRequest>();
+        RepairRequest repairRequest1 = new RepairRequest();
+        RepairRequest repairRequest2 = new RepairRequest();
+        Calendar c1 = new GregorianCalendar(2018,1,1,2,0);
+        Calendar c2 = new GregorianCalendar(2018,1,1,1,0);
+        repairRequest1.setConductionDate(c1);
+        repairRequest2.setConductionDate(c2);
+
+        repairRequests.add(repairRequest1);
+        repairRequests.add(repairRequest2);
+
+        Collections.sort(repairRequests);
+
+        Assert.assertEquals(repairRequest2 , repairRequests.get(0));
+        Assert.assertEquals(repairRequest1 , repairRequests.get(1));
     }
 
 }
