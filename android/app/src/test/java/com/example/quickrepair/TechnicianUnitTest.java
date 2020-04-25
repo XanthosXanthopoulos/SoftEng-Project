@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import static org.junit.Assert.*;
@@ -36,8 +37,6 @@ public class TechnicianUnitTest {
             //System.out.println(exampleSchedule[i][1]);
             //System.out.println();
         }
-
-
 
     }
     @Test
@@ -218,4 +217,6 @@ public class TechnicianUnitTest {
         technicianToTest.setTechnicianInfo("" , null , ""
                 , "" , "", "");
     }
+
+
 }

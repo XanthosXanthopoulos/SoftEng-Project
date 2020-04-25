@@ -6,7 +6,6 @@ public class Job
     private JobType jobType;
 
     private double price;
-    private int duration;
 
     public Job()
     {
@@ -17,7 +16,6 @@ public class Job
         setTechnician(technician);
         setJobType(jobType);
         setPrice(price);
-        setDuration(duration);
     }
 
     public Technician getTechnician()
@@ -57,18 +55,29 @@ public class Job
         this.price = price;
     }
 
-    public int getDuration()
+    @Override
+    public boolean equals(Object other)
     {
-        return duration;
+        if (other == null) return false;
+
+        if (this == other) return true;
+
+        if (!(other instanceof Job)) return false;
+
+        if (!jobType.equals(((Job) other).jobType)) return false;
+
+        if (!technician.equals(((Job) other).technician)) return false;
+
+        return true;
     }
 
-    public void setDuration(int duration)
+    @Override
+    public int hashCode()
     {
-        if (price < 0) throw new NumberFormatException("Duration can not be negative.");
-        if (price == 0) throw new NumberFormatException("Duration can not be zero.");
-        if (price > 480)
-            throw new NumberFormatException("Duration can not be greater tha 480 minutes.");
+        if (jobType == null || technician == null || jobType.getName() == null || technician.getAFM() == null) return 0;
 
-        this.duration = duration;
+        String hash = jobType.getName() + technician.getAFM();
+
+        return hash.hashCode();
     }
 }

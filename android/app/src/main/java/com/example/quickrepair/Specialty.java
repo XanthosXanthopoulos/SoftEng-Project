@@ -44,4 +44,23 @@ public class Specialty
         return new HashSet<>(jobTypes);
     }
 
+    @Override
+    public boolean equals(Object other)
+    {
+        if (other == null) return false;
+
+        if (this == other) return true;
+
+        if (!(other instanceof Specialty)) return false;
+
+        if (!name.equals(((Specialty) other).getName())) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return name == null ? 0 : name.hashCode();
+    }
 }

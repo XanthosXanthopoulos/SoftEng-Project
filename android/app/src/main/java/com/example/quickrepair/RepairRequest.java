@@ -1,17 +1,21 @@
 package com.example.quickrepair;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-public class RepairRequest
+public class RepairRequest implements Comparable<RepairRequest>
 {
     //TODO replace with job slot for conductionDate
     private Customer customer;
     private PaymentType paymentType;
     private Job job;
-    private Calendar creationDate;
-    private Calendar conductionDate;
+    private GregorianCalendar creationDate;
+    private GregorianCalendar conductionDate;
     private Address address;
     private boolean isConfirmed;
+
+    private String commentsFromCustomer;
+    private int estimatedDuration;
 
     private Repair repair;
     //TODO Constructor on repair request
@@ -26,7 +30,7 @@ public class RepairRequest
     /*
     * Constructor when the Repair Request initialize from Costumer
      */
-    public RepairRequest(Customer customer, PaymentType paymentType, Job job,Calendar creationDate, Calendar conductionDate, Address address) {
+    public RepairRequest(Customer customer, PaymentType paymentType, Job job,GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address) {
         setCustomer(customer);
         setPaymentType(paymentType);
         setJob(job);
@@ -39,12 +43,12 @@ public class RepairRequest
 
     //TODO validity checks on setters
     //SETTERS
-    public void setConductionDate(Calendar conductionDate)
+    public void setConductionDate(GregorianCalendar conductionDate)
     {
         this.conductionDate = conductionDate;
     }
 
-    public void setCreationDate(Calendar creationDate)
+    public void setCreationDate(GregorianCalendar creationDate)
     {
         this.creationDate = creationDate;
     }
@@ -74,14 +78,25 @@ public class RepairRequest
         this.job = job;
     }
 
-    //GETTERS
+    public void setCommentsFromCustomer(String commentsFromCustomer) {
+        this.commentsFromCustomer = commentsFromCustomer;
+    }
 
-    public Calendar getCreationDate()
+    public void setEstimatedDuration(int estimatedDuration) {
+        if (estimatedDuration < 0) throw new NumberFormatException("Duration can not be negative.");
+        if (estimatedDuration == 0) throw new NumberFormatException("Duration can not be zero.");
+        if (estimatedDuration > 480) throw new NumberFormatException("Duration can not be greater tha 480 minutes.");
+
+        this.estimatedDuration = estimatedDuration;
+    }
+
+    //GETTERS
+    public GregorianCalendar getCreationDate()
     {
         return creationDate;
     }
 
-    public Calendar getConductionDate()
+    public GregorianCalendar getConductionDate()
     {
         return conductionDate;
     }
@@ -116,6 +131,14 @@ public class RepairRequest
         return repair != null;
     }
 
+    public String getCommentsFromCustomer() {
+        return commentsFromCustomer;
+    }
+
+    public int getEstimatedDuration() {
+        return estimatedDuration;
+    }
+
     public Job getJob()
     {
         return job;
@@ -147,5 +170,25 @@ public class RepairRequest
         setRepair(repair);
 
         return repair;
+    }
+
+    @Override
+    public int compareTo(RepairRequest o) {
+
+        if(o.getConductionDate().get(o.conductionDate.YEAR) != this.getConductionDate().get(this.conductionDate.YEAR) ||
+                o.getConductionDate().get(o.conductionDate.MONTH) != this.getConductionDate().get(this.conductionDate.MONTH) ||
+                o.getConductionDate().get(o.conductionDate.DAY_OF_MONTH) != this.getConductionDate().get(this.conductionDate.DAY_OF_MONTH)){
+            throw new IllegalStateException("only same day");
+        }
+        if((this.getConductionDate().get(this.conductionDate.HOUR) == o.getConductionDate().get(o.conductionDate.HOUR))
+        && (this.getConductionDate().get(this.conductionDate.MINUTE) == o.getConductionDate().get(o.conductionDate.MINUTE))) {
+            return 0;
+        }else if(this.getConductionDate().get(this.conductionDate.HOUR) < o.getConductionDate().get(o.conductionDate.HOUR)){
+            return -1;
+        }else if((this.getConductionDate().get(this.conductionDate.HOUR) == o.getConductionDate().get(o.conductionDate.HOUR))
+                && this.getConductionDate().get(this.conductionDate.MINUTE) < o.getConductionDate().get(o.conductionDate.MINUTE)){
+            return -1;
+        }
+        return 1;
     }
 }
