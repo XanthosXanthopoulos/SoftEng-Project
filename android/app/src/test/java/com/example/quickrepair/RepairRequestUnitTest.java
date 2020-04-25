@@ -14,9 +14,7 @@ public class RepairRequestUnitTest {
         standardDate = Calendar.getInstance();
         req = new RepairRequest();
         req.setPaymentType(PaymentType.CARD);
-        Address exampleAddress = new Address();
-        exampleAddress.setNumber("15");
-        exampleAddress.setStreetName("ath");
+        Address exampleAddress = new Address("ath" , "15");
         req.setAddress(exampleAddress);
         req.setConductionDate(standardDate);;
     }

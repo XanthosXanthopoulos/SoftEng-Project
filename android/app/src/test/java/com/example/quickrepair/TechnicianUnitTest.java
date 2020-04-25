@@ -19,9 +19,7 @@ public class TechnicianUnitTest {
         technicianToTest = new Technician("nikos", "sm" , "6958475635",
                 "asdih@ausdh.asdh" , "mybankaccount" , "nikos" ,
                 "123" , new Specialty("test"));
-        Address address = new Address();
-        address.setStreetName("ath");
-        address.setNumber("15");
+        Address address = new Address("ath" , "15");
         exampleSpecialty = new Specialty("Electrician");
         exampleJobType = new JobType("Allagi plakakia" , exampleSpecialty , MeasurementUnit.METER);
         exampleAddress = address;
@@ -132,7 +130,7 @@ public class TechnicianUnitTest {
     @Test
     public void setRepairRequest(){
         RepairRequest repairRequest = new RepairRequest();
-        repairRequest.setAddress(new Address());
+        repairRequest.setAddress(new Address("ath" , "15"));
         repairRequest.setConductionDate(new GregorianCalendar(2019,12,12));
         repairRequest.setPaymentType(PaymentType.CASH);
         technicianToTest.addRepairRequest(repairRequest);
