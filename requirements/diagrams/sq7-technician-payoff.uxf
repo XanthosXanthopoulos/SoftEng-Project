@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>9</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>144</x>
-      <y>135</y>
-      <w>72</w>
-      <h>99</h>
+      <x>60</x>
+      <y>30</y>
+      <w>80</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>Πελάτης</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>324</x>
-      <y>198</y>
-      <w>90</w>
-      <h>27</h>
+      <x>260</x>
+      <y>100</y>
+      <w>100</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>_:payoffUI_</panel_attributes>
     <additional_attributes/>
@@ -26,43 +26,43 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>171</x>
-      <y>216</y>
-      <w>27</w>
-      <h>603</h>
+      <x>90</x>
+      <y>120</y>
+      <w>30</w>
+      <h>690</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;670.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>216</y>
-      <w>27</w>
-      <h>612</h>
+      <x>300</x>
+      <y>120</y>
+      <w>30</w>
+      <h>690</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;670.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>531</x>
-      <y>216</y>
-      <w>27</w>
-      <h>612</h>
+      <x>490</x>
+      <y>120</y>
+      <w>30</w>
+      <h>690</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;670.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>477</x>
-      <y>198</y>
-      <w>126</w>
-      <h>27</h>
+      <x>430</x>
+      <y>100</y>
+      <w>140</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>_:PayoffController_</panel_attributes>
     <additional_attributes/>
@@ -70,23 +70,23 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>171</x>
-      <y>243</y>
-      <w>207</w>
-      <h>45</h>
+      <x>90</x>
+      <y>150</y>
+      <w>230</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Επιλογή 
-Ολοκληρωμένου ραντεβού</panel_attributes>
+αίτησης επισκευής</panel_attributes>
     <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>252</y>
-      <w>18</w>
-      <h>63</h>
+      <x>300</x>
+      <y>160</y>
+      <w>20</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -94,10 +94,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>531</x>
-      <y>261</y>
-      <w>18</w>
-      <h>63</h>
+      <x>490</x>
+      <y>170</y>
+      <w>20</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -105,10 +105,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>261</y>
-      <w>180</w>
-      <h>45</h>
+      <x>310</x>
+      <y>170</y>
+      <w>200</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 getAllRepairRequests
@@ -118,10 +118,10 @@ getAllRepairRequests
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>639</x>
-      <y>198</y>
-      <w>99</w>
-      <h>27</h>
+      <x>610</x>
+      <y>100</y>
+      <w>110</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>_:RepairRequest_</panel_attributes>
     <additional_attributes/>
@@ -129,10 +129,10 @@ getAllRepairRequests
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>171</x>
-      <y>405</y>
-      <w>207</w>
-      <h>36</h>
+      <x>90</x>
+      <y>330</y>
+      <w>230</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Εισαγωγή στοιχείων κάρτας</panel_attributes>
@@ -141,10 +141,10 @@ getAllRepairRequests
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>423</y>
-      <w>171</w>
-      <h>45</h>
+      <x>310</x>
+      <y>350</y>
+      <w>190</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 SetCardInfo
@@ -154,21 +154,21 @@ SetCardInfo
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>684</x>
-      <y>216</y>
-      <w>27</w>
-      <h>612</h>
+      <x>660</x>
+      <y>120</y>
+      <w>30</w>
+      <h>690</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;670.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>171</x>
-      <y>549</y>
-      <w>207</w>
-      <h>36</h>
+      <x>90</x>
+      <y>490</y>
+      <w>230</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 Εξόφληση</panel_attributes>
@@ -177,10 +177,10 @@ SetCardInfo
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>567</y>
-      <w>180</w>
-      <h>36</h>
+      <x>310</x>
+      <y>510</y>
+      <w>200</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 payoff()</panel_attributes>
@@ -189,10 +189,10 @@ payoff()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>414</y>
-      <w>18</w>
-      <h>108</h>
+      <x>300</x>
+      <y>340</y>
+      <w>20</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -200,10 +200,10 @@ payoff()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>567</y>
-      <w>18</w>
-      <h>126</h>
+      <x>300</x>
+      <y>510</y>
+      <w>20</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -211,10 +211,10 @@ payoff()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>531</x>
-      <y>576</y>
-      <w>18</w>
-      <h>108</h>
+      <x>490</x>
+      <y>520</y>
+      <w>20</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -222,10 +222,10 @@ payoff()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>279</y>
-      <w>162</w>
-      <h>36</h>
+      <x>500</x>
+      <y>190</y>
+      <w>180</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 isCompleted()</panel_attributes>
@@ -234,10 +234,10 @@ isCompleted()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>684</x>
-      <y>288</y>
-      <w>18</w>
-      <h>36</h>
+      <x>660</x>
+      <y>200</y>
+      <w>20</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -245,10 +245,10 @@ isCompleted()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>171</x>
-      <y>315</y>
-      <w>216</w>
-      <h>36</h>
+      <x>90</x>
+      <y>230</y>
+      <w>240</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Επιλογή τρόπου πληρωμής</panel_attributes>
@@ -257,10 +257,10 @@ isCompleted()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>333</y>
-      <w>18</w>
-      <h>54</h>
+      <x>300</x>
+      <y>250</y>
+      <w>20</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -268,10 +268,10 @@ isCompleted()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>342</y>
-      <w>180</w>
-      <h>45</h>
+      <x>310</x>
+      <y>260</y>
+      <w>200</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 SetPaymentType
@@ -281,10 +281,10 @@ SetPaymentType
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>531</x>
-      <y>360</y>
-      <w>18</w>
-      <h>27</h>
+      <x>490</x>
+      <y>280</y>
+      <w>20</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -292,10 +292,10 @@ SetPaymentType
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>549</x>
-      <y>441</y>
-      <w>144</w>
-      <h>90</h>
+      <x>510</x>
+      <y>370</y>
+      <w>160</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 validateCardInfo
@@ -305,10 +305,10 @@ validateCardInfo
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>522</x>
-      <y>441</y>
-      <w>36</w>
-      <h>81</h>
+      <x>480</x>
+      <y>370</y>
+      <w>30</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -316,10 +316,10 @@ validateCardInfo
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>531</x>
-      <y>450</y>
-      <w>18</w>
-      <h>63</h>
+      <x>500</x>
+      <y>380</y>
+      <w>20</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -327,10 +327,10 @@ validateCardInfo
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>576</y>
-      <w>171</w>
-      <h>36</h>
+      <x>500</x>
+      <y>520</y>
+      <w>190</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 getTechnician()</panel_attributes>
@@ -339,10 +339,10 @@ getTechnician()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>684</x>
-      <y>594</y>
-      <w>18</w>
-      <h>27</h>
+      <x>660</x>
+      <y>540</y>
+      <w>20</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -350,21 +350,10 @@ getTechnician()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>765</x>
-      <y>198</y>
-      <w>99</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>_:Technician_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>891</x>
-      <y>198</y>
-      <w>99</w>
-      <h>27</h>
+      <x>890</x>
+      <y>100</y>
+      <w>110</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>_:Customer_</panel_attributes>
     <additional_attributes/>
@@ -372,32 +361,21 @@ getTechnician()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>801</x>
-      <y>216</y>
-      <w>27</w>
-      <h>603</h>
+      <x>940</x>
+      <y>120</y>
+      <w>30</w>
+      <h>680</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>936</x>
-      <y>216</y>
-      <w>27</w>
-      <h>603</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>801</x>
-      <y>630</y>
-      <w>18</w>
-      <h>45</h>
+      <x>790</x>
+      <y>580</y>
+      <w>20</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -405,10 +383,10 @@ getTechnician()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
-      <y>666</y>
-      <w>18</w>
-      <h>18</h>
+      <x>940</x>
+      <y>620</y>
+      <w>20</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -416,10 +394,10 @@ getTechnician()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>621</y>
-      <w>279</w>
-      <h>36</h>
+      <x>500</x>
+      <y>570</y>
+      <w>310</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 sendReceipt()</panel_attributes>
@@ -428,10 +406,10 @@ sendReceipt()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>657</y>
-      <w>414</w>
-      <h>36</h>
+      <x>500</x>
+      <y>610</y>
+      <w>460</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 sendReceipt()</panel_attributes>
@@ -440,10 +418,10 @@ sendReceipt()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>171</x>
-      <y>693</y>
-      <w>216</w>
-      <h>36</h>
+      <x>90</x>
+      <y>650</y>
+      <w>240</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 Aξιολόγηση</panel_attributes>
@@ -452,10 +430,10 @@ Aξιολόγηση</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>711</y>
-      <w>18</w>
-      <h>81</h>
+      <x>300</x>
+      <y>670</y>
+      <w>20</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -463,10 +441,10 @@ Aξιολόγηση</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>711</y>
-      <w>180</w>
-      <h>36</h>
+      <x>310</x>
+      <y>670</y>
+      <w>200</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 evaluate(rating , comments)</panel_attributes>
@@ -475,10 +453,10 @@ evaluate(rating , comments)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>531</x>
-      <y>720</y>
-      <w>18</w>
-      <h>72</h>
+      <x>490</x>
+      <y>680</y>
+      <w>20</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -486,33 +464,22 @@ evaluate(rating , comments)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>738</y>
-      <w>279</w>
-      <h>36</h>
+      <x>500</x>
+      <y>710</y>
+      <w>690</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-addEvaluation(Evaluation)</panel_attributes>
-    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
+evaluate(Evaluation)</panel_attributes>
+    <additional_attributes>670.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>801</x>
-      <y>756</y>
-      <w>18</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1035</x>
-      <y>729</y>
-      <w>99</w>
-      <h>27</h>
+      <x>1030</x>
+      <y>690</y>
+      <w>110</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>_:Evaluation_</panel_attributes>
     <additional_attributes/>
@@ -520,24 +487,79 @@ addEvaluation(Evaluation)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1071</x>
-      <y>747</y>
-      <w>27</w>
-      <h>72</h>
+      <x>1070</x>
+      <y>710</y>
+      <w>30</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>720</y>
-      <w>513</w>
-      <h>36</h>
+      <x>500</x>
+      <y>680</y>
+      <w>550</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 create</panel_attributes>
-    <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>530.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>120</y>
+      <w>30</w>
+      <h>680</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>750</x>
+      <y>100</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>_:Technician_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1130</x>
+      <y>100</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>_:Repair_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1170</x>
+      <y>120</y>
+      <w>30</w>
+      <h>680</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1170</x>
+      <y>730</y>
+      <w>20</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
   </element>
 </diagram>

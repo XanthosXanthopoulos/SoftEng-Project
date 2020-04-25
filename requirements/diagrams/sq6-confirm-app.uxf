@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>108</x>
-      <y>162</y>
+      <x>171</x>
+      <y>99</y>
       <w>72</w>
       <h>99</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>324</x>
-      <y>225</y>
+      <x>387</x>
+      <y>162</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>135</x>
-      <y>243</y>
+      <x>198</x>
+      <y>180</y>
       <w>27</w>
       <h>567</h>
     </coordinates>
@@ -37,8 +37,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>243</y>
+      <x>423</x>
+      <y>180</y>
       <w>27</w>
       <h>558</h>
     </coordinates>
@@ -48,8 +48,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>648</x>
-      <y>243</y>
+      <x>711</x>
+      <y>180</y>
       <w>27</w>
       <h>558</h>
     </coordinates>
@@ -59,8 +59,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>594</x>
-      <y>225</y>
+      <x>657</x>
+      <y>162</y>
       <w>126</w>
       <h>27</h>
     </coordinates>
@@ -70,8 +70,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>135</x>
-      <y>270</y>
+      <x>198</x>
+      <y>207</y>
       <w>243</w>
       <h>36</h>
     </coordinates>
@@ -82,8 +82,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>279</y>
+      <x>423</x>
+      <y>216</y>
       <w>18</w>
       <h>90</h>
     </coordinates>
@@ -93,8 +93,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>648</x>
-      <y>297</y>
+      <x>711</x>
+      <y>234</y>
       <w>18</w>
       <h>72</h>
     </coordinates>
@@ -104,8 +104,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>279</y>
+      <x>432</x>
+      <y>216</y>
       <w>297</w>
       <h>36</h>
     </coordinates>
@@ -116,8 +116,8 @@ showRepairRequests()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>828</x>
-      <y>225</y>
+      <x>891</x>
+      <y>162</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -127,8 +127,8 @@ showRepairRequests()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>963</x>
-      <y>225</y>
+      <x>1026</x>
+      <y>162</y>
       <w>99</w>
       <h>27</h>
     </coordinates>
@@ -138,8 +138,8 @@ showRepairRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>864</x>
-      <y>243</y>
+      <x>927</x>
+      <y>180</y>
       <w>27</w>
       <h>549</h>
     </coordinates>
@@ -149,8 +149,8 @@ showRepairRequests()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>864</x>
-      <y>306</y>
+      <x>927</x>
+      <y>243</y>
       <w>18</w>
       <h>54</h>
     </coordinates>
@@ -160,8 +160,8 @@ showRepairRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>135</x>
-      <y>432</y>
+      <x>198</x>
+      <y>369</y>
       <w>243</w>
       <h>36</h>
     </coordinates>
@@ -172,8 +172,8 @@ showRepairRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>450</y>
+      <x>432</x>
+      <y>387</y>
       <w>297</w>
       <h>45</h>
     </coordinates>
@@ -185,8 +185,8 @@ showRepairRequest
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>657</x>
-      <y>288</y>
+      <x>720</x>
+      <y>225</y>
       <w>225</w>
       <h>36</h>
     </coordinates>
@@ -197,8 +197,8 @@ getRepairRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>135</x>
-      <y>594</y>
+      <x>198</x>
+      <y>531</y>
       <w>243</w>
       <h>36</h>
     </coordinates>
@@ -209,8 +209,8 @@ getRepairRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>999</x>
-      <y>243</y>
+      <x>1062</x>
+      <y>180</y>
       <w>27</w>
       <h>558</h>
     </coordinates>
@@ -220,8 +220,8 @@ getRepairRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>612</y>
+      <x>432</x>
+      <y>549</y>
       <w>306</w>
       <h>36</h>
     </coordinates>
@@ -232,8 +232,8 @@ setEstimatedCompletionTime(duration)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>441</y>
+      <x>423</x>
+      <y>378</y>
       <w>18</w>
       <h>54</h>
     </coordinates>
@@ -243,8 +243,8 @@ setEstimatedCompletionTime(duration)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>648</x>
-      <y>468</y>
+      <x>711</x>
+      <y>405</y>
       <w>18</w>
       <h>27</h>
     </coordinates>
@@ -254,8 +254,8 @@ setEstimatedCompletionTime(duration)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>612</y>
+      <x>423</x>
+      <y>549</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -265,8 +265,8 @@ setEstimatedCompletionTime(duration)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>648</x>
-      <y>630</y>
+      <x>711</x>
+      <y>567</y>
       <w>18</w>
       <h>27</h>
     </coordinates>
@@ -276,8 +276,8 @@ setEstimatedCompletionTime(duration)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>135</x>
-      <y>666</y>
+      <x>198</x>
+      <y>603</y>
       <w>243</w>
       <h>36</h>
     </coordinates>
@@ -288,8 +288,8 @@ setEstimatedCompletionTime(duration)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>684</y>
+      <x>423</x>
+      <y>621</y>
       <w>18</w>
       <h>99</h>
     </coordinates>
@@ -299,8 +299,8 @@ setEstimatedCompletionTime(duration)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>684</y>
+      <x>432</x>
+      <y>621</y>
       <w>306</w>
       <h>36</h>
     </coordinates>
@@ -311,8 +311,8 @@ accept()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>648</x>
-      <y>702</y>
+      <x>711</x>
+      <y>639</y>
       <w>18</w>
       <h>72</h>
     </coordinates>
@@ -322,8 +322,8 @@ accept()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>657</x>
-      <y>693</y>
+      <x>720</x>
+      <y>630</y>
       <w>369</w>
       <h>36</h>
     </coordinates>
@@ -334,8 +334,8 @@ confirm(estimatedCompletionDuration)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>999</x>
-      <y>711</y>
+      <x>1062</x>
+      <y>648</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -345,8 +345,8 @@ confirm(estimatedCompletionDuration)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1080</x>
-      <y>225</y>
+      <x>1143</x>
+      <y>162</y>
       <w>99</w>
       <h>27</h>
     </coordinates>
@@ -356,8 +356,8 @@ confirm(estimatedCompletionDuration)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1116</x>
-      <y>243</y>
+      <x>1179</x>
+      <y>180</y>
       <w>27</w>
       <h>567</h>
     </coordinates>
@@ -367,20 +367,20 @@ confirm(estimatedCompletionDuration)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>657</x>
-      <y>720</y>
+      <x>720</x>
+      <y>657</y>
       <w>477</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-notifyOfCompletion(RepairRequest)</panel_attributes>
+notifyOfConfirmation(RepairRequest)</panel_attributes>
     <additional_attributes>510.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1116</x>
-      <y>738</y>
+      <x>1179</x>
+      <y>675</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
