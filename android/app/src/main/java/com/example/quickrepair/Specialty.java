@@ -53,7 +53,7 @@ public class Specialty
 
         if (!(other instanceof Specialty)) return false;
 
-        if (!name.equals(((JobType) other).getName())) return false;
+        if (!name.equals(((Specialty) other).getName())) return false;
 
         return true;
     }

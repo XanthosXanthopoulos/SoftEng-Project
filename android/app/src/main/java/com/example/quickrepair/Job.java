@@ -55,4 +55,29 @@ public class Job
         this.price = price;
     }
 
+    @Override
+    public boolean equals(Object other)
+    {
+        if (other == null) return false;
+
+        if (this == other) return true;
+
+        if (!(other instanceof Job)) return false;
+
+        if (!jobType.equals(((Job) other).jobType)) return false;
+
+        if (!technician.equals(((Job) other).technician)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        if (jobType == null || technician == null || jobType.getName() == null || technician.getAFM() == null) return 0;
+
+        String hash = jobType.getName() + technician.getAFM();
+
+        return hash.hashCode();
+    }
 }
