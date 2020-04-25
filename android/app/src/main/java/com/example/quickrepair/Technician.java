@@ -1,6 +1,5 @@
 package com.example.quickrepair;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.GregorianCalendar;
@@ -133,6 +132,10 @@ public class Technician extends User
         this.schedule = schedule;
     }
 
+    public void setAFM(String AFM)
+    {
+        this.AFM = AFM;
+    }
 
     //GETTERS
     //TODO: comments to getters
@@ -166,8 +169,30 @@ public class Technician extends User
         return schedule;
     }
 
-    //Add methods
+    public String getAFM()
+    {
+        return AFM;
+    }
 
+    public Hashtable<GregorianCalendar, ArrayList<RepairRequest>> getCalendarWithConfirmRequests() {
+        return calendarWithConfirmRequests;
+    }
+
+    //Add methods
+    //Hashtable<GregorianCalendar, ArrayList<RepairRequest>> calendarWithConfirmRequests
+    public void notifyWithConfirmation(RepairRequest repairRequest){
+        GregorianCalendar actualDate = repairRequest.getConductionDate();
+        if(actualDate == null){ throw new IllegalArgumentException("It can't be null");}
+        GregorianCalendar newDate = Utilities.getYearMonthDay(actualDate);
+
+        //add it to the calendarWithConfirmRequests
+        if(!calendarWithConfirmRequests.containsKey(newDate)){
+            calendarWithConfirmRequests.put(newDate, new ArrayList<RepairRequest>());
+            calendarWithConfirmRequests.get(newDate).add(repairRequest);
+        }else{
+            calendarWithConfirmRequests.get(newDate).add(repairRequest);
+        }
+    }
     /**
      * Adds a job to the technician's list of jobs
      */
@@ -201,14 +226,14 @@ public class Technician extends User
      */
     public ArrayList<ArrayList<GregorianCalendar>> getAvailableHourRanges(GregorianCalendar date)
     {
-        int dayOFWeek = date.DAY_OF_WEEK;
+        int dayOFWeek = date.get(date.DAY_OF_WEEK);
         //technician doesn't work this day
-        if (isDayAvailable(dayOFWeek - 1))
+        if (!isDayAvailable(dayOFWeek - 1))
         {
             return null;
         }
         int start = getSchedule()[dayOFWeek - 1][0];
-        int end = getSchedule()[dayOFWeek - 1][0];
+        int end = getSchedule()[dayOFWeek - 1][1];
         GregorianCalendar newDate = Utilities.getYearMonthDay(date);
         ArrayList<RepairRequest> repairRequests = calendarWithConfirmRequests.get(newDate);
 
@@ -218,8 +243,8 @@ public class Technician extends User
         {
             //only one gap, he is free all day
             ArrayList<GregorianCalendar> gap = new ArrayList<GregorianCalendar>();
-            GregorianCalendar startCal = new GregorianCalendar(date.YEAR, date.MONTH, date.DAY_OF_MONTH, start, 0);
-            GregorianCalendar endCal = new GregorianCalendar(date.YEAR, date.MONTH, date.DAY_OF_MONTH, end, 0);
+            GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), start, 0);
+            GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
             gap.add(startCal);
             gap.add(endCal);
             gaps.add(gap);
@@ -303,6 +328,12 @@ public class Technician extends User
      */
     public void setAvailableOnDay(int day, int hourStart, int hourEnd)
     {
+        //technician doesn't work that day
+        if(hourStart == 0 && hourEnd == 0){
+            getSchedule()[day][0] = hourStart;
+            getSchedule()[day][1] = hourEnd;
+            return;
+        }
         //Argument checks
         if (day < 0 || day > 6 || hourStart < 0
                 || hourStart > 23 || hourEnd < 0 || hourEnd > 23 || hourStart >= hourEnd)
@@ -352,13 +383,5 @@ public class Technician extends User
         return isAfterStart || isBeforeEnd;
     }
 
-    public String getAFM()
-    {
-        return AFM;
-    }
 
-    public void setAFM(String AFM)
-    {
-        this.AFM = AFM;
-    }
 }

@@ -1,9 +1,10 @@
 package com.example.quickrepair;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -15,6 +16,15 @@ public class TechnicianUnitTest {
     JobType exampleJobType;
     Specialty exampleSpecialty;
     Integer[][] exampleSchedule;
+    RepairRequest repairRequest;
+    RepairRequest repairRequest2;
+
+    int monday = 1;//MONDAY
+    int april = GregorianCalendar.APRIL;//APRIL
+    GregorianCalendar april6 = new GregorianCalendar(2020, april,6);
+    GregorianCalendar start = new GregorianCalendar(2020, april, 6, 6, 0);
+    GregorianCalendar end = new GregorianCalendar(2020, april, 6, 19, 0);
+
     @Before
     public void setUpTests() {
         technicianToTest = new Technician("nikos", "sm" , "6958475635",
@@ -28,15 +38,15 @@ public class TechnicianUnitTest {
 
         //Initializing schedule
         exampleSchedule = new Integer[7][2];
-        for (int i = 0 ; i < 7 ; i ++){
+        for (int i = 0; i < 7 ; i ++){
             //example Technician works from 9
             exampleSchedule[i][0] = 9;
             //example Technician works until 5  (17 : 00)
             exampleSchedule[i][1] = 17;
-            //System.out.println(exampleSchedule[i][0]);
-            //System.out.println(exampleSchedule[i][1]);
-            //System.out.println();
         }
+        technicianToTest.setSchedule(exampleSchedule);
+        repairRequest = new RepairRequest();
+        repairRequest2 = new RepairRequest();
 
     }
     @Test
@@ -218,5 +228,107 @@ public class TechnicianUnitTest {
                 , "" , "", "");
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void testIsDayAvailableOutOfRange(){
+        technicianToTest.isDayAvailable(-1);
+    }
+    @Test
+    public void checkIsDayAvailableOk(){
+        Assert.assertTrue(technicianToTest.isDayAvailable(1));
+    }
+    @Test
+    public void testIsDayAvailableOkFalse(){
+        technicianToTest.setAvailableOnDay(0, 0 , 0 );
+        Assert.assertFalse(technicianToTest.isDayAvailable(0));
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void testNotifyWithConfirmationNull(){
+        RepairRequest repairRequest = new RepairRequest();
+        technicianToTest.notifyWithConfirmation(repairRequest);
+    }
+    @Test
+    public void testNotifyWithConfirmationNewDate(){
+        GregorianCalendar date = new GregorianCalendar(2020, Calendar.APRIL,10);
+        GregorianCalendar newDate = Utilities.getYearMonthDay(date);
+
+        repairRequest.setConductionDate(date);
+        technicianToTest.notifyWithConfirmation(repairRequest);
+
+        ArrayList<RepairRequest> arrayWithReq = technicianToTest.getCalendarWithConfirmRequests().get(newDate);
+        Assert.assertEquals(1,arrayWithReq.size());
+        Assert.assertEquals(repairRequest, arrayWithReq.get(0));
+    }
+
+    @Test
+    public void testNotifyWithConfirmation2NewDates(){
+
+        GregorianCalendar date = new GregorianCalendar(2020, Calendar.APRIL,10,10,10);
+        GregorianCalendar newDate = Utilities.getYearMonthDay(date);
+
+        GregorianCalendar date2 = new GregorianCalendar(2020, Calendar.APRIL,10,10,10);
+        GregorianCalendar newDate2 = Utilities.getYearMonthDay(date2);
+
+        repairRequest.setConductionDate(date);
+        repairRequest2.setConductionDate(date2);
+        technicianToTest.notifyWithConfirmation(repairRequest);
+        technicianToTest.notifyWithConfirmation(repairRequest2);
+
+        ArrayList<RepairRequest> arrayWithReq = technicianToTest.getCalendarWithConfirmRequests().get(newDate);
+        Assert.assertEquals(2,arrayWithReq.size());
+        Assert.assertEquals(repairRequest, arrayWithReq.get(0));
+        Assert.assertEquals(repairRequest2, arrayWithReq.get(1));
+    }
+    @Test
+    public void testNotifyWithConfirmation2NewDatesDifferentDates(){
+
+        GregorianCalendar date = new GregorianCalendar(2020, Calendar.APRIL,10,10,10);
+        GregorianCalendar newDate = Utilities.getYearMonthDay(date);
+
+        GregorianCalendar date2 = new GregorianCalendar(2020, Calendar.APRIL,12,10,10);
+        GregorianCalendar newDate2 = Utilities.getYearMonthDay(date2);
+
+        repairRequest.setConductionDate(date);
+        repairRequest2.setConductionDate(date2);
+        technicianToTest.notifyWithConfirmation(repairRequest);
+        technicianToTest.notifyWithConfirmation(repairRequest2);
+
+        ArrayList<RepairRequest> arrayWithReq = technicianToTest.getCalendarWithConfirmRequests().get(newDate);
+        Assert.assertEquals(1,arrayWithReq.size());
+        Assert.assertEquals(repairRequest, arrayWithReq.get(0));
+
+        ArrayList<RepairRequest> arrayWithReq2 = technicianToTest.getCalendarWithConfirmRequests().get(newDate2);
+        Assert.assertEquals(1,arrayWithReq2.size());
+        Assert.assertEquals(repairRequest2, arrayWithReq2.get(0));
+    }
+    @Test
+    public void testGetAvailableHourRangesNotAvailableDay(){
+        technicianToTest.setAvailableOnDay(monday, 0 , 0 );
+        Assert.assertEquals(null,technicianToTest.getAvailableHourRanges(april6));
+    }
+
+    @Test
+    public void testGetAvailableHourRangesOneGap(){
+        technicianToTest.setAvailableOnDay(monday, 6 , 19 );
+
+        ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<ArrayList<GregorianCalendar>>();
+        ArrayList<GregorianCalendar> gap1 = new ArrayList<GregorianCalendar>();
+
+        gap1.add(start);
+        gap1.add(end);
+        gaps.add(gap1);
+        Assert.assertEquals(gaps,technicianToTest.getAvailableHourRanges(april6));
+    }
+
+    @Test
+    public void testGetAvailableHourRanges2Gaps(){
+        //notifyWithConfirmation();
+        ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<ArrayList<GregorianCalendar>>();
+        ArrayList<GregorianCalendar> gap1 = new ArrayList<GregorianCalendar>();
+        gap1.add(start);
+        gap1.add(end);
+        gaps.add(gap1);
+
+        Assert.assertEquals(gaps,technicianToTest.getAvailableHourRanges(april6));
+    }
 
 }
