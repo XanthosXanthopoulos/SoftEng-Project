@@ -231,7 +231,6 @@ public class Technician extends User
             gap.add(endCal);
             gaps.add(gap);
         }else{
-            //create gaps
             Collections.sort(repairRequests);
 
             //first gap
@@ -286,6 +285,7 @@ public class Technician extends User
         }
         return gaps;
     }
+
 
     /**
      * Marks this technician as available the given day of the week from @param hourStart until
