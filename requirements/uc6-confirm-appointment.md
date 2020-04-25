@@ -41,6 +41,8 @@
    
 ## Διαγράμματα
 
-### Διάγραμμα δραστηριότητας - TODO
+### Διάγραμμα ακολουθίας 
+
+![Sequence diagram](diagrams/sq6-confirm-app.png)
 
 

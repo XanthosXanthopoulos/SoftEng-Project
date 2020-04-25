@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>0</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+com.example.quickrepair::User
+--
+#username: String
+#password: String
+#name: String
+#surname: String
+#phoneNumber: String
+#email: String
+#bankAccount: String
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>330</y>
+      <w>260</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+com.example.quickrepair::Technician
+--
+#specialty: Specialty
+#areas: HashSet&lt;String&gt;
+#schdule: Integer[][]
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>330</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+com.example.quickrepair::Customer
+--
+
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>180</y>
+      <w>90</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>180</y>
+      <w>210</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>620</y>
+      <w>260</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+com.example.quickrepair::RepairRequest
+--
+#conductionDate: Calendar
+#creationDate: Calendar
+#address: Address
+#paymentType: PaymentType
+#customer : Customer
+#repair : Repair
+#job : Job
+#confirmed: boolean
+#completed: boolean
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>850</y>
+      <w>260</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+com.example.quickrepair::Repair
+--
+#quantity: double
+#payment: Payment
+#evaluation: Evaluation
+#paid :boolean
+#repairRequest: RepairRequest
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>550</y>
+      <w>320</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+com.example.quickrepair::Specialty
+--
+#name: String
+#jobTypes: Set&lt;JobType&gt;
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>810</y>
+      <w>320</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+com.example.quickrepair::Specialty
+--
+#name: String
+#jobTypes: Set&lt;JobType&gt;
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
