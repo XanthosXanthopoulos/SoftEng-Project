@@ -3,6 +3,8 @@ package com.example.quickrepair;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -205,10 +207,11 @@ public class Technician extends User
 
         return availableDates;
     }
+
     /*
     *
      */
-    public ArrayList<ArrayList<Integer>> getGaps(Calendar date, Job job){
+    public ArrayList<ArrayList<Calendar>> getAvailableHours(Calendar date, Job job){
         int dayOFWeek = date.DAY_OF_WEEK;
         //technician doesn't work this day
         if(isDayAvailable(dayOFWeek-1)){return null;}
@@ -217,16 +220,44 @@ public class Technician extends User
         int end = getSchedule()[dayOFWeek-1][0];
         Calendar newDate = getYearMonthDay(date);
         ArrayList<RepairRequest> repairRequests = calendarWithConfirmRequests.get(newDate);
+
+        ArrayList<ArrayList<Calendar>> gaps = new ArrayList<ArrayList<Calendar>>();
+
         if(repairRequests ==null || repairRequests.size()==0){
-            //only one gap, all the time that he works
-            ArrayList<ArrayList<Integer>> gaps = new ArrayList<ArrayList<Integer>>();
-            ArrayList<Integer> gap = new ArrayList<Integer>();
+            //only one gap, he is free all day
+            ArrayList<Calendar> gap = new ArrayList<Calendar>();
+            Calendar startCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, start ,0);
+            Calendar endCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, end ,0);
+            gap.add(startCal);
+            gap.add(endCal);
             gaps.add(gap);
         }else{
             //create gaps
-            //Collections.sort();
+            Collections.sort(repairRequests);
+
+            //first gap
+            int hour = repairRequests.get(0).getConductionDate().HOUR;
+            int min = repairRequests.get(0).getConductionDate().MINUTE;
+
+            if(hour == start && min == 0){
+                ArrayList<Calendar> gap = new ArrayList<Calendar>();
+                Calendar startCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, start ,0);
+                Calendar endCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, start ,min);
+                gap.add(startCal);
+                gap.add(endCal);
+                gaps.add(gap);
+            }
+
+            ArrayList<Calendar> gap = new ArrayList<Calendar>();
+            Calendar startCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, start ,0);
+            Calendar endCal = new GregorianCalendar(date.YEAR, date.MONTH,date.DAY_OF_MONTH, start ,min);
+
+            //for(int i = 1; i<repairRequests.size(); i++){
+
+            //}
+
         }
-        return null;
+        return gaps;
     }
 
     /**

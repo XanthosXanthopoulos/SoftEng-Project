@@ -1,8 +1,9 @@
 package com.example.quickrepair;
 
 import java.util.Calendar;
+import java.util.Comparator;
 
-public class RepairRequest
+public class RepairRequest implements Comparable<RepairRequest>
 {
     //TODO replace with job slot for conductionDate
     private Customer customer;
@@ -12,6 +13,9 @@ public class RepairRequest
     private Calendar conductionDate;
     private Address address;
     private boolean isConfirmed;
+
+    private String commentsFromCustomer;
+    private int duration;
 
     private Repair repair;
     //TODO Constructor on repair request
@@ -147,5 +151,25 @@ public class RepairRequest
         setRepair(repair);
 
         return repair;
+    }
+
+    @Override
+    public int compareTo(RepairRequest o) {
+
+        if(o.getConductionDate().get(o.conductionDate.YEAR) != this.getConductionDate().get(this.conductionDate.YEAR) ||
+                o.getConductionDate().get(o.conductionDate.MONTH) != this.getConductionDate().get(this.conductionDate.MONTH) ||
+                o.getConductionDate().get(o.conductionDate.DAY_OF_MONTH) != this.getConductionDate().get(this.conductionDate.DAY_OF_MONTH)){
+            throw new IllegalStateException("only same day");
+        }
+        if((this.getConductionDate().get(this.conductionDate.HOUR) == o.getConductionDate().get(o.conductionDate.HOUR))
+        && (this.getConductionDate().get(this.conductionDate.MINUTE) == o.getConductionDate().get(o.conductionDate.MINUTE))) {
+            return 0;
+        }else if(this.getConductionDate().get(this.conductionDate.HOUR) < o.getConductionDate().get(o.conductionDate.HOUR)){
+            return 1;
+        }else if((this.getConductionDate().get(this.conductionDate.HOUR) == o.getConductionDate().get(o.conductionDate.HOUR))
+                && this.getConductionDate().get(this.conductionDate.MINUTE) < o.getConductionDate().get(o.conductionDate.MINUTE)){
+            return 1;
+        }
+        return -1;
     }
 }
