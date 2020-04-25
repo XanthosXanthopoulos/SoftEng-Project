@@ -249,11 +249,18 @@ public class Technician extends User
                 gap.add(endCal);
                 gaps.add(gap);
             }
+            RepairRequest nextRepairRequest = firstRepairRequest;
+            GregorianCalendar nextRepairReqCalendar = firstRepairReqCalendar;
 
             for(int i = 1; i<repairRequests.size(); i++){
-                firstRepairReqCalendar.add(firstRepairReqCalendar.MINUTE, firstRepairRequest.getEstimatedDuration());
+                nextRepairReqCalendar.add(firstRepairReqCalendar.MINUTE, firstRepairRequest.getEstimatedDuration());
 
+                //next step
+                nextRepairRequest = repairRequests.get(i);
+                nextRepairReqCalendar = (GregorianCalendar)firstRepairRequest.getConductionDate().clone();
             }
+
+            //last gap
 
         }
         return gaps;

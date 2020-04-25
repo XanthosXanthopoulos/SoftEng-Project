@@ -83,8 +83,13 @@ public class RepairRequest implements Comparable<RepairRequest>
     }
 
     public void setEstimatedDuration(int estimatedDuration) {
+        if (estimatedDuration < 0) throw new NumberFormatException("Duration can not be negative.");
+        if (estimatedDuration == 0) throw new NumberFormatException("Duration can not be zero.");
+        if (estimatedDuration > 480) throw new NumberFormatException("Duration can not be greater tha 480 minutes.");
+
         this.estimatedDuration = estimatedDuration;
     }
+
     //GETTERS
     public GregorianCalendar getCreationDate()
     {
