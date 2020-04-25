@@ -2,6 +2,7 @@ package com.example.quickrepair;
 
 import java.time.LocalDateTime;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Customer extends User
 {
@@ -23,7 +24,7 @@ public class Customer extends User
     }
 
     //TODO This doesnt belog here
-    public RepairRequest requestRepair(Calendar date, Job job)
+    public RepairRequest requestRepair(GregorianCalendar date, Job job)
     {
         RepairRequest repairRequest = new RepairRequest();
 

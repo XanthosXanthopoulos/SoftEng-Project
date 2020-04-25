@@ -11,10 +11,10 @@ import java.util.GregorianCalendar;
 //TODO: MORE TESTS HERE
 public class RepairRequestUnitTest {
     RepairRequest req;
-    Calendar standardDate;
+    GregorianCalendar standardDate;
     @Before
     public void setUpTests(){
-        standardDate = Calendar.getInstance();
+        standardDate =  new GregorianCalendar(2018,1,1,1,0);
         req = new RepairRequest();
         req.setPaymentType(PaymentType.CARD);
         Address exampleAddress = new Address("ath" , "15");
@@ -30,8 +30,8 @@ public class RepairRequestUnitTest {
     public void compareToNotEqualsYear(){
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        Calendar c2 = new GregorianCalendar(2019,2,2,1,0);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c2 = new GregorianCalendar(2019,2,2,1,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
         repairRequest1.compareTo(repairRequest2);
@@ -41,8 +41,8 @@ public class RepairRequestUnitTest {
     public void compareToNotEqualsMonths(){
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        Calendar c2 = new GregorianCalendar(2018,2,2,1,0);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c2 = new GregorianCalendar(2018,2,2,1,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
         repairRequest1.compareTo(repairRequest2);
@@ -52,8 +52,8 @@ public class RepairRequestUnitTest {
     public void compareToNotEqualsDays(){
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        Calendar c2 = new GregorianCalendar(2018,1,2,1,0);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c2 = new GregorianCalendar(2018,1,2,1,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
         repairRequest1.compareTo(repairRequest2);
@@ -62,8 +62,8 @@ public class RepairRequestUnitTest {
     public void compareToEqualsHourAndMin(){
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        Calendar c2 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c2 = new GregorianCalendar(2018,1,1,1,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
         Assert.assertEquals(0, repairRequest1.compareTo(repairRequest2));
@@ -73,8 +73,8 @@ public class RepairRequestUnitTest {
     public void compareToThisBeforeThatHour(){
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        Calendar c2 = new GregorianCalendar(2018,1,1,2,0);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c2 = new GregorianCalendar(2018,1,1,2,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
         Assert.assertEquals(-1, repairRequest1.compareTo(repairRequest2));
@@ -84,8 +84,8 @@ public class RepairRequestUnitTest {
     public void compareToThisBeforeThatMin(){
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        Calendar c2 = new GregorianCalendar(2018,1,1,1,1);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c2 = new GregorianCalendar(2018,1,1,1,1);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
         Assert.assertEquals(-1, repairRequest1.compareTo(repairRequest2));
@@ -95,8 +95,8 @@ public class RepairRequestUnitTest {
     public void compareToThisAfterThatHour(){
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,2,0);
-        Calendar c2 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,2,0);
+        GregorianCalendar c2 = new GregorianCalendar(2018,1,1,1,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
         Assert.assertEquals(1, repairRequest1.compareTo(repairRequest2));
@@ -106,8 +106,8 @@ public class RepairRequestUnitTest {
     public void compareToThisAfterThatMin(){
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,1,1);
-        Calendar c2 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,1);
+        GregorianCalendar c2 = new GregorianCalendar(2018,1,1,1,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
         Assert.assertEquals(1, repairRequest1.compareTo(repairRequest2));
@@ -118,8 +118,8 @@ public class RepairRequestUnitTest {
         ArrayList<RepairRequest> repairRequests = new ArrayList<RepairRequest>();
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,2,0);
-        Calendar c2 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,2,0);
+        GregorianCalendar c2 = new GregorianCalendar(2018,1,1,1,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
 
@@ -137,8 +137,8 @@ public class RepairRequestUnitTest {
         ArrayList<RepairRequest> repairRequests = new ArrayList<RepairRequest>();
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
-        Calendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        Calendar c2 = new GregorianCalendar(2018,1,1,2,0);
+        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
+        GregorianCalendar c2 = new GregorianCalendar(2018,1,1,2,0);
         repairRequest1.setConductionDate(c1);
         repairRequest2.setConductionDate(c2);
 
