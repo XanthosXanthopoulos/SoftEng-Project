@@ -160,7 +160,7 @@ public class Technician extends User
      * Adds a job to the technician's list of jobs
      * Also updates the association references
      */
-    public void addJob(JobType jobType , double price , int duration)
+    public Job addJob(JobType jobType , double price , int duration)
     {
         if(!jobType.getSpecialty().equals(getSpecialty())){
             throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
@@ -168,6 +168,7 @@ public class Technician extends User
         Job job = new Job(this , jobType , price , duration);
         this.jobs.add(job);
         job.getJobType().addJob(job);
+        return job;
     }
     /**
      * Removes a job from the technicians list of job

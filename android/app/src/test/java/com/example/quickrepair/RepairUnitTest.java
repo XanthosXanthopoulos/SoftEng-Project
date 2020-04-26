@@ -134,15 +134,6 @@ public class RepairUnitTest {
         repair.setQuantity(quantity);
     }
 
-    @Test (expected =  IllegalStateException.class)
-    public void repairWithNullJob(){
-        //create repair with job
-        RepairRequest repairRequest = new RepairRequest();
-        double quantity = 1;
-        Repair repair = new Repair();
-        repair.setRepairRequest(repairRequest);
-        repair.setQuantity(quantity);
-    }
 
     @Test (expected =  IllegalStateException.class)
     public void repairWithNullJobType(){

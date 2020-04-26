@@ -391,5 +391,36 @@ public class TechnicianUnitTest {
     public void equalsTest(){
        Assert.assertEquals(technicianToTest , technicianToTest);
     }
+    @Test
+    public void servesAreaTest(){
+        technicianToTest.addArea("pagkrati");
+        technicianToTest.addArea("athens");
+        assertTrue(technicianToTest.servesArea("athens"));
+        assertTrue(technicianToTest.servesArea("pagkrati"));
+        assertFalse(technicianToTest.servesArea("assertFalse(technicianToTest.servesArea(\"\"));"));
+        technicianToTest.removeArea("pagkrati");
+        assertFalse(technicianToTest.servesArea("pagkrati"));
+    }
+    @Test
+    public void addRemoveJobTest(){
+        technicianToTest.setSpecialty(exampleSpecialty);
+        JobType jobType1 = new JobType("1" , exampleSpecialty  ,MeasurementUnit.METER);
+        JobType jobType2 = new JobType("2" , exampleSpecialty  ,MeasurementUnit.METER);
+        Job job1 = technicianToTest.addJob(jobType1 , 5 , 5);
+        Job job2 = technicianToTest.addJob(jobType2, 10 , 10);
+        //Checking that references have been added to jobtype and technician
+        Assert.assertTrue(jobType1.getTechnicians().contains(technicianToTest));
+        Assert.assertTrue(jobType2.getTechnicians().contains(technicianToTest));
+        Assert.assertTrue(technicianToTest.offersJobForLessThanPrice(jobType1 , 10));
+        Assert.assertTrue(technicianToTest.offersJobForLessThanPrice(jobType2 , 11));
+        Assert.assertFalse(technicianToTest.offersJobForLessThanPrice(jobType2 , 10));
+        //Checking reference integrity after removal of jobs
+        technicianToTest.removeJob(job1);
+        technicianToTest.removeJob(job2);
+        Assert.assertFalse(jobType1.getTechnicians().contains(technicianToTest));
+        Assert.assertFalse(jobType2.getTechnicians().contains(technicianToTest));
+        Assert.assertFalse(technicianToTest.offersJobForLessThanPrice(jobType1 , 10000));
+        Assert.assertFalse(technicianToTest.offersJobForLessThanPrice(jobType2 , 10000));
+    }
 
 }
