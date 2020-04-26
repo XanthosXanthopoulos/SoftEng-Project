@@ -433,5 +433,23 @@ public class TechnicianUnitTest {
     public void evaluationsTest(){
 
     }
-    //TODO equals and hashcode
+    @Test (expected = IllegalArgumentException.class)
+    public void scheduleWithNot2entries(){
+        Integer[][] badSchedule = {{3, 5} , {4 , 5} , {3, 5 , 6} , {4 , 5} , {3, 5} , {4 , 5} , {4 , 5}
+        };
+        technicianToTest.setSchedule(badSchedule);
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void addJobToTechnicianWithNotTheAppropriateSpecialty(){
+        //TODO remove all jobs when technician changes specialty
+        technicianToTest.setSpecialty(exampleSpecialty);
+        Specialty newSpecialty = new Specialty("ee");
+        JobType newJobType = new JobType("ee" , newSpecialty , MeasurementUnit.METER);
+        technicianToTest.addJob(newJobType ,  5 , 5);
+    }
+    @Test (expected = NullPointerException.class)
+    public void removeNullJob(){
+        technicianToTest.removeJob(null);
+    }
+    //TODO equals and hashcode on technicians
 }

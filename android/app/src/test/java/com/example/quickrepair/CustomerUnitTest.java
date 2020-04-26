@@ -44,7 +44,7 @@ public class CustomerUnitTest{
     @Test
     public void requestRepair(){
         GregorianCalendar date = new GregorianCalendar(2018,2,2);
-        RepairRequest repairRequest = customerToTest.requestRepair(date, date, job);
+        RepairRequest repairRequest = customerToTest.requestRepair(date, date, job , "blah");
         Assert.assertNotNull(repairRequest);
     }
 }

@@ -80,7 +80,7 @@ public class Technician extends User
         {
             if (schedule[i] == null || schedule[i].length != 2)
             {
-                throw new IllegalArgumentException("Every entry must  have 2 calendars");
+                throw new IllegalArgumentException("Every entry must have 2 calendars");
             }
 
             if (schedule[i][0] == null || schedule[i][1] == null)
