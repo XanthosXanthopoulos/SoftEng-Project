@@ -183,8 +183,8 @@ public class TechnicianUnitTest {
         technicianToTest.addRepairRequest(req);
 
         assertEquals(
-                technicianToTest.getPendingRequests().get(
-                        technicianToTest.getPendingRequests().size() - 1 ),
+                technicianToTest.getRepairRequests().get(
+                        technicianToTest.getRepairRequests().size() - 1 ),
                 req
         );
 

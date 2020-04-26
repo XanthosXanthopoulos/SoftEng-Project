@@ -1,6 +1,7 @@
 package com.example.quickrepair;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
@@ -14,10 +15,9 @@ public class Technician extends User
 
     private String AFM;
     private Set<Job> jobs = new HashSet<>();
-    private List<RepairRequest> pendingRequests = new ArrayList<>();
+    private List<RepairRequest> repairRequests = new ArrayList<>();
     private Specialty specialty;
     private HashSet<String> areas = new HashSet<String>();
-    private List<Repair> repairsList = new ArrayList<>();
 
     //This structure will set up by the technician
     //it is necessary for a costumer to know when the technician is on duty
@@ -50,32 +50,6 @@ public class Technician extends User
         if (specialty == null) throw new NullPointerException("Speciality can not be null.");
 
         this.specialty = specialty;
-    }
-
-    /**
-     * @param repairsList
-     */
-    public void setRepairsList(List<Repair> repairsList)
-    {
-        this.repairsList = repairsList;
-    }
-
-    /**
-     * @param jobs
-     */
-    public void setJobs(Set<Job> jobs)
-    {
-        this.jobs = jobs;
-    }
-
-    public void setAreas(HashSet<String> areas)
-    {
-        this.areas = areas;
-    }
-
-    public void setPendingRequests(List<RepairRequest> pendingRequests)
-    {
-        this.pendingRequests = pendingRequests;
     }
 
     /**
@@ -134,19 +108,14 @@ public class Technician extends User
         return jobs;
     }
 
-    public List<RepairRequest> getPendingRequests()
+    public List<RepairRequest> getRepairRequests()
     {
-        return pendingRequests;
+        return repairRequests;
     }
 
     public Specialty getSpecialty()
     {
         return specialty;
-    }
-
-    public List<Repair> getRepairsList()
-    {
-        return repairsList;
     }
 
     public HashSet<String> getAreas()
@@ -207,15 +176,37 @@ public class Technician extends User
     {
         if (repairRequest == null) throw new NullPointerException();
 
-        pendingRequests.add(repairRequest);
+        repairRequests.add(repairRequest);
     }
 
-    //TODO Check for null maybe
+    /**
+     * Requests a repair from this technician
+     * @param customer the customer that initiated the repair request
+     * @param job the job the customer is requesting
+     * @param conductionDate the date when the customer needs his repair started
+     * @param comments the comments the customer entered when he created the repair request
+     */
+    public void requestRepair(Customer customer, Job job , Calendar conductionDate,Address address , String comments){
+        //TODO change repair request to take inputs as calendars
+        //TODO comments by customer on repairRequest
+        RepairRequest repairRequest = new RepairRequest(customer,PaymentType.CARD ,
+                job ,(GregorianCalendar) Calendar.getInstance() , (GregorianCalendar) conductionDate , address);
+        this.addRepairRequest(repairRequest);
+        //TODO addRepairRequest to customer
+
+    }
+
     public void addArea(String area)
     {
         if (area == null) throw new NullPointerException();
 
         areas.add(area);
+    }
+    public void removeArea(String area)
+    {
+        if (area == null) throw new NullPointerException();
+
+        areas.remove(area);
     }
 
 
