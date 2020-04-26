@@ -157,6 +157,7 @@ public class RepairRequest implements Comparable<RepairRequest>
         if (isConfirmed) throw new IllegalStateException("Repair request is already confirmed.");
         isConfirmed = true;
         setEstimatedDuration(estimatedDuration);
+        getJob().getTechnician().notifyWithConfirmation(this);
     }
 
     public Repair complete(double quantity)

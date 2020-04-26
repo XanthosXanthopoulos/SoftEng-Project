@@ -159,19 +159,33 @@ public class Technician extends User
 
     /**
      * Adds a job to the technician's list of jobs
+     * Also updates the association references
      */
-    //TODO Job can be added  only if the technician has the jobs specialty
-    public void addJob(Job job)
+    public void addJob(JobType jobType , double price , int duration)
     {
-        if (job == null) throw new NullPointerException("Job can not be null.");
-
+        if(!jobType.getSpecialty().equals(getSpecialty())){
+            throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
+        }
+        Job job = new Job(this , jobType , price , duration);
         this.jobs.add(job);
+        job.getJobType().addJob(job);
+    }
+    /**
+     * Removes a job from the technicians list of job
+     * Also updates the list of jobs that offer the job's jobtype
+     */
+    public void removeJob(Job job)
+    {
+        if(job == null){
+            throw new NullPointerException();
+        }
+        getJobs().remove(job);
+        job.getJobType().removeJob(job);
     }
 
     /**
      * Adds a repair request to this technicians list
      */
-    //TODO Check if the technician can service the repairRequest
     public void addRepairRequest(RepairRequest repairRequest)
     {
         if (repairRequest == null) throw new NullPointerException();
@@ -196,12 +210,20 @@ public class Technician extends User
 
     }
 
+    /**
+     * Adds an area to the list of this technicians areas
+     * @param area the area to be added
+     */
     public void addArea(String area)
     {
         if (area == null) throw new NullPointerException();
 
         areas.add(area);
     }
+    /**
+     * Removes an area from the list of this technicians areas
+     * @param area the area to be removed
+     */
     public void removeArea(String area)
     {
         if (area == null) throw new NullPointerException();
@@ -209,6 +231,20 @@ public class Technician extends User
         areas.remove(area);
     }
 
+    /**
+     * Returns a set of all the evaluations that have been done for this technician
+     * @return
+     */
+    public Set<Evaluation> getEvaluations()
+    {
+        Set<Evaluation> evaluations = new HashSet<>();
+        for(RepairRequest repairRequest : repairRequests){
+            if(repairRequest.isCompleted()){
+                evaluations.add(repairRequest.getRepair().getEvaluation());
+            }
+        }
+        return evaluations;
+    }
 
     public ArrayList<ArrayList<GregorianCalendar>> getAvailableHourRanges(GregorianCalendar date)
     {

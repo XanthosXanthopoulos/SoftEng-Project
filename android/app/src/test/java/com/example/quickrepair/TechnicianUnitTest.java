@@ -156,7 +156,7 @@ public class TechnicianUnitTest {
 
     @Test (expected = NullPointerException.class)
     public void addNullJob(){
-        technicianToTest.addJob(null);
+        technicianToTest.addJob(null , 5 , 5);
     }
     @Test (expected = NullPointerException.class)
     public void setNullSpecialty(){
@@ -198,7 +198,8 @@ public class TechnicianUnitTest {
     }
     @Test
     public void addJob(){
-        technicianToTest.addJob(exampleJob);
+        technicianToTest.setSpecialty(exampleJobType.getSpecialty());
+        technicianToTest.addJob(exampleJobType , 5 , 6 );
         assertTrue(technicianToTest.getJobs().size() != 0);
     }
 

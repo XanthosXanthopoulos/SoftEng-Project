@@ -70,11 +70,35 @@ public class JobType
         this.measurementUnit = measurementUnit;
     }
 
+    /**
+     * Adds a job to the set of jobs that have this jobtype
+     * @param job the job to be added
+     */
     public void addJob(Job job)
     {
+        if(job == null) throw new NullPointerException();
         jobs.add(job);
     }
+    /**
+     * Removes a job from the set of jobs that have this jobtype
+     * @param job the job to be removed
+     */
+    public void removeJob(Job job)
+    {
+        if(job == null) throw new NullPointerException();
+        jobs.remove(job);
+    }
 
+    /**
+     * @return the set of technicians that offer this jobtype
+     */
+    public Set<Technician> getTechnicians(){
+        Set<Technician> technicians = new HashSet<>();
+        for(Job job : jobs){
+            technicians.add(job.getTechnician());
+        }
+        return technicians;
+    }
     @Override
     public boolean equals(Object other)
     {
