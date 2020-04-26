@@ -47,7 +47,7 @@ public class Customer extends User
     /*
     *
      */
-    public RepairRequest requestRepair(GregorianCalendar dateNow,GregorianCalendar date, Job job) {
+    public RepairRequest requestRepair(GregorianCalendar dateNow,GregorianCalendar date, Job job, String comments) {
         RepairRequest repairRequest = new RepairRequest();
 
         repairRequest.setCreationDate(dateNow);
