@@ -74,7 +74,7 @@ public class User
     private void setEmail(String email)
     {
         //Checks if the email is xxx@xxxxx.xxxx
-        if (email.matches("((\\w|\\d)+\\@(\\w|\\d)+\\.\\w+)"))
+        if (email.matches("((\\w|\\d|\\.)+\\@(\\w|\\d)+\\.\\w+)"))
         {
 
             this.email = email;

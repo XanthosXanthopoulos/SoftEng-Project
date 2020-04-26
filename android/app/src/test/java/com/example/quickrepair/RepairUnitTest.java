@@ -1,23 +1,70 @@
 package com.example.quickrepair;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class RepairUnitTest {
+    Technician technicianToTest;
+    Address exampleAddress;
+    Job exampleJob;
+    JobType exampleJobType;
+    Specialty exampleSpecialty;
+    Integer[][] exampleSchedule;
+    RepairRequest repairRequest;
+    RepairRequest repairRequest2;
+    Customer exampleCustomer;
+    RepairRequest exampleRepairRequest;
 
+
+    int monday = 1;//MONDAY
+    int april = GregorianCalendar.APRIL;//APRIL
+    GregorianCalendar april6 = new GregorianCalendar(2020, april,6);
+    GregorianCalendar start = new GregorianCalendar(2020, april, 6, 6, 0);
+    GregorianCalendar end = new GregorianCalendar(2020, april, 6, 19, 0);
+
+    GregorianCalendar april1010 = new GregorianCalendar(2020, Calendar.APRIL,10,10,10);
+    GregorianCalendar newDateApril1010 = Utilities.getYearMonthDay(april1010);
+
+
+    @Before
+    public void setUpTests() {
+        exampleCustomer = new Customer("nikos" , "surname" , "6958674323",
+                "nikos.1238@live.com" , "123123" , "username" , "drowssap");
+        technicianToTest = new Technician("nikos", "sm" , "6958475635",
+                "asdih@ausdh.asdh" , "mybankaccount" , "nikos" ,
+                "123" , new Specialty("test"), "128947");
+        Address address = new Address("ath" , "15");
+        exampleSpecialty = new Specialty("Electrician");
+        exampleJobType = new JobType("Allagi plakakia" , exampleSpecialty , MeasurementUnit.METER);
+        exampleAddress = address;
+        exampleJob = new Job(technicianToTest , exampleJobType , 15 ,10);
+
+        //Initializing schedule
+        exampleSchedule = new Integer[7][2];
+        for (int i = 0; i < 7 ; i ++){
+            //example Technician works from 9
+            exampleSchedule[i][0] = 9;
+            //example Technician works until 5  (17 : 00)
+            exampleSchedule[i][1] = 17;
+        }
+        technicianToTest.setSchedule(exampleSchedule);
+        repairRequest = new RepairRequest();
+        repairRequest2 = new RepairRequest();
+        exampleRepairRequest = new RepairRequest(exampleCustomer , PaymentType.CARD , exampleJob ,
+                (GregorianCalendar) Calendar.getInstance()  , new GregorianCalendar(2020 , 5  , 3) , exampleAddress);
+
+    }
     //Constructor Tests
     @Test
     public void constructorWithQuantity(){
         //create repair with job
-        RepairRequest repairRequest = new RepairRequest();
-        Job job = new Job();
-        JobType jobType = new JobType();
-        jobType.setMeasurementUnit(MeasurementUnit.NONE);
-        job.setJobType(jobType);
-        repairRequest.setJob(job);
+        RepairRequest repairRequest = exampleRepairRequest;
+        repairRequest.setJob(exampleJob);
+        repairRequest.setCustomer(exampleCustomer);
         repairRequest.confirm(5);
 
         double quantity = 1;
@@ -31,9 +78,11 @@ public class RepairUnitTest {
     @Test
     public void constructorWithQuantityAndPayment(){
         //create repair with job
-        RepairRequest repairRequest = new RepairRequest();
-        Job job = new Job();
-        JobType jobType = new JobType();
+        RepairRequest repairRequest = new RepairRequest(exampleCustomer
+                , PaymentType.CARD ,   exampleJob , (GregorianCalendar) Calendar.getInstance(),
+                (GregorianCalendar) Calendar.getInstance() , exampleAddress );
+        Job job = exampleJob;
+        JobType jobType = exampleJobType;
         jobType.setMeasurementUnit(MeasurementUnit.NONE);
         job.setJobType(jobType);
         repairRequest.setJob(job);
@@ -110,9 +159,9 @@ public class RepairUnitTest {
     @Test
     public void repairWithOkQuantityAtFixedPriceJob(){
         //create repair with job
-        RepairRequest repairRequest = new RepairRequest();
-        Job job = new Job();
-        JobType jobType = new JobType();
+        RepairRequest repairRequest = exampleRepairRequest;
+        Job job = exampleJob;
+        JobType jobType = exampleJobType;
         //create jobType of a ConsistentJob
         //a consistent job, have NONE MeasurementUnit
         jobType.setMeasurementUnit(MeasurementUnit.NONE);
@@ -130,9 +179,9 @@ public class RepairUnitTest {
     @Test (expected =  IllegalArgumentException.class)
     public void repairWithNonOkQuantityAtFixedPriceJob(){
         //create repair with job
-        RepairRequest repairRequest = new RepairRequest();
-        Job job = new Job();
-        JobType jobType = new JobType();
+        RepairRequest repairRequest = exampleRepairRequest;
+        Job job = exampleJob;
+        JobType jobType = exampleJobType;
         //create jobType of a ConsistentJob
         //a consistent job, have NONE MeasurementUnit
         jobType.setMeasurementUnit(MeasurementUnit.NONE);
@@ -150,9 +199,10 @@ public class RepairUnitTest {
     @Test
     public void repairWithDoubleOkQuantityAtNonFixedPriceJob(){
         //create repair with job
-        RepairRequest repairRequest = new RepairRequest();
-        Job job = new Job();
-        JobType jobType = new JobType();
+        RepairRequest repairRequest = exampleRepairRequest;
+        repairRequest.setCustomer(exampleCustomer);
+        Job job = exampleJob;
+        JobType jobType = exampleJob.getJobType();
         //create jobType of a ConsistentJob
         //a consistent job, have NONE MeasurementUnit
         jobType.setMeasurementUnit(MeasurementUnit.METER);
@@ -170,9 +220,9 @@ public class RepairUnitTest {
     @Test
     public void repairWithIntegerOkQuantityAtNonFixedPriceJob(){
         //create repair with job
-        RepairRequest repairRequest = new RepairRequest();
-        Job job = new Job();
-        JobType jobType = new JobType();
+        RepairRequest repairRequest = exampleRepairRequest;
+        Job job = exampleJob;
+        JobType jobType = exampleJobType;
         //create jobType of a ConsistentJob
         //a consistent job, have NONE MeasurementUnit
         jobType.setMeasurementUnit(MeasurementUnit.METER);
