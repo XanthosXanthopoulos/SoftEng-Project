@@ -19,6 +19,9 @@ public class TechnicianUnitTest {
     RepairRequest repairRequest;
     RepairRequest repairRequest2;
 
+    Customer exampleCustomer1;
+    Customer exampleCustomer2;
+
 
     int monday = 1;//MONDAY
     int april = GregorianCalendar.APRIL;//APRIL
@@ -52,6 +55,10 @@ public class TechnicianUnitTest {
         technicianToTest.setSchedule(exampleSchedule);
         repairRequest = new RepairRequest();
         repairRequest2 = new RepairRequest();
+        exampleCustomer1 = new Customer("1" , "1" , "6972485968",
+                "nikos.123123@gmail.com" , "124124" , "asdasd" , "password");
+        exampleCustomer2 = new Customer("2" , "2" , "6972485968",
+                "nikos.12344@gmail.com" , "114124" , "asdasda" , "password1");
 
     }
     @Test
@@ -421,6 +428,10 @@ public class TechnicianUnitTest {
         Assert.assertFalse(jobType2.getTechnicians().contains(technicianToTest));
         Assert.assertFalse(technicianToTest.offersJobForLessThanPrice(jobType1 , 10000));
         Assert.assertFalse(technicianToTest.offersJobForLessThanPrice(jobType2 , 10000));
+    }
+    @Test
+    public void evaluationsTest(){
+
     }
 
 }

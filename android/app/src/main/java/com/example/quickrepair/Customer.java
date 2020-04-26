@@ -47,8 +47,7 @@ public class Customer extends User
     /*
     *
      */
-    public RepairRequest requestRepair(GregorianCalendar dateNow,GregorianCalendar date, Job job)
-    {
+    public RepairRequest requestRepair(GregorianCalendar dateNow,GregorianCalendar date, Job job) {
         RepairRequest repairRequest = new RepairRequest();
 
         repairRequest.setCreationDate(dateNow);
@@ -59,5 +58,9 @@ public class Customer extends User
         job.getTechnician().addRepairRequest(repairRequest);
 
         return repairRequest;
+    }
+
+    public void notifyOfCompletion(RepairRequest repairRequest){
+        //Customer is notified that one of his repair requests has been completed
     }
 }

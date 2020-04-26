@@ -175,13 +175,9 @@ public class RepairRequest implements Comparable<RepairRequest>
 
         if (isCompleted()) throw new IllegalStateException("Repair request is already completed.");
 
-        Repair repair = new Repair();
-
-        repair.setQuantity(quantity);
-        repair.setRepairRequest(this);
-
+        Repair repair = new Repair(this , quantity);
         setRepair(repair);
-        //TODO notify customer of completion (email)
+        getCustomer().notifyOfCompletion(this);
 
         return repair;
     }
