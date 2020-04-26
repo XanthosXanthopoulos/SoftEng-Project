@@ -9,7 +9,7 @@ public class Customer extends User
     /*
     * All Customer's Requests
      */
-    Set<RepairRequest> requests;
+    private Set<RepairRequest> requests;
 
     /*
     * Costumer's constructor
@@ -20,9 +20,9 @@ public class Customer extends User
         requests = new HashSet<RepairRequest>();
     }
 
-    public void setRequests(Set<RepairRequest> requests) {
-        if(requests == null){ throw new NullPointerException();}
-        this.requests = requests;
+    public void addRequest(RepairRequest request){
+        if(request == null){ throw new IllegalArgumentException("Null RepairRequest");}
+        requests.add(request);
     }
 
     public Set<RepairRequest> getRequests() {
@@ -47,10 +47,11 @@ public class Customer extends User
     /*
     *
      */
-    public RepairRequest requestRepair(GregorianCalendar date, Job job)
+    public RepairRequest requestRepair(GregorianCalendar dateNow,GregorianCalendar date, Job job)
     {
         RepairRequest repairRequest = new RepairRequest();
 
+        repairRequest.setCreationDate(dateNow);
         repairRequest.setConductionDate(date);
         repairRequest.setCustomer(this);
 
