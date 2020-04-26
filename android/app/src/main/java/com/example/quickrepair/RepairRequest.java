@@ -156,7 +156,7 @@ public class RepairRequest implements Comparable<RepairRequest>
 
         isConfirmed = true;
     }
-    
+
     public Repair conductRepair(double quantity)
     {
         if (!isConfirmed) throw new IllegalStateException("Repair request is not confirmed.");
