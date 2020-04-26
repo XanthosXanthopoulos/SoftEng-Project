@@ -43,4 +43,7 @@ public class Customer extends User
             // The customers account is charged for the amount
         }
     }
+    public void notifyOfCompletion(RepairRequest repairRequest){
+        //Customer is notified that one of his repair requests has been completed
+    }
 }
