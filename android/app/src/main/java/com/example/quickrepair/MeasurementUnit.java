@@ -1,12 +1,8 @@
 package com.example.quickrepair;
 
 public enum MeasurementUnit {
-    NONE, //fixed type job
+    NONE,
     METER,
-    SQR_METER,
-    INCH,
-    FOOT,
-    SQR_INCH,
-    SQR_FOOT
+    SQR_METER
 }
 

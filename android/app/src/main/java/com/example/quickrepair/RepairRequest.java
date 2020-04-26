@@ -5,7 +5,6 @@ import java.util.GregorianCalendar;
 
 public class RepairRequest implements Comparable<RepairRequest>
 {
-    //TODO replace with job slot for conductionDate
     private Customer customer;
     private PaymentType paymentType;
     private Job job;
@@ -18,19 +17,21 @@ public class RepairRequest implements Comparable<RepairRequest>
     private int estimatedDuration;
 
     private Repair repair;
-    //TODO Constructor on repair request
 
     //constructors
 
     /**
      * Empty Contructor
      */
-    public RepairRequest() { }
+    public RepairRequest()
+    {
+    }
 
     /*
-    * Constructor when the Repair Request initialize from Costumer
+     * Constructor when the Repair Request initialize from Costumer
      */
-    public RepairRequest(Customer customer, PaymentType paymentType, Job job,GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address) {
+    public RepairRequest(Customer customer, PaymentType paymentType, Job job, GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address)
+    {
         setCustomer(customer);
         setPaymentType(paymentType);
         setJob(job);
@@ -78,14 +79,17 @@ public class RepairRequest implements Comparable<RepairRequest>
         this.job = job;
     }
 
-    public void setCommentsFromCustomer(String commentsFromCustomer) {
+    public void setCommentsFromCustomer(String commentsFromCustomer)
+    {
         this.commentsFromCustomer = commentsFromCustomer;
     }
 
-    public void setEstimatedDuration(int estimatedDuration) {
+    public void setEstimatedDuration(int estimatedDuration)
+    {
         if (estimatedDuration < 0) throw new NumberFormatException("Duration can not be negative.");
         if (estimatedDuration == 0) throw new NumberFormatException("Duration can not be zero.");
-        if (estimatedDuration > 480) throw new NumberFormatException("Duration can not be greater tha 480 minutes.");
+        if (estimatedDuration > 480)
+            throw new NumberFormatException("Duration can not be greater tha 480 minutes.");
 
         this.estimatedDuration = estimatedDuration;
     }
@@ -131,11 +135,13 @@ public class RepairRequest implements Comparable<RepairRequest>
         return repair != null;
     }
 
-    public String getCommentsFromCustomer() {
+    public String getCommentsFromCustomer()
+    {
         return commentsFromCustomer;
     }
 
-    public int getEstimatedDuration() {
+    public int getEstimatedDuration()
+    {
         return estimatedDuration;
     }
 
@@ -154,7 +160,10 @@ public class RepairRequest implements Comparable<RepairRequest>
     public void complete(Repair repair)
     {
         if (!isConfirmed) throw new IllegalStateException("Repair request is not confirmed.");
-        if (this.repair!=null) throw new IllegalStateException("Repair request is already completed.");
+
+        if (this.repair != null) throw new IllegalStateException("Repair request is already completed.");
+
+        if (repair == null) throw new IllegalStateException("Repair can not be null.");
 
         this.repair = repair;
     }
@@ -173,22 +182,8 @@ public class RepairRequest implements Comparable<RepairRequest>
     }
 
     @Override
-    public int compareTo(RepairRequest o) {
-
-        if(o.getConductionDate().get(o.conductionDate.YEAR) != this.getConductionDate().get(this.conductionDate.YEAR) ||
-                o.getConductionDate().get(o.conductionDate.MONTH) != this.getConductionDate().get(this.conductionDate.MONTH) ||
-                o.getConductionDate().get(o.conductionDate.DAY_OF_MONTH) != this.getConductionDate().get(this.conductionDate.DAY_OF_MONTH)){
-            throw new IllegalStateException("only same day");
-        }
-        if((this.getConductionDate().get(this.conductionDate.HOUR) == o.getConductionDate().get(o.conductionDate.HOUR))
-        && (this.getConductionDate().get(this.conductionDate.MINUTE) == o.getConductionDate().get(o.conductionDate.MINUTE))) {
-            return 0;
-        }else if(this.getConductionDate().get(this.conductionDate.HOUR) < o.getConductionDate().get(o.conductionDate.HOUR)){
-            return -1;
-        }else if((this.getConductionDate().get(this.conductionDate.HOUR) == o.getConductionDate().get(o.conductionDate.HOUR))
-                && this.getConductionDate().get(this.conductionDate.MINUTE) < o.getConductionDate().get(o.conductionDate.MINUTE)){
-            return -1;
-        }
-        return 1;
+    public int compareTo(RepairRequest o)
+    {
+        return conductionDate.compareTo(o.conductionDate);
     }
 }

@@ -8,10 +8,12 @@ public class Address
     private String streetName;
     private String number;
 
-    public Address(String streetName, String number){
+    public Address(String streetName, String number)
+    {
         setStreetName(streetName);
         setNumber(number);
     }
+
     public String getStreetName()
     {
         return streetName;
@@ -19,17 +21,29 @@ public class Address
 
     private void setStreetName(String streetName)
     {
-        if (streetName == null){ throw new NullPointerException();}
+        if (streetName == null)
+        {
+            throw new NullPointerException();
+        }
 
         this.streetName = streetName;
     }
 
-    public String getNumber() { return number; }
+    public String getNumber()
+    {
+        return number;
+    }
 
     private void setNumber(String number)
     {
+        if (number == null) throw new NullPointerException();
+
         //Only accept numbers if they are 1 or more digits long
-        if (!number.matches("\\d+")) { throw new IllegalArgumentException("Address number is invalid");}
+        if (!number.matches("\\d+"))
+        {
+            throw new IllegalArgumentException("Address number is invalid");
+        }
+
         this.number = number;
     }
 }

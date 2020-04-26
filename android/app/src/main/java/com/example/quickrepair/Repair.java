@@ -64,19 +64,21 @@ public class Repair
      */
     public void setQuantity(double quantity)
     {
-        if (quantity <= 0){ throw new IllegalArgumentException("non positive quantity");}
+        if (quantity <= 0) throw new IllegalArgumentException("non positive quantity");
 
-        if(repairRequest == null) { throw new IllegalStateException("We can't have a repair, without a repair request"); }
-        if(repairRequest.getJob() == null) { throw new IllegalStateException("null job"); }
-        if(repairRequest.getJob().getJobType() == null) { throw new IllegalStateException("null job type"); }
+        if (repairRequest == null) throw new IllegalStateException("We can't have a repair, without a repair request");
 
-        //fixed price job
-        if(repairRequest.getJob().getJobType().getMeasurementUnit() == MeasurementUnit.NONE){
-            //quantity must be integer
-            if((int)quantity != quantity){
-                throw new IllegalArgumentException("for fixed price the quantity must be integer");
-            }
+        if (repairRequest.getJob() == null) throw new IllegalStateException("null job");
+
+        if (repairRequest.getJob().getJobType() == null) throw new IllegalStateException("null job type");
+
+
+        //fixed price job quantity must be integer
+        if (repairRequest.getJob().getJobType().getMeasurementUnit() == MeasurementUnit.NONE)
+        {
+            if ((int) quantity != quantity) throw new IllegalArgumentException("for fixed price the quantity must be integer");
         }
+
         this.quantity = quantity;
     }
 
@@ -96,8 +98,8 @@ public class Repair
     public void setPayment(Payment payment)
     {
         if (payment == null) throw new NullPointerException("Payment can not be null.");
-        if (this.payment != null)
-            throw new IllegalStateException("The repair already has a payment.");
+
+        if (this.payment != null) throw new IllegalStateException("The repair already has a payment.");
 
         this.payment = payment;
     }

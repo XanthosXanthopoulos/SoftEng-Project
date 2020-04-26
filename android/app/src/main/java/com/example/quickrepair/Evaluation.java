@@ -109,9 +109,16 @@ public class Evaluation
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
-        if (o == this) { return true; }
-        if (!(o instanceof Evaluation)) { return false; }
+    public boolean equals(@Nullable Object o)
+    {
+        if (o == this)
+        {
+            return true;
+        }
+        if (!(o instanceof Evaluation))
+        {
+            return false;
+        }
         // typecast
         Evaluation evaluation = (Evaluation) o;
         return evaluation.getTitle().equals(this.getTitle()) && evaluation.getComment().equals(this.getComment()) && evaluation.getRate() == this.getRate();

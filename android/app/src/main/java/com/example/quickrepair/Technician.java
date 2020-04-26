@@ -12,15 +12,10 @@ public class Technician extends User
 {
 
     private String AFM;
-
     private Set<Job> jobs = new HashSet<>();
-
     private List<RepairRequest> pendingRequests = new ArrayList<>();
-
     private Specialty specialty;
-
     private HashSet<String> areas = new HashSet<String>();
-
     private List<Repair> repairsList = new ArrayList<>();
 
     //This structure will set up by the technician
@@ -31,18 +26,16 @@ public class Technician extends User
     // Day,Month,Year -> Array with confirmed repairs
     //this structure will help Technician to organize his repairs and his schedule
     //and will give the necessary information to the costumer when a Technician is free
-    private Hashtable<GregorianCalendar, ArrayList<RepairRequest>> calendarWithConfirmRequests = new Hashtable<GregorianCalendar, ArrayList<RepairRequest>>();
+    private Hashtable<GregorianCalendar, ArrayList<RepairRequest>> calendarWithConfirmRequests = new Hashtable<>();
 
     // Constructors
-    public Technician(String name, String surname, String phoneNumber, String email,
-                      String bankAccount, String username, String password, Specialty specialty)
+    public Technician(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password, Specialty specialty)
     {
         super(name, surname, phoneNumber, email, bankAccount, username, password);
         setSpecialty(specialty);
     }
 
-    public Technician(String name, String surname, String phoneNumber, String email,
-                      String bankAccount, String username, String password, Specialty specialty, HashSet<String> areas)
+    public Technician(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password, Specialty specialty, HashSet<String> areas)
     {
         super(name, surname, phoneNumber, email, bankAccount, username, password);
         setSpecialty(specialty);
@@ -104,7 +97,7 @@ public class Technician extends User
      *
      * @param schedule
      */
-    //TODO input hours of day can be set until 24 if the technician can literally work al ldayt
+    //TODO input hours of day can be set until 24 if the technician can literally work all dayt
     public void setSchedule(Integer[][] schedule)
     {
         if (schedule == null)
@@ -123,6 +116,7 @@ public class Technician extends User
             {
                 throw new IllegalArgumentException("Every entry must  have 2 calendars");
             }
+
             if (schedule[i][0] == null || schedule[i][1] == null)
             {
                 throw new NullPointerException("null schedule entries on " + i);
@@ -175,25 +169,34 @@ public class Technician extends User
         return AFM;
     }
 
-    public Hashtable<GregorianCalendar, ArrayList<RepairRequest>> getCalendarWithConfirmRequests() {
+    public Hashtable<GregorianCalendar, ArrayList<RepairRequest>> getCalendarWithConfirmRequests()
+    {
         return calendarWithConfirmRequests;
     }
 
     //Add methods
     //Hashtable<GregorianCalendar, ArrayList<RepairRequest>> calendarWithConfirmRequests
-    public void notifyWithConfirmation(RepairRequest repairRequest){
+    public void notifyWithConfirmation(RepairRequest repairRequest)
+    {
         GregorianCalendar actualDate = repairRequest.getConductionDate();
-        if(actualDate == null){ throw new IllegalArgumentException("It can't be null");}
+        if (actualDate == null)
+        {
+            throw new IllegalArgumentException("It can't be null");
+        }
         GregorianCalendar newDate = Utilities.getYearMonthDay(actualDate);
 
         //add it to the calendarWithConfirmRequests
-        if(!calendarWithConfirmRequests.containsKey(newDate)){
+        if (!calendarWithConfirmRequests.containsKey(newDate))
+        {
             calendarWithConfirmRequests.put(newDate, new ArrayList<RepairRequest>());
             calendarWithConfirmRequests.get(newDate).add(repairRequest);
-        }else{
+        }
+        else
+        {
             calendarWithConfirmRequests.get(newDate).add(repairRequest);
         }
     }
+
     /**
      * Adds a job to the technician's list of jobs
      */
@@ -217,33 +220,34 @@ public class Technician extends User
     }
 
     //TODO Check for null maybe
-    public void addNewArea(String area)
+    public void addArea(String area)
     {
+        if (area == null) throw new NullPointerException();
+
+        areas.add(area);
     }
 
 
-    /*
-     *
-     */
     public ArrayList<ArrayList<GregorianCalendar>> getAvailableHourRanges(GregorianCalendar date)
     {
-        int dayOFWeek = date.get(date.DAY_OF_WEEK);
-        //technician doesn't work this day
-        if (!isDayAvailable(dayOFWeek - 1))
+        int dayOfWeek = date.get(date.DAY_OF_WEEK);
+        if (!isDayAvailable(dayOfWeek - 1))
         {
             return null;
         }
-        int start = getSchedule()[dayOFWeek - 1][0];
-        int end = getSchedule()[dayOFWeek - 1][1];
+
+        int start = schedule[dayOfWeek - 1][0];
+        int end = schedule[dayOfWeek - 1][1];
+
         GregorianCalendar newDate = Utilities.getYearMonthDay(date);
         ArrayList<RepairRequest> repairRequests = calendarWithConfirmRequests.get(newDate);
 
-        ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<ArrayList<GregorianCalendar>>();
+        ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<>();
 
         if (repairRequests == null || repairRequests.size() == 0)
         {
             //only one gap, he is free all day
-            ArrayList<GregorianCalendar> gap = new ArrayList<GregorianCalendar>();
+            ArrayList<GregorianCalendar> gap = new ArrayList<>();
             GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), start, 0);
             GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
             gap.add(startCal);
@@ -259,18 +263,19 @@ public class Technician extends User
             RepairRequest firstRepairRequest = repairRequests.get(0);
             GregorianCalendar firstRepairReqCalendar = (GregorianCalendar) firstRepairRequest.getConductionDate().clone();
 
-            int hour = firstRepairReqCalendar.get(firstRepairReqCalendar.HOUR);
+            int hour = firstRepairReqCalendar.get(firstRepairReqCalendar.HOUR_OF_DAY);
             int min = firstRepairReqCalendar.get(firstRepairReqCalendar.MINUTE);
 
-            if (!(hour == start && min == 0))
+            if (hour != start || min != 0)
             {
-                ArrayList<GregorianCalendar> gap = new ArrayList<GregorianCalendar>();
+                ArrayList<GregorianCalendar> gap = new ArrayList<>();
                 GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), start, 0);
                 GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), hour, min);
                 gap.add(startCal);
                 gap.add(endCal);
                 gaps.add(gap);
             }
+
             RepairRequest beforeRepairRequest = firstRepairRequest;
             GregorianCalendar beforeRepairReqCalendar = firstRepairReqCalendar;
 
@@ -279,30 +284,32 @@ public class Technician extends User
                 //next step
                 RepairRequest nextRepairRequest = repairRequests.get(i);
                 GregorianCalendar nextRepairReqCalendar = (GregorianCalendar) nextRepairRequest.getConductionDate().clone();
-
                 beforeRepairReqCalendar.add(beforeRepairReqCalendar.MINUTE, beforeRepairRequest.getEstimatedDuration());
+
                 if (beforeRepairReqCalendar.before(nextRepairReqCalendar))
                 {
                     //new gap
-                    ArrayList<GregorianCalendar> gap = new ArrayList<GregorianCalendar>();
-                    GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR), beforeRepairReqCalendar.get(beforeRepairReqCalendar.MINUTE));
-                    GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), nextRepairReqCalendar.get(nextRepairReqCalendar.HOUR), nextRepairReqCalendar.get(nextRepairReqCalendar.MINUTE));
+                    ArrayList<GregorianCalendar> gap = new ArrayList<>();
+                    GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR_OF_DAY), beforeRepairReqCalendar.get(beforeRepairReqCalendar.MINUTE));
+                    GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), nextRepairReqCalendar.get(nextRepairReqCalendar.HOUR_OF_DAY), nextRepairReqCalendar.get(nextRepairReqCalendar.MINUTE));
                     gap.add(startCal);
                     gap.add(endCal);
                     gaps.add(gap);
-                }//else no gap between these repairRequests
+                }
+
+                //else no gap between these repairRequests
                 beforeRepairRequest = nextRepairRequest;
                 beforeRepairReqCalendar = nextRepairReqCalendar;
             }
 
             beforeRepairReqCalendar.add(beforeRepairReqCalendar.MINUTE, beforeRepairRequest.getEstimatedDuration());
             //last gap
-            if (beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR) < end)
+            if (beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR_OF_DAY) < end)
             {
                 //create gap
                 //new gap
-                ArrayList<GregorianCalendar> gap = new ArrayList<GregorianCalendar>();
-                GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR), beforeRepairReqCalendar.get(beforeRepairReqCalendar.MINUTE));
+                ArrayList<GregorianCalendar> gap = new ArrayList<>();
+                GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR_OF_DAY), beforeRepairReqCalendar.get(beforeRepairReqCalendar.MINUTE));
                 GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
                 gap.add(startCal);
                 gap.add(endCal);
@@ -330,7 +337,8 @@ public class Technician extends User
     public void setAvailableOnDay(int day, int hourStart, int hourEnd)
     {
         //technician doesn't work that day
-        if(hourStart == 0 && hourEnd == 0){
+        if (hourStart == 0 && hourEnd == 0)
+        {
             getSchedule()[day][0] = hourStart;
             getSchedule()[day][1] = hourEnd;
             return;

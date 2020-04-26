@@ -68,18 +68,25 @@ public class Payment
      */
     public void setPaymentType(PaymentType paymentType)
     {
-        if (paymentType == null){throw new NullPointerException("null paymentType");}
+        if (paymentType == null)
+        {
+            throw new NullPointerException("null paymentType");
+        }
         this.paymentType = paymentType;
 
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
-        if (o == this) { return true; }
-        if (!(o instanceof Payment)) { return false; }
+    public boolean equals(@Nullable Object o)
+    {
+        if (o == null) return false;
+
+        if (this == o) return true;
+
+        if (!(o instanceof Payment)) return false;
         // typecast
         Payment payment = (Payment) o;
         // Compare the data members and return accordingly
-        return payment.getDate().compareTo(this.getDate())==0 && payment.getPaymentType()==this.getPaymentType();
+        return payment.getDate().compareTo(this.getDate()) == 0 && payment.getPaymentType() == this.getPaymentType();
     }
 }
