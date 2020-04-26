@@ -7,7 +7,6 @@ import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 public class Technician extends User

@@ -9,12 +9,15 @@ import java.util.GregorianCalendar;
 public class CustomerUnitTest{
 
     private Customer customerToTest;
-
+    Job job;
     @Before
     public void setUpTests(){
         customerToTest = new Customer("nick" , "sm" , "6958375634" ,
                 "sss222@asdm.com" , "123121231123" , "nicksm" ,
                 "0j19283j1");
+        job = new Job();
+        Technician technician = new Technician("xrisa","dkn","1234567890","dkn@aueb.gr","1234","techo","password",new Specialty(),"1234");
+        job.setTechnician(technician);
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -26,14 +29,22 @@ public class CustomerUnitTest{
     public void chargeNormalAmount(){
         customerToTest.chargeAccount(10000);
     }
-    /*
+
+    @Test (expected = IllegalArgumentException.class)
+    public void addRequestNull(){
+        customerToTest.addRequest(null);
+    }
+    @Test
+    public void addRequestOk(){
+        customerToTest.addRequest(new RepairRequest());
+        Assert.assertNotNull(customerToTest.getRequests());
+        Assert.assertEquals(1, customerToTest.getRequests().size());
+    }
+
     @Test
     public void requestRepair(){
         GregorianCalendar date = new GregorianCalendar(2018,2,2);
-        Job job= new Job();
-        RepairRequest repairRequest = new RepairRequest();
-
-        customerToTest.requestRepair(date, job);
-
-    }*/
+        RepairRequest repairRequest = customerToTest.requestRepair(date, date, job);
+        Assert.assertNotNull(repairRequest);
+    }
 }
