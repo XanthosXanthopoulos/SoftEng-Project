@@ -1,7 +1,10 @@
 package com.example.quickrepair;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.GregorianCalendar;
 
 public class CustomerUnitTest{
 
@@ -23,4 +26,14 @@ public class CustomerUnitTest{
     public void chargeNormalAmount(){
         customerToTest.chargeAccount(10000);
     }
+    /*
+    @Test
+    public void requestRepair(){
+        GregorianCalendar date = new GregorianCalendar(2018,2,2);
+        Job job= new Job();
+        RepairRequest repairRequest = new RepairRequest();
+
+        customerToTest.requestRepair(date, job);
+
+    }*/
 }

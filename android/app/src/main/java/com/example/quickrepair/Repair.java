@@ -1,6 +1,5 @@
 package com.example.quickrepair;
 
-import java.time.LocalDateTime;
 import java.util.Calendar;
 
 public class Repair
@@ -193,6 +192,18 @@ public class Repair
      */
     public Payment pay(Calendar date, PaymentType paymentType)
     {
+        if(paymentType == PaymentType.CARD) {
+            if (repairRequest.getJob() == null) {
+                throw new IllegalStateException("Job can't be null");
+            }
+            Job job = repairRequest.getJob();
+            double cost = this.quantity * job.getPrice();
+            Customer c = repairRequest.getCustomer();
+            if (c == null) {
+                throw new IllegalStateException("Customer can't be null");
+            }
+            c.chargeAccount(cost);
+        }
         Payment payment = new Payment(date, paymentType);
         setPayment(payment);
         return payment;

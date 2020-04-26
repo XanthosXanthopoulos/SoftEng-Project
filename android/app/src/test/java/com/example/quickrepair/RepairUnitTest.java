@@ -247,17 +247,6 @@ public class RepairUnitTest {
         Assert.assertEquals(evaluation, repair.getEvaluation());
     }
 
-    //pay test
-    @Test
-    public void payTest(){
-        Repair repair = new Repair();
-        Calendar date = new GregorianCalendar(2019,12,12);
-        PaymentType paymentType = PaymentType.CARD;
-
-        Payment payment = new Payment(date, paymentType);
-        repair.pay(date ,paymentType);
-        Assert.assertEquals(payment, repair.getPayment());
-    }
 
     //isPaid
     @Test
@@ -275,4 +264,48 @@ public class RepairUnitTest {
         Repair repair = new Repair();
         Assert.assertEquals(false, repair.isPaid());
     }
+
+    @Test
+    public void payWithCARD(){
+        Repair repair = new Repair();
+        repair.pay(new GregorianCalendar(2018,2,1,1,1), PaymentType.CASH);
+        Assert.assertNotNull(repair.getPayment());
+    }
+
+    @Test (expected = IllegalStateException.class)
+    public void payWithCashNullJob(){
+        Repair repair = new Repair();
+        RepairRequest repairRequest = new RepairRequest();
+        repair.setRepairRequest(repairRequest);
+        repair.pay(new GregorianCalendar(2018,2,1,1,1), PaymentType.CARD);
+    }
+    @Test (expected = IllegalStateException.class)
+    public void payWithCashNullCustomer(){
+        Repair repair = new Repair();
+        RepairRequest repairRequest = new RepairRequest();
+        Job job = new Job();
+        job.setPrice(20);
+        repairRequest.setJob(job);
+        repair.setRepairRequest(repairRequest);
+        repair.pay(new GregorianCalendar(2018,2,1,1,1), PaymentType.CARD);
+
+    }
+    @Test
+    public void payWithCashOK(){
+        Repair repair = new Repair();
+        RepairRequest repairRequest = new RepairRequest();
+        JobType jobType = new JobType();
+        Job job = new Job();
+        job.setJobType(jobType);
+        job.setPrice(20);
+        repairRequest.setJob(job);
+        repairRequest.setCustomer(new Customer("xrisa","dkn","1111111111","jdjdj@aueb.gr","33","xrisa.d","1234"));
+        repair.setRepairRequest(repairRequest);
+
+        repair.setQuantity(1);
+
+        repair.pay(new GregorianCalendar(2018,2,1,1,1), PaymentType.CARD);
+        Assert.assertNotNull(repair.getPayment());
+    }
+
 }
