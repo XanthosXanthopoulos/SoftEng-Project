@@ -200,13 +200,11 @@ public class Technician extends User
      * @param conductionDate the date when the customer needs his repair started
      * @param comments the comments the customer entered when he created the repair request
      */
-    public void requestRepair(Customer customer, Job job , Calendar conductionDate,Address address , String comments){
-        //TODO change repair request to take inputs as calendars
-        //TODO comments by customer on repairRequest
+    public void requestRepair(GregorianCalendar now, Customer customer, Job job , GregorianCalendar conductionDate,Address address , String comments){
         RepairRequest repairRequest = new RepairRequest(customer,PaymentType.CARD ,
-                job ,(GregorianCalendar) Calendar.getInstance() , (GregorianCalendar) conductionDate , address);
+                job ,now ,  conductionDate , address,comments);
         this.addRepairRequest(repairRequest);
-        //TODO addRepairRequest to customer
+        customer.addRequest(repairRequest);
 
     }
 

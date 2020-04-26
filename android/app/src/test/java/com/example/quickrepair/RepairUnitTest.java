@@ -55,7 +55,7 @@ public class RepairUnitTest {
         repairRequest = new RepairRequest();
         repairRequest2 = new RepairRequest();
         exampleRepairRequest = new RepairRequest(exampleCustomer , PaymentType.CARD , exampleJob ,
-                (GregorianCalendar) Calendar.getInstance()  , new GregorianCalendar(2020 , 5  , 3) , exampleAddress);
+                (GregorianCalendar) Calendar.getInstance()  , new GregorianCalendar(2020 , 5  , 3) , exampleAddress,"comments");
 
     }
     //Constructor Tests
@@ -80,7 +80,7 @@ public class RepairUnitTest {
         //create repair with job
         RepairRequest repairRequest = new RepairRequest(exampleCustomer
                 , PaymentType.CARD ,   exampleJob , (GregorianCalendar) Calendar.getInstance(),
-                (GregorianCalendar) Calendar.getInstance() , exampleAddress );
+                (GregorianCalendar) Calendar.getInstance() , exampleAddress ,"comment");
         Job job = exampleJob;
         JobType jobType = exampleJobType;
         jobType.setMeasurementUnit(MeasurementUnit.NONE);
