@@ -67,11 +67,6 @@ public class Repair
 
         if (repairRequest == null) throw new IllegalStateException("We can't have a repair, without a repair request");
 
-        if (repairRequest.getJob() == null) throw new IllegalStateException("null job");
-
-        if (repairRequest.getJob().getJobType() == null) throw new IllegalStateException("null job type");
-
-
         //fixed price job quantity must be integer
         if (repairRequest.getJob().getJobType().getMeasurementUnit() == MeasurementUnit.NONE)
         {
@@ -193,15 +188,9 @@ public class Repair
     public Payment pay(Calendar date, PaymentType paymentType)
     {
         if(paymentType == PaymentType.CARD) {
-            if (repairRequest.getJob() == null) {
-                throw new IllegalStateException("Job can't be null");
-            }
             Job job = repairRequest.getJob();
             double cost = this.quantity * job.getPrice();
             Customer c = repairRequest.getCustomer();
-            if (c == null) {
-                throw new IllegalStateException("Customer can't be null");
-            }
             c.chargeAccount(cost);
         }
         Payment payment = new Payment(date, paymentType);

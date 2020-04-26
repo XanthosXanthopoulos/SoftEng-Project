@@ -322,24 +322,6 @@ public class RepairUnitTest {
         Assert.assertNotNull(repair.getPayment());
     }
 
-    @Test (expected = IllegalStateException.class)
-    public void payWithCashNullJob(){
-        Repair repair = new Repair();
-        RepairRequest repairRequest = new RepairRequest();
-        repair.setRepairRequest(repairRequest);
-        repair.pay(new GregorianCalendar(2018,2,1,1,1), PaymentType.CARD);
-    }
-    @Test (expected = IllegalStateException.class)
-    public void payWithCashNullCustomer(){
-        Repair repair = new Repair();
-        RepairRequest repairRequest = new RepairRequest();
-        Job job = new Job();
-        job.setPrice(20);
-        repairRequest.setJob(job);
-        repair.setRepairRequest(repairRequest);
-        repair.pay(new GregorianCalendar(2018,2,1,1,1), PaymentType.CARD);
-
-    }
     @Test
     public void payWithCashOK(){
         Repair repair = new Repair();
