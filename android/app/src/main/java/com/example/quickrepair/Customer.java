@@ -43,4 +43,21 @@ public class Customer extends User
             // The customers account is charged for the amount
         }
     }
+
+    /*
+    *
+     */
+    public RepairRequest requestRepair(GregorianCalendar dateNow,GregorianCalendar date, Job job)
+    {
+        RepairRequest repairRequest = new RepairRequest();
+
+        repairRequest.setCreationDate(dateNow);
+        repairRequest.setConductionDate(date);
+        repairRequest.setCustomer(this);
+
+        requests.add(repairRequest);
+        job.getTechnician().addRepairRequest(repairRequest);
+
+        return repairRequest;
+    }
 }

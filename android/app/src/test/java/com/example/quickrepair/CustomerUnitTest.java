@@ -41,4 +41,10 @@ public class CustomerUnitTest{
         Assert.assertEquals(1, customerToTest.getRequests().size());
     }
 
+    @Test
+    public void requestRepair(){
+        GregorianCalendar date = new GregorianCalendar(2018,2,2);
+        RepairRequest repairRequest = customerToTest.requestRepair(date, date, job);
+        Assert.assertNotNull(repairRequest);
+    }
 }

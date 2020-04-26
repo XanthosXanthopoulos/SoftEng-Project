@@ -7,7 +7,7 @@ public class Specialty
 {
     private String name;
 
-    private Set<JobType> jobTypes;
+    private Set<JobType> jobTypes = new HashSet<JobType>();
 
     public Specialty()
     {
@@ -18,11 +18,18 @@ public class Specialty
         setName(name);
     }
 
+    //GETTERS
     public String getName()
     {
         return name;
     }
 
+    public Set<JobType> getJobTypes()
+    {
+        return new HashSet<>(jobTypes);
+    }
+
+    //SETTERS
     public void setName(String name)
     {
         if (name == null) throw new NullPointerException("Speciality name can not be null.");
@@ -35,14 +42,9 @@ public class Specialty
     {
         if (jobType == null) throw new NullPointerException("Job type can not be null.");
 
-        jobType.setSpecialty(this);
         jobTypes.add(jobType);
     }
 
-    public Set<JobType> getJobTypes()
-    {
-        return new HashSet<>(jobTypes);
-    }
 
     @Override
     public boolean equals(Object other)
@@ -61,6 +63,6 @@ public class Specialty
     @Override
     public int hashCode()
     {
-        return name == null ? 0 : name.hashCode();
+        return name.hashCode();
     }
 }
