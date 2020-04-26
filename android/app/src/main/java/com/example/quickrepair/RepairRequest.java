@@ -157,20 +157,12 @@ public class RepairRequest implements Comparable<RepairRequest>
         isConfirmed = true;
     }
 
-    public void complete(Repair repair)
+    public Repair conductRepair(double quantity)
     {
         if (!isConfirmed) throw new IllegalStateException("Repair request is not confirmed.");
 
         if (this.repair != null) throw new IllegalStateException("Repair request is already completed.");
 
-        if (repair == null) throw new IllegalStateException("Repair can not be null.");
-
-        this.repair = repair;
-    }
-
-
-    public Repair conductRepair(double quantity)
-    {
         Repair repair = new Repair();
 
         repair.setQuantity(quantity);
