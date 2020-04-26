@@ -300,6 +300,31 @@ public class Technician extends User
         return gaps;
     }
 
+    /**
+     * Checks if the technician serves the given area
+     * @param area the area we are testing
+     * @return true if the technician serves the specified area
+     */
+    public boolean servesArea(String area){
+        if (area == null) throw new NullPointerException();
+        return getAreas().contains(area);
+    }
+
+    /**
+     * Checks if the technician offers a job for less than a given price
+     * @param jobType the jobtype being teste
+     * @param price the maximum price the technician offers the job for
+     * @return true if he offers the jobtype for less than price
+     */
+    public boolean offersJobForLessThanPrice(JobType jobType , double price){
+        for (Job job : getJobs()){
+            if(job.getJobType().equals(jobType)){
+                if(job.getPrice() < price) return true;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * Marks this technician as available the given day of the week from @param hourStart until

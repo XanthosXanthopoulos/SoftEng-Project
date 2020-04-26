@@ -32,6 +32,8 @@ public class RepairRequest implements Comparable<RepairRequest>
      */
     public RepairRequest(Customer customer, PaymentType paymentType, Job job, GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address)
     {
+        //TODO Change gregorian to calendar
+        //TODO String comments in input
         setCustomer(customer);
         setPaymentType(paymentType);
         setJob(job);
@@ -150,18 +152,18 @@ public class RepairRequest implements Comparable<RepairRequest>
         return job;
     }
 
-    public void confirm()
+    public void confirm(int estimatedDuration)
     {
         if (isConfirmed) throw new IllegalStateException("Repair request is already confirmed.");
-
         isConfirmed = true;
+        setEstimatedDuration(estimatedDuration);
     }
 
-    public Repair conductRepair(double quantity)
+    public Repair complete(double quantity)
     {
         if (!isConfirmed) throw new IllegalStateException("Repair request is not confirmed.");
 
-        if (this.repair != null) throw new IllegalStateException("Repair request is already completed.");
+        if (isCompleted()) throw new IllegalStateException("Repair request is already completed.");
 
         Repair repair = new Repair();
 
@@ -169,6 +171,7 @@ public class RepairRequest implements Comparable<RepairRequest>
         repair.setRepairRequest(this);
 
         setRepair(repair);
+        //TODO notify customer of completion (email)
 
         return repair;
     }

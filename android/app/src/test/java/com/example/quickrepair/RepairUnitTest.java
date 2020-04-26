@@ -18,7 +18,7 @@ public class RepairUnitTest {
         jobType.setMeasurementUnit(MeasurementUnit.NONE);
         job.setJobType(jobType);
         repairRequest.setJob(job);
-        repairRequest.confirm();
+        repairRequest.confirm(5);
 
         double quantity = 1;
         Repair repair = new Repair(repairRequest,quantity);
@@ -37,7 +37,7 @@ public class RepairUnitTest {
         jobType.setMeasurementUnit(MeasurementUnit.NONE);
         job.setJobType(jobType);
         repairRequest.setJob(job);
-        repairRequest.confirm();
+        repairRequest.confirm(5);
 
         double quantity = 1;
         Payment payment = new Payment();
@@ -118,7 +118,7 @@ public class RepairUnitTest {
         jobType.setMeasurementUnit(MeasurementUnit.NONE);
         job.setJobType(jobType);
         repairRequest.setJob(job);
-        repairRequest.confirm();
+        repairRequest.confirm(5);
 
         double quantity = 1;
         Repair repair = new Repair(repairRequest,quantity);
@@ -138,7 +138,7 @@ public class RepairUnitTest {
         jobType.setMeasurementUnit(MeasurementUnit.NONE);
         job.setJobType(jobType);
         repairRequest.setJob(job);
-        repairRequest.confirm();
+        repairRequest.confirm(5);
 
         //set wrong quantity
         double quantity = 1.1;
@@ -158,7 +158,7 @@ public class RepairUnitTest {
         jobType.setMeasurementUnit(MeasurementUnit.METER);
         job.setJobType(jobType);
         repairRequest.setJob(job);
-        repairRequest.confirm();
+        repairRequest.confirm(5);
 
         double quantity = 1.1;
         Repair repair = new Repair(repairRequest,quantity);
@@ -178,7 +178,7 @@ public class RepairUnitTest {
         jobType.setMeasurementUnit(MeasurementUnit.METER);
         job.setJobType(jobType);
         repairRequest.setJob(job);
-        repairRequest.confirm();
+        repairRequest.confirm(5);
 
         double quantity = 1;
         Repair repair = new Repair(repairRequest,quantity);
