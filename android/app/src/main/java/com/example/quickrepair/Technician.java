@@ -296,9 +296,8 @@ public class Technician extends User
                 //else no gap between these repairRequests
                 beforeRepairRequest = nextRepairRequest;
                 beforeRepairReqCalendar = nextRepairReqCalendar;
-                beforeRepairReqCalendar.add(beforeRepairReqCalendar.MINUTE, beforeRepairRequest.getEstimatedDuration());
             }
-
+            beforeRepairReqCalendar.add(beforeRepairReqCalendar.MINUTE, beforeRepairRequest.getEstimatedDuration());
             //last gap
             if (beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR_OF_DAY) < end)
             {
