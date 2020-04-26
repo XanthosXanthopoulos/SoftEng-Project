@@ -433,5 +433,5 @@ public class TechnicianUnitTest {
     public void evaluationsTest(){
 
     }
-
+    //TODO equals and hashcode
 }

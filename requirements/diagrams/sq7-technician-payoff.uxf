@@ -183,7 +183,7 @@ SetCardInfo
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-payoff()</panel_attributes>
+pay()</panel_attributes>
     <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -372,14 +372,14 @@ Aξιολόγηση</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
+      <x>280</x>
       <y>720</y>
-      <w>200</w>
+      <w>220</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-evaluate(rating , comments)</panel_attributes>
-    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+evaluate(title , rating , comments)</panel_attributes>
+    <additional_attributes>190.0;20.0;20.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -468,7 +468,7 @@ evaluate(Title , Comment ,Rate)</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-payoff(PaymentType , Date)</panel_attributes>
+pay(PaymentType , Date)</panel_attributes>
     <additional_attributes>580.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
