@@ -246,11 +246,6 @@ public class TechnicianUnitTest {
         technicianToTest.setAvailableOnDay(0, 0 , 0 );
         Assert.assertFalse(technicianToTest.isDayAvailable(0));
     }
-    @Test (expected = IllegalArgumentException.class)
-    public void testNotifyWithConfirmationNull(){
-        RepairRequest repairRequest = new RepairRequest();
-        technicianToTest.notifyWithConfirmation(repairRequest);
-    }
     @Test
     public void testNotifyWithConfirmationNewDate(){
 

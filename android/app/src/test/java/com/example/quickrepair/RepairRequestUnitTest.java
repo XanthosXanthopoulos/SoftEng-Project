@@ -26,38 +26,6 @@ public class RepairRequestUnitTest {
 
     }
 
-    @Test (expected = IllegalStateException.class)
-    public void compareToNotEqualsYear(){
-        RepairRequest repairRequest1 = new RepairRequest();
-        RepairRequest repairRequest2 = new RepairRequest();
-        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        GregorianCalendar c2 = new GregorianCalendar(2019,2,2,1,0);
-        repairRequest1.setConductionDate(c1);
-        repairRequest2.setConductionDate(c2);
-        repairRequest1.compareTo(repairRequest2);
-    }
-
-    @Test (expected = IllegalStateException.class)
-    public void compareToNotEqualsMonths(){
-        RepairRequest repairRequest1 = new RepairRequest();
-        RepairRequest repairRequest2 = new RepairRequest();
-        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        GregorianCalendar c2 = new GregorianCalendar(2018,2,2,1,0);
-        repairRequest1.setConductionDate(c1);
-        repairRequest2.setConductionDate(c2);
-        repairRequest1.compareTo(repairRequest2);
-
-    }
-    @Test (expected = IllegalStateException.class)
-    public void compareToNotEqualsDays(){
-        RepairRequest repairRequest1 = new RepairRequest();
-        RepairRequest repairRequest2 = new RepairRequest();
-        GregorianCalendar c1 = new GregorianCalendar(2018,1,1,1,0);
-        GregorianCalendar c2 = new GregorianCalendar(2018,1,2,1,0);
-        repairRequest1.setConductionDate(c1);
-        repairRequest2.setConductionDate(c2);
-        repairRequest1.compareTo(repairRequest2);
-    }
     @Test
     public void compareToEqualsHourAndMin(){
         RepairRequest repairRequest1 = new RepairRequest();
