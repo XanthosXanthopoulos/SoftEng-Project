@@ -42,8 +42,6 @@ public class RepairRequest implements Comparable<RepairRequest>
         status = Status.UNCONFIRMED;
     }
 
-
-    //TODO validity checks on setters
     //SETTERS
     public void setConductionDate(GregorianCalendar conductionDate)
     {
@@ -97,6 +95,7 @@ public class RepairRequest implements Comparable<RepairRequest>
     {
         if (estimatedDuration < 0) throw new NumberFormatException("Duration can not be negative.");
         if (estimatedDuration == 0) throw new NumberFormatException("Duration can not be zero.");
+        //TODO ACCEPT ESTIMATED DURATION ONLY IF THE TECHNICIAN CAN FINISH BEFORE HIS SCHEDULE
         if (estimatedDuration > 480)
             throw new NumberFormatException("Duration can not be greater tha 480 minutes.");
 

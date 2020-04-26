@@ -36,7 +36,6 @@ public class Technician extends User
     }
 
     //SETTERS
-    //TODO: Comments and checks at setters
 
     /**
      * Set's this technician's specialty

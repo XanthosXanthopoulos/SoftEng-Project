@@ -47,7 +47,11 @@ public class Customer extends User
     /*
     *
      */
+    //TODO Address is missing from input parameters
+    //TODO comments from customer are not being used
     public RepairRequest requestRepair(GregorianCalendar dateNow,GregorianCalendar date, Job job, String comments) {
+        //TODO please never use default constructor again ... ever
+        //TODO Invalid initialization of repairrequest
         RepairRequest repairRequest = new RepairRequest();
 
         repairRequest.setCreationDate(dateNow);
@@ -56,6 +60,7 @@ public class Customer extends User
 
         requests.add(repairRequest);
         job.getTechnician().addRepairRequest(repairRequest);
+        //TODO Add repair request to the customer as well
 
         return repairRequest;
     }
