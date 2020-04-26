@@ -36,7 +36,6 @@ public class Technician extends User
     }
 
     //SETTERS
-    //TODO: Comments and checks at setters
 
     /**
      * Set's this technician's specialty
@@ -190,21 +189,6 @@ public class Technician extends User
         if (repairRequest == null) throw new NullPointerException();
 
         repairRequests.add(repairRequest);
-    }
-
-    /**
-     * Requests a repair from this technician
-     * @param customer the customer that initiated the repair request
-     * @param job the job the customer is requesting
-     * @param conductionDate the date when the customer needs his repair started
-     * @param comments the comments the customer entered when he created the repair request
-     */
-    public void requestRepair(GregorianCalendar now, Customer customer, Job job , GregorianCalendar conductionDate,Address address , String comments){
-        RepairRequest repairRequest = new RepairRequest(customer,PaymentType.CARD ,
-                job ,now ,  conductionDate , address,comments);
-        this.addRepairRequest(repairRequest);
-        customer.addRequest(repairRequest);
-
     }
 
     /**

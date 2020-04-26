@@ -32,7 +32,6 @@ public class User
         setBankAccount(bankAccount);
         setUsername(username);
     }
-    //TODO  null pointer checks that throw nullpointer exceptions and not illegalargument
 
     private void setName(String name)
     {

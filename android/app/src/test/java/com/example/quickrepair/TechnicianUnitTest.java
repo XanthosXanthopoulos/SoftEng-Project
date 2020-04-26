@@ -35,11 +35,12 @@ public class TechnicianUnitTest {
 
     @Before
     public void setUpTests() {
+        exampleSpecialty = new Specialty("Electrician");
         technicianToTest = new Technician("nikos", "sm" , "6958475635",
                 "asdih@ausdh.asdh" , "mybankaccount" , "nikos" ,
-                "123" , new Specialty("test"), "128947");
+                "123" , exampleSpecialty, "128947");
         Address address = new Address("ath" , "15");
-        exampleSpecialty = new Specialty("Electrician");
+
         exampleJobType = new JobType("Allagi plakakia" , exampleSpecialty , MeasurementUnit.METER);
         exampleAddress = address;
         exampleJob = new Job(technicianToTest , exampleJobType , 15 ,10);
@@ -396,7 +397,12 @@ public class TechnicianUnitTest {
     }
     @Test
     public void equalsTest(){
-       Assert.assertEquals(technicianToTest , technicianToTest);
+        Technician otherTechnician = new Technician("nikos", "sm" , "6958475635",
+                "asdih@ausdh.asdh" , "mybankaccount" , "nikos" ,
+                "123" , new Specialty("test"), "128947");
+        Assert.assertEquals(technicianToTest , technicianToTest);
+        Assert.assertNotEquals(technicianToTest , exampleAddress);
+        Assert.assertEquals(otherTechnician , technicianToTest);
     }
     @Test
     public void servesAreaTest(){
@@ -429,10 +435,21 @@ public class TechnicianUnitTest {
         Assert.assertFalse(technicianToTest.offersJobForLessThanPrice(jobType1 , 10000));
         Assert.assertFalse(technicianToTest.offersJobForLessThanPrice(jobType2 , 10000));
     }
+    //TODO Test getEvaluations method
+    /*
     @Test
     public void evaluationsTest(){
+        RepairRequest repairRequest= exampleCustomer1.requestRepair((GregorianCalendar)Calendar.getInstance()
+                , (GregorianCalendar)Calendar.getInstance() , exampleJob , "plshelp");
+        //This job needs 160 minutes
+        repairRequest.confirm(160);
+        repairRequest.getRepair().evaluate("Hallo" , "hallo" , 5);
+        Evaluation eval = new Evaluation("Hallo" , "hallo" , 5);
+        assertTrue(technicianToTest.getEvaluations().contains(eval));
 
     }
+    */
+
     @Test (expected = IllegalArgumentException.class)
     public void scheduleWithNot2entries(){
         Integer[][] badSchedule = {{3, 5} , {4 , 5} , {3, 5 , 6} , {4 , 5} , {3, 5} , {4 , 5} , {4 , 5}
@@ -451,5 +468,4 @@ public class TechnicianUnitTest {
     public void removeNullJob(){
         technicianToTest.removeJob(null);
     }
-    //TODO equals and hashcode on technicians
 }
