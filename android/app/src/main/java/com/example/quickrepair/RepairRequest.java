@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 public class RepairRequest implements Comparable<RepairRequest>
 {
     private Customer customer;
+    //TODO PaymentType shoudn't be here
     private PaymentType paymentType;
     private Job job;
     private GregorianCalendar creationDate;
