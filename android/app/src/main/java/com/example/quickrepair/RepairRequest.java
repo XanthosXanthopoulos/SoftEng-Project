@@ -11,7 +11,7 @@ public class RepairRequest implements Comparable<RepairRequest>
     private GregorianCalendar creationDate;
     private GregorianCalendar conductionDate;
     private Address address;
-    
+
     private Status status;
 
     private String commentsFromCustomer;
@@ -133,17 +133,6 @@ public class RepairRequest implements Comparable<RepairRequest>
     {
         return paymentType;
     }
-
-    public boolean isConfirmed()
-    {
-        return this.status == Status.CONFIRMED;
-    }
-
-    public boolean isCompleted()
-    {
-        return this.status == Status.COMPLETED;
-    }
-
     public String getCommentsFromCustomer()
     {
         return commentsFromCustomer;
@@ -159,6 +148,17 @@ public class RepairRequest implements Comparable<RepairRequest>
         return job;
     }
 
+    public boolean isConfirmed()
+    {
+        return this.status == Status.CONFIRMED;
+    }
+
+    public boolean isCompleted()
+    {
+        return this.status == Status.COMPLETED;
+    }
+
+
     public void confirm(int estimatedDuration)
     {
         if (this.status == Status.CONFIRMED) throw new IllegalStateException("Repair request is already confirmed.");
@@ -166,10 +166,12 @@ public class RepairRequest implements Comparable<RepairRequest>
         setEstimatedDuration(estimatedDuration);
         getJob().getTechnician().notifyWithConfirmation(this);
     }
+
     public void reject(){
         if (this.status == Status.REJECTED) throw new IllegalStateException("Repair request is already rejected.");
         this.status = Status.REJECTED;
     }
+
     public Repair complete(double quantity)
     {
         if (this.status == Status.UNCONFIRMED) throw new IllegalStateException("Repair request is not confirmed.");
