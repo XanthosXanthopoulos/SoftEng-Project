@@ -11,7 +11,9 @@ public class RepairRequest implements Comparable<RepairRequest>
     private GregorianCalendar creationDate;
     private GregorianCalendar conductionDate;
     private Address address;
-    private boolean isConfirmed;
+
+    // 0: sendeds, 1: confirmed -1: rejected
+    private int isConfirmed;
 
     private String commentsFromCustomer;
     private int estimatedDuration;
@@ -30,17 +32,16 @@ public class RepairRequest implements Comparable<RepairRequest>
     /*
      * Constructor when the Repair Request initialize from Costumer
      */
-    public RepairRequest(Customer customer, PaymentType paymentType, Job job, GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address)
+    public RepairRequest(Customer customer, PaymentType paymentType, Job job, GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address, String commentsFromCustomer)
     {
-        //TODO Change gregorian to calendar
-        //TODO String comments in input
         setCustomer(customer);
         setPaymentType(paymentType);
         setJob(job);
         setCreationDate(creationDate);
         setConductionDate(conductionDate);
         setAddress(address);
-        isConfirmed = false;
+        setCommentsFromCustomer(commentsFromCustomer);
+        isConfirmed = 0;
     }
 
 
@@ -48,41 +49,49 @@ public class RepairRequest implements Comparable<RepairRequest>
     //SETTERS
     public void setConductionDate(GregorianCalendar conductionDate)
     {
+        if(conductionDate == null){ throw new IllegalArgumentException("Null conductionDate");}
         this.conductionDate = conductionDate;
     }
 
     public void setCreationDate(GregorianCalendar creationDate)
     {
+        if(creationDate == null){ throw new IllegalArgumentException("Null creationDate");}
         this.creationDate = creationDate;
     }
 
     public void setAddress(Address address)
     {
+        if(address == null){ throw new IllegalArgumentException("Null address");}
         this.address = address;
     }
 
     public void setPaymentType(PaymentType type)
     {
+        if(type == null){ throw new IllegalArgumentException("Null type");}
         this.paymentType = type;
     }
 
     public void setCustomer(Customer customer)
     {
+        if(customer == null){ throw new IllegalArgumentException("Null customer");}
         this.customer = customer;
     }
 
     public void setRepair(Repair repair)
     {
+        if(repair == null){ throw new IllegalArgumentException("Null repair");}
         this.repair = repair;
     }
 
     public void setJob(Job job)
     {
+        if(job == null){ throw new IllegalArgumentException("Null job");}
         this.job = job;
     }
 
     public void setCommentsFromCustomer(String commentsFromCustomer)
     {
+        if(commentsFromCustomer == null){ throw new IllegalArgumentException("Null commentsFromCustomer");}
         this.commentsFromCustomer = commentsFromCustomer;
     }
 
@@ -127,7 +136,7 @@ public class RepairRequest implements Comparable<RepairRequest>
         return paymentType;
     }
 
-    public boolean isConfirmed()
+    public int isConfirmed()
     {
         return isConfirmed;
     }
@@ -154,15 +163,15 @@ public class RepairRequest implements Comparable<RepairRequest>
 
     public void confirm(int estimatedDuration)
     {
-        if (isConfirmed) throw new IllegalStateException("Repair request is already confirmed.");
-        isConfirmed = true;
+        if (isConfirmed == 1) throw new IllegalStateException("Repair request is already confirmed.");
+        isConfirmed = 1;
         setEstimatedDuration(estimatedDuration);
         getJob().getTechnician().notifyWithConfirmation(this);
     }
 
     public Repair complete(double quantity)
     {
-        if (!isConfirmed) throw new IllegalStateException("Repair request is not confirmed.");
+        if (isConfirmed == -1 ||isConfirmed == 0) throw new IllegalStateException("Repair request is not confirmed.");
 
         if (isCompleted()) throw new IllegalStateException("Repair request is already completed.");
 
