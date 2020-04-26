@@ -203,7 +203,7 @@ payoff()</panel_attributes>
       <x>280</x>
       <y>520</y>
       <w>20</w>
-      <h>140</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -214,7 +214,7 @@ payoff()</panel_attributes>
       <x>470</x>
       <y>530</y>
       <w>20</w>
-      <h>160</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -325,29 +325,6 @@ validateCardInfo
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>480</x>
-      <y>570</y>
-      <w>190</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-getTechnician()</panel_attributes>
-    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>640</x>
-      <y>590</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>870</x>
@@ -368,52 +345,6 @@ getTechnician()</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;710.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>770</x>
-      <y>630</y>
-      <w>20</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>920</x>
-      <y>670</y>
-      <w>20</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>480</x>
-      <y>620</y>
-      <w>310</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-sendReceipt()</panel_attributes>
-    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>480</x>
-      <y>660</y>
-      <w>460</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-sendReceipt()</panel_attributes>
-    <additional_attributes>440.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -464,48 +395,14 @@ evaluate(rating , comments)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>470</x>
       <y>760</y>
-      <w>690</w>
+      <w>600</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-evaluate(Evaluation)</panel_attributes>
-    <additional_attributes>670.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1010</x>
-      <y>740</y>
-      <w>110</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>_:Evaluation_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1050</x>
-      <y>760</y>
-      <w>30</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>480</x>
-      <y>730</y>
-      <w>550</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-create</panel_attributes>
-    <additional_attributes>530.0;20.0;10.0;20.0</additional_attributes>
+evaluate(Title , Comment ,Rate)</panel_attributes>
+    <additional_attributes>580.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -532,7 +429,7 @@ create</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1110</x>
+      <x>1010</x>
       <y>110</y>
       <w>110</w>
       <h>30</h>
@@ -543,7 +440,7 @@ create</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1150</x>
+      <x>1050</x>
       <y>130</y>
       <w>30</w>
       <h>730</h>
@@ -554,7 +451,7 @@ create</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1150</x>
+      <x>1050</x>
       <y>780</y>
       <w>20</w>
       <h>40</h>
@@ -563,55 +460,21 @@ create</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1270</x>
-      <y>530</y>
-      <w>110</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>_:Payment_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>1320</x>
-      <y>550</y>
-      <w>30</w>
-      <h>310</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;290.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>480</x>
-      <y>520</y>
-      <w>810</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-create</panel_attributes>
-    <additional_attributes>790.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>480</x>
+      <x>470</x>
       <y>540</y>
-      <w>690</w>
+      <w>600</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-payoff(Payment)</panel_attributes>
-    <additional_attributes>670.0;20.0;10.0;20.0</additional_attributes>
+payoff(PaymentType , Date)</panel_attributes>
+    <additional_attributes>580.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1150</x>
+      <x>1050</x>
       <y>560</y>
       <w>20</w>
       <h>40</h>

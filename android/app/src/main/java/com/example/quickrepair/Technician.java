@@ -179,10 +179,6 @@ public class Technician extends User
     public void notifyWithConfirmation(RepairRequest repairRequest)
     {
         GregorianCalendar actualDate = repairRequest.getConductionDate();
-        if (actualDate == null)
-        {
-            throw new IllegalArgumentException("It can't be null");
-        }
         GregorianCalendar newDate = Utilities.getYearMonthDay(actualDate);
 
         //add it to the calendarWithConfirmRequests

@@ -5,8 +5,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>117</x>
-      <y>9</y>
+      <x>144</x>
+      <y>90</y>
       <w>72</w>
       <h>99</h>
     </coordinates>
@@ -16,8 +16,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>288</x>
-      <y>72</y>
+      <x>315</x>
+      <y>153</y>
       <w>108</w>
       <h>36</h>
     </coordinates>
@@ -27,41 +27,41 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>90</y>
+      <x>171</x>
+      <y>171</y>
       <w>27</w>
-      <h>729</h>
+      <h>378</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;790.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;400.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>333</x>
-      <y>99</y>
+      <x>360</x>
+      <y>180</y>
       <w>27</w>
-      <h>711</h>
+      <h>378</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;770.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;400.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
-      <y>90</y>
+      <x>531</x>
+      <y>171</y>
       <w>27</w>
-      <h>729</h>
+      <h>387</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;790.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;410.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>450</x>
-      <y>72</y>
+      <x>477</x>
+      <y>153</y>
       <w>126</w>
       <h>27</h>
     </coordinates>
@@ -71,8 +71,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>648</x>
-      <y>72</y>
+      <x>675</x>
+      <y>153</y>
       <w>126</w>
       <h>27</h>
     </coordinates>
@@ -82,19 +82,19 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>702</x>
-      <y>90</y>
+      <x>729</x>
+      <y>171</y>
       <w>27</w>
-      <h>729</h>
+      <h>360</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;790.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;380.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>126</y>
+      <x>171</x>
+      <y>207</y>
       <w>207</w>
       <h>45</h>
     </coordinates>
@@ -106,8 +106,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>333</x>
-      <y>135</y>
+      <x>360</x>
+      <y>216</y>
       <w>18</w>
       <h>63</h>
     </coordinates>
@@ -117,8 +117,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>504</x>
-      <y>153</y>
+      <x>531</x>
+      <y>234</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -128,8 +128,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>135</y>
+      <x>369</x>
+      <y>216</y>
       <w>180</w>
       <h>45</h>
     </coordinates>
@@ -141,8 +141,8 @@ showRepairRequests
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>702</x>
-      <y>171</y>
+      <x>729</x>
+      <y>252</y>
       <w>18</w>
       <h>27</h>
     </coordinates>
@@ -152,8 +152,8 @@ showRepairRequests
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>513</x>
-      <y>153</y>
+      <x>540</x>
+      <y>234</y>
       <w>207</w>
       <h>36</h>
     </coordinates>
@@ -164,8 +164,8 @@ getRepairRequests()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>819</x>
-      <y>72</y>
+      <x>846</x>
+      <y>153</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -175,19 +175,8 @@ getRepairRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1098</x>
-      <y>90</y>
-      <w>27</w>
-      <h>747</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;810.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>144</x>
-      <y>252</y>
+      <x>171</x>
+      <y>333</y>
       <w>207</w>
       <h>36</h>
     </coordinates>
@@ -198,8 +187,8 @@ getRepairRequests()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>261</y>
+      <x>369</x>
+      <y>342</y>
       <w>180</w>
       <h>45</h>
     </coordinates>
@@ -211,8 +200,8 @@ showRepairRequestDetails
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>351</y>
+      <x>171</x>
+      <y>432</y>
       <w>216</w>
       <h>36</h>
     </coordinates>
@@ -223,8 +212,8 @@ showRepairRequestDetails
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>369</y>
+      <x>369</x>
+      <y>450</y>
       <w>180</w>
       <h>45</h>
     </coordinates>
@@ -236,54 +225,31 @@ CreateRepair()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
-      <y>396</y>
+      <x>531</x>
+      <y>477</y>
       <w>369</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-complete(Repair)</panel_attributes>
+complete()</panel_attributes>
     <additional_attributes>390.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>855</x>
-      <y>90</y>
+      <x>882</x>
+      <y>171</y>
       <w>27</w>
-      <h>729</h>
+      <h>396</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;790.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;420.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1062</x>
-      <y>72</y>
-      <w>90</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>_:Customer_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>504</x>
-      <y>441</y>
-      <w>369</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-getCustomer()</panel_attributes>
-    <additional_attributes>390.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>333</x>
-      <y>270</y>
+      <x>360</x>
+      <y>351</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -293,8 +259,8 @@ getCustomer()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>504</x>
-      <y>279</y>
+      <x>531</x>
+      <y>360</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
@@ -304,100 +270,32 @@ getCustomer()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>333</x>
-      <y>369</y>
+      <x>360</x>
+      <y>450</y>
+      <w>18</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>882</x>
+      <y>486</y>
+      <w>18</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>531</x>
+      <y>468</y>
       <w>18</w>
       <h>54</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>855</x>
-      <y>405</y>
-      <w>18</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>855</x>
-      <y>459</y>
-      <w>18</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>504</x>
-      <y>387</y>
-      <w>18</w>
-      <h>216</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>504</x>
-      <y>567</y>
-      <w>621</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-notifyOfCompletion(RepairRequest)</panel_attributes>
-    <additional_attributes>670.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>945</x>
-      <y>369</y>
-      <w>90</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>_:Repair_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>513</x>
-      <y>369</y>
-      <w>450</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.
-create(RepairRequest  , quantity)</panel_attributes>
-    <additional_attributes>480.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>981</x>
-      <y>387</y>
-      <w>27</w>
-      <h>441</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;470.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1098</x>
-      <y>585</y>
-      <w>18</w>
-      <h>18</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>

@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>153</x>
-      <y>126</y>
+      <x>207</x>
+      <y>144</y>
       <w>72</w>
       <h>99</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>333</x>
-      <y>189</y>
+      <x>387</x>
+      <y>207</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>207</y>
+      <x>234</x>
+      <y>225</y>
       <w>27</w>
       <h>567</h>
     </coordinates>
@@ -37,8 +37,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>207</y>
+      <x>423</x>
+      <y>225</y>
       <w>27</w>
       <h>576</h>
     </coordinates>
@@ -48,8 +48,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>621</x>
-      <y>207</y>
+      <x>675</x>
+      <y>225</y>
       <w>27</w>
       <h>576</h>
     </coordinates>
@@ -59,8 +59,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>567</x>
-      <y>189</y>
+      <x>621</x>
+      <y>207</y>
       <w>126</w>
       <h>27</h>
     </coordinates>
@@ -70,8 +70,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>234</y>
+      <x>234</x>
+      <y>252</y>
       <w>207</w>
       <h>54</h>
     </coordinates>
@@ -84,8 +84,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>369</x>
-      <y>243</y>
+      <x>423</x>
+      <y>261</y>
       <w>18</w>
       <h>81</h>
     </coordinates>
@@ -95,8 +95,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>621</x>
-      <y>270</y>
+      <x>675</x>
+      <y>288</y>
       <w>18</w>
       <h>54</h>
     </coordinates>
@@ -106,8 +106,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>252</y>
+      <x>432</x>
+      <y>270</y>
       <w>261</w>
       <h>45</h>
     </coordinates>
@@ -119,8 +119,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>801</x>
-      <y>189</y>
+      <x>855</x>
+      <y>207</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -130,8 +130,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
-      <y>612</y>
+      <x>990</x>
+      <y>630</y>
       <w>99</w>
       <h>27</h>
     </coordinates>
@@ -141,8 +141,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>837</x>
-      <y>207</y>
+      <x>891</x>
+      <y>225</y>
       <w>27</w>
       <h>567</h>
     </coordinates>
@@ -152,8 +152,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>387</y>
+      <x>234</x>
+      <y>405</y>
       <w>207</w>
       <h>36</h>
     </coordinates>
@@ -164,8 +164,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>522</y>
+      <x>234</x>
+      <y>540</y>
       <w>207</w>
       <h>36</h>
     </coordinates>
@@ -176,8 +176,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>972</x>
-      <y>630</y>
+      <x>1026</x>
+      <y>648</y>
       <w>27</w>
       <h>153</h>
     </coordinates>
@@ -187,8 +187,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>459</y>
+      <x>234</x>
+      <y>477</y>
       <w>207</w>
       <h>45</h>
     </coordinates>
@@ -200,8 +200,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>369</x>
-      <y>540</y>
+      <x>423</x>
+      <y>558</y>
       <w>18</w>
       <h>207</h>
     </coordinates>
@@ -211,8 +211,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>621</x>
-      <y>576</y>
+      <x>675</x>
+      <y>594</y>
       <w>18</w>
       <h>171</h>
     </coordinates>
@@ -222,8 +222,8 @@ SetTechnicianJobTypeAndDate
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>261</y>
+      <x>684</x>
+      <y>279</y>
       <w>225</w>
       <h>36</h>
     </coordinates>
@@ -234,8 +234,8 @@ getAvailableHourRanges(Date)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>837</x>
-      <y>279</y>
+      <x>891</x>
+      <y>297</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -245,8 +245,8 @@ getAvailableHourRanges(Date)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>603</y>
+      <x>684</x>
+      <y>621</y>
       <w>324</w>
       <h>36</h>
     </coordinates>
@@ -257,8 +257,8 @@ create</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>369</x>
-      <y>405</y>
+      <x>423</x>
+      <y>423</y>
       <w>18</w>
       <h>54</h>
     </coordinates>
@@ -268,8 +268,8 @@ create</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>396</y>
+      <x>432</x>
+      <y>414</y>
       <w>261</w>
       <h>36</h>
     </coordinates>
@@ -280,8 +280,8 @@ validateHour(Hour)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>621</x>
-      <y>414</y>
+      <x>675</x>
+      <y>432</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -291,8 +291,8 @@ validateHour(Hour)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>369</x>
-      <y>477</y>
+      <x>423</x>
+      <y>495</y>
       <w>18</w>
       <h>54</h>
     </coordinates>
@@ -302,8 +302,8 @@ validateHour(Hour)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>621</x>
-      <y>486</y>
+      <x>675</x>
+      <y>504</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -313,8 +313,8 @@ validateHour(Hour)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>468</y>
+      <x>432</x>
+      <y>486</y>
       <w>261</w>
       <h>36</h>
     </coordinates>
@@ -325,8 +325,8 @@ setAddress()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>495</y>
+      <x>432</x>
+      <y>513</y>
       <w>261</w>
       <h>36</h>
     </coordinates>
@@ -337,8 +337,8 @@ setPaymentType()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>621</x>
-      <y>513</y>
+      <x>675</x>
+      <y>531</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -348,8 +348,8 @@ setPaymentType()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>567</y>
+      <x>432</x>
+      <y>585</y>
       <w>261</w>
       <h>36</h>
     </coordinates>
@@ -358,71 +358,26 @@ confirm()</panel_attributes>
     <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>891</x>
+      <y>711</y>
+      <w>18</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>675</y>
+      <x>684</x>
+      <y>693</y>
       <w>234</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-addRepairRequest(RepairRequest)</panel_attributes>
+addRepairRequest(Customer)</panel_attributes>
     <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1071</x>
-      <y>189</y>
-      <w>90</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>_:Customer_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1107</x>
-      <y>207</y>
-      <w>27</w>
-      <h>567</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;610.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>630</x>
-      <y>702</y>
-      <w>504</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-addRepairRequest(RepairRequest)</panel_attributes>
-    <additional_attributes>540.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1107</x>
-      <y>720</y>
-      <w>18</w>
-      <h>18</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>837</x>
-      <y>693</y>
-      <w>18</w>
-      <h>18</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
   </element>
 </diagram>
