@@ -1,6 +1,5 @@
 package com.example.quickrepair;
 
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class RepairRequest implements Comparable<RepairRequest>
@@ -11,9 +10,8 @@ public class RepairRequest implements Comparable<RepairRequest>
     private GregorianCalendar creationDate;
     private GregorianCalendar conductionDate;
     private Address address;
-
-    // 0: sendeds, 1: confirmed -1: rejected
-    private int isConfirmed;
+    
+    private Status status;
 
     private String commentsFromCustomer;
     private int estimatedDuration;
@@ -41,7 +39,7 @@ public class RepairRequest implements Comparable<RepairRequest>
         setConductionDate(conductionDate);
         setAddress(address);
         setCommentsFromCustomer(commentsFromCustomer);
-        isConfirmed = 0;
+        status = Status.UNCONFIRMED;
     }
 
 
@@ -136,14 +134,14 @@ public class RepairRequest implements Comparable<RepairRequest>
         return paymentType;
     }
 
-    public int isConfirmed()
+    public boolean isConfirmed()
     {
-        return isConfirmed;
+        return this.status == Status.CONFIRMED;
     }
 
     public boolean isCompleted()
     {
-        return repair != null;
+        return this.status == Status.COMPLETED;
     }
 
     public String getCommentsFromCustomer()
@@ -163,18 +161,21 @@ public class RepairRequest implements Comparable<RepairRequest>
 
     public void confirm(int estimatedDuration)
     {
-        if (isConfirmed == 1) throw new IllegalStateException("Repair request is already confirmed.");
-        isConfirmed = 1;
+        if (this.status == Status.CONFIRMED) throw new IllegalStateException("Repair request is already confirmed.");
+        this.status = Status.CONFIRMED;
         setEstimatedDuration(estimatedDuration);
         getJob().getTechnician().notifyWithConfirmation(this);
     }
-
+    public void reject(){
+        if (this.status == Status.REJECTED) throw new IllegalStateException("Repair request is already rejected.");
+        this.status = Status.REJECTED;
+    }
     public Repair complete(double quantity)
     {
-        if (isConfirmed == -1 ||isConfirmed == 0) throw new IllegalStateException("Repair request is not confirmed.");
+        if (this.status == Status.UNCONFIRMED) throw new IllegalStateException("Repair request is not confirmed.");
 
         if (isCompleted()) throw new IllegalStateException("Repair request is already completed.");
-
+        this.status = Status.COMPLETED;
         Repair repair = new Repair(this , quantity);
         setRepair(repair);
         getCustomer().notifyOfCompletion(this);
@@ -186,5 +187,12 @@ public class RepairRequest implements Comparable<RepairRequest>
     public int compareTo(RepairRequest o)
     {
         return conductionDate.compareTo(o.conductionDate);
+    }
+
+    public enum Status{
+        REJECTED,
+        CONFIRMED,
+        UNCONFIRMED,
+        COMPLETED
     }
 }
