@@ -34,7 +34,7 @@ public class TechnicianUnitTest {
     public void setUpTests() {
         technicianToTest = new Technician("nikos", "sm" , "6958475635",
                 "asdih@ausdh.asdh" , "mybankaccount" , "nikos" ,
-                "123" , new Specialty("test"));
+                "123" , new Specialty("test"), "128947");
         Address address = new Address("ath" , "15");
         exampleSpecialty = new Specialty("Electrician");
         exampleJobType = new JobType("Allagi plakakia" , exampleSpecialty , MeasurementUnit.METER);
@@ -385,6 +385,10 @@ public class TechnicianUnitTest {
         Assert.assertEquals(gap2,technicianToTest.getAvailableHourRanges(april6).get(1));
         Assert.assertEquals(gap3,technicianToTest.getAvailableHourRanges(april6).get(2));
         Assert.assertEquals(gaps ,technicianToTest.getAvailableHourRanges(april6));
+    }
+    @Test
+    public void equalsTest(){
+       Assert.assertEquals(technicianToTest , technicianToTest);
     }
 
 }

@@ -15,7 +15,7 @@ public class JobUnitTest {
         exampleSpecialty  = new Specialty("124");
         exampleJobType = new JobType("plakakia" , exampleSpecialty , MeasurementUnit.METER);
         exampleTechnician = new Technician("girgows" , "papageorgiou" , "6978564534" ,
-                "giorgos@gmail.com" , "12314" , "1234" , "123123" , exampleSpecialty);
+                "giorgos@gmail.com" , "12314" , "1234" , "123123" , exampleSpecialty , "128307");
         exampleJob = new Job(exampleTechnician , exampleJobType , 1.5 , 500);
         exampleTechnician.setAFM("1587");
     }
@@ -41,7 +41,6 @@ public class JobUnitTest {
     public void testHashCode(){
         Job other = new Job(exampleTechnician , exampleJobType , 1.5 , 500);
         Assert.assertTrue(exampleJob.hashCode() == other.hashCode());
-        System.out.println(exampleJob.hashCode());
         Assert.assertTrue(exampleJob.hashCode() != 0 );
         Job jobWithNullJobType = new Job();
         Assert.assertTrue(jobWithNullJobType.hashCode() == 0);

@@ -22,18 +22,12 @@ public class JobType
 
     public JobType(String name, Specialty specialty, MeasurementUnit measurementUnit)
     {
+        this();
         setName(name);
         setSpecialty(specialty);
         setMeasurementUnit(measurementUnit);
     }
 
-    public JobType(String name, Specialty specialty, MeasurementUnit measurementUnit, Set<Job> jobs)
-    {
-        setName(name);
-        setSpecialty(specialty);
-        setMeasurementUnit(measurementUnit);
-        setJobs(jobs);
-    }
 
     //getters
     public String getName()
@@ -74,11 +68,6 @@ public class JobType
     public void setMeasurementUnit(MeasurementUnit measurementUnit)
     {
         this.measurementUnit = measurementUnit;
-    }
-
-    public void setJobs(Set<Job> jobs)
-    {
-        this.jobs = jobs;
     }
 
     public void addJob(Job job)

@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class Technician extends User
@@ -29,19 +30,12 @@ public class Technician extends User
     private Hashtable<GregorianCalendar, ArrayList<RepairRequest>> calendarWithConfirmRequests = new Hashtable<>();
 
     // Constructors
-    public Technician(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password, Specialty specialty)
+    public Technician(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password, Specialty specialty, String AFM)
     {
         super(name, surname, phoneNumber, email, bankAccount, username, password);
         setSpecialty(specialty);
+        setAFM(AFM);
     }
-
-    public Technician(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password, Specialty specialty, HashSet<String> areas)
-    {
-        super(name, surname, phoneNumber, email, bankAccount, username, password);
-        setSpecialty(specialty);
-        setAreas(areas);
-    }
-    //TODO Constructors with input sets of areas and jobs
 
     //SETTERS
     //TODO: Comments and checks at setters
@@ -129,6 +123,7 @@ public class Technician extends User
 
     public void setAFM(String AFM)
     {
+        if(AFM == null) throw new NullPointerException("null AFM");
         this.AFM = AFM;
     }
 
@@ -387,5 +382,16 @@ public class Technician extends User
         return isAfterStart || isBeforeEnd;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Technician that = (Technician) o;
+        return AFM.equals(that.AFM);
+    }
 
+    @Override
+    public int hashCode() {
+        return AFM.hashCode();
+    }
 }
