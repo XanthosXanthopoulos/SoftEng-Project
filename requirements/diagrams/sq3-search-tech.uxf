@@ -4,7 +4,7 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>333</x>
+      <x>225</x>
       <y>180</y>
       <w>72</w>
       <h>99</h>
@@ -15,7 +15,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>513</x>
+      <x>405</x>
       <y>243</y>
       <w>90</w>
       <h>27</h>
@@ -26,7 +26,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>252</x>
       <y>261</y>
       <w>27</w>
       <h>621</h>
@@ -37,7 +37,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>549</x>
+      <x>441</x>
       <y>261</y>
       <w>27</w>
       <h>621</h>
@@ -48,7 +48,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
+      <x>612</x>
       <y>261</y>
       <w>27</w>
       <h>612</h>
@@ -59,7 +59,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>666</x>
+      <x>558</x>
       <y>243</y>
       <w>126</w>
       <h>27</h>
@@ -70,7 +70,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>252</x>
       <y>288</y>
       <w>207</w>
       <h>45</h>
@@ -83,7 +83,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>549</x>
+      <x>441</x>
       <y>297</y>
       <w>18</w>
       <h>108</h>
@@ -94,7 +94,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
+      <x>612</x>
       <y>324</y>
       <w>18</w>
       <h>27</h>
@@ -105,7 +105,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
+      <x>450</x>
       <y>306</y>
       <w>180</w>
       <h>45</h>
@@ -118,7 +118,7 @@ setSpecialty
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>900</x>
+      <x>792</x>
       <y>243</y>
       <w>90</w>
       <h>27</h>
@@ -129,7 +129,7 @@ setSpecialty
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>252</x>
       <y>450</y>
       <w>207</w>
       <h>36</h>
@@ -141,7 +141,7 @@ setSpecialty
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
+      <x>450</x>
       <y>468</y>
       <w>180</w>
       <h>45</h>
@@ -154,7 +154,7 @@ setJobType(JobType)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>252</x>
       <y>693</y>
       <w>207</w>
       <h>36</h>
@@ -166,7 +166,7 @@ setJobType(JobType)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
+      <x>450</x>
       <y>720</y>
       <w>180</w>
       <h>45</h>
@@ -179,19 +179,19 @@ filterArea
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
+      <x>621</x>
       <y>477</y>
-      <w>225</w>
+      <w>459</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-offers(JobType)</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+getTechnicians(JobType)</panel_attributes>
+    <additional_attributes>490.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>252</x>
       <y>612</y>
       <w>207</w>
       <h>36</h>
@@ -203,7 +203,7 @@ offers(JobType)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
+      <x>450</x>
       <y>630</y>
       <w>180</w>
       <h>45</h>
@@ -216,7 +216,7 @@ filterAvailable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
+      <x>621</x>
       <y>648</y>
       <w>234</w>
       <h>45</h>
@@ -229,7 +229,7 @@ isAvailable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
+      <x>621</x>
       <y>738</y>
       <w>225</w>
       <h>36</h>
@@ -241,7 +241,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>549</x>
+      <x>441</x>
       <y>459</y>
       <w>18</w>
       <h>72</h>
@@ -252,7 +252,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
+      <x>612</x>
       <y>486</y>
       <w>18</w>
       <h>45</h>
@@ -263,7 +263,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>549</x>
+      <x>441</x>
       <y>630</y>
       <w>18</w>
       <h>63</h>
@@ -274,7 +274,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
+      <x>612</x>
       <y>639</y>
       <w>18</w>
       <h>54</h>
@@ -285,7 +285,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>549</x>
+      <x>441</x>
       <y>702</y>
       <w>18</w>
       <h>72</h>
@@ -296,7 +296,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
+      <x>612</x>
       <y>738</y>
       <w>18</w>
       <h>36</h>
@@ -307,18 +307,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
-      <y>495</y>
-      <w>18</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>936</x>
+      <x>828</x>
       <y>666</y>
       <w>18</w>
       <h>27</h>
@@ -329,7 +318,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
+      <x>828</x>
       <y>756</y>
       <w>18</w>
       <h>18</h>
@@ -340,7 +329,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
+      <x>828</x>
       <y>261</y>
       <w>27</w>
       <h>612</h>
@@ -351,7 +340,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>252</x>
       <y>774</y>
       <w>207</w>
       <h>36</h>
@@ -363,7 +352,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>549</x>
+      <x>441</x>
       <y>783</y>
       <w>18</w>
       <h>63</h>
@@ -374,7 +363,7 @@ servesArea(Area)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
+      <x>450</x>
       <y>783</y>
       <w>189</w>
       <h>36</h>
@@ -386,7 +375,7 @@ filterJobPrice(Price)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
+      <x>612</x>
       <y>801</y>
       <w>18</w>
       <h>36</h>
@@ -397,7 +386,7 @@ filterJobPrice(Price)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
+      <x>612</x>
       <y>801</y>
       <w>243</w>
       <h>36</h>
@@ -409,7 +398,7 @@ offersJobForLessThan(JobType , price)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
+      <x>828</x>
       <y>819</y>
       <w>18</w>
       <h>18</h>
@@ -420,12 +409,46 @@ offersJobForLessThan(JobType , price)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1026</x>
+      <x>918</x>
       <y>243</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
     <panel_attributes>_:Specialty_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>954</x>
+      <y>261</y>
+      <w>27</w>
+      <h>603</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>351</y>
+      <w>522</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+getJobTypes()</panel_attributes>
+    <additional_attributes>560.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>954</x>
+      <y>360</y>
+      <w>18</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes/>
     <additional_attributes/>
   </element>
   <element>
@@ -440,22 +463,21 @@ offersJobForLessThan(JobType , price)</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
+    <id>UMLGeneric</id>
     <coordinates>
-      <x>558</x>
-      <y>351</y>
-      <w>522</w>
-      <h>36</h>
+      <x>1026</x>
+      <y>243</y>
+      <w>90</w>
+      <h>27</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
-getJobTypes()</panel_attributes>
-    <additional_attributes>560.0;20.0;10.0;20.0</additional_attributes>
+    <panel_attributes>_:JobType_</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1062</x>
-      <y>360</y>
+      <y>495</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
