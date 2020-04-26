@@ -396,7 +396,12 @@ public class TechnicianUnitTest {
     }
     @Test
     public void equalsTest(){
-       Assert.assertEquals(technicianToTest , technicianToTest);
+        Technician otherTechnician = new Technician("nikos", "sm" , "6958475635",
+                "asdih@ausdh.asdh" , "mybankaccount" , "nikos" ,
+                "123" , new Specialty("test"), "128947");
+        Assert.assertEquals(technicianToTest , technicianToTest);
+        Assert.assertNotEquals(technicianToTest , exampleAddress);
+        Assert.assertEquals(otherTechnician , technicianToTest);
     }
     @Test
     public void servesAreaTest(){
