@@ -13,4 +13,8 @@ public class AddressUnitTest {
     public void newAddressWithIncorrectNumber(){
         Address addr = new Address("14" , "aaaa");
     }
+    @Test (expected = NullPointerException.class)
+    public void testSetStreetName(){
+        Address addr = new Address(null , "aaaa");
+    }
 }

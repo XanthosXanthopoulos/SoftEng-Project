@@ -23,7 +23,7 @@ public class Address
     {
         if (streetName == null)
         {
-            throw new NullPointerException();
+            throw new NullPointerException("streetName can't be null");
         }
 
         this.streetName = streetName;
