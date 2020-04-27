@@ -5,8 +5,6 @@ import java.util.GregorianCalendar;
 public class RepairRequest implements Comparable<RepairRequest>
 {
     private Customer customer;
-    //TODO PaymentType shoudn't be here
-    private PaymentType paymentType;
     private Job job;
     private GregorianCalendar creationDate;
     private GregorianCalendar conductionDate;
@@ -31,10 +29,9 @@ public class RepairRequest implements Comparable<RepairRequest>
     /*
      * Constructor when the Repair Request initialize from Costumer
      */
-    public RepairRequest(Customer customer, PaymentType paymentType, Job job, GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address, String commentsFromCustomer)
+    public RepairRequest(Customer customer, Job job, GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address, String commentsFromCustomer)
     {
         setCustomer(customer);
-        setPaymentType(paymentType);
         setJob(job);
         setCreationDate(creationDate);
         setConductionDate(conductionDate);
@@ -46,49 +43,67 @@ public class RepairRequest implements Comparable<RepairRequest>
     //SETTERS
     public void setConductionDate(GregorianCalendar conductionDate)
     {
-        if(conductionDate == null){ throw new IllegalArgumentException("Null conductionDate");}
+        if (conductionDate == null)
+        {
+            throw new IllegalArgumentException("Null conductionDate");
+        }
         this.conductionDate = conductionDate;
     }
 
     public void setCreationDate(GregorianCalendar creationDate)
     {
-        if(creationDate == null){ throw new IllegalArgumentException("Null creationDate");}
+        if (creationDate == null)
+        {
+            throw new IllegalArgumentException("Null creationDate");
+        }
+
         this.creationDate = creationDate;
     }
 
     public void setAddress(Address address)
     {
-        if(address == null){ throw new IllegalArgumentException("Null address");}
-        this.address = address;
-    }
+        if (address == null)
+        {
+            throw new IllegalArgumentException("Null address");
+        }
 
-    public void setPaymentType(PaymentType type)
-    {
-        if(type == null){ throw new IllegalArgumentException("Null type");}
-        this.paymentType = type;
+        this.address = address;
     }
 
     public void setCustomer(Customer customer)
     {
-        if(customer == null){ throw new IllegalArgumentException("Null customer");}
+        if (customer == null)
+        {
+            throw new IllegalArgumentException("Null customer");
+        }
+
         this.customer = customer;
     }
 
     public void setRepair(Repair repair)
     {
-        if(repair == null){ throw new IllegalArgumentException("Null repair");}
+        if (repair == null)
+        {
+            throw new IllegalArgumentException("Null repair");
+        }
+
         this.repair = repair;
     }
 
     public void setJob(Job job)
     {
-        if(job == null){ throw new IllegalArgumentException("Null job");}
+        if (job == null)
+        {
+            throw new IllegalArgumentException("Null job");
+        }
+
         this.job = job;
     }
 
     public void setCommentsFromCustomer(String commentsFromCustomer)
     {
-        if(commentsFromCustomer == null){ throw new IllegalArgumentException("Null commentsFromCustomer");}
+        if (commentsFromCustomer == null) throw new IllegalArgumentException("Null commentsFromCustomer");
+
         this.commentsFromCustomer = commentsFromCustomer;
     }
 
@@ -129,10 +144,6 @@ public class RepairRequest implements Comparable<RepairRequest>
         return customer;
     }
 
-    public PaymentType getPaymentType()
-    {
-        return paymentType;
-    }
     public String getCommentsFromCustomer()
     {
         return commentsFromCustomer;
@@ -158,27 +169,30 @@ public class RepairRequest implements Comparable<RepairRequest>
         return this.status == Status.COMPLETED;
     }
 
-
     public void confirm(int estimatedDuration)
     {
-        if (this.status == Status.CONFIRMED) throw new IllegalStateException("Repair request is already confirmed.");
+        if (this.status == Status.CONFIRMED)
+            throw new IllegalStateException("Repair request is already confirmed.");
         this.status = Status.CONFIRMED;
         setEstimatedDuration(estimatedDuration);
         getJob().getTechnician().notifyWithConfirmation(this);
     }
 
-    public void reject(){
-        if (this.status == Status.REJECTED) throw new IllegalStateException("Repair request is already rejected.");
+    public void reject()
+    {
+        if (this.status == Status.REJECTED)
+            throw new IllegalStateException("Repair request is already rejected.");
         this.status = Status.REJECTED;
     }
 
     public Repair complete(double quantity)
     {
-        if (this.status == Status.UNCONFIRMED) throw new IllegalStateException("Repair request is not confirmed.");
+        if (this.status == Status.UNCONFIRMED)
+            throw new IllegalStateException("Repair request is not confirmed.");
 
         if (isCompleted()) throw new IllegalStateException("Repair request is already completed.");
         this.status = Status.COMPLETED;
-        Repair repair = new Repair(this , quantity);
+        Repair repair = new Repair(this, quantity);
         setRepair(repair);
         getCustomer().notifyOfCompletion(this);
 
@@ -191,7 +205,8 @@ public class RepairRequest implements Comparable<RepairRequest>
         return conductionDate.compareTo(o.conductionDate);
     }
 
-    public enum Status{
+    public enum Status
+    {
         REJECTED,
         CONFIRMED,
         UNCONFIRMED,

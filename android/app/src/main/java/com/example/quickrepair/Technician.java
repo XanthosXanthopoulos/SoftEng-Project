@@ -94,7 +94,7 @@ public class Technician extends User
 
     public void setAFM(String AFM)
     {
-        if(AFM == null) throw new NullPointerException("null AFM");
+        if (AFM == null) throw new NullPointerException("null AFM");
         this.AFM = AFM;
     }
 
@@ -158,23 +158,26 @@ public class Technician extends User
      * Adds a job to the technician's list of jobs
      * Also updates the association references
      */
-    public Job addJob(JobType jobType , double price , int duration)
+    public Job addJob(JobType jobType, double price, int duration)
     {
-        if(!jobType.getSpecialty().equals(getSpecialty())){
+        if (!jobType.getSpecialty().equals(getSpecialty()))
+        {
             throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
         }
-        Job job = new Job(this , jobType , price , duration);
+        Job job = new Job(this, jobType, price, duration);
         this.jobs.add(job);
         job.getJobType().addJob(job);
         return job;
     }
+
     /**
      * Removes a job from the technicians list of job
      * Also updates the list of jobs that offer the job's jobtype
      */
     public void removeJob(Job job)
     {
-        if(job == null){
+        if (job == null)
+        {
             throw new NullPointerException();
         }
         getJobs().remove(job);
@@ -193,6 +196,7 @@ public class Technician extends User
 
     /**
      * Adds an area to the list of this technicians areas
+     *
      * @param area the area to be added
      */
     public void addArea(String area)
@@ -201,8 +205,10 @@ public class Technician extends User
 
         areas.add(area);
     }
+
     /**
      * Removes an area from the list of this technicians areas
+     *
      * @param area the area to be removed
      */
     public void removeArea(String area)
@@ -214,13 +220,17 @@ public class Technician extends User
 
     /**
      * Returns a set of all the evaluations that have been done for this technician
+     *
      * @return
      */
     public Set<Evaluation> getEvaluations()
     {
         Set<Evaluation> evaluations = new HashSet<>();
-        for(RepairRequest repairRequest : repairRequests){
-            if(repairRequest.isCompleted()){
+
+        for (RepairRequest repairRequest : repairRequests)
+        {
+            if (repairRequest.isCompleted())
+            {
                 evaluations.add(repairRequest.getRepair().getEvaluation());
             }
         }
@@ -319,24 +329,30 @@ public class Technician extends User
 
     /**
      * Checks if the technician serves the given area
+     *
      * @param area the area we are testing
      * @return true if the technician serves the specified area
      */
-    public boolean servesArea(String area){
+    public boolean servesArea(String area)
+    {
         if (area == null) throw new NullPointerException();
         return getAreas().contains(area);
     }
 
     /**
      * Checks if the technician offers a job for less than a given price
+     *
      * @param jobType the jobtype being teste
-     * @param price the maximum price the technician offers the job for
+     * @param price   the maximum price the technician offers the job for
      * @return true if he offers the jobtype for less than price
      */
-    public boolean offersJobForLessThanPrice(JobType jobType , double price){
-        for (Job job : getJobs()){
-            if(job.getJobType().equals(jobType)){
-                if(job.getPrice() < price) return true;
+    public boolean offersJobForLessThanPrice(JobType jobType, double price)
+    {
+        for (Job job : getJobs())
+        {
+            if (job.getJobType().equals(jobType))
+            {
+                if (job.getPrice() < price) return true;
             }
         }
         return false;
@@ -416,7 +432,8 @@ public class Technician extends User
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Technician that = (Technician) o;
@@ -424,7 +441,8 @@ public class Technician extends User
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return AFM.hashCode();
     }
 
