@@ -47,24 +47,13 @@ public class Customer extends User
     /*
     *
      */
-    //TODO Address is missing from input parameters
-    public RepairRequest requestRepair(GregorianCalendar dateNow, GregorianCalendar date, Job job, String comments) {
-        //TODO please never use default constructor again ... ever
-        //TODO Invalid initialization of repairrequest
-        RepairRequest repairRequest = new RepairRequest();
-
-        repairRequest.setCreationDate(dateNow);
-        repairRequest.setConductionDate(date);
-        repairRequest.setCommentsFromCustomer(comments);
-        repairRequest.setJob(job);
-        repairRequest.setCustomer(this);
+    public RepairRequest requestRepair(GregorianCalendar dateNow, GregorianCalendar date, Job job, String comments, Address address) {
+        RepairRequest repairRequest = new RepairRequest(this ,  job , dateNow , date  ,address , comments);
 
         requests.add(repairRequest);
         job.getTechnician().addRepairRequest(repairRequest);
-
         return repairRequest;
     }
-
     public void notifyOfCompletion(RepairRequest repairRequest){
         //Customer is notified that one of his repair requests has been completed
     }
