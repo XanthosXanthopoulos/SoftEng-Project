@@ -79,7 +79,7 @@ public class RepairUnitTest {
     public void constructorWithQuantityAndPayment(){
         //create repair with job
         RepairRequest repairRequest = new RepairRequest(exampleCustomer
-                ,   exampleJob , (GregorianCalendar) Calendar.getInstance(),
+                , exampleJob , (GregorianCalendar) Calendar.getInstance(),
                 (GregorianCalendar) Calendar.getInstance() , exampleAddress ,"comment");
         Job job = exampleJob;
         JobType jobType = exampleJobType;
