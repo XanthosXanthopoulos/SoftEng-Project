@@ -15,8 +15,6 @@ public class User
     private String username;
     private byte[] password;
 
-
-    //TODO Store password as an md5 / sha1 / sha265 sum and provide method of validation
     public User(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password)
     {
         setUserInfo(name, surname, phoneNumber, email, bankAccount, username);
@@ -117,6 +115,7 @@ public class User
         this.username = username;
     }
 
+    //TODO Untestable lines what do ??
     private void setPassword(String password)
     {
         if (password == null) throw new NullPointerException("Password can not be null.");
@@ -170,4 +169,5 @@ public class User
     {
         return username;
     }
+    //TODO Equals
 }

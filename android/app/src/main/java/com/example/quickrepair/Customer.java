@@ -57,4 +57,5 @@ public class Customer extends User
     public void notifyOfCompletion(RepairRequest repairRequest){
         //Customer is notified that one of his repair requests has been completed
     }
+    //TODO equals
 }

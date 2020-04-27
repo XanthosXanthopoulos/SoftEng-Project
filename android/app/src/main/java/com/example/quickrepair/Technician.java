@@ -448,5 +448,5 @@ public class Technician extends User
     {
         return AFM.hashCode();
     }
-
+    //TODO Equals
 }

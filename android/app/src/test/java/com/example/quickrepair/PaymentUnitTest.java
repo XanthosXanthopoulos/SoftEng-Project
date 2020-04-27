@@ -25,27 +25,28 @@ public class PaymentUnitTest {
     //paymentType date
     @Test (expected = NullPointerException.class)
     public void nullDate(){
-        Payment payment = new Payment();
-        payment.setDate(null);
+        Payment payment = new Payment(null , PaymentType.CARD);
     }
 
     @Test
     public void okDate(){
         GregorianCalendar date = new GregorianCalendar(2019,12,12);
-        payment.setDate(date);
+        Payment payment = new Payment(date , PaymentType.CARD);
         Assert.assertEquals(date, payment.getDate());
     }
 
     //paymentType tests
     @Test (expected = NullPointerException.class)
     public void nullPaymentType(){
-        payment.setPaymentType(null);
+        GregorianCalendar date = new GregorianCalendar(2019,12,12);
+        Payment payment = new Payment(date , null);
     }
 
     @Test
     public void okPaymentType(){
         PaymentType paymentType = PaymentType.CARD;
-        payment.setPaymentType(paymentType);
+        GregorianCalendar date = new GregorianCalendar(2019,12,12);
+        Payment payment = new Payment(date , paymentType);
         Assert.assertEquals(paymentType, payment.getPaymentType());
     }
 
@@ -64,22 +65,21 @@ public class PaymentUnitTest {
     @Test
     public void equalsOkNotEqualsDates(){
         Payment payment2 = new Payment(new GregorianCalendar(2020,18,19),PaymentType.CARD);
-        payment.setPaymentType(PaymentType.CARD);
-        payment.setDate(new GregorianCalendar(2020,20,2));
-        Assert.assertEquals(false,payment.equals(payment2));
+
+        Payment payment = new Payment(new GregorianCalendar(2020,20,2) , PaymentType.CARD);
+        Assert.assertNotEquals(payment,payment2);
     }
     @Test
     public void equalsOkNotEqualsPaymentType(){
-        Payment payment2 = new Payment(new GregorianCalendar(2020,18,19),PaymentType.CASH);
-        payment.setPaymentType(PaymentType.CARD);
-        payment.setDate(new GregorianCalendar(2020,18,19));
-        Assert.assertEquals(false,payment.equals(payment2));
+        Payment payment2 = new Payment(new GregorianCalendar(2020,18,19),PaymentType.CARD);
+
+        Payment payment = new Payment(new GregorianCalendar(2020,20,2) , PaymentType.CASH);
+        Assert.assertNotEquals(payment , payment2);
     }
     @Test
     public void equalsOkEquals(){
         Payment payment2 = new Payment(new GregorianCalendar(2020,18,19),PaymentType.CARD);
-        payment.setPaymentType(PaymentType.CARD);
-        payment.setDate(new GregorianCalendar(2020,18,19));
-        Assert.assertEquals(true, payment.equals(payment2));
+        Payment payment1 = new Payment(new GregorianCalendar(2020,18,19),PaymentType.CARD);
+        Assert.assertEquals(payment1 , payment2);
     }
 }

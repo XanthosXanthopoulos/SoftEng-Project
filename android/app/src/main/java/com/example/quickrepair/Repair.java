@@ -197,4 +197,5 @@ public class Repair
         setPayment(payment);
         return payment;
     }
+    //TODO equals
 }

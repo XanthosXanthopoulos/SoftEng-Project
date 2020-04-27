@@ -41,7 +41,7 @@ public class Payment
      *
      * @param date payment's date
      */
-    public void setDate(Calendar date)
+    private void setDate(Calendar date)
     {
         if (date != null)
         {
@@ -66,7 +66,7 @@ public class Payment
      *
      * @param paymentType payment's type
      */
-    public void setPaymentType(PaymentType paymentType)
+    private void setPaymentType(PaymentType paymentType)
     {
         if (paymentType == null)
         {

@@ -209,4 +209,5 @@ public class RepairRequest implements Comparable<RepairRequest>
         UNCONFIRMED,
         COMPLETED
     }
+    //TODO equals
 }

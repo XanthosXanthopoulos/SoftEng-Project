@@ -29,8 +29,8 @@ public class Evaluation
      */
     public Evaluation(String title, String comment, int rate)
     {
-        this.title = title;
-        this.comment = comment;
+        setTitle(title);
+        setComment(comment);
         setRate(rate);
     }
 
@@ -49,7 +49,7 @@ public class Evaluation
      *
      * @param title evaluation's title
      */
-    public void setTitle(String title)
+    private void setTitle(String title)
     {
         if (title == null) throw new NullPointerException("null title");
 
@@ -76,7 +76,7 @@ public class Evaluation
      *
      * @param comment evaluation's comment
      */
-    public void setComment(String comment)
+    private void setComment(String comment)
     {
         if (comment == null) throw new NullPointerException("null comment");
 
@@ -103,7 +103,7 @@ public class Evaluation
      *
      * @param rate evaluation's rate, [1, 5]
      */
-    public void setRate(int rate)
+    private void setRate(int rate)
     {
         if (rate < 1 || rate > 5) throw new IllegalArgumentException("[1,5] stars");
 
@@ -111,19 +111,13 @@ public class Evaluation
     }
 
     @Override
-    public boolean equals(@Nullable Object o)
-    {
-        if (o == this)
-        {
-            return true;
-        }
-        if (!(o instanceof Evaluation))
-        {
-            return false;
-        }
-        // typecast
-        Evaluation evaluation = (Evaluation) o;
-        return evaluation.getTitle().equals(this.getTitle()) && evaluation.getComment().equals(this.getComment()) && evaluation.getRate() == this.getRate();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Evaluation that = (Evaluation) o;
+        return rate == that.rate &&
+                title.equals(that.title) &&
+                comment.equals(that.comment);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.example.quickrepair;
 
+import java.util.Objects;
+
 /**
  * Imuutable class that reprsents an address
  */
@@ -45,5 +47,19 @@ public class Address
         }
 
         this.number = number;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return streetName.equals(address.getStreetName()) &&
+                number.equals(address.getNumber());
+    }
+
+    @Override
+    public int hashCode() {
+        return (streetName + number).hashCode();
     }
 }
