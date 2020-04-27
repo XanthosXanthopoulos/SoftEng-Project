@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import static org.junit.Assert.*;
 public class TechnicianUnitTest {
@@ -433,19 +434,33 @@ public class TechnicianUnitTest {
         Assert.assertFalse(technicianToTest.offersJobForLessThanPrice(jobType2 , 10000));
     }
     //TODO Test getEvaluations method
-    /*
+
     @Test
     public void evaluationsTest(){
         RepairRequest repairRequest= exampleCustomer1.requestRepair((GregorianCalendar)Calendar.getInstance()
-                , (GregorianCalendar)Calendar.getInstance() , exampleJob , "plshelp");
+                , (GregorianCalendar)Calendar.getInstance() , exampleJob , "plshelp" , exampleAddress);
         //This job needs 160 minutes
         repairRequest.confirm(160);
+        repairRequest.complete(150);
         repairRequest.getRepair().evaluate("Hallo" , "hallo" , 5);
         Evaluation eval = new Evaluation("Hallo" , "hallo" , 5);
+        Evaluation a = new Evaluation("Hallo" , "hallo" , 5);
         assertTrue(technicianToTest.getEvaluations().contains(eval));
+        RepairRequest repairRequest2= exampleCustomer1.requestRepair((GregorianCalendar)Calendar.getInstance()
+                , (GregorianCalendar)Calendar.getInstance() , exampleJob , "oops you missed a spot" , exampleAddress);
+        repairRequest.confirm(5);
+        repairRequest.complete(1);
+        repairRequest.getRepair().evaluate("5 stars he fixed my stairs" , "very " +
+                "helpful would recommedn" , 5);
+        Evaluation eval1 = new Evaluation("5 stars he fixed my stairs" , "very " +
+                "helpful would recommedn" , 5);
+        assertTrue(technicianToTest.getEvaluations().contains(eval1));
+        Evaluation eval2 = new Evaluation("5 stars he fixed my stairs" , "very " +
+                "helpful would recommesdn" , 5);
+        assertFalse(technicianToTest.getEvaluations().contains(eval2));
 
     }
-    */
+
 
     @Test (expected = IllegalArgumentException.class)
     public void scheduleWithNot2entries(){
@@ -465,4 +480,5 @@ public class TechnicianUnitTest {
     public void removeNullJob(){
         technicianToTest.removeJob(null);
     }
+
 }

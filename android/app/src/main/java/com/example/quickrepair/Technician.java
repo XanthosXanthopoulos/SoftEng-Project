@@ -231,7 +231,10 @@ public class Technician extends User
         {
             if (repairRequest.isCompleted())
             {
-                evaluations.add(repairRequest.getRepair().getEvaluation());
+                //The customer may have refused to evaluate the technician
+                if(repairRequest.getRepair().getEvaluation() != null) {
+                    evaluations.add(repairRequest.getRepair().getEvaluation());
+                }
             }
         }
         return evaluations;

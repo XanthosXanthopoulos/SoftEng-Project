@@ -2,6 +2,8 @@ package com.example.quickrepair;
 
 import androidx.annotation.Nullable;
 
+import java.util.Objects;
+
 /**
  * Customer's Evaluation about an Repair
  */
@@ -123,4 +125,10 @@ public class Evaluation
         Evaluation evaluation = (Evaluation) o;
         return evaluation.getTitle().equals(this.getTitle()) && evaluation.getComment().equals(this.getComment()) && evaluation.getRate() == this.getRate();
     }
+
+    @Override
+    public int hashCode() {
+        return (title + comment + rate).hashCode();
+    }
+
 }

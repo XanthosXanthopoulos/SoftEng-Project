@@ -184,7 +184,6 @@ public class RepairRequest implements Comparable<RepairRequest>
 
     public Repair complete(double quantity)
     {
-        System.out.print(this.status);
         if (this.status == Status.UNCONFIRMED)
             throw new IllegalStateException("Repair request is not confirmed.");
 
