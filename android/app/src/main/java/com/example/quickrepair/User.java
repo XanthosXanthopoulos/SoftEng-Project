@@ -1,5 +1,10 @@
 package com.example.quickrepair;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+
 public class User
 {
     private String name;
@@ -8,7 +13,7 @@ public class User
     private String email;
     private String bankAccount;
     private String username;
-    private String password;
+    private byte[] password;
 
 
     //TODO Store password as an md5 / sha1 / sha265 sum and provide method of validation
@@ -112,11 +117,28 @@ public class User
         this.username = username;
     }
 
-    public void setPassword(String password)
+    private void setPassword(String password)
     {
         if (password == null) throw new NullPointerException("Password can not be null.");
-
-        this.password = password;
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes());
+            this.password = hash;
+        }
+        catch (NoSuchAlgorithmException e){
+            throw new RuntimeException("Platform doesn't support sha256");
+        }
+    }
+    public boolean validatePassword(String password){
+        if (password == null) throw new NullPointerException("Password can not be null.");
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes());
+            return Arrays.equals(hash , this.password);
+        }
+        catch (NoSuchAlgorithmException e){
+            throw new RuntimeException("Platform doesn't support sha256");
+        }
     }
 
     public String getName()
@@ -147,10 +169,5 @@ public class User
     public String getUsername()
     {
         return username;
-    }
-
-    public String getPassword()
-    {
-        return password;
     }
 }

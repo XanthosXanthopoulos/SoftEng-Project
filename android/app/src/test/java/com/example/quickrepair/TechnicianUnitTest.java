@@ -154,7 +154,6 @@ public class TechnicianUnitTest {
         RepairRequest repairRequest = new RepairRequest();
         repairRequest.setAddress(new Address("ath" , "15"));
         repairRequest.setConductionDate(new GregorianCalendar(2019,12,12));
-        repairRequest.setPaymentType(PaymentType.CASH);
         technicianToTest.addRepairRequest(repairRequest);
     }
     @Test
@@ -186,7 +185,6 @@ public class TechnicianUnitTest {
         assertEquals(technicianToTest.getSpecialty() , exampleSpecialty);
 
         RepairRequest req = new RepairRequest();
-        req.setPaymentType(PaymentType.CASH);
         req.setAddress(exampleAddress);
         technicianToTest.addRepairRequest(req);
 
@@ -213,21 +211,20 @@ public class TechnicianUnitTest {
 
     @Test
     public void userNameAndPasswordTest(){
-        technicianToTest.setUsername("the best electrician of the world");
-        assertEquals(technicianToTest.getUsername() , "the best electrician of the world");
-
-        technicianToTest.setPassword("123141");
-        assertEquals(technicianToTest.getPassword() , "123141");
+        Technician newTechnician = new Technician("nikos", "sm" , "6958475635",
+                "asdih@ausdh.asdh" , "mybankaccount" , "nikos" ,
+                "123" , exampleSpecialty, "128947");
+        assertEquals(newTechnician.getUsername() , "nikos");
+        assertTrue(newTechnician.validatePassword("123"));
+        assertFalse(newTechnician.validatePassword("1234"));
     }
-
+    @Test (expected = NullPointerException.class)
+    public void validateNullPassword(){
+        technicianToTest.validatePassword(null);
+    }
     @Test (expected = NullPointerException.class)
     public void setNullUsername(){
         technicianToTest.setUsername(null);
-    }
-
-    @Test (expected = NullPointerException.class)
-    public void setNullPassword(){
-        technicianToTest.setPassword(null);
     }
 
     @Test (expected = NullPointerException.class)
