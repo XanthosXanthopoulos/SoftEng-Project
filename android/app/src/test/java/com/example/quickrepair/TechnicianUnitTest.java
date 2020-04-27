@@ -154,7 +154,6 @@ public class TechnicianUnitTest {
         RepairRequest repairRequest = new RepairRequest();
         repairRequest.setAddress(new Address("ath" , "15"));
         repairRequest.setConductionDate(new GregorianCalendar(2019,12,12));
-        repairRequest.setPaymentType(PaymentType.CASH);
         technicianToTest.addRepairRequest(repairRequest);
     }
     @Test
@@ -186,7 +185,6 @@ public class TechnicianUnitTest {
         assertEquals(technicianToTest.getSpecialty() , exampleSpecialty);
 
         RepairRequest req = new RepairRequest();
-        req.setPaymentType(PaymentType.CASH);
         req.setAddress(exampleAddress);
         technicianToTest.addRepairRequest(req);
 

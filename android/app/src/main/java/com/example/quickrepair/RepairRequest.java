@@ -24,6 +24,7 @@ public class RepairRequest implements Comparable<RepairRequest>
      */
     public RepairRequest()
     {
+        status = Status.UNCONFIRMED;
     }
 
     /*
@@ -111,10 +112,6 @@ public class RepairRequest implements Comparable<RepairRequest>
     {
         if (estimatedDuration < 0) throw new NumberFormatException("Duration can not be negative.");
         if (estimatedDuration == 0) throw new NumberFormatException("Duration can not be zero.");
-        //TODO ACCEPT ESTIMATED DURATION ONLY IF THE TECHNICIAN CAN FINISH BEFORE HIS SCHEDULE
-        if (estimatedDuration > 480)
-            throw new NumberFormatException("Duration can not be greater tha 480 minutes.");
-
         this.estimatedDuration = estimatedDuration;
     }
 
@@ -187,6 +184,7 @@ public class RepairRequest implements Comparable<RepairRequest>
 
     public Repair complete(double quantity)
     {
+        System.out.print(this.status);
         if (this.status == Status.UNCONFIRMED)
             throw new IllegalStateException("Repair request is not confirmed.");
 

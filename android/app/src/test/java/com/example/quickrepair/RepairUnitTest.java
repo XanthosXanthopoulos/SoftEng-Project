@@ -54,7 +54,7 @@ public class RepairUnitTest {
         technicianToTest.setSchedule(exampleSchedule);
         repairRequest = new RepairRequest();
         repairRequest2 = new RepairRequest();
-        exampleRepairRequest = new RepairRequest(exampleCustomer , PaymentType.CARD , exampleJob ,
+        exampleRepairRequest = new RepairRequest(exampleCustomer , exampleJob ,
                 (GregorianCalendar) Calendar.getInstance()  , new GregorianCalendar(2020 , 5  , 3) , exampleAddress,"comments");
 
     }
@@ -79,7 +79,7 @@ public class RepairUnitTest {
     public void constructorWithQuantityAndPayment(){
         //create repair with job
         RepairRequest repairRequest = new RepairRequest(exampleCustomer
-                , PaymentType.CARD ,   exampleJob , (GregorianCalendar) Calendar.getInstance(),
+                , exampleJob , (GregorianCalendar) Calendar.getInstance(),
                 (GregorianCalendar) Calendar.getInstance() , exampleAddress ,"comment");
         Job job = exampleJob;
         JobType jobType = exampleJobType;

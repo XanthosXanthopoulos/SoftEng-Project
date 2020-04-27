@@ -19,21 +19,19 @@ public class RepairRequestUnitTest
     public void setUpTests()
     {
         standardDate = new GregorianCalendar(2018, 1, 1, 1, 0);
-        req = new RepairRequest();
         Address exampleAddress = new Address("ath", "15");
-        req.setAddress(exampleAddress);
-        req.setConductionDate(standardDate);
+
         Technician technicianToTest = new Technician("nikos", "sm", "6958475635",
                 "asdih@ausdh.asdh", "mybankaccount", "nikos",
                 "123", new Specialty("HLEKTROLOGOS"), "128947");
         JobType jobType = new JobType("Allagh lampas", new Specialty("HLEKTROLOGOS"), MeasurementUnit.NONE);
         price = 12;
         Job job = new Job(technicianToTest, jobType, price, 60);
-        req.setJob(job);
+
         Customer customerToTest = new Customer("nick", "sm", "6958375634",
                 "sss222@asdm.com", "123121231123", "nicksm",
                 "0j19283j1");
-        req.setCustomer(customerToTest);
+        req = new RepairRequest(customerToTest, job, standardDate, standardDate, exampleAddress,"comments");
     }
 
     @Test
@@ -44,6 +42,26 @@ public class RepairRequestUnitTest
         Assert.assertEquals(addr, req.getAddress());
     }
 
+    @Test
+    public void testComments()
+    {
+        String coms = "comments..";
+        req.setCommentsFromCustomer(coms);
+        Assert.assertEquals(coms, req.getCommentsFromCustomer());
+    }
+    @Test
+    public void testCreationDates()
+    {
+        GregorianCalendar date = new GregorianCalendar(2019, 2, 2, 2,2);
+        req.setCreationDate(date);
+        Assert.assertEquals(date, req.getCreationDate());
+    }
+    @Test
+    public void setRepair(){
+        Repair repair = new Repair(req, 12);
+        req.setRepair(repair);
+        Assert.assertEquals(repair, req.getRepair());
+    }
     @Test
     public void compareToEqualsHourAndMin()
     {
@@ -153,8 +171,15 @@ public class RepairRequestUnitTest
     @Test
     public void isCompletedTrue()
     {
+        req.confirm(30);
         req.complete(2);
         Assert.assertEquals(true, req.isCompleted());
+    }
+
+    @Test (expected = IllegalStateException.class)
+    public void completeAlreadyCompleted()
+    {
+        req.complete(2);
     }
 
     @Test
@@ -190,4 +215,38 @@ public class RepairRequestUnitTest
         req.reject();
         req.reject();
     }
+
+    //null setters
+    @Test (expected = IllegalArgumentException.class)
+    public void setConductionDateNull()
+    {
+        req.setConductionDate(null);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void setCreationDateNull()
+    {
+        req.setCreationDate(null);
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void setAddressNull()
+    {
+        req.setAddress(null);
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void setCustomerNull()
+    {
+        req.setCustomer(null);
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void setRepairNull()
+    {
+        req.setRepair(null);
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void setJobNull()
+    {
+        req.setJob(null);
+    }
+
 }
