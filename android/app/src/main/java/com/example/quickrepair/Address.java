@@ -1,11 +1,9 @@
 package com.example.quickrepair;
 
-import java.util.Objects;
-
 /**
- * Imuutable class that reprsents an address
+ * Immutable class that represents an address
  */
-public class Address
+public final class Address
 {
     private String streetName;
     private String number;
@@ -50,7 +48,8 @@ public class Address
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
@@ -59,7 +58,8 @@ public class Address
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return (streetName + number).hashCode();
     }
 }
