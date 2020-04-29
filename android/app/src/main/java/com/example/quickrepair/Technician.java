@@ -15,7 +15,7 @@ public class Technician extends User
     private Set<Job> jobs = new HashSet<>();
     private List<RepairRequest> repairRequests = new ArrayList<>();
     private Specialty specialty;
-    private HashSet<String> areas = new HashSet<String>();
+    private HashSet<String> areas = new HashSet<>();
 
     //This structure will set up by the technician
     //it is necessary for a costumer to know when the technician is on duty
@@ -232,7 +232,8 @@ public class Technician extends User
             if (repairRequest.isCompleted())
             {
                 //The customer may have refused to evaluate the technician
-                if(repairRequest.getRepair().getEvaluation() != null) {
+                if (repairRequest.getRepair().getEvaluation() != null)
+                {
                     evaluations.add(repairRequest.getRepair().getEvaluation());
                 }
             }

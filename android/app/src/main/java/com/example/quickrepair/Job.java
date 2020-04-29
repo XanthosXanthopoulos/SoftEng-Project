@@ -74,7 +74,8 @@ public class Job
     @Override
     public int hashCode()
     {
-        if (jobType == null || technician == null || jobType.getName() == null || technician.getAFM() == null) return 0;
+        if (jobType == null || technician == null || jobType.getName() == null || technician.getAFM() == null)
+            return 0;
 
         String hash = jobType.getName() + technician.getAFM();
 

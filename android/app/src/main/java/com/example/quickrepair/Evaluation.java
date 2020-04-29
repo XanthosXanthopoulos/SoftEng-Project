@@ -111,17 +111,17 @@ public class Evaluation
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Evaluation that = (Evaluation) o;
-        return rate == that.rate &&
-                title.equals(that.title) &&
-                comment.equals(that.comment);
+        return rate == that.rate && title.equals(that.title) && comment.equals(that.comment);
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return (title + comment + rate).hashCode();
     }
 

@@ -119,23 +119,29 @@ public class User
     private void setPassword(String password)
     {
         if (password == null) throw new NullPointerException("Password can not be null.");
-        try {
+        try
+        {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(password.getBytes());
             this.password = hash;
         }
-        catch (NoSuchAlgorithmException e){
+        catch (NoSuchAlgorithmException e)
+        {
             throw new RuntimeException("Platform doesn't support sha256");
         }
     }
-    public boolean validatePassword(String password){
+
+    public boolean validatePassword(String password)
+    {
         if (password == null) throw new NullPointerException("Password can not be null.");
-        try {
+        try
+        {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(password.getBytes());
-            return Arrays.equals(hash , this.password);
+            return Arrays.equals(hash, this.password);
         }
-        catch (NoSuchAlgorithmException e){
+        catch (NoSuchAlgorithmException e)
+        {
             throw new RuntimeException("Platform doesn't support sha256");
         }
     }

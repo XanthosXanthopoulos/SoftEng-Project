@@ -7,30 +7,35 @@ import java.util.Set;
 public class Customer extends User
 {
     /*
-    * All Customer's Requests
+     * All Customer's Requests
      */
     private Set<RepairRequest> requests;
 
     /*
-    * Costumer's constructor
+     * Costumer's constructor
      */
     public Customer(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password)
     {
         super(name, surname, phoneNumber, email, bankAccount, username, password);
-        requests = new HashSet<RepairRequest>();
+        requests = new HashSet<>();
     }
 
-    public void addRequest(RepairRequest request){
-        if(request == null){ throw new IllegalArgumentException("Null RepairRequest");}
+    public void addRequest(RepairRequest request)
+    {
+        if (request == null)
+        {
+            throw new IllegalArgumentException("Null RepairRequest");
+        }
         requests.add(request);
     }
 
-    public Set<RepairRequest> getRequests() {
+    public Set<RepairRequest> getRequests()
+    {
         return requests;
     }
 
     /*
-    * Charge Customer's Account
+     * Charge Customer's Account
      */
     public void chargeAccount(double totalCost)
     {
@@ -45,16 +50,19 @@ public class Customer extends User
     }
 
     /*
-    *
+     *
      */
-    public RepairRequest requestRepair(GregorianCalendar dateNow, GregorianCalendar date, Job job, String comments, Address address) {
-        RepairRequest repairRequest = new RepairRequest(this ,  job , dateNow , date  ,address , comments);
+    public RepairRequest requestRepair(GregorianCalendar dateNow, GregorianCalendar date, Job job, String comments, Address address)
+    {
+        RepairRequest repairRequest = new RepairRequest(this, job, dateNow, date, address, comments);
 
         requests.add(repairRequest);
         job.getTechnician().addRepairRequest(repairRequest);
         return repairRequest;
     }
-    public void notifyOfCompletion(RepairRequest repairRequest){
+
+    public void notifyOfCompletion(RepairRequest repairRequest)
+    {
         //Customer is notified that one of his repair requests has been completed
     }
     //TODO equals

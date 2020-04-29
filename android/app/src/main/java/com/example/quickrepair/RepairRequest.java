@@ -103,7 +103,8 @@ public class RepairRequest implements Comparable<RepairRequest>
 
     public void setCommentsFromCustomer(String commentsFromCustomer)
     {
-        if (commentsFromCustomer == null) throw new IllegalArgumentException("Null commentsFromCustomer");
+        if (commentsFromCustomer == null)
+            throw new IllegalArgumentException("Null commentsFromCustomer");
 
         this.commentsFromCustomer = commentsFromCustomer;
     }
