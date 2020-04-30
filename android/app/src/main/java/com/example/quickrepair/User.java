@@ -116,7 +116,7 @@ public class User
     }
 
     //TODO Untestable lines what do ??
-    private void setPassword(String password)
+    public void setPassword(String password)
     {
         if (password == null) throw new NullPointerException("Password can not be null.");
         try
