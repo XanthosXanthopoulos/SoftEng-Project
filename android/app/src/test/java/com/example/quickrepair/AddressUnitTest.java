@@ -1,5 +1,5 @@
 package com.example.quickrepair;
-import com.example.quickrepair.domain.Address;
+import com.example.quickrepair.domain.domain.Address;
 
 import org.junit.Before;
 import org.junit.Test;

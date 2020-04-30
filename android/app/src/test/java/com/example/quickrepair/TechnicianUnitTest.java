@@ -1,6 +1,6 @@
 package com.example.quickrepair;
 
-import com.example.quickrepair.domain.Address;
+import com.example.quickrepair.domain.domain.Address;
 import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.domain.Evaluation;
 import com.example.quickrepair.domain.Job;
@@ -9,7 +9,7 @@ import com.example.quickrepair.domain.MeasurementUnit;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.domain.Technician;
-import util.Utilities;
+import com.example.quickrepair.domain.util.Utilities;
 
 import org.junit.Assert;
 import org.junit.Before;

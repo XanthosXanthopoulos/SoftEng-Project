@@ -1,6 +1,6 @@
 package com.example.quickrepair;
 
-import com.example.quickrepair.domain.Address;
+import com.example.quickrepair.domain.domain.Address;
 import com.example.quickrepair.domain.Evaluation;
 
 import org.junit.Assert;

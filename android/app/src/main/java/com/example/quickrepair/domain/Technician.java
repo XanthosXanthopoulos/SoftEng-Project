@@ -8,7 +8,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
 
-import util.Utilities;
+import com.example.quickrepair.domain.util.Utilities;
 
 public class Technician extends User
 {

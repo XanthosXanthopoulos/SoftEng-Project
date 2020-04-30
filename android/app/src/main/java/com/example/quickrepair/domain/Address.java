@@ -1,4 +1,4 @@
-package com.example.quickrepair.domain;
+package com.example.quickrepair.domain.domain;
 
 /**
  * Immutable class that represents an address
