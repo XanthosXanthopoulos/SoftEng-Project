@@ -75,7 +75,7 @@
       <w>132</w>
       <h>33</h>
     </coordinates>
-    <panel_attributes>_:Repair_</panel_attributes>
+    <panel_attributes>_:repair: Repair_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -216,7 +216,7 @@ repair</panel_attributes>
       <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-repair.getEvaluation()</panel_attributes>
+getEvaluation()</panel_attributes>
     <additional_attributes>750.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
