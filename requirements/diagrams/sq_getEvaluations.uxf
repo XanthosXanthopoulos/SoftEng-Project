@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.3.0">
-  <zoom_level>10</zoom_level>
+<diagram program="umlet" version="14.2">
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>200</x>
-      <y>100</y>
-      <w>100</w>
-      <h>30</h>
+      <x>154</x>
+      <y>11</y>
+      <w>110</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>_:Technician_</panel_attributes>
     <additional_attributes/>
@@ -15,44 +15,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>120</y>
-      <w>30</w>
-      <h>520</h>
+      <x>198</x>
+      <y>33</y>
+      <w>33</w>
+      <h>682</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;500.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>240</x>
-      <y>150</y>
-      <w>220</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-create</panel_attributes>
-    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;600.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>440</x>
-      <y>150</y>
-      <w>160</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>_:HashSet&lt;Evaluation&gt;_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>240</x>
-      <y>480</y>
-      <w>20</w>
-      <h>50</h>
+      <x>198</x>
+      <y>407</y>
+      <w>22</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -60,10 +37,10 @@ create</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>240</x>
-      <y>300</y>
-      <w>20</w>
-      <h>130</h>
+      <x>198</x>
+      <y>220</y>
+      <w>22</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -71,10 +48,10 @@ create</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1000</x>
-      <y>370</y>
-      <w>20</w>
-      <h>60</h>
+      <x>1034</x>
+      <y>528</y>
+      <w>22</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -82,32 +59,32 @@ create</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>170</y>
-      <w>30</w>
-      <h>470</h>
+      <x>1034</x>
+      <y>77</y>
+      <w>33</w>
+      <h>638</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;450.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>950</x>
-      <y>150</y>
-      <w>120</w>
-      <h>30</h>
+      <x>979</x>
+      <y>55</y>
+      <w>132</w>
+      <h>33</h>
     </coordinates>
-    <panel_attributes>_:RepairRequest_</panel_attributes>
+    <panel_attributes>_:Repair_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>760</x>
-      <y>300</y>
-      <w>20</w>
-      <h>60</h>
+      <x>770</x>
+      <y>220</y>
+      <w>22</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -115,114 +92,34 @@ create</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>170</y>
-      <w>30</w>
-      <h>470</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;450.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>670</x>
-      <y>150</y>
-      <w>200</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>_:ArrayList&lt;RepairRequest&gt;_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>250</x>
-      <y>290</y>
-      <w>530</w>
-      <h>40</h>
+      <x>209</x>
+      <y>209</y>
+      <w>583</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-getItem()</panel_attributes>
+isCompleted()</panel_attributes>
     <additional_attributes>510.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>330</y>
-      <w>530</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-repairRequest</panel_attributes>
-    <additional_attributes>10.0;20.0;510.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>250</x>
-      <y>360</y>
-      <w>770</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-isCompleted()</panel_attributes>
-    <additional_attributes>750.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>250</x>
-      <y>400</y>
-      <w>770</w>
-      <h>40</h>
+      <x>209</x>
+      <y>253</y>
+      <w>583</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 completed</panel_attributes>
-    <additional_attributes>10.0;20.0;750.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>510</x>
-      <y>480</y>
-      <w>20</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>250</x>
-      <y>470</y>
-      <w>280</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-add(repairRequest)</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>510</x>
-      <y>170</y>
-      <w>30</w>
-      <h>470</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;450.0</additional_attributes>
+    <additional_attributes>10.0;20.0;510.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>170</x>
-      <y>440</y>
-      <w>940</w>
-      <h>100</h>
+      <x>165</x>
+      <y>319</y>
+      <w>935</w>
+      <h>341</h>
     </coordinates>
     <panel_attributes>opt
 --
@@ -232,14 +129,106 @@ add(repairRequest)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>130</x>
-      <y>220</y>
-      <w>1010</w>
-      <h>360</h>
+      <x>66</x>
+      <y>165</y>
+      <w>1122</w>
+      <h>528</h>
     </coordinates>
     <panel_attributes>loop
 --
 [for each repairRequest]</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>671</x>
+      <y>55</y>
+      <w>264</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>_:repairRequest[i]: RepairRequest_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>77</y>
+      <w>33</w>
+      <h>638</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>770</x>
+      <y>407</y>
+      <w>22</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>209</x>
+      <y>407</y>
+      <w>583</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+getRepair()</panel_attributes>
+    <additional_attributes>510.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>209</x>
+      <y>440</y>
+      <w>583</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+repair</panel_attributes>
+    <additional_attributes>10.0;20.0;510.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>198</x>
+      <y>528</y>
+      <w>22</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>209</x>
+      <y>517</y>
+      <w>847</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+repair.getEvaluation()</panel_attributes>
+    <additional_attributes>750.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>209</x>
+      <y>561</y>
+      <w>847</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+evaluation</panel_attributes>
+    <additional_attributes>10.0;20.0;750.0;20.0</additional_attributes>
   </element>
 </diagram>
