@@ -1,9 +1,9 @@
 package com.example.quickrepair;
 
+import com.example.quickrepair.domain.User;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class UserUnitTest {
 

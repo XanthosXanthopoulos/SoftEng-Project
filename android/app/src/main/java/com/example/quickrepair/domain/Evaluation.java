@@ -1,8 +1,4 @@
-package com.example.quickrepair;
-
-import androidx.annotation.Nullable;
-
-import java.util.Objects;
+package com.example.quickrepair.domain;
 
 /**
  * Customer's Evaluation about an Repair

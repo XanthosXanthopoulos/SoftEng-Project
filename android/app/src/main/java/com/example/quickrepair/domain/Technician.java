@@ -1,4 +1,4 @@
-package com.example.quickrepair;
+package com.example.quickrepair.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;

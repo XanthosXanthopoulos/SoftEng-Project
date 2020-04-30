@@ -1,4 +1,4 @@
-package com.example.quickrepair;
+package com.example.quickrepair.domain;
 
 public class Job
 {

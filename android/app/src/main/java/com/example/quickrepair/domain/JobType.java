@@ -1,6 +1,5 @@
-package com.example.quickrepair;
+package com.example.quickrepair.domain;
 
-import java.security.spec.RSAKeyGenParameterSpec;
 import java.util.HashSet;
 import java.util.Set;
 

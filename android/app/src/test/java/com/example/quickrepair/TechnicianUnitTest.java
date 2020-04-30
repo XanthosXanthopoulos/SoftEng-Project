@@ -1,5 +1,16 @@
 package com.example.quickrepair;
 
+import com.example.quickrepair.domain.Address;
+import com.example.quickrepair.domain.Customer;
+import com.example.quickrepair.domain.Evaluation;
+import com.example.quickrepair.domain.Job;
+import com.example.quickrepair.domain.JobType;
+import com.example.quickrepair.domain.MeasurementUnit;
+import com.example.quickrepair.domain.RepairRequest;
+import com.example.quickrepair.domain.Specialty;
+import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.domain.Utilities;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,7 +18,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import static org.junit.Assert.*;
 public class TechnicianUnitTest {

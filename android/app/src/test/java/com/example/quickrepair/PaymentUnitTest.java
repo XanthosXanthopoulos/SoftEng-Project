@@ -1,5 +1,9 @@
 package com.example.quickrepair;
 
+import com.example.quickrepair.domain.Evaluation;
+import com.example.quickrepair.domain.Payment;
+import com.example.quickrepair.domain.PaymentType;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

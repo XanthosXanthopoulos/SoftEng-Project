@@ -1,5 +1,7 @@
 package com.example.quickrepair;
 
+import com.example.quickrepair.domain.Utilities;
+
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,11 +1,20 @@
 package com.example.quickrepair;
 
+import com.example.quickrepair.domain.Address;
+import com.example.quickrepair.domain.Customer;
+import com.example.quickrepair.domain.Job;
+import com.example.quickrepair.domain.JobType;
+import com.example.quickrepair.domain.MeasurementUnit;
+import com.example.quickrepair.domain.Repair;
+import com.example.quickrepair.domain.RepairRequest;
+import com.example.quickrepair.domain.Specialty;
+import com.example.quickrepair.domain.Technician;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 

@@ -1,4 +1,4 @@
-package com.example.quickrepair;
+package com.example.quickrepair.domain;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

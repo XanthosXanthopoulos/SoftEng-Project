@@ -1,5 +1,9 @@
 package com.example.quickrepair;
 
+import com.example.quickrepair.domain.JobType;
+import com.example.quickrepair.domain.MeasurementUnit;
+import com.example.quickrepair.domain.Specialty;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

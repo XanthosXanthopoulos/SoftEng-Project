@@ -1,12 +1,14 @@
 package com.example.quickrepair;
 
+import com.example.quickrepair.domain.Job;
+import com.example.quickrepair.domain.JobType;
+import com.example.quickrepair.domain.MeasurementUnit;
+import com.example.quickrepair.domain.Specialty;
+import com.example.quickrepair.domain.Technician;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 public class JobTypeUnitTest {
     Job exampleJob;
