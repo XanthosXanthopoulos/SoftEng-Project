@@ -1,4 +1,4 @@
-package com.example.quickrepair.domain;
+package util;
 
 import java.util.GregorianCalendar;
 
