@@ -1,5 +1,7 @@
 package com.example.quickrepair.domain;
 
+import com.example.quickrepair.util.Utilities;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.GregorianCalendar;
@@ -7,8 +9,6 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
-
-import com.example.quickrepair.domain.util.Utilities;
 
 public class Technician extends User
 {
