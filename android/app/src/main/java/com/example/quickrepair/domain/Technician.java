@@ -242,29 +242,6 @@ public class Technician extends User
         }
         return evaluations;
     }
-    /**
-     * Returns the average rating for this technician
-     *
-     * @return
-     */
-    public double getAverageRating()
-    {
-        int sumEv = 0;
-        int sumRates = 0;
-        for (RepairRequest repairRequest : repairRequests)
-        {
-            if (repairRequest.isCompleted())
-            {
-                //The customer may have refused to evaluate the technician
-                if (repairRequest.getRepair().getEvaluation() != null)
-                {
-                    sumRates += repairRequest.getRepair().getEvaluation().getRate();
-                    sumEv++;
-                }
-            }
-        }
-        return (double) sumEv/sumRates;
-    }
 
     public ArrayList<ArrayList<GregorianCalendar>> getAvailableHourRanges(GregorianCalendar date)
     {

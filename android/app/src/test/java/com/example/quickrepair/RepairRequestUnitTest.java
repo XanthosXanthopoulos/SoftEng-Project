@@ -203,6 +203,18 @@ public class RepairRequestUnitTest
         req.confirm(12);
         Assert.assertEquals(true, req.isConfirmed());
     }
+    @Test
+    public void isUnconfirmedTest()
+    {
+        Assert.assertTrue(req.isUnconfirmed());
+    }
+
+    @Test
+    public void isRejectTest()
+    {
+        req.reject();
+        Assert.assertTrue(req.isRejected());
+    }
 
     @Test(expected = IllegalStateException.class)
     public void confirmX2()
