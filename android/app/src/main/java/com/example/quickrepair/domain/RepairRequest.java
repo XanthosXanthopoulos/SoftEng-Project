@@ -1,5 +1,7 @@
 package com.example.quickrepair.domain;
 
+import com.example.quickrepair.domain.domain.Address;
+
 import java.util.GregorianCalendar;
 
 public class RepairRequest implements Comparable<RepairRequest>

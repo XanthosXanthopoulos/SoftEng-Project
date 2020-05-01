@@ -9,7 +9,7 @@ import com.example.quickrepair.domain.MeasurementUnit;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.domain.Technician;
-import util.Utilities;
+import com.example.quickrepair.util.Utilities;
 
 import org.junit.Assert;
 import org.junit.Before;
