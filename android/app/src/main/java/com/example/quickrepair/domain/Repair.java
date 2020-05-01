@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 public class Repair
 {
+    //TODO Add completion date here
     private double quantity;
     private Payment payment;
     private Evaluation evaluation;

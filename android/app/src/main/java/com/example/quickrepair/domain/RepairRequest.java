@@ -166,6 +166,8 @@ public class RepairRequest implements Comparable<RepairRequest>
     {
         return this.status == Status.COMPLETED;
     }
+    //TODO isUnconfirmed
+    //TODO isRejected
 
     public void confirm(int estimatedDuration)
     {
