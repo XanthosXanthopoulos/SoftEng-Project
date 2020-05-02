@@ -166,7 +166,7 @@ public class Technician extends User
         {
             throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
         }
-        Job job = new Job(this, jobType, price, duration);
+        Job job = new Job(this, jobType, price);
         this.jobs.add(job);
         job.getJobType().addJob(job);
         return job;

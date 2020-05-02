@@ -23,7 +23,7 @@ public class JobTypeUnitTest {
         exampleJobType = new JobType("plakakia" , exampleSpecialty , MeasurementUnit.METER);
         exampleTechnician = new Technician("girgows" , "papageorgiou" , "6978564534" ,
                 "giorgos@gmail.com" , "12314" , "1234" , "123123" , exampleSpecialty , "129367");
-        exampleJob = new Job(exampleTechnician , exampleJobType , 1.5 , 500);
+        exampleJob = new Job(exampleTechnician , exampleJobType , 1.5 );
         exampleTechnician.setAFM("1587");
     }
     @Test
@@ -33,7 +33,7 @@ public class JobTypeUnitTest {
         Technician otherTechnician = new Technician("kostas" , "papakostas" , "6972564534" ,
                 "kostas@gmail.com" , "12314" , "kostas" , "123123" , exampleSpecialty, "123123");
         otherTechnician.setAFM("1151dsfdsd");
-        Job otherTechniciansJobForthisJobType = new Job(otherTechnician , exampleJobType , 5 , 5);
+        Job otherTechniciansJobForthisJobType = new Job(otherTechnician , exampleJobType , 5);
         exampleJobType.addJob(otherTechniciansJobForthisJobType);
         Assert.assertTrue(exampleJobType.getJobs().contains(otherTechniciansJobForthisJobType));
     }

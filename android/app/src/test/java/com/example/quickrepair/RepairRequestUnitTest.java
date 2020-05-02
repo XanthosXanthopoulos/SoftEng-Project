@@ -35,7 +35,7 @@ public class RepairRequestUnitTest
                 "123", new Specialty("HLEKTROLOGOS"), "128947");
         JobType jobType = new JobType("Allagh lampas", new Specialty("HLEKTROLOGOS"), MeasurementUnit.NONE);
         price = 12;
-        Job job = new Job(technicianToTest, jobType, price, 60);
+        Job job = new Job(technicianToTest, jobType, price);
 
         Customer customerToTest = new Customer("nick", "sm", "6958375634",
                 "sss222@asdm.com", "123121231123", "nicksm",

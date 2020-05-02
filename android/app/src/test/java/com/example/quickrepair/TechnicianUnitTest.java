@@ -54,7 +54,7 @@ public class TechnicianUnitTest {
 
         exampleJobType = new JobType("Allagi plakakia" , exampleSpecialty , MeasurementUnit.METER);
         exampleAddress = address;
-        exampleJob = new Job(technicianToTest , exampleJobType , 15 ,10);
+        exampleJob = new Job(technicianToTest , exampleJobType , 15);
 
         //Initializing schedule
         exampleSchedule = new Integer[7][2];

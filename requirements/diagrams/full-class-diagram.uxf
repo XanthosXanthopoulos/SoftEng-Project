@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>258</x>
-      <y>0</y>
+      <y>72</y>
       <w>486</w>
       <h>138</h>
     </coordinates>
@@ -30,7 +30,7 @@ _# &lt;&lt;Property&gt; username: String_
     <id>UMLClass</id>
     <coordinates>
       <x>516</x>
-      <y>222</y>
+      <y>294</y>
       <w>474</w>
       <h>246</h>
     </coordinates>
@@ -66,7 +66,7 @@ Technician
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>288</y>
+      <y>360</y>
       <w>462</w>
       <h>90</h>
     </coordinates>
@@ -88,7 +88,7 @@ Customer
     <id>Relation</id>
     <coordinates>
       <x>486</x>
-      <y>132</y>
+      <y>204</y>
       <w>252</w>
       <h>102</h>
     </coordinates>
@@ -99,7 +99,7 @@ Customer
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>132</y>
+      <y>204</y>
       <w>252</w>
       <h>168</h>
     </coordinates>
@@ -110,7 +110,7 @@ Customer
     <id>UMLClass</id>
     <coordinates>
       <x>1338</x>
-      <y>570</y>
+      <y>642</y>
       <w>132</w>
       <h>60</h>
     </coordinates>
@@ -128,7 +128,7 @@ Evaluation
     <id>UMLClass</id>
     <coordinates>
       <x>564</x>
-      <y>798</y>
+      <y>870</y>
       <w>282</w>
       <h>114</h>
     </coordinates>
@@ -152,7 +152,7 @@ Repair
     <id>UMLClass</id>
     <coordinates>
       <x>1398</x>
-      <y>396</y>
+      <y>468</y>
       <w>72</w>
       <h>60</h>
     </coordinates>
@@ -167,7 +167,7 @@ CASH</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1314</x>
-      <y>24</y>
+      <y>96</y>
       <w>180</w>
       <h>66</h>
     </coordinates>
@@ -187,7 +187,7 @@ Specialty
     <id>UMLClass</id>
     <coordinates>
       <x>1362</x>
-      <y>480</y>
+      <y>552</y>
       <w>108</w>
       <h>60</h>
     </coordinates>
@@ -203,7 +203,7 @@ Address
     <id>UMLClass</id>
     <coordinates>
       <x>828</x>
-      <y>0</y>
+      <y>72</y>
       <w>228</w>
       <h>96</h>
     </coordinates>
@@ -228,7 +228,7 @@ JobType
     <id>UMLClass</id>
     <coordinates>
       <x>1092</x>
-      <y>108</y>
+      <y>180</y>
       <w>192</w>
       <h>78</h>
     </coordinates>
@@ -247,7 +247,7 @@ Job
     <id>UMLClass</id>
     <coordinates>
       <x>618</x>
-      <y>546</y>
+      <y>618</y>
       <w>186</w>
       <h>198</h>
     </coordinates>
@@ -279,7 +279,7 @@ RepairRequest
     <id>UMLClass</id>
     <coordinates>
       <x>1410</x>
-      <y>198</y>
+      <y>270</y>
       <w>72</w>
       <h>72</h>
     </coordinates>
@@ -296,7 +296,7 @@ COMPLETED</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1338</x>
-      <y>654</y>
+      <y>726</y>
       <w>132</w>
       <h>60</h>
     </coordinates>
@@ -312,7 +312,7 @@ Payment
     <id>Relation</id>
     <coordinates>
       <x>222</x>
-      <y>372</y>
+      <y>444</y>
       <w>408</w>
       <h>204</h>
     </coordinates>
@@ -326,7 +326,7 @@ creates &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>702</x>
-      <y>738</y>
+      <y>810</y>
       <w>84</w>
       <h>72</h>
     </coordinates>
@@ -340,7 +340,7 @@ is completed by &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1050</x>
-      <y>24</y>
+      <y>96</y>
       <w>276</w>
       <h>30</h>
     </coordinates>
@@ -354,7 +354,7 @@ can be done by &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>948</x>
-      <y>90</y>
+      <y>162</y>
       <w>156</w>
       <h>48</h>
     </coordinates>
@@ -368,7 +368,7 @@ m2=0..n
     <id>Relation</id>
     <coordinates>
       <x>984</x>
-      <y>180</y>
+      <y>252</y>
       <w>204</w>
       <h>72</h>
     </coordinates>
@@ -382,7 +382,7 @@ offers &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>984</x>
-      <y>84</y>
+      <y>156</y>
       <w>402</w>
       <h>210</h>
     </coordinates>
@@ -396,7 +396,7 @@ has &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>798</x>
-      <y>180</y>
+      <y>252</y>
       <w>414</w>
       <h>396</h>
     </coordinates>
@@ -410,7 +410,7 @@ requests &gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1410</x>
-      <y>288</y>
+      <y>360</y>
       <w>72</w>
       <h>102</h>
     </coordinates>
