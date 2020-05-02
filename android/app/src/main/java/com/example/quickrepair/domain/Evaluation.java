@@ -5,6 +5,7 @@ package com.example.quickrepair.domain;
  */
 public class Evaluation
 {
+    private Integer uid;
     private String title;
     private String comment;
     private int rate;
@@ -121,4 +122,13 @@ public class Evaluation
         return (title + comment + rate).hashCode();
     }
 
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
+    }
 }

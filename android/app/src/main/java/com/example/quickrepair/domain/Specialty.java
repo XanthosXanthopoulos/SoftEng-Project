@@ -5,9 +5,10 @@ import java.util.Set;
 
 public class Specialty
 {
+    private Integer uid;
     private String name;
 
-    private Set<JobType> jobTypes = new HashSet<JobType>();
+    private Set<JobType> jobTypes = new HashSet<>();
 
     public Specialty()
     {
@@ -17,8 +18,7 @@ public class Specialty
     {
         setName(name);
     }
-
-    //GETTERS
+    
     public String getName()
     {
         return name;
@@ -29,7 +29,6 @@ public class Specialty
         return new HashSet<>(jobTypes);
     }
 
-    //SETTERS
     public void setName(String name)
     {
         if (name == null) throw new NullPointerException("Speciality name can not be null.");
@@ -64,5 +63,15 @@ public class Specialty
     public int hashCode()
     {
         return name.hashCode();
+    }
+
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
     }
 }

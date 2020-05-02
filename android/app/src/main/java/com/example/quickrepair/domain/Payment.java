@@ -6,6 +6,7 @@ import java.util.Calendar;
 
 public class Payment
 {
+    private Integer uid;
     private Calendar date;
     private PaymentType paymentType;
 
@@ -88,5 +89,15 @@ public class Payment
         Payment payment = (Payment) o;
         // Compare the data members and return accordingly
         return payment.getDate().compareTo(this.getDate()) == 0 && payment.getPaymentType() == this.getPaymentType();
+    }
+
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
     }
 }

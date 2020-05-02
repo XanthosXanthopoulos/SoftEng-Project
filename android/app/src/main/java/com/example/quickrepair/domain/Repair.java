@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 public class Repair
 {
+    private Integer uid;
     //TODO Add completion date here
     private double quantity;
     private Payment payment;
@@ -197,6 +198,16 @@ public class Repair
         Payment payment = new Payment(date, paymentType);
         setPayment(payment);
         return payment;
+    }
+
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
     }
     //TODO equals
 }

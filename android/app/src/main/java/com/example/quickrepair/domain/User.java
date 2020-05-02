@@ -1,11 +1,17 @@
 package com.example.quickrepair.domain;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class User
 {
+    private Integer uid;
     private String name;
     private String surname;
     private String phoneNumber;
@@ -174,5 +180,37 @@ public class User
     {
         return username;
     }
-    //TODO Equals
+
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return name.equals(user.name) &&
+                surname.equals(user.surname) &&
+                phoneNumber.equals(user.phoneNumber) &&
+                email.equals(user.email) &&
+                bankAccount.equals(user.bankAccount) &&
+                username.equals(user.username) &&
+                Arrays.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        int result = Objects.hash(name, surname, phoneNumber, email, bankAccount, username);
+        result = 31 * result + Arrays.hashCode(password);
+        return result;
+    }
 }

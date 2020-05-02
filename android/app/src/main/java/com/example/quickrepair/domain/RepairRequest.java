@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 
 public class RepairRequest implements Comparable<RepairRequest>
 {
+    private Integer uid;
     private Customer customer;
     private Job job;
     private GregorianCalendar creationDate;
@@ -173,7 +174,10 @@ public class RepairRequest implements Comparable<RepairRequest>
         return this.status == Status.UNCONFIRMED;
     }
 
-    public boolean isRejected(){return this.status == Status.REJECTED;}
+    public boolean isRejected()
+    {
+        return this.status == Status.REJECTED;
+    }
 
     public void confirm(int estimatedDuration)
     {
@@ -209,6 +213,16 @@ public class RepairRequest implements Comparable<RepairRequest>
     public int compareTo(RepairRequest o)
     {
         return conductionDate.compareTo(o.conductionDate);
+    }
+
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
     }
 
     public enum Status
