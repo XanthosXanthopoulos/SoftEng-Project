@@ -6,6 +6,7 @@ package com.example.quickrepair.domain;
 public class Evaluation
 {
     private Integer uid;
+    private Repair repair;
     private String title;
     private String comment;
     private int rate;
@@ -127,6 +128,26 @@ public class Evaluation
     public void setUid(Integer uid)
     {
         this.uid = uid;
+    }
+
+    /**
+     * Get the repair associated with the evaluation.
+     *
+     * @return The repair associated with the evaluation.
+     */
+    public Repair getRepair()
+    {
+        return repair;
+    }
+
+    /**
+     * Set the repair associated with the evaluation.
+     *
+     * @param repair The repair associated with the evaluation.
+     */
+    public void setRepair(Repair repair)
+    {
+        this.repair = repair;
     }
 
     @Override

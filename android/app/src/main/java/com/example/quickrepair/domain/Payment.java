@@ -7,6 +7,7 @@ import java.util.Calendar;
 public class Payment
 {
     private Integer uid;
+    private Repair repair;
     private Calendar date;
     private PaymentType paymentType;
 
@@ -97,6 +98,28 @@ public class Payment
     public void setUid(Integer uid)
     {
         this.uid = uid;
+    }
+
+    /**
+     * Get the repair associated with the payment.
+     *
+     * @return The repair associated with the payment.
+     */
+    public Repair getRepair()
+    {
+        return repair;
+    }
+
+    /**
+     * Set the repair associated with the payment.
+     *
+     * @param repair The repair associated with the payment.
+     */
+    public void setRepair(Repair repair)
+    {
+        if (repair == null) throw new NullPointerException("The repair can not be null.");
+
+        this.repair = repair;
     }
 
     @Override
