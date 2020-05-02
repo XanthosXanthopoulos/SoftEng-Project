@@ -5,16 +5,13 @@ import java.util.Calendar;
 public class Repair
 {
     private Integer uid;
-    //TODO Add completion date here
     private double quantity;
     private Payment payment;
     private Evaluation evaluation;
     private RepairRequest repairRequest;
 
-    //constructors
-
     /**
-     * Empty Constructor
+     * Default constructor
      */
     public Repair()
     {
@@ -25,7 +22,7 @@ public class Repair
      * technician is going to be paid later
      *
      * @param repairRequest Repair's request
-     * @param quantity      job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
+     * @param quantity Job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
      */
     public Repair(RepairRequest repairRequest, double quantity)
     {
@@ -39,8 +36,8 @@ public class Repair
      * technician is already paid
      *
      * @param repairRequest Repair's request
-     * @param quantity      job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
-     * @param payment       customer's payment
+     * @param quantity Job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
+     * @param payment Customer's payment
      */
     public Repair(RepairRequest repairRequest, double quantity, Payment payment)
     {
@@ -50,7 +47,9 @@ public class Repair
     }
 
     /**
-     * return repair's quantity
+     * Get the quantity of the repair.
+     *
+     * @return Repair's quantity
      */
     public double getQuantity()
     {
@@ -166,6 +165,26 @@ public class Repair
     }
 
     /**
+     * Get the repair UID.
+     *
+     * @return The repair UID.
+     */
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    /**
+     * Set the repair UID.
+     *
+     * @param uid The repair UID.
+     */
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
+    }
+
+    /**
      * set evaluation
      *
      * @param title   evaluation's title
@@ -198,16 +217,6 @@ public class Repair
         Payment payment = new Payment(date, paymentType);
         setPayment(payment);
         return payment;
-    }
-
-    public Integer getUid()
-    {
-        return uid;
-    }
-
-    public void setUid(Integer uid)
-    {
-        this.uid = uid;
     }
     //TODO equals
 }

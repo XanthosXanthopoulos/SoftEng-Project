@@ -55,7 +55,9 @@ public class Payment
     }
 
     /**
-     * return payment's type
+     * Gte the type of the payment.
+     *
+     * @return The type of payment
      */
     public PaymentType getPaymentType()
     {
@@ -77,6 +79,26 @@ public class Payment
 
     }
 
+    /**
+     * Get the payment UID.
+     *
+     * @return The payment UID.
+     */
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    /**
+     * Set the payment UID.
+     *
+     * @param uid The payment UID.
+     */
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
+    }
+
     @Override
     public boolean equals(@Nullable Object o)
     {
@@ -89,15 +111,5 @@ public class Payment
         Payment payment = (Payment) o;
         // Compare the data members and return accordingly
         return payment.getDate().compareTo(this.getDate()) == 0 && payment.getPaymentType() == this.getPaymentType();
-    }
-
-    public Integer getUid()
-    {
-        return uid;
-    }
-
-    public void setUid(Integer uid)
-    {
-        this.uid = uid;
     }
 }

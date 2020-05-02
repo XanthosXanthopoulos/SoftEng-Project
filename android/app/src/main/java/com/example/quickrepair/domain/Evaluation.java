@@ -13,9 +13,7 @@ public class Evaluation
     /**
      * Empty Constructor
      */
-    public Evaluation()
-    {
-    }
+    public Evaluation() { }
 
     /**
      * Evaluation's Constructor
@@ -34,7 +32,9 @@ public class Evaluation
     //Setters and Getters
 
     /**
-     * return evaluation's title
+     * Get the title of the evaluation.
+     *
+     * @return The evaluation's title
      */
     public String getTitle()
     {
@@ -42,7 +42,7 @@ public class Evaluation
     }
 
     /**
-     * set evaluation's title
+     * Set evaluation's title
      *
      * @param title evaluation's title
      */
@@ -88,7 +88,9 @@ public class Evaluation
     }
 
     /**
-     * return evaluation's rate
+     * Get the rating of the evaluation.
+     *
+     * @return evaluation rate
      */
     public int getRate()
     {
@@ -96,7 +98,7 @@ public class Evaluation
     }
 
     /**
-     * set evaluation's rate
+     * Set evaluation's rate.
      *
      * @param rate evaluation's rate, [1, 5]
      */
@@ -105,6 +107,26 @@ public class Evaluation
         if (rate < 1 || rate > 5) throw new IllegalArgumentException("[1,5] stars");
 
         this.rate = rate;
+    }
+
+    /**
+     * Get the evaluation UID.
+     *
+     * @return The UID.
+     */
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    /**
+     * Set the evaluation UID.
+     *
+     * @param uid The evaluation's UID.
+     */
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
     }
 
     @Override
@@ -120,15 +142,5 @@ public class Evaluation
     public int hashCode()
     {
         return (title + comment + rate).hashCode();
-    }
-
-    public Integer getUid()
-    {
-        return uid;
-    }
-
-    public void setUid(Integer uid)
-    {
-        this.uid = uid;
     }
 }

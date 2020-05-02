@@ -37,6 +37,26 @@ public class Specialty
         this.name = name;
     }
 
+    /**
+     * Get the speciality UID.
+     *
+     * @return The speciality UID.
+     */
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    /**
+     * Set the speciality UID.
+     *
+     * @param uid The speciality UID.
+     */
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
+    }
+
     public void addJobType(JobType jobType)
     {
         if (jobType == null) throw new NullPointerException("Job type can not be null.");
@@ -63,15 +83,5 @@ public class Specialty
     public int hashCode()
     {
         return name.hashCode();
-    }
-
-    public Integer getUid()
-    {
-        return uid;
-    }
-
-    public void setUid(Integer uid)
-    {
-        this.uid = uid;
     }
 }

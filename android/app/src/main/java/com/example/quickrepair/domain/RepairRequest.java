@@ -118,7 +118,26 @@ public class RepairRequest implements Comparable<RepairRequest>
         this.estimatedDuration = estimatedDuration;
     }
 
-    //GETTERS
+    /**
+     * Get the repair request UID.
+     *
+     * @return The repair request UID.
+     */
+    public Integer getUid()
+    {
+        return uid;
+    }
+
+    /**
+     * Set the repair request UID.
+     *
+     * @param uid The repair request UID.
+     */
+    public void setUid(Integer uid)
+    {
+        this.uid = uid;
+    }
+
     public GregorianCalendar getCreationDate()
     {
         return creationDate;
@@ -204,7 +223,6 @@ public class RepairRequest implements Comparable<RepairRequest>
         this.status = Status.COMPLETED;
         Repair repair = new Repair(this, quantity);
         setRepair(repair);
-        getCustomer().notifyOfCompletion(this);
 
         return repair;
     }
@@ -213,16 +231,6 @@ public class RepairRequest implements Comparable<RepairRequest>
     public int compareTo(RepairRequest o)
     {
         return conductionDate.compareTo(o.conductionDate);
-    }
-
-    public Integer getUid()
-    {
-        return uid;
-    }
-
-    public void setUid(Integer uid)
-    {
-        this.uid = uid;
     }
 
     public enum Status

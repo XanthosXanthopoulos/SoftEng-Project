@@ -6,12 +6,17 @@ import java.util.Set;
 
 public class Customer extends User
 {
-    /*
+    /**
      * All Customer's Requests
      */
     private Set<RepairRequest> requests;
 
-    /*
+    public Customer()
+    {
+        requests = new HashSet<>();
+    }
+
+    /**
      * Costumer's constructor
      */
     public Customer(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password)
@@ -34,7 +39,7 @@ public class Customer extends User
         return requests;
     }
 
-    /*
+    /**
      * Charge Customer's Account
      */
     public void chargeAccount(double totalCost)
@@ -49,8 +54,15 @@ public class Customer extends User
         }
     }
 
-    /*
+    /**
+     * Create a Repair Request for a specific job.
      *
+     * @param dateNow The date of creation.
+     * @param date The date of conduction.
+     * @param job The requested job.
+     * @param comments Additional comment of the customer for the technician.
+     * @param address The address of the appointment.
+     * @return The created repair request.
      */
     public RepairRequest requestRepair(GregorianCalendar dateNow, GregorianCalendar date, Job job, String comments, Address address)
     {
@@ -61,9 +73,5 @@ public class Customer extends User
         return repairRequest;
     }
 
-    public void notifyOfCompletion(RepairRequest repairRequest)
-    {
-        //Customer is notified that one of his repair requests has been completed
-    }
     //TODO equals
 }

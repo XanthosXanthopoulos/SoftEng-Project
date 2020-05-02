@@ -20,6 +20,8 @@ public class User
     private String username;
     private byte[] password;
 
+    public User() { }
+
     public User(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password)
     {
         setUserInfo(name, surname, phoneNumber, email, bankAccount, username);
