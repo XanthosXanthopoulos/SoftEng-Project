@@ -11,7 +11,7 @@ public class Job
     {
     }
 
-    public Job(Technician technician, JobType jobType, double price, int duration)
+    public Job(Technician technician, JobType jobType, double price)
     {
         setTechnician(technician);
         setJobType(jobType);
