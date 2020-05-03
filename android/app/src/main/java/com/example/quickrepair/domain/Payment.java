@@ -24,8 +24,9 @@ public class Payment
      * @param date        payment's date
      * @param paymentType payment's type
      */
-    public Payment(Calendar date, PaymentType paymentType)
+    public Payment(Repair repair, Calendar date, PaymentType paymentType)
     {
+        setRepair(repair);
         setDate(date);
         setPaymentType(paymentType);
     }
@@ -130,9 +131,8 @@ public class Payment
         if (this == o) return true;
 
         if (!(o instanceof Payment)) return false;
-        // typecast
+
         Payment payment = (Payment) o;
-        // Compare the data members and return accordingly
         return payment.getDate().compareTo(this.getDate()) == 0 && payment.getPaymentType() == this.getPaymentType();
     }
 }

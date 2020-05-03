@@ -23,8 +23,9 @@ public class Evaluation
      * @param comment evaluation's comments and details about repair and technician's job in general
      * @param rate    evaluation's rate, [1, 5]
      */
-    public Evaluation(String title, String comment, int rate)
+    public Evaluation(Repair repair, String title, String comment, int rate)
     {
+        setRepair(repair);
         setTitle(title);
         setComment(comment);
         setRate(rate);
