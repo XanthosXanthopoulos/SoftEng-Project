@@ -4,30 +4,30 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>140</x>
-      <y>40</y>
+      <x>360</x>
+      <y>50</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>_:Customer_</panel_attributes>
+    <panel_attributes>_:Repair_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>60</y>
+      <x>400</x>
+      <y>70</y>
       <w>30</w>
-      <h>660</h>
+      <h>430</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;640.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;410.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>90</y>
+      <x>400</x>
+      <y>100</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -38,66 +38,32 @@ create</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>380</x>
-      <y>90</y>
+      <x>600</x>
+      <y>100</y>
       <w>160</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>_:RepairRequest_</panel_attributes>
+    <panel_attributes>_:RPayment_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>110</y>
+      <x>670</x>
+      <y>120</y>
       <w>30</w>
-      <h>610</h>
+      <h>380</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;590.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>190</x>
-      <y>150</y>
-      <w>280</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-setCreationDate(date)</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>180</x>
-      <y>160</y>
+      <x>400</x>
+      <y>100</y>
       <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>450</x>
-      <y>160</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>180</x>
-      <y>210</y>
-      <w>20</w>
-      <h>30</h>
+      <h>360</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -105,31 +71,20 @@ setCreationDate(date)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>200</y>
-      <w>280</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-setConductionDate(date)</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>450</x>
-      <y>210</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>180</x>
+      <x>410</x>
       <y>260</y>
+      <w>280</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+setCost(price * quantity)</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>670</x>
+      <y>270</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -139,99 +94,20 @@ setConductionDate(date)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>250</y>
-      <w>280</w>
-      <h>40</h>
+      <x>420</x>
+      <y>320</y>
+      <w>210</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-setCommentsFromCustomer(String)</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+setPayment(payment)</panel_attributes>
+    <additional_attributes>10.0;50.0;50.0;50.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>450</x>
-      <y>260</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>180</x>
-      <y>310</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>190</x>
-      <y>300</y>
-      <w>280</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-setCustomer(Customer)</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>450</x>
-      <y>310</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>180</x>
-      <y>360</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>190</x>
-      <y>350</y>
-      <w>280</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-setJob(job)</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>450</x>
-      <y>360</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>640</x>
-      <y>90</y>
+      <x>860</x>
+      <y>100</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -241,44 +117,57 @@ setJob(job)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>680</x>
-      <y>110</y>
+      <x>900</x>
+      <y>120</y>
       <w>30</w>
-      <h>610</h>
+      <h>380</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;590.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>400</y>
+      <x>200</x>
+      <y>90</y>
+      <w>220</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+pay(date, paymentType)</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>410</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+payment</panel_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>160</y>
       <w>510</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-getTechnician()</panel_attributes>
+getPrice()</panel_attributes>
     <additional_attributes>490.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>180</x>
-      <y>410</y>
+      <x>900</x>
+      <y>170</y>
       <w>20</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>680</x>
-      <y>410</y>
-      <w>20</w>
-      <h>60</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -286,101 +175,22 @@ getTechnician()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>480</y>
-      <w>740</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-addRepairRequest(RepairRequest)</panel_attributes>
-    <additional_attributes>720.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>190</x>
-      <y>440</y>
+      <x>410</x>
+      <y>190</y>
       <w>510</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-technician</panel_attributes>
+price</panel_attributes>
     <additional_attributes>10.0;20.0;490.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>870</x>
-      <y>90</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>_:Technician_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>910</x>
-      <y>110</y>
-      <w>30</w>
-      <h>610</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;590.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>180</x>
-      <y>490</y>
+      <x>410</x>
+      <y>320</y>
       <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>910</x>
-      <y>490</y>
-      <w>20</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>180</x>
-      <y>540</y>
-      <w>20</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>190</x>
-      <y>540</y>
-      <w>320</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-addRepairRequest(RepairRequest)</panel_attributes>
-    <additional_attributes>20.0;70.0;80.0;70.0;80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>190</x>
-      <y>570</y>
-      <w>20</w>
-      <h>70</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
