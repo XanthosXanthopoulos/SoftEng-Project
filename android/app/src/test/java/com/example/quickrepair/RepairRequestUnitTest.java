@@ -20,57 +20,96 @@ import java.util.GregorianCalendar;
 
 public class RepairRequestUnitTest
 {
-    RepairRequest req;
+    RepairRequest repairRequest;
     GregorianCalendar standardDate;
+    Customer customer;
     int price;
 
     @Before
-    public void setUpTests()
+    public void setUp()
     {
+        Specialty specialty = new Specialty();
         standardDate = new GregorianCalendar(2018, 1, 1, 1, 0);
         Address exampleAddress = new Address("ath", "15");
 
-        Technician technicianToTest = new Technician("nikos", "sm", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "nikos",
-                "123", new Specialty("HLEKTROLOGOS"), "128947");
-        JobType jobType = new JobType("Allagh lampas", new Specialty("HLEKTROLOGOS"), MeasurementUnit.NONE);
-        price = 12;
-        Job job = new Job(technicianToTest, jobType, price);
+        Technician technician = new Technician();
+        technician.setSpecialty(specialty);
 
-        Customer customerToTest = new Customer("nick", "sm", "6958375634",
-                "sss222@asdm.com", "123121231123", "nicksm",
-                "0j19283j1");
-        req = new RepairRequest(customerToTest, job, standardDate, standardDate, exampleAddress,"comments");
+        JobType jobType = new JobType("Wiring", specialty, MeasurementUnit.METER);
+        Job job = new Job(technician, jobType, 12);
+        customer = new Customer();
+
+        repairRequest = new RepairRequest(customer, job, standardDate, standardDate, exampleAddress, "comments");
     }
 
     @Test
     public void testExampleAddress()
     {
-        Address addr = new Address("Patission", "12");
-        req.setAddress(addr);
-        Assert.assertEquals(addr, req.getAddress());
+        Address address = new Address("Patission", "12");
+        repairRequest.setAddress(address);
+        Assert.assertEquals(address, repairRequest.getAddress());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void nullComment()
+    {
+        repairRequest.setCommentsFromCustomer(null);
+    }
+
+    @Test
+    public void okUid()
+    {
+        repairRequest.setUid(100);
+        Assert.assertEquals(100, repairRequest.getUid());
     }
 
     @Test
     public void testComments()
     {
-        String coms = "comments..";
-        req.setCommentsFromCustomer(coms);
-        Assert.assertEquals(coms, req.getCommentsFromCustomer());
+        String comments = "comments..";
+        repairRequest.setCommentsFromCustomer(comments);
+        Assert.assertEquals(comments, repairRequest.getCommentsFromCustomer());
     }
+
     @Test
     public void testCreationDates()
     {
-        GregorianCalendar date = new GregorianCalendar(2019, 2, 2, 2,2);
-        req.setCreationDate(date);
-        Assert.assertEquals(date, req.getCreationDate());
+        GregorianCalendar date = new GregorianCalendar(2019, 2, 2, 2, 2);
+        repairRequest.setCreationDate(date);
+        Assert.assertEquals(date, repairRequest.getCreationDate());
     }
+
     @Test
-    public void setRepair(){
-        Repair repair = new Repair(req, 12);
-        req.setRepair(repair);
-        Assert.assertEquals(repair, req.getRepair());
+    public void testConductionDates()
+    {
+        GregorianCalendar date = new GregorianCalendar(2019, 2, 2, 2, 2);
+        repairRequest.setConductionDate(date);
+        Assert.assertEquals(date, repairRequest.getConductionDate());
     }
+
+    @Test
+    public void setRepair()
+    {
+        Repair repair = new Repair(repairRequest, 12);
+        repairRequest.setRepair(repair);
+        Assert.assertEquals(repair, repairRequest.getRepair());
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void invalidDuration()
+    {
+        repairRequest.setEstimatedDuration(0);
+    }
+
+    @Test
+    public void getterTest()
+    {
+        Assert.assertEquals(customer, repairRequest.getCustomer());
+
+        repairRequest.setEstimatedDuration(100);
+        Assert.assertEquals(100, repairRequest.getEstimatedDuration());
+    }
+
     @Test
     public void compareToEqualsHourAndMin()
     {
@@ -174,100 +213,104 @@ public class RepairRequestUnitTest
     @Test
     public void isCompletedFalse()
     {
-        Assert.assertEquals(false, req.isCompleted());
+        Assert.assertEquals(false, repairRequest.isCompleted());
     }
 
     @Test
     public void isCompletedTrue()
     {
-        req.confirm(30);
-        req.complete(2);
-        Assert.assertEquals(true, req.isCompleted());
+        repairRequest.confirm(30);
+        repairRequest.complete(2);
+        Assert.assertEquals(true, repairRequest.isCompleted());
     }
 
-    @Test (expected = IllegalStateException.class)
+    @Test(expected = IllegalStateException.class)
     public void completeAlreadyCompleted()
     {
-        req.complete(2);
+        repairRequest.complete(2);
     }
 
     @Test
     public void isConfirmedFalse()
     {
-        Assert.assertEquals(false, req.isConfirmed());
+        Assert.assertEquals(false, repairRequest.isConfirmed());
     }
 
     @Test
     public void isConfirmedTrue()
     {
-        req.confirm(12);
-        Assert.assertEquals(true, req.isConfirmed());
+        repairRequest.confirm(12);
+        Assert.assertEquals(true, repairRequest.isConfirmed());
     }
+
     @Test
     public void isUnconfirmedTest()
     {
-        Assert.assertTrue(req.isUnconfirmed());
+        Assert.assertTrue(repairRequest.isUnconfirmed());
     }
 
     @Test
     public void isRejectTest()
     {
-        req.reject();
-        Assert.assertTrue(req.isRejected());
+        repairRequest.reject();
+        Assert.assertTrue(repairRequest.isRejected());
     }
 
     @Test(expected = IllegalStateException.class)
     public void confirmX2()
     {
-        req.confirm(12);
-        req.confirm(12);
+        repairRequest.confirm(12);
+        repairRequest.confirm(12);
     }
 
     @Test
     public void rejectTrue()
     {
-        req.reject();
-        Assert.assertEquals(false, req.isConfirmed());
+        repairRequest.reject();
+        Assert.assertEquals(false, repairRequest.isConfirmed());
     }
 
     @Test(expected = IllegalStateException.class)
     public void rejectX2()
     {
-        req.reject();
-        req.reject();
+        repairRequest.reject();
+        repairRequest.reject();
     }
 
-    //null setters
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void setConductionDateNull()
     {
-        req.setConductionDate(null);
+        repairRequest.setConductionDate(null);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void setCreationDateNull()
     {
-        req.setCreationDate(null);
+        repairRequest.setCreationDate(null);
     }
-    @Test (expected = IllegalArgumentException.class)
+
+    @Test(expected = IllegalArgumentException.class)
     public void setAddressNull()
     {
-        req.setAddress(null);
+        repairRequest.setAddress(null);
     }
-    @Test (expected = IllegalArgumentException.class)
+
+    @Test(expected = IllegalArgumentException.class)
     public void setCustomerNull()
     {
-        req.setCustomer(null);
+        repairRequest.setCustomer(null);
     }
-    @Test (expected = IllegalArgumentException.class)
+
+    @Test(expected = IllegalArgumentException.class)
     public void setRepairNull()
     {
-        req.setRepair(null);
+        repairRequest.setRepair(null);
     }
-    @Test (expected = IllegalArgumentException.class)
+
+    @Test(expected = IllegalArgumentException.class)
     public void setJobNull()
     {
-        req.setJob(null);
+        repairRequest.setJob(null);
     }
 
 }

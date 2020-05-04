@@ -25,7 +25,8 @@ public class Technician extends User
     //for each day of the week -> (startHour, endHour)
     private Integer[][] schedule = new Integer[7][2];
 
-    // Constructors
+    public Technician() { }
+
     public Technician(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password, Specialty specialty, String AFM)
     {
         super(name, surname, phoneNumber, email, bankAccount, username, password);

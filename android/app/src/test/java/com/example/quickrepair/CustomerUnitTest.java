@@ -31,18 +31,6 @@ public class CustomerUnitTest
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void chargeNegativeAmount()
-    {
-        customerToTest.chargeAccount(-12948);
-    }
-
-    @Test
-    public void chargeNormalAmount()
-    {
-        customerToTest.chargeAccount(10000);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
     public void addRequestNull()
     {
         customerToTest.addRequest(null);

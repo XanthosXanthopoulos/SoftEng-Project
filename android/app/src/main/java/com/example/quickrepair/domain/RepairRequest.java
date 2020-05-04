@@ -31,7 +31,7 @@ public class RepairRequest implements Comparable<RepairRequest>
     //constructors
 
     /**
-     * Empty Contructor
+     * Default constructor.
      */
     public RepairRequest()
     {
@@ -52,7 +52,6 @@ public class RepairRequest implements Comparable<RepairRequest>
         status = Status.UNCONFIRMED;
     }
 
-    //SETTERS
     public void setConductionDate(GregorianCalendar conductionDate)
     {
         if (conductionDate == null)
@@ -114,16 +113,15 @@ public class RepairRequest implements Comparable<RepairRequest>
 
     public void setCommentsFromCustomer(String commentsFromCustomer)
     {
-        if (commentsFromCustomer == null)
-            throw new IllegalArgumentException("Null commentsFromCustomer");
+        if (commentsFromCustomer == null) throw new NullPointerException("Null commentsFromCustomer");
 
         this.commentsFromCustomer = commentsFromCustomer;
     }
 
     public void setEstimatedDuration(int estimatedDuration)
     {
-        if (estimatedDuration < 0) throw new NumberFormatException("Duration can not be negative.");
-        if (estimatedDuration == 0) throw new NumberFormatException("Duration can not be zero.");
+        if (estimatedDuration <= 0) throw new NumberFormatException("Duration can not be negative or zero.");
+
         this.estimatedDuration = estimatedDuration;
     }
 
@@ -132,7 +130,7 @@ public class RepairRequest implements Comparable<RepairRequest>
      *
      * @return The repair request UID.
      */
-    public Integer getUid()
+    public int getUid()
     {
         return uid;
     }
@@ -142,7 +140,7 @@ public class RepairRequest implements Comparable<RepairRequest>
      *
      * @param uid The repair request UID.
      */
-    public void setUid(Integer uid)
+    public void setUid(int uid)
     {
         this.uid = uid;
     }
@@ -211,6 +209,7 @@ public class RepairRequest implements Comparable<RepairRequest>
     {
         if (this.status == Status.CONFIRMED)
             throw new IllegalStateException("Repair request is already confirmed.");
+
         this.status = Status.CONFIRMED;
         setEstimatedDuration(estimatedDuration);
     }
@@ -219,6 +218,7 @@ public class RepairRequest implements Comparable<RepairRequest>
     {
         if (this.status == Status.REJECTED)
             throw new IllegalStateException("Repair request is already rejected.");
+
         this.status = Status.REJECTED;
     }
 
