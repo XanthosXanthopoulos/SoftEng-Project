@@ -125,8 +125,16 @@ public class Job
     public void addRepairRequest(RepairRequest repairRequest)
     {
         if (repairRequest == null) throw new NullPointerException();
+        if (!repairRequest.getJob().equals(this)) throw new IllegalArgumentException();
 
         repairRequests.add(repairRequest);
+    }
+
+    public void removeRepairRequest(RepairRequest repairRequest)
+    {
+        if (repairRequest == null) throw new NullPointerException();
+
+        repairRequests.remove(repairRequest);
     }
 
     @Override

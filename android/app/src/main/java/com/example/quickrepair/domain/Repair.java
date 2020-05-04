@@ -209,15 +209,8 @@ public class Repair
      */
     public Payment pay(Calendar date, PaymentType paymentType)
     {
-        if(paymentType == PaymentType.CARD)
-        {
-            Job job = repairRequest.getJob();
-            double cost = this.quantity * job.getPrice();
-            Customer c = repairRequest.getCustomer();
-            c.chargeAccount(cost);
-        }
-
         Payment payment = new Payment(this, date, paymentType);
+        payment.setCost(quantity * repairRequest.getJob().getPrice());
         setPayment(payment);
         return payment;
     }

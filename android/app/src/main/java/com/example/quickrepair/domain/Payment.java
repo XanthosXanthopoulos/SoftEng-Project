@@ -8,6 +8,7 @@ import java.util.Objects;
 public class Payment
 {
     private int uid;
+    private double cost;
     private Repair repair;
     private Calendar date;
     private PaymentType paymentType;
@@ -122,6 +123,18 @@ public class Payment
         if (repair == null) throw new NullPointerException("The repair can not be null.");
 
         this.repair = repair;
+    }
+
+    public double getCost()
+    {
+        return cost;
+    }
+
+    public void setCost(double cost)
+    {
+        if (cost <= 0) throw new IllegalArgumentException();
+
+        this.cost = cost;
     }
 
     @Override

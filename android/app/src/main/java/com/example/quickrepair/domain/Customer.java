@@ -41,21 +41,6 @@ public class Customer extends User
     }
 
     /**
-     * Charge Customer's Account
-     */
-    public void chargeAccount(double totalCost)
-    {
-        if (totalCost <= 0)
-        {
-            throw new IllegalArgumentException("totalCost");
-        }
-        else
-        {
-            // The customers account is charged for the amount
-        }
-    }
-
-    /**
      * Create a Repair Request for a specific job.
      *
      * @param dateNow  The date of creation.

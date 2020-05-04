@@ -139,6 +139,7 @@ public class JobType
     public void addJob(Job job)
     {
         if (job == null) throw new NullPointerException();
+
         jobs.add(job);
     }
 
@@ -150,21 +151,9 @@ public class JobType
     public void removeJob(Job job)
     {
         if (job == null) throw new NullPointerException();
+
         jobs.remove(job);
     }
-
-//    /**
-//     * @return the set of technicians that offer this job type
-//     */
-//    public Set<Technician> getTechnicians()
-//    {
-//        Set<Technician> technicians = new HashSet<>();
-//        for (Job job : jobs)
-//        {
-//            technicians.add(job.getTechnician());
-//        }
-//        return technicians;
-//    }
 
     @Override
     public boolean equals(Object o)
@@ -178,6 +167,6 @@ public class JobType
     @Override
     public int hashCode()
     {
-        return Objects.hash(name, specialty, measurementUnit, jobs);
+        return Objects.hash(name, specialty, measurementUnit);
     }
 }

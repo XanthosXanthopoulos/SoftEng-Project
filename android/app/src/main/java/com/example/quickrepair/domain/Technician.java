@@ -2,6 +2,7 @@ package com.example.quickrepair.domain;
 
 import com.example.quickrepair.util.Utilities;
 
+import java.awt.font.NumericShaper;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -144,6 +145,7 @@ public class Technician extends User
     public void removeJob(Job job)
     {
         if (job == null) throw new NullPointerException();
+        if (!job.getTechnician().equals(this)) throw new IllegalArgumentException();
 
         getJobs().remove(job);
         job.getJobType().removeJob(job);
@@ -209,12 +211,12 @@ public class Technician extends User
             getSchedule()[day][1] = hourEnd;
             return;
         }
-        //Argument checks
-        if (day < 0 || day > 6 || hourStart < 0
-                || hourStart > 23 || hourEnd < 0 || hourEnd > 23 || hourStart >= hourEnd)
+
+        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 23 || hourStart >= hourEnd)
         {
             throw new IllegalArgumentException("out of range");
         }
+
         getSchedule()[day][0] = hourStart;
         getSchedule()[day][1] = hourEnd;
     }
@@ -242,8 +244,8 @@ public class Technician extends User
     /**
      * Checks if the technician is available on the given day of the week
      *
-     * @param day
-     * @return true if the technician is available the given day
+     * @param day The day to check availability.
+     * @return true if the technician is available the given day.
      */
     public boolean isDayAvailable(int day)
     {

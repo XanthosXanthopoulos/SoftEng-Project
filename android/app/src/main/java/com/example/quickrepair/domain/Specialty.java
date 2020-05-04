@@ -77,6 +77,6 @@ public class Specialty
     @Override
     public int hashCode()
     {
-        return Objects.hash(name, jobTypes);
+        return Objects.hash(name);
     }
 }

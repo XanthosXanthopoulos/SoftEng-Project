@@ -17,22 +17,19 @@ import static org.junit.Assert.*;
 
 public class TechnicianUnitTest
 {
-    Technician technicianToTest;
-    Address exampleAddress;
-    Job exampleJob;
-    JobType exampleJobType;
-    Specialty exampleSpecialty;
-    Integer[][] exampleSchedule;
-
-    Customer exampleCustomer1;
-    Customer exampleCustomer2;
+    private Technician technicianToTest;
+    private Address exampleAddress;
+    private Job exampleJob;
+    private JobType exampleJobType;
+    private Specialty exampleSpecialty;
+    private Integer[][] exampleSchedule;
 
     @Before
     public void setUpTests()
     {
         exampleSpecialty = new Specialty("Electrician");
         technicianToTest = new Technician("nikos", "sm", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "nikos",
+                "example@example.com", "mybankaccount", "nikos",
                 "123", exampleSpecialty, "128947");
         Address address = new Address("ath", "15");
 
@@ -50,10 +47,6 @@ public class TechnicianUnitTest
             exampleSchedule[i][1] = 17;
         }
         technicianToTest.setSchedule(exampleSchedule);
-        exampleCustomer1 = new Customer("1", "1", "6972485968",
-                "nikos.123123@gmail.com", "124124", "asdasd", "password");
-        exampleCustomer2 = new Customer("2", "2", "6972485968",
-                "nikos.12344@gmail.com", "114124", "asdasda", "password1");
 
     }
 
@@ -157,21 +150,21 @@ public class TechnicianUnitTest
     public void setCorrectTechnicianInfo()
     {
         technicianToTest.setTechnicianInfo("nikos", "sm", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "username");
+                "example@example.com", "mybankaccount", "username");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setIncorrectEmail()
     {
         technicianToTest.setTechnicianInfo("nikos", "sm", "6958475635",
-                "asdihausdh.asdh", "mybankaccount", "username");
+                "example.com", "mybankaccount", "username");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setIncorrectPhoneNumber()
     {
-        technicianToTest.setTechnicianInfo("nikos", "sm", ";DROP TABLE USERS",
-                "asdihausdh.asdh", "mybankaccount", "username");
+        technicianToTest.setTechnicianInfo("nikos", "sm", "DROP TABLE USERS",
+                "example@example.com", "mybankaccount", "username");
     }
 
     @Test
@@ -222,7 +215,7 @@ public class TechnicianUnitTest
     public void userNameAndPasswordTest()
     {
         Technician newTechnician = new Technician("nikos", "sm", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "nikos",
+                "example@example.com", "mybankaccount", "nikos",
                 "123", exampleSpecialty, "128947");
         assertEquals(newTechnician.getUsername(), "nikos");
         assertTrue(newTechnician.validatePassword("123"));
@@ -278,7 +271,7 @@ public class TechnicianUnitTest
     public void equalsTest()
     {
         Technician otherTechnician = new Technician("nikos", "sm", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "nikos",
+                "example@example.com", "mybankaccount", "nikos",
                 "123", new Specialty("test"), "128947");
 
         Assert.assertEquals(true, technicianToTest.equals(technicianToTest));
@@ -286,7 +279,7 @@ public class TechnicianUnitTest
         Assert.assertEquals(false, technicianToTest.equals(otherTechnician));
 
         otherTechnician = new Technician("nikos", "sm", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "nikos",
+                "example@example.com", "mybankaccount", "nikos",
                 "123", exampleSpecialty, "128947");
         otherTechnician.setSchedule(exampleSchedule);
 

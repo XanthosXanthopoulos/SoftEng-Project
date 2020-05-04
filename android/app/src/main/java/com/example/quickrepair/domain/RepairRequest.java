@@ -261,6 +261,6 @@ public class RepairRequest implements Comparable<RepairRequest>
     @Override
     public int hashCode()
     {
-        return Objects.hash(customer, job, creationDate, conductionDate, address, status, commentsFromCustomer, estimatedDuration, repair);
+        return Objects.hash(creationDate, conductionDate, address, status, commentsFromCustomer, estimatedDuration);
     }
 }
