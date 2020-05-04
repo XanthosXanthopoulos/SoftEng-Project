@@ -4,7 +4,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>210</x>
+      <x>200</x>
       <y>0</y>
       <w>100</w>
       <h>30</h>
@@ -15,21 +15,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
+      <x>240</x>
       <y>20</y>
       <w>30</w>
-      <h>1350</h>
+      <h>1480</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1330.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1460.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>250</x>
-      <y>40</y>
+      <x>240</x>
+      <y>90</y>
       <w>20</w>
-      <h>90</h>
+      <h>1340</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -37,7 +37,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>930</x>
+      <x>920</x>
       <y>0</y>
       <w>120</w>
       <h>30</h>
@@ -48,18 +48,18 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>980</x>
+      <x>970</x>
       <y>20</y>
       <w>30</w>
-      <h>1350</h>
+      <h>1480</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1330.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1460.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>390</x>
+      <x>380</x>
       <y>0</y>
       <w>190</w>
       <h>30</h>
@@ -70,43 +70,43 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>470</x>
       <y>20</y>
       <w>30</w>
-      <h>1350</h>
+      <h>1480</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1330.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1460.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>620</x>
+      <x>610</x>
       <y>0</y>
       <w>280</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>_:HashSet&lt;Date, List&lt;RepairRequest&gt; &gt;_</panel_attributes>
+    <panel_attributes>_:ArrayList&lt;Job&gt;_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
+      <x>740</x>
       <y>20</y>
       <w>30</w>
-      <h>1350</h>
+      <h>1480</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1330.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1460.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>140</x>
-      <y>140</y>
+      <x>130</x>
+      <y>180</y>
       <w>970</w>
-      <h>1180</h>
+      <h>1190</h>
     </coordinates>
     <panel_attributes>opt
 --
@@ -118,8 +118,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>260</x>
-      <y>70</y>
+      <x>250</x>
+      <y>120</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -129,8 +129,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>40</y>
+      <x>250</x>
+      <y>90</y>
       <w>190</w>
       <h>100</h>
     </coordinates>
@@ -139,21 +139,10 @@ isDayAvailable()</panel_attributes>
     <additional_attributes>20.0;80.0;70.0;80.0;70.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>250</x>
-      <y>200</y>
-      <w>20</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>190</y>
+      <x>250</x>
+      <y>240</y>
       <w>510</w>
       <h>40</h>
     </coordinates>
@@ -164,8 +153,8 @@ get(Date)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>750</x>
-      <y>200</y>
+      <x>740</x>
+      <y>250</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -175,8 +164,8 @@ get(Date)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>230</y>
+      <x>250</x>
+      <y>280</y>
       <w>510</w>
       <h>40</h>
     </coordinates>
@@ -187,8 +176,8 @@ RepairRequestList</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>150</x>
-      <y>270</y>
+      <x>140</x>
+      <y>320</y>
       <w>950</w>
       <h>1040</h>
     </coordinates>
@@ -209,21 +198,10 @@ RepairRequestList</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>250</x>
-      <y>460</y>
-      <w>20</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>500</y>
+      <x>250</x>
+      <y>550</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -234,8 +212,8 @@ get(0)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>480</x>
-      <y>460</y>
+      <x>470</x>
+      <y>510</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -245,8 +223,8 @@ get(0)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>450</y>
+      <x>250</x>
+      <y>500</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -257,19 +235,8 @@ sort()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>250</x>
-      <y>510</y>
-      <w>20</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>480</x>
-      <y>510</y>
+      <x>470</x>
+      <y>560</y>
       <w>20</w>
       <h>50</h>
     </coordinates>
@@ -279,8 +246,8 @@ sort()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>530</y>
+      <x>250</x>
+      <y>580</y>
       <w>240</w>
       <h>40</h>
     </coordinates>
@@ -291,19 +258,8 @@ return</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>250</x>
-      <y>570</y>
-      <w>20</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>980</x>
-      <y>570</y>
+      <x>970</x>
+      <y>620</y>
       <w>20</w>
       <h>50</h>
     </coordinates>
@@ -313,8 +269,8 @@ return</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>560</y>
+      <x>250</x>
+      <y>610</y>
       <w>740</w>
       <h>40</h>
     </coordinates>
@@ -325,8 +281,8 @@ getDate()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>590</y>
+      <x>250</x>
+      <y>640</y>
       <w>740</w>
       <h>40</h>
     </coordinates>
@@ -337,8 +293,8 @@ return</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>160</x>
-      <y>630</y>
+      <x>150</x>
+      <y>680</y>
       <w>930</w>
       <h>160</h>
     </coordinates>
@@ -351,18 +307,7 @@ return</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>250</x>
-      <y>320</y>
-      <w>20</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>260</x>
-      <y>350</y>
+      <y>400</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -372,8 +317,8 @@ return</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>320</y>
+      <x>250</x>
+      <y>370</y>
       <w>220</w>
       <h>100</h>
     </coordinates>
@@ -382,21 +327,10 @@ createGap(start, end)</panel_attributes>
     <additional_attributes>20.0;80.0;70.0;80.0;70.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>250</x>
-      <y>690</y>
-      <w>20</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>690</y>
+      <x>250</x>
+      <y>740</y>
       <w>260</w>
       <h>100</h>
     </coordinates>
@@ -407,8 +341,8 @@ createGap(start, repairHour)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>260</x>
-      <y>720</y>
+      <x>250</x>
+      <y>770</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -418,8 +352,8 @@ createGap(start, repairHour)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>160</x>
-      <y>800</y>
+      <x>150</x>
+      <y>850</y>
       <w>930</w>
       <h>320</h>
     </coordinates>
@@ -429,21 +363,10 @@ createGap(start, repairHour)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>250</x>
-      <y>870</y>
-      <w>20</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>860</y>
+      <x>250</x>
+      <y>910</y>
       <w>740</w>
       <h>40</h>
     </coordinates>
@@ -454,8 +377,8 @@ getDate()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>890</y>
+      <x>250</x>
+      <y>940</y>
       <w>740</w>
       <h>40</h>
     </coordinates>
@@ -466,8 +389,8 @@ return</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>980</x>
-      <y>870</y>
+      <x>970</x>
+      <y>920</y>
       <w>20</w>
       <h>50</h>
     </coordinates>
@@ -477,8 +400,8 @@ return</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>170</x>
-      <y>940</y>
+      <x>160</x>
+      <y>990</y>
       <w>910</w>
       <h>170</h>
     </coordinates>
@@ -488,21 +411,10 @@ return</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>250</x>
-      <y>1000</y>
-      <w>20</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>1000</y>
+      <x>250</x>
+      <y>1050</y>
       <w>520</w>
       <h>100</h>
     </coordinates>
@@ -513,8 +425,8 @@ createGap(previousRepairHour + previousRepairDuration, repairHour)</panel_attrib
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>260</x>
-      <y>1030</y>
+      <x>250</x>
+      <y>1080</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -524,8 +436,8 @@ createGap(previousRepairHour + previousRepairDuration, repairHour)</panel_attrib
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>160</x>
-      <y>1130</y>
+      <x>150</x>
+      <y>1180</y>
       <w>930</w>
       <h>170</h>
     </coordinates>
@@ -535,21 +447,10 @@ createGap(previousRepairHour + previousRepairDuration, repairHour)</panel_attrib
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>250</x>
-      <y>1180</y>
-      <w>20</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>1180</y>
+      <x>250</x>
+      <y>1230</y>
       <w>290</w>
       <h>100</h>
     </coordinates>
@@ -560,12 +461,49 @@ createGap(lastRepairHour, end)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>260</x>
-      <y>1210</y>
+      <x>250</x>
+      <y>1260</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
     <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>20</x>
+      <y>90</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+getGaps(date)</panel_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>10</x>
+      <y>1390</y>
+      <w>250</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+gaps</panel_attributes>
+    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>140</x>
+      <y>230</y>
+      <w>950</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>loop
+--
+[for each job]</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
