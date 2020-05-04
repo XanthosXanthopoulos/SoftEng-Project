@@ -20,7 +20,9 @@ public class User
     private String username;
     private String password;
 
-    public User() { }
+    public User()
+    {
+    }
 
     public User(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password)
     {
@@ -158,6 +160,7 @@ public class User
     {
         return username;
     }
+
     public String getPassword()
     {
         return password;
@@ -185,7 +188,7 @@ public class User
                 Objects.equals(email, user.email) &&
                 Objects.equals(bankAccount, user.bankAccount) &&
                 Objects.equals(username, user.username) &&
-                Objects.equals(password , password);
+                Objects.equals(password, password);
     }
 
     @Override
