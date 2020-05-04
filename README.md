@@ -156,3 +156,17 @@ EK8 | Δεν μπορεί να διαγραφεί λογαριασμός πελ�
 ### Αναφορά κάλυψης για το μοντέλο πεδίου
 
 ![Domain Coverage](requirements/coverage-reports/domain-coverage.png)
+
+## Διαγράμματα ακολουθίας για την λογική του πεδίου
+
+### Pay
+
+![sq_pay](requirements/diagrams/sq_pay.png)
+
+### RequestRepair
+
+![sq_requestRepair](requirements/diagrams/sq_requestRepair.png)
+
+### GetGaps
+
+![sq_getGaps](requirements/diagrams/sq_getGaps.png)
