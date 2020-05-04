@@ -44,6 +44,12 @@ public class Technician extends User
     {
         if (specialty == null) throw new NullPointerException("Speciality can not be null.");
 
+        for (Job job : jobs)
+        {
+            job.getJobType().removeJob(job);
+        }
+        jobs.clear();
+
         this.specialty = specialty;
     }
 
@@ -60,7 +66,7 @@ public class Technician extends User
      *
      * @param schedule
      */
-    //TODO input hours of day can be set until 24 if the technician can literally work all dayt
+    //TODO input hours of day can be set until 24 if the technician can literally work all day
     public void setSchedule(Integer[][] schedule)
     {
         if (schedule == null)

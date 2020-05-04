@@ -1,8 +1,6 @@
 package com.example.quickrepair;
 
 import com.example.quickrepair.domain.Address;
-import com.example.quickrepair.domain.Customer;
-import com.example.quickrepair.domain.Job;
 import com.example.quickrepair.domain.JobType;
 import com.example.quickrepair.domain.MeasurementUnit;
 import com.example.quickrepair.domain.RepairRequest;
@@ -19,7 +17,6 @@ public class TechnicianUnitTest
 {
     private Technician technicianToTest;
     private Address exampleAddress;
-    private Job exampleJob;
     private JobType exampleJobType;
     private Specialty exampleSpecialty;
     private Integer[][] exampleSchedule;
@@ -35,7 +32,6 @@ public class TechnicianUnitTest
 
         exampleJobType = new JobType("Allagi plakakia", exampleSpecialty, MeasurementUnit.METER);
         exampleAddress = address;
-        exampleJob = new Job(technicianToTest, exampleJobType, 15);
 
         //Initializing schedule
         exampleSchedule = new Integer[7][2];
@@ -274,16 +270,16 @@ public class TechnicianUnitTest
                 "example@example.com", "mybankaccount", "nikos",
                 "123", new Specialty("test"), "128947");
 
-        Assert.assertEquals(true, technicianToTest.equals(technicianToTest));
-        Assert.assertEquals(false, technicianToTest.equals(exampleAddress));
-        Assert.assertEquals(false, technicianToTest.equals(otherTechnician));
+        assertEquals(technicianToTest, technicianToTest);
+        assertNotEquals(technicianToTest, exampleAddress);
+        assertNotEquals(technicianToTest, otherTechnician);
 
         otherTechnician = new Technician("nikos", "sm", "6958475635",
                 "example@example.com", "mybankaccount", "nikos",
                 "123", exampleSpecialty, "128947");
         otherTechnician.setSchedule(exampleSchedule);
 
-        Assert.assertEquals(true, technicianToTest.equals(otherTechnician));
+        assertEquals(technicianToTest, otherTechnician);
     }
 
     @Test
