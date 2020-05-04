@@ -184,7 +184,7 @@ public class RepairRequest implements Comparable<RepairRequest>
     {
         return job;
     }
-    
+
     public boolean isConfirmed()
     {
         return this.status == Status.CONFIRMED || this.status == Status.COMPLETED;

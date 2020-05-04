@@ -23,6 +23,8 @@ public class Technician extends User
     //This structure will set up by the technician
     //it is necessary for a costumer to know when the technician is on duty
     //for each day of the week -> (startHour, endHour)
+    //Special Cases: (0,0): Technician doesn't work that day
+    //(24,24): Technician doesn't work all day
     private Integer[][] schedule = new Integer[7][2];
 
     public Technician() { }
@@ -224,7 +226,7 @@ public class Technician extends User
             return;
         }
 
-        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 23 || hourStart >= hourEnd)
+        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 24 || hourStart > 24 || hourStart >= hourEnd)
         {
             throw new IllegalArgumentException("out of range");
         }
