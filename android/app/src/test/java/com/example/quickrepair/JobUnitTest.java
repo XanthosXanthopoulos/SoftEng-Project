@@ -12,6 +12,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Objects;
+
 public class JobUnitTest
 {
     private Job exampleJob;

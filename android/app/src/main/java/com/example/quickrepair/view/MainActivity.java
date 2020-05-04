@@ -1,4 +1,4 @@
-package com.example.quickrepair.domain;
+package com.example.quickrepair.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

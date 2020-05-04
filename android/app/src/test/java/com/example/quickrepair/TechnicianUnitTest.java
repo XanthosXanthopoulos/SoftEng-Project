@@ -1,6 +1,7 @@
 package com.example.quickrepair;
 
 import com.example.quickrepair.domain.Address;
+import com.example.quickrepair.domain.Job;
 import com.example.quickrepair.domain.JobType;
 import com.example.quickrepair.domain.MeasurementUnit;
 import com.example.quickrepair.domain.RepairRequest;
@@ -88,7 +89,7 @@ public class TechnicianUnitTest
     public void setAvailableOnWithWrongParameters3()
     {
         technicianToTest.setSchedule(exampleSchedule);
-        technicianToTest.setAvailableOnDay(0, 0, 24);
+        technicianToTest.setAvailableOnDay(0, 0, 25);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -192,12 +193,13 @@ public class TechnicianUnitTest
 
         technicianToTest.setTechnicianInfo("nikos", "sm",
                 "6958692431", "asd@gmail.com", "1111", "username");
+        technicianToTest.setAFM("123142");
         assertEquals(technicianToTest.getEmail(), "asd@gmail.com");
         assertEquals(technicianToTest.getName(), "nikos");
         assertEquals(technicianToTest.getSurname(), "sm");
         assertEquals(technicianToTest.getPhoneNumber(), "6958692431");
         assertEquals(technicianToTest.getBankAccount(), "1111");
-        Assert.assertEquals("128947", technicianToTest.getAFM());
+        assertTrue(technicianToTest.getAFM().equals("123142"));
     }
 
     @Test
@@ -206,6 +208,9 @@ public class TechnicianUnitTest
         technicianToTest.setSpecialty(exampleJobType.getSpecialty());
         technicianToTest.addJob(exampleJobType, 5);
         assertTrue(technicianToTest.getJobs().size() != 0);
+        JobType newJobType = new JobType("example" , exampleSpecialty , MeasurementUnit.SQR_METER);
+        technicianToTest.addJob(newJobType, 5);
+        Assert.assertTrue(technicianToTest.getJobs().size() == 2);
     }
 
     @Test
@@ -215,14 +220,8 @@ public class TechnicianUnitTest
                 "example@example.com", "mybankaccount", "nikos",
                 "123", exampleSpecialty, "128947");
         assertEquals(newTechnician.getUsername(), "nikos");
-        assertTrue(newTechnician.validatePassword("123"));
-        assertFalse(newTechnician.validatePassword("1234"));
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void validateNullPassword()
-    {
-        technicianToTest.validatePassword(null);
+        assertTrue(newTechnician.getPassword().equals("123"));
+        assertFalse(newTechnician.getPassword().equals("1234"));
     }
 
     @Test(expected = NullPointerException.class)
@@ -307,7 +306,6 @@ public class TechnicianUnitTest
     @Test(expected = IllegalArgumentException.class)
     public void addJobToTechnicianWithNotTheAppropriateSpecialty()
     {
-        //TODO remove all jobs when technician changes specialty
         technicianToTest.setSpecialty(exampleSpecialty);
         Specialty newSpecialty = new Specialty("ee");
         JobType newJobType = new JobType("ee", newSpecialty, MeasurementUnit.METER);
@@ -319,4 +317,45 @@ public class TechnicianUnitTest
     {
         technicianToTest.removeJob(null);
     }
+
+    @Test
+    public void setSpecialtyTest(){
+        //When we change the specialty the previous offered jobs must be cleared
+        Specialty newSpecialty = new Specialty("test");
+        Job job = technicianToTest.addJob(exampleJobType , 15);
+        Assert.assertTrue(technicianToTest.getJobs().size() != 0);
+        technicianToTest.setSpecialty(newSpecialty);
+        Assert.assertTrue(technicianToTest.getJobs().size() == 0);
+    }
+
+    @Test
+    public void removeJobTest(){
+        Specialty currSpecialty = technicianToTest.getSpecialty();
+        Job job = technicianToTest.addJob(exampleJobType , 15);
+
+        assertTrue(technicianToTest.getJobs().contains(job));
+        assertTrue(exampleJobType.getJobs().contains(job));
+        technicianToTest.removeJob(job);
+        assertFalse(technicianToTest.getJobs().contains(job));
+        assertFalse(exampleJobType.getJobs().contains(job));
+
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void testAddJobNotOK()
+    {
+        technicianToTest.addJob(exampleJobType,12);
+        technicianToTest.addJob(exampleJobType,10);
+    }
+    @Test
+    public void workAllDayOk()
+    {
+        technicianToTest.setAvailableOnDay(3 , 0 , 24);
+
+        for(int i =  0 ; i < 24 ; i++ )
+        {
+            Assert.assertTrue(technicianToTest.isNormallyAvailable(3 , i));
+        }
+
+    }
+
 }

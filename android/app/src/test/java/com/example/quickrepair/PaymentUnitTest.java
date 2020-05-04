@@ -10,10 +10,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.GregorianCalendar;
+import java.util.Objects;
 
 public class PaymentUnitTest
 {
-
     Payment payment;
 
     @Before
@@ -105,5 +105,10 @@ public class PaymentUnitTest
 
         Assert.assertTrue(payment.equals(p3) && p3.equals(payment));
         Assert.assertTrue(payment.hashCode() == p3.hashCode());
+    }
+
+    @Test
+    public void testHashCode(){
+        Assert.assertEquals(Objects.hash(payment.getRepair(), payment.getDate(), payment.getPaymentType()), payment.hashCode());
     }
 }
