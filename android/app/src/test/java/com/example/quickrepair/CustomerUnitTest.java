@@ -51,4 +51,28 @@ public class CustomerUnitTest
         RepairRequest repairRequest = customerToTest.requestRepair(date, date, job, "blah", new Address("ss", "123"));
         Assert.assertNotNull(repairRequest);
     }
+
+    @Test
+    public void equalTest()
+    {
+        Assert.assertEquals(false, customerToTest.equals(null));
+        Assert.assertEquals(true, customerToTest.equals(customerToTest));
+        Assert.assertEquals(false, customerToTest.equals(new Integer(100)));
+
+        Customer customer = new Customer("nick", "sm", "6958375634",
+                "sss222@asdm.com", "123121231123", "nicksm",
+                "0j19283j1");
+        Assert.assertEquals(true, customerToTest.equals(customer));
+    }
+
+    @Test
+    public void hashcodeTest()
+    {
+        Customer customer = new Customer("nick", "sm", "6958375634",
+                "sss222@asdm.com", "123121231123", "nicksm",
+                "0j19283j1");
+
+        Assert.assertTrue(customer.equals(customerToTest) && customerToTest.equals(customer));
+        Assert.assertTrue(customerToTest.hashCode() == customer.hashCode());
+    }
 }

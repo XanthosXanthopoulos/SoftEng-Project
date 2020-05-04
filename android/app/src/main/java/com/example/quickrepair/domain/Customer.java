@@ -72,6 +72,6 @@ public class Customer extends User
     @Override
     public int hashCode()
     {
-        return Objects.hash(super.hashCode(), requests);
+        return Objects.hash(super.hashCode());
     }
 }

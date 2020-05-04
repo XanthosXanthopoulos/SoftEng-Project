@@ -51,8 +51,9 @@ public class AddressUnitTest
     @Test
     public void hashCodeTest()
     {
-        Assert.assertTrue(exampleAddress.hashCode() != 0);
-        Address addr = new Address("aaaa", "1");
-        Assert.assertTrue(addr.hashCode() == exampleAddress.hashCode());
+        Address address = new Address("aaaa", "1");
+
+        Assert.assertTrue(address.equals(exampleAddress) && exampleAddress.equals(address));
+        Assert.assertTrue(address.hashCode() == exampleAddress.hashCode());
     }
 }

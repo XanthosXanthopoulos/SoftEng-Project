@@ -98,7 +98,7 @@ public class EvaluationUnitTest
     }
 
     @Test
-    public void equals()
+    public void equalsTest()
     {
         Repair repair = new Repair();
 
@@ -115,4 +115,9 @@ public class EvaluationUnitTest
         Assert.assertEquals(true, evaluation.equals(evaluation));
     }
 
+    @Test
+    public void hashcodeTest()
+    {
+        Assert.assertEquals(923521, evaluation.hashCode());
+    }
 }
