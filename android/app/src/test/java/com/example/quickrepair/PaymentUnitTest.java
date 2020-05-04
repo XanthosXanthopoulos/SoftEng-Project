@@ -70,8 +70,21 @@ public class PaymentUnitTest
         Assert.assertEquals(100, payment.getUid());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void badCost()
+    {
+        payment.setCost(0);
+    }
+
     @Test
-    public void memberFunctions()
+    public void okCost()
+    {
+        payment.setCost(140.0);
+        Assert.assertEquals(140.0, payment.getCost(), 0.0001);
+    }
+
+    @Test
+    public void memberMethods()
     {
         payment.setDate(new GregorianCalendar(2020, 18, 19));
         payment.setPaymentType(PaymentType.CARD);
@@ -89,5 +102,8 @@ public class PaymentUnitTest
 
         Payment p3 = new Payment(new Repair(), new GregorianCalendar(2020, 18, 19), PaymentType.CARD);
         Assert.assertEquals(true, payment.equals(p3));
+
+        Assert.assertTrue(payment.equals(p3) && p3.equals(payment));
+        Assert.assertTrue(payment.hashCode() == p3.hashCode());
     }
 }

@@ -197,6 +197,7 @@ public class TechnicianUnitTest
         assertEquals(technicianToTest.getSurname(), "sm");
         assertEquals(technicianToTest.getPhoneNumber(), "6958692431");
         assertEquals(technicianToTest.getBankAccount(), "1111");
+        Assert.assertEquals("128947", technicianToTest.getAFM());
     }
 
     @Test
@@ -279,7 +280,8 @@ public class TechnicianUnitTest
                 "123", exampleSpecialty, "128947");
         otherTechnician.setSchedule(exampleSchedule);
 
-        assertEquals(technicianToTest, otherTechnician);
+        Assert.assertTrue(technicianToTest.equals(otherTechnician) && otherTechnician.equals(technicianToTest));
+        Assert.assertTrue(technicianToTest.hashCode() == otherTechnician.hashCode());
     }
 
     @Test

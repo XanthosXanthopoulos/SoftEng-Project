@@ -61,12 +61,22 @@ public class SpecialtyUnitTest
     }
 
     @Test
-    public void memberMethods()
+    public void equalsTest()
     {
         Assert.assertEquals(false, specialty.equals(null));
         Assert.assertEquals(true, specialty.equals(specialty));
         Assert.assertEquals(false, specialty.equals(new Integer(5)));
         Assert.assertEquals(true, specialty.equals(new Specialty()));
         Assert.assertEquals(false, specialty.equals(new Specialty("Electrician")));
+    }
+
+    @Test
+    public void hashcodeTest()
+    {
+        specialty.setName("Electrician");
+        Specialty s1 = new Specialty("Electrician");
+
+        Assert.assertTrue(specialty.equals(s1) && s1.equals(specialty));
+        Assert.assertTrue(specialty.hashCode() == s1.hashCode());
     }
 }

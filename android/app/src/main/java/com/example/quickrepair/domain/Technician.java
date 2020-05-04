@@ -278,7 +278,7 @@ public class Technician extends User
                 Objects.equals(jobs, that.jobs) &&
                 Objects.equals(specialty, that.specialty) &&
                 Objects.equals(areas, that.areas) &&
-                Arrays.equals(schedule, that.schedule);
+                Arrays.deepEquals(schedule, that.schedule);
     }
 
     @Override

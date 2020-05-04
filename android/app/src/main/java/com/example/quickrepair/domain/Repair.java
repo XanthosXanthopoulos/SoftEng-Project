@@ -33,21 +33,6 @@ public class Repair
     }
 
     /**
-     * Repair's constructor with quantity and payment
-     * technician is already paid
-     *
-     * @param repairRequest Repair's request
-     * @param quantity Job's quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
-     * @param payment Customer's payment
-     */
-    public Repair(RepairRequest repairRequest, double quantity, Payment payment)
-    {
-        setRepairRequest(repairRequest);
-        setQuantity(quantity);
-        setPayment(payment);
-    }
-
-    /**
      * Get the quantity of the repair.
      *
      * @return Repair's quantity
@@ -67,9 +52,6 @@ public class Repair
     {
         if (quantity <= 0) throw new IllegalArgumentException("non positive quantity");
 
-        if (repairRequest == null) throw new IllegalStateException("We can't have a repair, without a repair request");
-
-        //fixed price job quantity must be integer
         if (repairRequest.getJob().getJobType().getMeasurementUnit() == MeasurementUnit.NONE)
         {
             if ((int) quantity != quantity) throw new IllegalArgumentException("for fixed price the quantity must be integer");
@@ -91,10 +73,8 @@ public class Repair
      *
      * @param payment customer's payment
      */
-    public void setPayment(Payment payment)
+    private void setPayment(Payment payment)
     {
-        if (payment == null) throw new NullPointerException("Payment can not be null.");
-
         if (this.payment != null) throw new IllegalStateException("The repair already has a payment.");
 
         this.payment = payment;
@@ -115,24 +95,22 @@ public class Repair
      *
      * @param evaluation customer's evaluation
      */
-    public void setEvaluation(Evaluation evaluation)
+    private void setEvaluation(Evaluation evaluation)
     {
-        if (evaluation != null)
-        {
-            //max 1 evaluation, can't reset it
-            if (getEvaluation() == null)
-            {
-                this.evaluation = evaluation;
-            }
-            else
-            {
-                throw new IllegalArgumentException("only one evaluation, can't reset it.");
-            }
-        }
-        else
-        {
-            throw new NullPointerException("null evaluation");
-        }
+
+        if (this.evaluation != null) throw new IllegalStateException("only one evaluation, can't reset it.");
+
+        this.evaluation = evaluation;
+    }
+
+    /**
+     * Checks if the repair has been evaluated
+     *
+     * @return true if it is evaluated
+     */
+    public boolean isEvaluated()
+    {
+        return getEvaluation() != null;
     }
 
     /**

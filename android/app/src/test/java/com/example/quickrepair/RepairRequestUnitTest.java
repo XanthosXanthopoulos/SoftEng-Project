@@ -311,4 +311,49 @@ public class RepairRequestUnitTest
         repairRequest.setJob(null);
     }
 
+    @Test
+    public void equalsTest()
+    {
+        Specialty specialty = new Specialty();
+        GregorianCalendar standardDate = new GregorianCalendar(2018, 1, 1, 1, 0);
+        Address exampleAddress = new Address("ath", "15");
+
+        Technician technician = new Technician();
+        technician.setSpecialty(specialty);
+
+        JobType jobType = new JobType("Wiring", specialty, MeasurementUnit.METER);
+        Job job = new Job(technician, jobType, 12);
+
+        RepairRequest r1 = new RepairRequest(customer, job, standardDate, standardDate, exampleAddress, "comments");
+
+        System.out.println(standardDate.equals(repairRequest.getCreationDate()));
+        System.out.println(job.getTechnician().equals(repairRequest.getJob().getTechnician()));
+
+        Assert.assertNotEquals(null, repairRequest);
+        Assert.assertEquals(repairRequest, repairRequest);
+        Assert.assertNotEquals(repairRequest, "10");
+        Assert.assertEquals(repairRequest, r1);
+
+        r1 = new RepairRequest(customer, job, standardDate, standardDate, exampleAddress, "comment");
+        Assert.assertNotEquals(repairRequest, r1);
+    }
+
+    @Test
+    public void hashcodeTest()
+    {
+        Specialty specialty = new Specialty();
+        GregorianCalendar standardDate = new GregorianCalendar(2018, 1, 1, 1, 0);
+        Address exampleAddress = new Address("ath", "15");
+
+        Technician technician = new Technician();
+        technician.setSpecialty(specialty);
+
+        JobType jobType = new JobType("Wiring", specialty, MeasurementUnit.METER);
+        Job job = new Job(technician, jobType, 12);
+
+        RepairRequest r1 = new RepairRequest(customer, job, standardDate, standardDate, exampleAddress, "comments");
+
+        Assert.assertTrue(repairRequest.equals(r1) && r1.equals(repairRequest));
+        Assert.assertTrue(repairRequest.hashCode() == r1.hashCode());
+    }
 }
