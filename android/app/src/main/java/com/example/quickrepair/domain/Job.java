@@ -1,5 +1,6 @@
 package com.example.quickrepair.domain;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Job
@@ -7,13 +8,17 @@ public class Job
     private int uid;
     private Technician technician;
     private JobType jobType;
+    private ArrayList<RepairRequest> repairRequests;
 
     private double price;
 
     /**
      * Default constructor.
      */
-    public Job() { }
+    public Job()
+    {
+        repairRequests = new ArrayList<>();
+    }
 
     /**
      * Construct a job.
@@ -24,6 +29,7 @@ public class Job
      */
     public Job(Technician technician, JobType jobType, double price)
     {
+        this();
         setTechnician(technician);
         setJobType(jobType);
         setPrice(price);
@@ -114,6 +120,13 @@ public class Job
     public void setUid(int uid)
     {
         this.uid = uid;
+    }
+
+    public void addRepairRequest(RepairRequest repairRequest)
+    {
+        if (repairRequest == null) throw new NullPointerException();
+
+        repairRequests.add(repairRequest);
     }
 
     @Override

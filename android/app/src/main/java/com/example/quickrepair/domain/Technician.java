@@ -187,26 +187,6 @@ public class Technician extends User
     }
 
     /**
-     * Checks if the technician offers a job for less than a given price
-     *
-     * @param jobType the jobtype being teste
-     * @param price   the maximum price the technician offers the job for
-     * @return true if he offers the jobtype for less than price
-     */
-    public boolean offersJobForLessThanPrice(JobType jobType, double price)
-    {
-        for (Job job : getJobs())
-        {
-            if (job.getJobType().equals(jobType))
-            {
-                if (job.getPrice() < price) return true;
-            }
-        }
-        return false;
-    }
-
-
-    /**
      * Marks this technician as available the given day of the week from @param hourStart until
      *
      * @param hourEnd   Ideal
@@ -295,7 +275,7 @@ public class Technician extends User
     @Override
     public int hashCode()
     {
-        int result = Objects.hash(super.hashCode(), AFM, jobs, specialty, areas);
+        int result = Objects.hash(super.hashCode(), AFM, specialty, areas);
         result = 31 * result + Arrays.hashCode(schedule);
         return result;
     }

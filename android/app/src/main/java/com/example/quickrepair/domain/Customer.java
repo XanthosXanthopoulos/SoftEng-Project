@@ -70,7 +70,7 @@ public class Customer extends User
         RepairRequest repairRequest = new RepairRequest(this, job, dateNow, date, address, comments);
 
         requests.add(repairRequest);
-        job.getTechnician().addRepairRequest(repairRequest);
+        job.addRepairRequest(repairRequest);
         return repairRequest;
     }
 
