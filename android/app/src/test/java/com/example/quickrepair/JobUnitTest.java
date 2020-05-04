@@ -10,6 +10,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Objects;
+
 public class JobUnitTest
 {
     Job exampleJob;
@@ -54,8 +56,5 @@ public class JobUnitTest
     {
         Job other = new Job(exampleTechnician, exampleJobType, 1.5);
         Assert.assertTrue(exampleJob.hashCode() == other.hashCode());
-        Assert.assertTrue(exampleJob.hashCode() != 0);
-        Job jobWithNullJobType = new Job();
-        Assert.assertTrue(jobWithNullJobType.hashCode() == 0);
     }
 }

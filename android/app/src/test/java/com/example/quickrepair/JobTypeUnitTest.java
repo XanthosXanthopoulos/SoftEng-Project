@@ -55,7 +55,7 @@ public class JobTypeUnitTest {
     }@Test
     public void testHashCode(){
         Assert.assertTrue(exampleJobType.hashCode() != 0);
-        JobType other = new JobType();
-        Assert.assertTrue(other.hashCode() == 0);
+        JobType other =  new JobType("plakakia" , exampleSpecialty , MeasurementUnit.METER);;
+        Assert.assertTrue(other.hashCode() == exampleJobType.hashCode());
     }
 }

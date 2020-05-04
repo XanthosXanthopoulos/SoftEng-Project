@@ -321,10 +321,11 @@ public class RepairUnitTest {
     }
 
     @Test
-    public void payWithCARD(){
-        Repair repair = new Repair();
-        repair.pay(new GregorianCalendar(2018,2,1,1,1), PaymentType.CASH);
-        Assert.assertNotNull(repair.getPayment());
+    public void payWithCARD() {
+        exampleRepairRequest.confirm(1000);
+        Repair r = exampleRepairRequest.complete(50);
+        Payment payment = r.pay(new GregorianCalendar(2018, 2, 1, 1, 1), PaymentType.CARD);
+        Assert.assertTrue(payment.getCost() == (r.getQuantity() * r.getRepairRequest().getJob().getPrice()));
     }
 
     @Test
