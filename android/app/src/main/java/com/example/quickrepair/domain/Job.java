@@ -137,6 +137,11 @@ public class Job
         repairRequests.remove(repairRequest);
     }
 
+    public ArrayList<RepairRequest> getRepairRequests()
+    {
+        return repairRequests;
+    }
+
     @Override
     public boolean equals(Object o)
     {

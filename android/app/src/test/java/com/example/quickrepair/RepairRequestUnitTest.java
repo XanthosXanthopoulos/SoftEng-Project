@@ -20,16 +20,14 @@ import java.util.GregorianCalendar;
 
 public class RepairRequestUnitTest
 {
-    RepairRequest repairRequest;
-    GregorianCalendar standardDate;
-    Customer customer;
-    int price;
+    private RepairRequest repairRequest;
+    private Customer customer;
 
     @Before
     public void setUp()
     {
         Specialty specialty = new Specialty();
-        standardDate = new GregorianCalendar(2018, 1, 1, 1, 0);
+        GregorianCalendar standardDate = new GregorianCalendar(2018, 1, 1, 1, 0);
         Address exampleAddress = new Address("ath", "15");
 
         Technician technician = new Technician();
@@ -173,7 +171,7 @@ public class RepairRequestUnitTest
     @Test
     public void sortedArrayOk()
     {
-        ArrayList<RepairRequest> repairRequests = new ArrayList<RepairRequest>();
+        ArrayList<RepairRequest> repairRequests = new ArrayList<>();
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
         GregorianCalendar c1 = new GregorianCalendar(2018, 1, 1, 2, 0);
@@ -193,7 +191,7 @@ public class RepairRequestUnitTest
     @Test
     public void sortedArrayOk2()
     {
-        ArrayList<RepairRequest> repairRequests = new ArrayList<RepairRequest>();
+        ArrayList<RepairRequest> repairRequests = new ArrayList<>();
         RepairRequest repairRequest1 = new RepairRequest();
         RepairRequest repairRequest2 = new RepairRequest();
         GregorianCalendar c1 = new GregorianCalendar(2018, 1, 1, 1, 0);
@@ -213,7 +211,7 @@ public class RepairRequestUnitTest
     @Test
     public void isCompletedFalse()
     {
-        Assert.assertEquals(false, repairRequest.isCompleted());
+        Assert.assertFalse(repairRequest.isCompleted());
     }
 
     @Test
@@ -221,7 +219,7 @@ public class RepairRequestUnitTest
     {
         repairRequest.confirm(30);
         repairRequest.complete(2);
-        Assert.assertEquals(true, repairRequest.isCompleted());
+        Assert.assertTrue(repairRequest.isCompleted());
     }
 
     @Test(expected = IllegalStateException.class)
@@ -233,14 +231,14 @@ public class RepairRequestUnitTest
     @Test
     public void isConfirmedFalse()
     {
-        Assert.assertEquals(false, repairRequest.isConfirmed());
+        Assert.assertFalse(repairRequest.isConfirmed());
     }
 
     @Test
     public void isConfirmedTrue()
     {
         repairRequest.confirm(12);
-        Assert.assertEquals(true, repairRequest.isConfirmed());
+        Assert.assertTrue(repairRequest.isConfirmed());
     }
 
     @Test
@@ -267,7 +265,7 @@ public class RepairRequestUnitTest
     public void rejectTrue()
     {
         repairRequest.reject();
-        Assert.assertEquals(false, repairRequest.isConfirmed());
+        Assert.assertFalse(repairRequest.isConfirmed());
     }
 
     @Test(expected = IllegalStateException.class)

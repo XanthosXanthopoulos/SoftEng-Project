@@ -10,52 +10,64 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class JobTypeUnitTest {
-    Job exampleJob;
-    Technician exampleTechnician;
-    Specialty exampleSpecialty;
-    JobType exampleJobType;
+public class JobTypeUnitTest
+{
+    private Job exampleJob;
+    private Specialty exampleSpecialty;
+    private JobType exampleJobType;
 
     @Before
-    public void setUpTests(){
+    public void setUpTests()
+    {
 
-        exampleSpecialty  = new Specialty("124");
-        exampleJobType = new JobType("plakakia" , exampleSpecialty , MeasurementUnit.METER);
-        exampleTechnician = new Technician("girgows" , "papageorgiou" , "6978564534" ,
-                "giorgos@gmail.com" , "12314" , "1234" , "123123" , exampleSpecialty , "129367");
-        exampleJob = new Job(exampleTechnician , exampleJobType , 1.5 );
-        exampleTechnician.setAFM("1587");
+        exampleSpecialty = new Specialty("Builder");
+        exampleJobType = new JobType("Tiles", exampleSpecialty, MeasurementUnit.SQR_METER);
+        Technician exampleTechnician = new Technician();
+        exampleJob = new Job(exampleTechnician, exampleJobType, 1.5);
     }
+
     @Test
-    public void addJobsTest(){
+    public void addJobsTest()
+    {
         exampleJobType.addJob(exampleJob);
         Assert.assertTrue(exampleJobType.getJobs().contains(exampleJob));
-        Technician otherTechnician = new Technician("kostas" , "papakostas" , "6972564534" ,
-                "kostas@gmail.com" , "12314" , "kostas" , "123123" , exampleSpecialty, "123123");
-        otherTechnician.setAFM("1151dsfdsd");
-        Job otherTechniciansJobForthisJobType = new Job(otherTechnician , exampleJobType , 5);
-        exampleJobType.addJob(otherTechniciansJobForthisJobType);
-        Assert.assertTrue(exampleJobType.getJobs().contains(otherTechniciansJobForthisJobType));
-    }
-    @Test
-    public void equalsTest(){
-        JobType other = new JobType("asfaleia "  ,exampleSpecialty , MeasurementUnit.METER);
-        Assert.assertFalse(other.equals(exampleJobType));
-        Specialty newSpecialty = new Specialty("idravlikos");
-        JobType otherSpecialty = new JobType("asfaleia "  ,newSpecialty , MeasurementUnit.METER);
-        Assert.assertFalse(other.equals(otherSpecialty));
 
-        JobType newObjectSameFields = new JobType("plakakia" , exampleSpecialty , MeasurementUnit.METER);
-        Assert.assertEquals(newObjectSameFields , exampleJobType);
-
+        exampleJobType.removeJob(exampleJob);
+        Assert.assertFalse(exampleJobType.getJobs().contains(exampleJob));
     }
+
     @Test
-    public void testGetters(){
-        exampleJobType.getSpecialty().equals(exampleSpecialty);
-    }@Test
-    public void testHashCode(){
-        Assert.assertTrue(exampleJobType.hashCode() != 0);
-        JobType other =  new JobType("plakakia" , exampleSpecialty , MeasurementUnit.METER);;
-        Assert.assertTrue(other.hashCode() == exampleJobType.hashCode());
+    public void testGetters()
+    {
+        Assert.assertEquals(exampleJobType.getSpecialty(), exampleSpecialty);
+        Assert.assertEquals(MeasurementUnit.SQR_METER, exampleJobType.getMeasurementUnit());
+
+        exampleJobType.setUid(100);
+        Assert.assertEquals(100, exampleJobType.getUid());
+
+        Assert.assertEquals("Tiles", exampleJobType.getName());
+    }
+
+    @Test
+    public void equalsTest()
+    {
+        Assert.assertNotEquals(null, exampleJobType);
+        Assert.assertEquals(exampleJobType, exampleJobType);
+        Assert.assertNotEquals(exampleJobType, exampleJob);
+
+        JobType other = new JobType("Breaker", new Specialty("Electrician"), MeasurementUnit.NONE);
+        Assert.assertNotEquals(other, exampleJobType);
+
+        other = new JobType("Tiles", exampleSpecialty, MeasurementUnit.SQR_METER);
+        Assert.assertEquals(other, exampleJobType);
+    }
+
+    @Test
+    public void testHashCode()
+    {
+        JobType other = new JobType("Tiles", exampleSpecialty, MeasurementUnit.SQR_METER);
+
+        Assert.assertTrue(exampleJobType.equals(other) && other.equals(exampleJobType));
+        Assert.assertTrue(exampleJobType.hashCode() == other.hashCode());
     }
 }
