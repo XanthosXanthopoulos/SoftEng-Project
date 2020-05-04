@@ -1,8 +1,10 @@
 package com.example.quickrepair.domain;
 
+import java.util.Objects;
+
 public class Job
 {
-    private Integer uid;
+    private int uid;
     private Technician technician;
     private JobType jobType;
 
@@ -99,7 +101,7 @@ public class Job
      *
      * @return The UID.
      */
-    public Integer getUid()
+    public int getUid()
     {
         return uid;
     }
@@ -109,35 +111,23 @@ public class Job
      *
      * @param uid The evaluation's UID.
      */
-    public void setUid(Integer uid)
+    public void setUid(int uid)
     {
         this.uid = uid;
     }
 
     @Override
-    public boolean equals(Object other)
+    public boolean equals(Object o)
     {
-        if (other == null) return false;
-
-        if (this == other) return true;
-
-        if (!(other instanceof Job)) return false;
-
-        if (!jobType.equals(((Job) other).jobType)) return false;
-
-        if (!technician.equals(((Job) other).technician)) return false;
-
-        return true;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return Double.compare(job.price, price) == 0 && Objects.equals(technician, job.technician) && Objects.equals(jobType, job.jobType);
     }
 
     @Override
     public int hashCode()
     {
-        if (jobType == null || technician == null || jobType.getName() == null || technician.getAFM() == null)
-            return 0;
-
-        String hash = jobType.getName() + technician.getAFM();
-
-        return hash.hashCode();
+        return Objects.hash(technician, jobType, price);
     }
 }

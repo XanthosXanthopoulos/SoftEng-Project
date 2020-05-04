@@ -1,11 +1,12 @@
 package com.example.quickrepair.domain;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class JobType
 {
-    private Integer uid;
+    private int uid;
     private String name;
     private Specialty specialty;
     private MeasurementUnit measurementUnit;
@@ -115,7 +116,7 @@ public class JobType
      *
      * @return The job type UID.
      */
-    public Integer getUid()
+    public int getUid()
     {
         return uid;
     }
@@ -125,7 +126,7 @@ public class JobType
      *
      * @param uid The jop type UID.
      */
-    public void setUid(Integer uid)
+    public void setUid(int uid)
     {
         this.uid = uid;
     }
@@ -152,42 +153,31 @@ public class JobType
         jobs.remove(job);
     }
 
-    /**
-     * @return the set of technicians that offer this job type
-     */
-    public Set<Technician> getTechnicians()
-    {
-        Set<Technician> technicians = new HashSet<>();
-        for (Job job : jobs)
-        {
-            technicians.add(job.getTechnician());
-        }
-        return technicians;
-    }
+//    /**
+//     * @return the set of technicians that offer this job type
+//     */
+//    public Set<Technician> getTechnicians()
+//    {
+//        Set<Technician> technicians = new HashSet<>();
+//        for (Job job : jobs)
+//        {
+//            technicians.add(job.getTechnician());
+//        }
+//        return technicians;
+//    }
 
     @Override
-    public boolean equals(Object other)
+    public boolean equals(Object o)
     {
-        if (other == null) return false;
-
-        if (this == other) return true;
-
-        if (!(other instanceof JobType)) return false;
-
-        if (!name.equals(((JobType) other).getName())) return false;
-
-        if (!specialty.equals(((JobType) other).specialty)) return false;
-
-        return true;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JobType jobType = (JobType) o;
+        return Objects.equals(name, jobType.name) && Objects.equals(specialty, jobType.specialty) && measurementUnit == jobType.measurementUnit && Objects.equals(jobs, jobType.jobs);
     }
 
     @Override
     public int hashCode()
     {
-        if (name == null || specialty == null || specialty.getName() == null) return 0;
-
-        String hash = name + specialty.getName();
-
-        return hash.hashCode();
+        return Objects.hash(name, specialty, measurementUnit, jobs);
     }
 }

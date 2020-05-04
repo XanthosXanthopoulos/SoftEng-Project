@@ -1,5 +1,7 @@
 package com.example.quickrepair.domain;
 
+import java.util.Objects;
+
 /**
  * Immutable class that represents an address
  */
@@ -53,13 +55,12 @@ public final class Address
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return streetName.equals(address.getStreetName()) &&
-                number.equals(address.getNumber());
+        return Objects.equals(streetName, address.streetName) && Objects.equals(number, address.number);
     }
 
     @Override
     public int hashCode()
     {
-        return (streetName + number).hashCode();
+        return Objects.hash(streetName, number);
     }
 }

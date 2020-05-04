@@ -1,11 +1,13 @@
 package com.example.quickrepair.domain;
 
+import java.util.Objects;
+
 /**
  * Customer's Evaluation about an Repair
  */
 public class Evaluation
 {
-    private Integer uid;
+    private int uid;
     private Repair repair;
     private String title;
     private String comment;
@@ -14,7 +16,9 @@ public class Evaluation
     /**
      * Empty Constructor
      */
-    public Evaluation() { }
+    public Evaluation()
+    {
+    }
 
     /**
      * Evaluation's Constructor
@@ -48,7 +52,7 @@ public class Evaluation
      *
      * @param title evaluation's title
      */
-    private void setTitle(String title)
+    public void setTitle(String title)
     {
         if (title == null) throw new NullPointerException("null title");
 
@@ -75,7 +79,7 @@ public class Evaluation
      *
      * @param comment evaluation's comment
      */
-    private void setComment(String comment)
+    public void setComment(String comment)
     {
         if (comment == null) throw new NullPointerException("null comment");
 
@@ -104,7 +108,7 @@ public class Evaluation
      *
      * @param rate evaluation's rate, [1, 5]
      */
-    private void setRate(int rate)
+    public void setRate(int rate)
     {
         if (rate < 1 || rate > 5) throw new IllegalArgumentException("[1,5] stars");
 
@@ -116,7 +120,7 @@ public class Evaluation
      *
      * @return The UID.
      */
-    public Integer getUid()
+    public int getUid()
     {
         return uid;
     }
@@ -148,6 +152,8 @@ public class Evaluation
      */
     public void setRepair(Repair repair)
     {
+        if (repair == null) throw new NullPointerException("Repair can not be null.");
+
         this.repair = repair;
     }
 
@@ -157,12 +163,15 @@ public class Evaluation
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Evaluation that = (Evaluation) o;
-        return rate == that.rate && title.equals(that.title) && comment.equals(that.comment);
+        return rate == that.rate &&
+                Objects.equals(repair, that.repair) &&
+                Objects.equals(title, that.title) &&
+                Objects.equals(comment, that.comment);
     }
 
     @Override
     public int hashCode()
     {
-        return (title + comment + rate).hashCode();
+        return Objects.hash(repair, title, comment, rate);
     }
 }

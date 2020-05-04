@@ -3,16 +3,17 @@ package com.example.quickrepair.domain;
 import com.example.quickrepair.util.Utilities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class Technician extends User
 {
-
     private String AFM;
     private Set<Job> jobs = new HashSet<>();
     private List<RepairRequest> repairRequests = new ArrayList<>();
@@ -160,15 +161,16 @@ public class Technician extends User
      * Adds a job to the technician's list of jobs
      * Also updates the association references
      */
-    public Job addJob(JobType jobType, double price, int duration)
+    public Job addJob(JobType jobType, double price)
     {
-        if (!jobType.getSpecialty().equals(getSpecialty()))
-        {
-            throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
-        }
+        if (jobType == null) throw new NullPointerException();
+        if (!jobType.getSpecialty().equals(getSpecialty())) throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
+        if (price <= 0) throw new IllegalArgumentException();
+
         Job job = new Job(this, jobType, price);
-        this.jobs.add(job);
-        job.getJobType().addJob(job);
+        jobs.add(job);
+        jobType.addJob(job);
+
         return job;
     }
 
@@ -178,10 +180,8 @@ public class Technician extends User
      */
     public void removeJob(Job job)
     {
-        if (job == null)
-        {
-            throw new NullPointerException();
-        }
+        if (job == null) throw new NullPointerException();
+
         getJobs().remove(job);
         job.getJobType().removeJob(job);
     }
@@ -441,13 +441,22 @@ public class Technician extends User
     {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Technician that = (Technician) o;
-        return AFM.equals(that.AFM);
+        return Objects.equals(AFM, that.AFM) &&
+                Objects.equals(jobs, that.jobs) &&
+                Objects.equals(repairRequests, that.repairRequests) &&
+                Objects.equals(specialty, that.specialty) &&
+                Objects.equals(areas, that.areas) &&
+                Arrays.equals(schedule, that.schedule) &&
+                Objects.equals(calendarWithConfirmRequests, that.calendarWithConfirmRequests);
     }
 
     @Override
     public int hashCode()
     {
-        return AFM.hashCode();
+        int result = Objects.hash(super.hashCode(), AFM, jobs, repairRequests, specialty, areas, calendarWithConfirmRequests);
+        result = 31 * result + Arrays.hashCode(schedule);
+        return result;
     }
 }

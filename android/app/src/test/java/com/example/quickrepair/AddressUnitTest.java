@@ -6,40 +6,52 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
-public class AddressUnitTest {
+public class AddressUnitTest
+{
     Address exampleAddress;
 
     @Before
-    public void setUpTests(){
-        exampleAddress = new Address("aaaa" , "1");
+    public void setUpTests()
+    {
+        exampleAddress = new Address("aaaa", "1");
     }
+
     @Test
-    public void testExampleAddress(){
-        Address addr = new Address("Ath" , "123");
-        Assert.assertEquals(addr.getNumber()  , "123");
-        Assert.assertEquals(addr.getStreetName()  , "Ath");
+    public void testExampleAddress()
+    {
+        Address addr = new Address("Ath", "123");
+        Assert.assertEquals(addr.getNumber(), "123");
+        Assert.assertEquals(addr.getStreetName(), "Ath");
     }
-    @Test (expected = IllegalArgumentException.class)
-    public void newAddressWithIncorrectNumber(){
-        Address addr = new Address("14" , "aaaa");
+
+    @Test(expected = IllegalArgumentException.class)
+    public void newAddressWithIncorrectNumber()
+    {
+        Address addr = new Address("14", "aaaa");
     }
-    @Test (expected = NullPointerException.class)
-    public void testSetStreetName(){
-        Address addr = new Address(null , "aaaa");
+
+    @Test(expected = NullPointerException.class)
+    public void testSetStreetName()
+    {
+        Address addr = new Address(null, "aaaa");
 
     }
+
     @Test
-    public void equalsTest(){
+    public void equalsTest()
+    {
         Address addr = new Address("aaaa", "1");
-        Assert.assertEquals(addr , exampleAddress);
+        Assert.assertEquals(addr, exampleAddress);
         Address addr1 = new Address("aaaa1", "1");
-        Assert.assertNotEquals(addr , addr1);
+        Assert.assertNotEquals(addr, addr1);
         Address addr2 = new Address("aaaa", "12");
-        Assert.assertNotEquals(addr , addr2);
+        Assert.assertNotEquals(addr, addr2);
     }
+
     @Test
-    public void hashCodeTest(){
-        Assert.assertTrue(exampleAddress.hashCode() != 0 );
+    public void hashCodeTest()
+    {
+        Assert.assertTrue(exampleAddress.hashCode() != 0);
         Address addr = new Address("aaaa", "1");
         Assert.assertTrue(addr.hashCode() == exampleAddress.hashCode());
     }

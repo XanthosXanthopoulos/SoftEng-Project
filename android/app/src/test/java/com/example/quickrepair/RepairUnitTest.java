@@ -298,7 +298,7 @@ public class RepairUnitTest {
         String com = "Comment";
         int rate = 1;
         repair.evaluate(title, com, rate);
-        Evaluation evaluation= new Evaluation(title, com, rate);
+        Evaluation evaluation= new Evaluation(repair, title, com, rate);
         Assert.assertEquals(evaluation, repair.getEvaluation());
     }
 
@@ -309,7 +309,7 @@ public class RepairUnitTest {
         Repair repair = new Repair();
         Calendar date = new GregorianCalendar(2019,12,12);
         PaymentType paymentType = PaymentType.CARD;
-        Payment payment = new Payment(date, paymentType);
+        Payment payment = new Payment(repair, date, paymentType);
         repair.setPayment(payment);
         Assert.assertEquals(true, repair.isPaid());
     }

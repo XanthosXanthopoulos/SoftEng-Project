@@ -15,89 +15,104 @@ public class EvaluationUnitTest
     @Before
     public void setUp()
     {
-        String title = "Title";
-        String comment = "Comment";
-        int rate = 5;
-        evaluation = new Evaluation(new Repair(), title, comment, rate);
-        Assert.assertEquals(title, evaluation.getTitle());
-        Assert.assertEquals(comment, evaluation.getComment());
-        Assert.assertEquals(rate, evaluation.getRate());
+        evaluation = new Evaluation();
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void nullRepair()
+    {
+        evaluation.setRepair(null);
+    }
+
+    @Test
+    public void okRepair()
+    {
+        evaluation.setRepair(new Repair());
+        Assert.assertEquals(new Repair(), evaluation.getRepair());
     }
 
     @Test(expected = NullPointerException.class)
     public void nullTitle()
     {
-        Evaluation eval = new Evaluation(null, "12", 5);
+        evaluation.setTitle(null);
     }
 
     @Test
     public void emptyTitle()
     {
-        Evaluation eval = new Evaluation("", "12", 5);
-        Assert.assertEquals("No title", eval.getTitle());
+        evaluation.setTitle("");
+        Assert.assertEquals("No title", evaluation.getTitle());
     }
 
     @Test
     public void okTitle()
     {
-        Evaluation eval = new Evaluation("nn", "12", 5);
-        Assert.assertEquals("nn", eval.getTitle());
+        evaluation.setTitle("nn");
+        Assert.assertEquals("nn", evaluation.getTitle());
     }
 
-    //Comment tests
     @Test(expected = NullPointerException.class)
     public void nullComment()
     {
-        Evaluation eval = new Evaluation("nn", null, 5);
-
+        evaluation.setComment(null);
     }
 
     @Test
     public void emptyComment()
     {
-        Evaluation eval = new Evaluation("nn", "", 5);
-        Assert.assertEquals("No comment", eval.getComment());
+        evaluation.setComment("");
+        Assert.assertEquals("No comment", evaluation.getComment());
     }
 
     @Test
     public void okComment()
     {
-        Evaluation eval = new Evaluation("nn", "Comment", 5);
+        evaluation.setComment("Comment");
         Assert.assertEquals("Comment", evaluation.getComment());
     }
 
-    //rate tests
     @Test
     public void okRate()
     {
-        Evaluation eval = new Evaluation("nn", "Comment", 5);
+        evaluation.setRate(5);
         Assert.assertEquals(5, evaluation.getRate());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void biggerRate()
     {
-        int rate = 6;
-        Evaluation eval = new Evaluation("nn", "Comment", rate);
+        evaluation.setRate(6);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void smallerRate()
     {
-        int rate = 0;
-        Evaluation eval = new Evaluation("nn", "Comment", rate);
+        evaluation.setRate(0);
+    }
+
+    @Test
+    public void okUid()
+    {
+        evaluation.setUid(100);
+        Assert.assertEquals(100, evaluation.getUid());
     }
 
     @Test
     public void equals()
     {
-        Evaluation e1 = new Evaluation("1", "1", 5);
-        Evaluation e2 = new Evaluation("1", "1", 5);
-        Assert.assertEquals(e1, e2);
-        Evaluation e3 = new Evaluation("1", "12", 5);
-        Assert.assertNotEquals(e1, e3);
-        Address a = new Address("ss", "5");
-        Assert.assertNotEquals(a, e1);
+        Repair repair = new Repair();
+
+        evaluation.setRepair(repair);
+        evaluation.setTitle("Title_1");
+        evaluation.setComment("Comment_1");
+        evaluation.setRate(3);
+
+        Assert.assertEquals(true, evaluation.equals(new Evaluation(repair, "Title_1", "Comment_1", 3)));
+        Assert.assertEquals(false, evaluation.equals(new Evaluation(repair, "Title", "Comment_1", 3)));
+        Assert.assertEquals(false, evaluation.equals(new Evaluation(repair, "Title_1", "Comment", 3)));
+        Assert.assertEquals(false, evaluation.equals(new Evaluation(repair, "Title_1", "Comment_1", 4)));
+        Assert.assertEquals(false, evaluation.equals(null));
+        Assert.assertEquals(true, evaluation.equals(evaluation));
     }
 
 }

@@ -1,10 +1,11 @@
 package com.example.quickrepair.domain;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public class Repair
 {
-    private Integer uid;
+    private int uid;
     private double quantity;
     private Payment payment;
     private Evaluation evaluation;
@@ -169,7 +170,7 @@ public class Repair
      *
      * @return The repair UID.
      */
-    public Integer getUid()
+    public int getUid()
     {
         return uid;
     }
@@ -193,7 +194,7 @@ public class Repair
      */
     public Evaluation evaluate(String title, String comment, int rate)
     {
-        Evaluation evaluation = new Evaluation(title, comment, rate);
+        Evaluation evaluation = new Evaluation(this, title, comment, rate);
 
         setEvaluation(evaluation);
 
@@ -208,15 +209,31 @@ public class Repair
      */
     public Payment pay(Calendar date, PaymentType paymentType)
     {
-        if(paymentType == PaymentType.CARD) {
+        if(paymentType == PaymentType.CARD)
+        {
             Job job = repairRequest.getJob();
             double cost = this.quantity * job.getPrice();
             Customer c = repairRequest.getCustomer();
             c.chargeAccount(cost);
         }
-        Payment payment = new Payment(date, paymentType);
+
+        Payment payment = new Payment(this, date, paymentType);
         setPayment(payment);
         return payment;
     }
-    //TODO equals
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Repair repair = (Repair) o;
+        return Double.compare(repair.quantity, quantity) == 0 && Objects.equals(uid, repair.uid) && Objects.equals(payment, repair.payment) && Objects.equals(evaluation, repair.evaluation) && Objects.equals(repairRequest, repair.repairRequest);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(quantity, repairRequest);
+    }
 }

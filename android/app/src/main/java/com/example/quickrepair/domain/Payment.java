@@ -3,10 +3,11 @@ package com.example.quickrepair.domain;
 import androidx.annotation.Nullable;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public class Payment
 {
-    private Integer uid;
+    private int uid;
     private Repair repair;
     private Calendar date;
     private PaymentType paymentType;
@@ -44,7 +45,7 @@ public class Payment
      *
      * @param date payment's date
      */
-    private void setDate(Calendar date)
+    public void setDate(Calendar date)
     {
         if (date != null)
         {
@@ -71,7 +72,7 @@ public class Payment
      *
      * @param paymentType payment's type
      */
-    private void setPaymentType(PaymentType paymentType)
+    public void setPaymentType(PaymentType paymentType)
     {
         if (paymentType == null)
         {
@@ -86,7 +87,7 @@ public class Payment
      *
      * @return The payment UID.
      */
-    public Integer getUid()
+    public int getUid()
     {
         return uid;
     }
@@ -96,7 +97,7 @@ public class Payment
      *
      * @param uid The payment UID.
      */
-    public void setUid(Integer uid)
+    public void setUid(int uid)
     {
         this.uid = uid;
     }
@@ -124,15 +125,17 @@ public class Payment
     }
 
     @Override
-    public boolean equals(@Nullable Object o)
+    public boolean equals(Object o)
     {
-        if (o == null) return false;
-
         if (this == o) return true;
-
-        if (!(o instanceof Payment)) return false;
-
+        if (o == null || getClass() != o.getClass()) return false;
         Payment payment = (Payment) o;
-        return payment.getDate().compareTo(this.getDate()) == 0 && payment.getPaymentType() == this.getPaymentType();
+        return Objects.equals(repair, payment.repair) && Objects.equals(date, payment.date) && paymentType == payment.paymentType;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(repair, date, paymentType);
     }
 }

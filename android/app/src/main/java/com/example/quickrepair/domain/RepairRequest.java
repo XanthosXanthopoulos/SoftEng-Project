@@ -2,10 +2,19 @@ package com.example.quickrepair.domain;
 
 
 import java.util.GregorianCalendar;
+import java.util.Objects;
 
 public class RepairRequest implements Comparable<RepairRequest>
 {
-    private Integer uid;
+    public enum Status
+    {
+        REJECTED,
+        CONFIRMED,
+        UNCONFIRMED,
+        COMPLETED
+    }
+
+    private int uid;
     private Customer customer;
     private Job job;
     private GregorianCalendar creationDate;
@@ -233,12 +242,26 @@ public class RepairRequest implements Comparable<RepairRequest>
         return conductionDate.compareTo(o.conductionDate);
     }
 
-    public enum Status
+    @Override
+    public boolean equals(Object o)
     {
-        REJECTED,
-        CONFIRMED,
-        UNCONFIRMED,
-        COMPLETED
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RepairRequest that = (RepairRequest) o;
+        return estimatedDuration == that.estimatedDuration &&
+                Objects.equals(customer, that.customer) &&
+                Objects.equals(job, that.job) &&
+                Objects.equals(creationDate, that.creationDate) &&
+                Objects.equals(conductionDate, that.conductionDate) &&
+                Objects.equals(address, that.address) &&
+                status == that.status &&
+                Objects.equals(commentsFromCustomer, that.commentsFromCustomer) &&
+                Objects.equals(repair, that.repair);
     }
-    //TODO equals
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(customer, job, creationDate, conductionDate, address, status, commentsFromCustomer, estimatedDuration, repair);
+    }
 }

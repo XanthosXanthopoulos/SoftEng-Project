@@ -1,11 +1,12 @@
 package com.example.quickrepair.domain;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Specialty
 {
-    private Integer uid;
+    private int uid;
     private String name;
 
     private Set<JobType> jobTypes = new HashSet<>();
@@ -42,7 +43,7 @@ public class Specialty
      *
      * @return The speciality UID.
      */
-    public Integer getUid()
+    public int getUid()
     {
         return uid;
     }
@@ -52,7 +53,7 @@ public class Specialty
      *
      * @param uid The speciality UID.
      */
-    public void setUid(Integer uid)
+    public void setUid(int uid)
     {
         this.uid = uid;
     }
@@ -64,24 +65,18 @@ public class Specialty
         jobTypes.add(jobType);
     }
 
-
     @Override
-    public boolean equals(Object other)
+    public boolean equals(Object o)
     {
-        if (other == null) return false;
-
-        if (this == other) return true;
-
-        if (!(other instanceof Specialty)) return false;
-
-        if (!name.equals(((Specialty) other).getName())) return false;
-
-        return true;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Specialty specialty = (Specialty) o;
+        return Objects.equals(name, specialty.name) && Objects.equals(jobTypes, specialty.jobTypes);
     }
 
     @Override
     public int hashCode()
     {
-        return name.hashCode();
+        return Objects.hash(name, jobTypes);
     }
 }

@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class User
 {
-    private Integer uid;
+    private int uid;
     private String name;
     private String surname;
     private String phoneNumber;
@@ -183,12 +183,12 @@ public class User
         return username;
     }
 
-    public Integer getUid()
+    public int getUid()
     {
         return uid;
     }
 
-    public void setUid(Integer uid)
+    public void setUid(int uid)
     {
         this.uid = uid;
     }
@@ -199,12 +199,12 @@ public class User
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return name.equals(user.name) &&
-                surname.equals(user.surname) &&
-                phoneNumber.equals(user.phoneNumber) &&
-                email.equals(user.email) &&
-                bankAccount.equals(user.bankAccount) &&
-                username.equals(user.username) &&
+        return Objects.equals(name, user.name) &&
+                Objects.equals(surname, user.surname) &&
+                Objects.equals(phoneNumber, user.phoneNumber) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(bankAccount, user.bankAccount) &&
+                Objects.equals(username, user.username) &&
                 Arrays.equals(password, user.password);
     }
 
