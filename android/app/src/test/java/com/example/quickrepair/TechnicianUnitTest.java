@@ -12,6 +12,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import static org.junit.Assert.*;
 
 public class TechnicianUnitTest
@@ -208,7 +212,7 @@ public class TechnicianUnitTest
         technicianToTest.setSpecialty(exampleJobType.getSpecialty());
         technicianToTest.addJob(exampleJobType, 5);
         assertTrue(technicianToTest.getJobs().size() != 0);
-        JobType newJobType = new JobType("example" , exampleSpecialty , MeasurementUnit.SQR_METER);
+        JobType newJobType = new JobType("example", exampleSpecialty, MeasurementUnit.SQR_METER);
         technicianToTest.addJob(newJobType, 5);
         Assert.assertTrue(technicianToTest.getJobs().size() == 2);
     }
@@ -319,19 +323,21 @@ public class TechnicianUnitTest
     }
 
     @Test
-    public void setSpecialtyTest(){
+    public void setSpecialtyTest()
+    {
         //When we change the specialty the previous offered jobs must be cleared
         Specialty newSpecialty = new Specialty("test");
-        Job job = technicianToTest.addJob(exampleJobType , 15);
+        Job job = technicianToTest.addJob(exampleJobType, 15);
         Assert.assertTrue(technicianToTest.getJobs().size() != 0);
         technicianToTest.setSpecialty(newSpecialty);
         Assert.assertTrue(technicianToTest.getJobs().size() == 0);
     }
 
     @Test
-    public void removeJobTest(){
+    public void removeJobTest()
+    {
         Specialty currSpecialty = technicianToTest.getSpecialty();
-        Job job = technicianToTest.addJob(exampleJobType , 15);
+        Job job = technicianToTest.addJob(exampleJobType, 15);
 
         assertTrue(technicianToTest.getJobs().contains(job));
         assertTrue(exampleJobType.getJobs().contains(job));
@@ -340,22 +346,122 @@ public class TechnicianUnitTest
         assertFalse(exampleJobType.getJobs().contains(job));
 
     }
-    @Test (expected = IllegalArgumentException.class)
+
+    @Test(expected = IllegalArgumentException.class)
     public void testAddJobNotOK()
     {
-        technicianToTest.addJob(exampleJobType,12);
-        technicianToTest.addJob(exampleJobType,10);
+        technicianToTest.addJob(exampleJobType, 12);
+        technicianToTest.addJob(exampleJobType, 10);
     }
+
     @Test
     public void workAllDayOk()
     {
-        technicianToTest.setAvailableOnDay(3 , 0 , 24);
+        technicianToTest.setAvailableOnDay(3, 0, 24);
 
-        for(int i =  0 ; i < 24 ; i++ )
+        for (int i = 0; i < 24; i++)
         {
-            Assert.assertTrue(technicianToTest.isNormallyAvailable(3 , i));
+            Assert.assertTrue(technicianToTest.isNormallyAvailable(3, i));
         }
+    }
 
+    //---------------------------------------------------------------------------------------------
+
+    @Test
+    public void testGetAvailableHourRangesNotAvailableDay()
+    {
+        technicianToTest.setAvailableOnDay(Calendar.MONDAY, 0, 0);
+        repairRequest.setConductionDate(april1010);
+        Assert.assertEquals(null, technicianToTest.getAvailableHourRanges(april6));
+    }
+
+    @Test
+    public void testGetAvailableHourRangesOneGap()
+    {
+        technicianToTest.setAvailableOnDay(monday, 6, 19);
+
+        ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<ArrayList<GregorianCalendar>>();
+        ArrayList<GregorianCalendar> gap1 = new ArrayList<GregorianCalendar>();
+
+        gap1.add(start);
+        gap1.add(end);
+        gaps.add(gap1);
+        Assert.assertEquals(gaps, technicianToTest.getAvailableHourRanges(april6));
+    }
+
+    @Test
+    public void testGetAvailableHourRanges2Gaps()
+    {
+        technicianToTest.setAvailableOnDay(Calendar.MONDAY, 6, 19);
+
+        //repair request 1
+        GregorianCalendar date1 = new GregorianCalendar(2020, Calendar.APRIL, 6, 8, 30);
+        repairRequest.setConductionDate(date1);
+        repairRequest.setEstimatedDuration(30); //30 minutes to do the job, so he is going to have a gap at 9
+
+        ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<ArrayList<GregorianCalendar>>();
+
+        ArrayList<GregorianCalendar> gap1 = new ArrayList<GregorianCalendar>();
+        gap1.add(start);
+        gap1.add(date1);
+        gaps.add(gap1);
+
+        ArrayList<GregorianCalendar> gap2 = new ArrayList<GregorianCalendar>();
+        GregorianCalendar date1New = (GregorianCalendar) date1.clone();
+        date1New.add(date1New.MINUTE, 30);
+        gap2.add(date1New);
+        gap2.add(end);
+        gaps.add(gap2);
+
+        Assert.assertEquals(2, technicianToTest.getAvailableHourRanges(april6).size());
+        Assert.assertEquals(gap1, technicianToTest.getAvailableHourRanges(april6).get(0));
+        Assert.assertEquals(gap2, technicianToTest.getAvailableHourRanges(april6).get(1));
+        Assert.assertEquals(gaps, technicianToTest.getAvailableHourRanges(april6));
+    }
+
+    @Test
+    public void testGetAvailableHourRanges3Gaps()
+    {
+
+        technicianToTest.setAvailableOnDay(2, 6, 19);
+
+        //repair request 1
+        GregorianCalendar date1 = new GregorianCalendar(2020, Calendar.APRIL, 6, 8, 30);
+        repairRequest.setConductionDate(date1);
+        repairRequest.setEstimatedDuration(30); //30 minutes to do the job, so he is going to have a gap at 9
+
+        //repair request 2
+        GregorianCalendar date2 = new GregorianCalendar(2020, Calendar.APRIL, 6, 13, 10);
+        repairRequest2.setConductionDate(date2);
+        repairRequest2.setEstimatedDuration(20); //20 minutes to do the job, so he is going to have a gap at 1:20
+
+
+        ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<ArrayList<GregorianCalendar>>();
+
+        ArrayList<GregorianCalendar> gap1 = new ArrayList<GregorianCalendar>();
+        gap1.add(start);
+        gap1.add(date1);
+        gaps.add(gap1);
+
+        ArrayList<GregorianCalendar> gap2 = new ArrayList<GregorianCalendar>();
+        GregorianCalendar date1New = (GregorianCalendar) date1.clone();
+        date1New.add(date1New.MINUTE, 30);
+        gap2.add(date1New);
+        gap2.add(date2);
+        gaps.add(gap2);
+
+        ArrayList<GregorianCalendar> gap3 = new ArrayList<GregorianCalendar>();
+        GregorianCalendar date2New = (GregorianCalendar) date2.clone();
+        date2New.add(date2New.MINUTE, 20);
+        gap3.add(date2New);
+        gap3.add(end);
+        gaps.add(gap3);
+
+        Assert.assertEquals(3, technicianToTest.getAvailableHourRanges(april6).size());
+        Assert.assertEquals(gap1, technicianToTest.getAvailableHourRanges(april6).get(0));
+        Assert.assertEquals(gap2, technicianToTest.getAvailableHourRanges(april6).get(1));
+        Assert.assertEquals(gap3, technicianToTest.getAvailableHourRanges(april6).get(2));
+        Assert.assertEquals(gaps, technicianToTest.getAvailableHourRanges(april6));
     }
 
 }
