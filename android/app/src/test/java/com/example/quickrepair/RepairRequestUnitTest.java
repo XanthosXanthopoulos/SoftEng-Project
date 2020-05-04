@@ -22,19 +22,23 @@ public class RepairRequestUnitTest
 {
     private RepairRequest repairRequest;
     private Customer customer;
+    private JobType jobType;
+    private Job job;
+    private Address exampleAddress;
+    private GregorianCalendar standardDate;
 
     @Before
     public void setUp()
     {
         Specialty specialty = new Specialty();
-        GregorianCalendar standardDate = new GregorianCalendar(2018, 1, 1, 1, 0);
-        Address exampleAddress = new Address("ath", "15");
+        standardDate = new GregorianCalendar(2018, 1, 1, 1, 0);
+        exampleAddress = new Address("ath", "15");
 
         Technician technician = new Technician();
         technician.setSpecialty(specialty);
 
-        JobType jobType = new JobType("Wiring", specialty, MeasurementUnit.METER);
-        Job job = new Job(technician, jobType, 12);
+        jobType = new JobType("Wiring", specialty, MeasurementUnit.METER);
+        job = new Job(technician, jobType, 12);
         customer = new Customer();
 
         repairRequest = new RepairRequest(customer, job, standardDate, standardDate, exampleAddress, "comments");
@@ -310,5 +314,8 @@ public class RepairRequestUnitTest
     {
         repairRequest.setJob(null);
     }
-
+    @Test
+    public void testEqualsOK(){
+        Assert.assertEquals(true, repairRequest.equals(new RepairRequest(customer, job, standardDate, standardDate, exampleAddress, "comments")));
+    }
 }
