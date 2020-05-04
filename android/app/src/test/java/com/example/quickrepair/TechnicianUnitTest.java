@@ -302,7 +302,6 @@ public class TechnicianUnitTest
     @Test(expected = IllegalArgumentException.class)
     public void addJobToTechnicianWithNotTheAppropriateSpecialty()
     {
-        //TODO remove all jobs when technician changes specialty
         technicianToTest.setSpecialty(exampleSpecialty);
         Specialty newSpecialty = new Specialty("ee");
         JobType newJobType = new JobType("ee", newSpecialty, MeasurementUnit.METER);
