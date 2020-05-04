@@ -18,7 +18,7 @@ public class User
     private String email;
     private String bankAccount;
     private String username;
-    private byte[] password;
+    private String password;
 
     public User() { }
 
@@ -122,36 +122,12 @@ public class User
         this.username = username;
     }
 
-    //TODO Untestable lines what do ??
     public void setPassword(String password)
     {
         if (password == null) throw new NullPointerException("Password can not be null.");
-        try
-        {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(password.getBytes());
-            this.password = hash;
-        }
-        catch (NoSuchAlgorithmException e)
-        {
-            throw new RuntimeException("Platform doesn't support sha256");
-        }
+        this.password = password;
     }
 
-    public boolean validatePassword(String password)
-    {
-        if (password == null) throw new NullPointerException("Password can not be null.");
-        try
-        {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(password.getBytes());
-            return Arrays.equals(hash, this.password);
-        }
-        catch (NoSuchAlgorithmException e)
-        {
-            throw new RuntimeException("Platform doesn't support sha256");
-        }
-    }
 
     public String getName()
     {
@@ -182,6 +158,10 @@ public class User
     {
         return username;
     }
+    public String getPassword()
+    {
+        return password;
+    }
 
     public int getUid()
     {
@@ -205,14 +185,14 @@ public class User
                 Objects.equals(email, user.email) &&
                 Objects.equals(bankAccount, user.bankAccount) &&
                 Objects.equals(username, user.username) &&
-                Arrays.equals(password, user.password);
+                Objects.equals(password , password);
     }
 
     @Override
     public int hashCode()
     {
         int result = Objects.hash(name, surname, phoneNumber, email, bankAccount, username);
-        result = 31 * result + Arrays.hashCode(password);
+        result = 31 * result + Objects.hashCode(password);
         return result;
     }
 }

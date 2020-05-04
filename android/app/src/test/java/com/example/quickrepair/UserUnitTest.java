@@ -2,6 +2,7 @@ package com.example.quickrepair;
 
 import com.example.quickrepair.domain.User;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,5 +33,10 @@ public class UserUnitTest {
     public void setIncorrectPhoneNumber(){
         userToTest.setUserInfo("nikos", "sm" , ";DROP TABLE USERS",
                 "asdihausdh.asdh" , "mybankaccount" , "nikos");
+    }
+    @Test
+    public void uidTest(){
+        userToTest.setUid(5);
+        Assert.assertTrue(userToTest.getUid() == 5);
     }
 }

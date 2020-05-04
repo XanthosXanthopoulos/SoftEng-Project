@@ -37,7 +37,7 @@ public class Technician extends User
     //SETTERS
 
     /**
-     * Set's this technician's specialty
+     * Set's this technician's specialty. All the current jobs are discarded
      *
      * @param specialty Technician's specialty
      */
