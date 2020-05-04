@@ -69,7 +69,6 @@ public class Technician extends User
      *
      * @param schedule
      */
-    //TODO input hours of day can be set until 24 if the technician can literally work all day
     public void setSchedule(Integer[][] schedule)
     {
         if (schedule == null)
@@ -225,8 +224,13 @@ public class Technician extends User
             getSchedule()[day][1] = hourEnd;
             return;
         }
-
-        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 24 || hourStart > 24 || hourStart >= hourEnd)
+        if(hourStart == 24 && hourEnd == 24)
+        {
+            getSchedule()[day][0] = hourStart;
+            getSchedule()[day][1] = hourEnd;
+            return;
+        }
+        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 23 || hourStart > 23 || hourStart >= hourEnd)
         {
             throw new IllegalArgumentException("out of range");
         }
