@@ -89,7 +89,7 @@ public class TechnicianUnitTest
     public void setAvailableOnWithWrongParameters3()
     {
         technicianToTest.setSchedule(exampleSchedule);
-        technicianToTest.setAvailableOnDay(0, 0, 24);
+        technicianToTest.setAvailableOnDay(0, 0, 25);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -208,6 +208,9 @@ public class TechnicianUnitTest
         technicianToTest.setSpecialty(exampleJobType.getSpecialty());
         technicianToTest.addJob(exampleJobType, 5);
         assertTrue(technicianToTest.getJobs().size() != 0);
+        JobType newJobType = new JobType("example" , exampleSpecialty , MeasurementUnit.SQR_METER);
+        technicianToTest.addJob(newJobType, 5);
+        Assert.assertTrue(technicianToTest.getJobs().size() == 2);
     }
 
     @Test
@@ -342,16 +345,14 @@ public class TechnicianUnitTest
         technicianToTest.addJob(exampleJobType,12);
         technicianToTest.addJob(exampleJobType,10);
     }
-
-    //TODO: tests for (0,24)
     @Test
     public void workAllDayOk()
     {
-
-    }
-    @Test (expected = IllegalArgumentException.class)
-    public void setAvailableOnDayOneArgumentequal24()
-    {
+        technicianToTest.setAvailableOnDay(3 , 0 , 24);
+        //Test that the technician is available for all hours of the day
+        for(int i =  0 ; i < 24 ; i++ ){
+            Assert.assertTrue(technicianToTest.isNormallyAvailable(3 , i));
+        }
 
     }
 
