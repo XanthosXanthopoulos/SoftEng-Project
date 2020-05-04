@@ -343,15 +343,16 @@ public class TechnicianUnitTest
         technicianToTest.addJob(exampleJobType,10);
     }
 
-    //TODO: tests for (24,24)
+    //TODO: tests for (0,24)
     @Test
     public void workAllDayOk()
     {
 
     }
-    @Test 
+    @Test (expected = IllegalArgumentException.class)
     public void setAvailableOnDayOneArgumentequal24()
     {
 
     }
+
 }

@@ -24,7 +24,7 @@ public class Technician extends User
     //it is necessary for a costumer to know when the technician is on duty
     //for each day of the week -> (startHour, endHour)
     //Special Cases: (0,0): Technician doesn't work that day
-    //(24,24): Technician work all day
+    //(0,24): Technician work all day
     private Integer[][] schedule = new Integer[7][2];
 
     public Technician() { }
@@ -225,7 +225,7 @@ public class Technician extends User
             return;
         }
         //technician works all day
-        if(hourStart == 24 && hourEnd == 24)
+        if(hourStart == 0 && hourEnd == 24)
         {
             getSchedule()[day][0] = hourStart;
             getSchedule()[day][1] = hourEnd;
@@ -239,6 +239,7 @@ public class Technician extends User
         getSchedule()[day][0] = hourStart;
         getSchedule()[day][1] = hourEnd;
     }
+
 
     /**
      * Checks if the technician is available on the given day of the week and hour of the week
@@ -260,6 +261,7 @@ public class Technician extends User
         return isAfterStart && isBeforeEnd;
     }
 
+    //TODO: is DayAvailable
     /**
      * Checks if the technician is available on the given day of the week
      *
