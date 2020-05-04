@@ -138,6 +138,11 @@ public class Technician extends User
         if (!jobType.getSpecialty().equals(getSpecialty())) throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
         if (price <= 0) throw new IllegalArgumentException();
 
+        for(Job job: jobs){
+            if(job.getJobType().equals(jobType)){
+                throw new IllegalArgumentException("Only one job with a particular jobType");
+            }
+        }
         Job job = new Job(this, jobType, price);
         jobs.add(job);
         jobType.addJob(job);

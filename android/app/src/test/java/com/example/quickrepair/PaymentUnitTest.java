@@ -14,7 +14,6 @@ import java.util.Objects;
 
 public class PaymentUnitTest
 {
-
     Payment payment;
 
     @Before
@@ -95,6 +94,5 @@ public class PaymentUnitTest
     @Test
     public void testHashCode(){
         Assert.assertEquals(Objects.hash(payment.getRepair(), payment.getDate(), payment.getPaymentType()), payment.hashCode());
-
     }
 }
