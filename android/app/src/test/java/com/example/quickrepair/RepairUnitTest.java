@@ -354,7 +354,7 @@ public class RepairUnitTest {
     }
 
     @Test
-    public void quantity(){
+    public void testHashCode(){
         Repair repair = new Repair(exampleRepairRequest, 10, new Payment());
         Assert.assertEquals(Objects.hash(repair.getQuantity(), repair.getRepairRequest()), repair.hashCode());
     }
