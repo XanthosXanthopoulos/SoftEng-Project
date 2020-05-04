@@ -20,6 +20,7 @@ import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Objects;
 
 public class RepairUnitTest {
     Technician technicianToTest;
@@ -344,6 +345,18 @@ public class RepairUnitTest {
 
         repair.pay(new GregorianCalendar(2018,2,1,1,1), PaymentType.CARD);
         Assert.assertNotNull(repair.getPayment());
+    }
+    @Test
+    public void uid(){
+        Repair repair = new Repair();
+        repair.setUid(10);
+        Assert.assertEquals(10, repair.getUid());
+    }
+
+    @Test
+    public void quantity(){
+        Repair repair = new Repair(exampleRepairRequest, 10, new Payment());
+        Assert.assertEquals(Objects.hash(repair.getQuantity(), repair.getRepairRequest()), repair.hashCode());
     }
 
 }
