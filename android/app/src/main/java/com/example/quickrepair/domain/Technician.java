@@ -23,6 +23,8 @@ public class Technician extends User
     //This structure will set up by the technician
     //it is necessary for a costumer to know when the technician is on duty
     //for each day of the week -> (startHour, endHour)
+    //Special Cases: (0,0): Technician doesn't work that day
+    //(0,24): Technician work all day
     private Integer[][] schedule = new Integer[7][2];
 
     public Technician() { }
@@ -67,7 +69,6 @@ public class Technician extends User
      *
      * @param schedule
      */
-    //TODO input hours of day can be set until 24 if the technician can literally work all day
     public void setSchedule(Integer[][] schedule)
     {
         if (schedule == null)
@@ -138,6 +139,11 @@ public class Technician extends User
         if (!jobType.getSpecialty().equals(getSpecialty())) throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
         if (price <= 0) throw new IllegalArgumentException();
 
+        for(Job job: jobs){
+            if(job.getJobType().equals(jobType)){
+                throw new IllegalArgumentException("Only one job with a particular jobType");
+            }
+        }
         Job job = new Job(this, jobType, price);
         jobs.add(job);
         jobType.addJob(job);
@@ -218,8 +224,14 @@ public class Technician extends User
             getSchedule()[day][1] = hourEnd;
             return;
         }
-
-        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 23 || hourStart >= hourEnd)
+        //technician works all day
+        if(hourStart == 0 && hourEnd == 24)
+        {
+            getSchedule()[day][0] = hourStart;
+            getSchedule()[day][1] = hourEnd;
+            return;
+        }
+        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 23 || hourStart > 23 || hourStart >= hourEnd)
         {
             throw new IllegalArgumentException("out of range");
         }
@@ -227,6 +239,7 @@ public class Technician extends User
         getSchedule()[day][0] = hourStart;
         getSchedule()[day][1] = hourEnd;
     }
+
 
     /**
      * Checks if the technician is available on the given day of the week and hour of the week
@@ -248,6 +261,7 @@ public class Technician extends User
         return isAfterStart && isBeforeEnd;
     }
 
+    //TODO: is DayAvailable
     /**
      * Checks if the technician is available on the given day of the week
      *

@@ -185,10 +185,9 @@ public class RepairRequest implements Comparable<RepairRequest>
         return job;
     }
 
-    //TODO A CONFIRMED REPAIR REQUEST CAN BE COMPLETED
     public boolean isConfirmed()
     {
-        return this.status == Status.CONFIRMED;
+        return this.status == Status.CONFIRMED || this.status == Status.COMPLETED;
     }
 
     public boolean isCompleted()

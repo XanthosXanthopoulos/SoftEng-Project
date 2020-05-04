@@ -323,7 +323,7 @@ public class TechnicianUnitTest
         technicianToTest.setSpecialty(newSpecialty);
         Assert.assertTrue(technicianToTest.getJobs().size() == 0);
     }
-    //TODO Only one job from every jobtype
+
     @Test
     public void removeJobTest(){
         Specialty currSpecialty = technicianToTest.getSpecialty();
@@ -336,4 +336,23 @@ public class TechnicianUnitTest
         assertFalse(exampleJobType.getJobs().contains(job));
 
     }
+    @Test (expected = IllegalArgumentException.class)
+    public void testAddJobNotOK()
+    {
+        technicianToTest.addJob(exampleJobType,12);
+        technicianToTest.addJob(exampleJobType,10);
+    }
+
+    //TODO: tests for (0,24)
+    @Test
+    public void workAllDayOk()
+    {
+
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void setAvailableOnDayOneArgumentequal24()
+    {
+
+    }
+
 }

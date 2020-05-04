@@ -10,10 +10,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.GregorianCalendar;
+import java.util.Objects;
 
 public class PaymentUnitTest
 {
-
     Payment payment;
 
     @Before
@@ -89,5 +89,10 @@ public class PaymentUnitTest
 
         Payment p3 = new Payment(new Repair(), new GregorianCalendar(2020, 18, 19), PaymentType.CARD);
         Assert.assertEquals(true, payment.equals(p3));
+    }
+
+    @Test
+    public void testHashCode(){
+        Assert.assertEquals(Objects.hash(payment.getRepair(), payment.getDate(), payment.getPaymentType()), payment.hashCode());
     }
 }
