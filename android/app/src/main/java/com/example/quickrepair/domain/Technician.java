@@ -5,6 +5,7 @@ import com.example.quickrepair.util.Utilities;
 import java.awt.font.NumericShaper;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
@@ -208,7 +209,8 @@ public class Technician extends User
 
     public ArrayList<ArrayList<GregorianCalendar>> getAvailableHourRanges(GregorianCalendar date)
     {
-        int dayOfWeek = date.get(date.DAY_OF_WEEK);
+        int dayOfWeek = date.get(Calendar.DAY_OF_WEEK);
+
         if (!isDayAvailable(dayOfWeek - 1))
         {
             return null;
@@ -324,6 +326,7 @@ public class Technician extends User
      */
     public void setAvailableOnDay(int day, int hourStart, int hourEnd)
     {
+
         //technician doesn't work that day
         if (hourStart == 0 && hourEnd == 0)
         {
@@ -383,6 +386,9 @@ public class Technician extends User
         {
             throw new IllegalArgumentException("out of range");
         }
+
+        System.out.println(getSchedule()[day][0]);
+        System.out.println(getSchedule()[day][1]);
 
         boolean isAfterStart = !(getSchedule()[day][0] == 0);
         boolean isBeforeEnd = !(getSchedule()[day][1] == 0);
