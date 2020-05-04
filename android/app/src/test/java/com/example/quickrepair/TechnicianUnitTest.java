@@ -349,7 +349,7 @@ public class TechnicianUnitTest
     {
 
     }
-    @Test (expected = IllegalStateException)
+    @Test 
     public void setAvailableOnDayOneArgumentequal24()
     {
 
