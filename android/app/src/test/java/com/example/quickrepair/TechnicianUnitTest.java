@@ -337,8 +337,21 @@ public class TechnicianUnitTest
 
     }
     @Test (expected = IllegalArgumentException.class)
-    public void testAddJob(){
+    public void testAddJobNotOK()
+    {
         technicianToTest.addJob(exampleJobType,12);
         technicianToTest.addJob(exampleJobType,10);
+    }
+
+    //TODO: tests for (24,24)
+    @Test
+    public void workAllDayOk()
+    {
+
+    }
+    @Test (expected = IllegalStateException)
+    public void setAvailableOnDayOneArgumentequal24()
+    {
+
     }
 }
