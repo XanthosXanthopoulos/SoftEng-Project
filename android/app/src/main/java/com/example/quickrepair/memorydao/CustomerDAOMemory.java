@@ -45,34 +45,16 @@ public class CustomerDAOMemory implements CustomerDAO {
         return null;
     }
 
+    /**
+     * Returns all customers
+     * @return all Costumers
+     */
     @Override
     public List<Customer> findAll()
     {
         ArrayList<Customer> result = new ArrayList<Customer>();
         result.addAll(entities);
         return result;
-    }
-
-    /**
-     * Return all confirmed and uncompleted requests for a customer
-     *
-     * @param customerID
-     * @return confirmed and uncompleted RepairRequests for the customer with the given id
-     */
-    @Override
-    public Set<RepairRequest> findAllConfirmedAndUncompletedRequests(int customerID) {
-        return null;
-    }
-
-    /**
-     * Return all completed requests for a customer
-     *
-     * @param customerID
-     * @return completed RepairRequests for the customer with the given id
-     */
-    @Override
-    public Set<RepairRequest> findAllCompletedRequests(int customerID) {
-        return null;
     }
 
     /**

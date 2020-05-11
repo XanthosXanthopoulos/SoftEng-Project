@@ -6,7 +6,7 @@ public interface AreaDAO
 {
     /**
      * Return all areas. Each area is a String.
-     * @return Οι χώρες
+     * @return Areas
      */
     public List<String> getAreas();
 }

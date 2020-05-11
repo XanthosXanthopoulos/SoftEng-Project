@@ -40,17 +40,6 @@ public interface TechnicianDAO {
      */
     Set<RepairRequest> findAllUnconfirmed(int technicianID);
 
-    /**
-     * Return all completed requests for a Technician
-     * @return completed RepairRequests for the Technician with the given id
-     */
-    Set<RepairRequest> findAllCompletedRequests(int technicianID);
-
-    /**
-     * Return all confirmed requests for a Technician
-     * @return confirmed RepairRequests for the Technician with the given id
-     */
-    Set<RepairRequest> findAllConfirmedRequests(int technicianID);
 
     /**
      * Return the next id for a Technician.

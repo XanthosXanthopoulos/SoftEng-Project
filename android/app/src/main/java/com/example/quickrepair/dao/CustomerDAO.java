@@ -32,17 +32,6 @@ public interface CustomerDAO {
      */
     List<Customer> findAll();
 
-    /**
-     * Return all confirmed and uncompleted requests for a customer
-     * @return confirmed and uncompleted RepairRequests for the customer with the given id
-     */
-    Set<RepairRequest> findAllConfirmedAndUncompletedRequests(int customerID);
-
-    /**
-     * Return all completed requests for a customer
-     * @return completed RepairRequests for the customer with the given id
-     */
-    Set<RepairRequest> findAllCompletedRequests(int customerID);
 
     /**
      * Return the next id for a Customer.

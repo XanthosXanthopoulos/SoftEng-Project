@@ -4,6 +4,7 @@ package com.example.quickrepair.dao;
 import com.example.quickrepair.domain.RepairRequest;
 
 import java.util.List;
+import java.util.Set;
 
 public interface RepairRequestDAO {
     /**
@@ -31,6 +32,21 @@ public interface RepairRequestDAO {
      */
     RepairRequest find(int RepairRequestID);
 
+    /**
+     * Return all repair request for a Technician
+     * @technicianID Technician's id
+     * @status RepairRequest's status
+     * @return RepairRequests for the particular Technician with the given status
+     */
+    Set<RepairRequest> findAllForTechnicianByStatus(int technicianID, RepairRequest.Status status);
+
+    /**
+     * Return all repair request for a Customer
+     * @customerID Consumer's id
+     * @status RepairRequest's status
+     * @return RepairRequests for the particular Consumer with the given status
+     */
+    Set<RepairRequest> findAllForCustomerByStatus(int customerID, RepairRequest.Status status);
 
     /**
      * Return the next id for an RepairRequest.

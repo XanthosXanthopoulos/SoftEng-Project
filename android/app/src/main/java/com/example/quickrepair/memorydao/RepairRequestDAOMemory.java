@@ -5,6 +5,7 @@ import com.example.quickrepair.domain.RepairRequest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class RepairRequestDAOMemory implements RepairRequestDAO {
     protected static ArrayList<RepairRequest> entities = new ArrayList<RepairRequest>();
@@ -52,6 +53,34 @@ public class RepairRequestDAOMemory implements RepairRequestDAO {
         for(RepairRequest repairRequest : entities)
             if(repairRequest.getUid() == RepairRequestID)
                 return repairRequest;
+        return null;
+    }
+
+    /**
+     * Return all repair request for a Technician
+     *
+     * @param technicianID
+     * @param status
+     * @return RepairRequests for the particular Technician with the given status
+     * @technicianID Technician's id
+     * @status RepairRequest's status
+     */
+    @Override
+    public Set<RepairRequest> findAllForTechnicianByStatus(int technicianID, RepairRequest.Status status) {
+        return null;
+    }
+
+    /**
+     * Return all repair request for a Customer
+     *
+     * @param customerID
+     * @param status
+     * @return RepairRequests for the particular Consumer with the given status
+     * @customerID Consumer's id
+     * @status RepairRequest's status
+     */
+    @Override
+    public Set<RepairRequest> findAllForCustomerByStatus(int customerID, RepairRequest.Status status) {
         return null;
     }
 
