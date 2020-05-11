@@ -58,7 +58,6 @@ public class RepairRequestDAOMemory implements RepairRequestDAO {
 
     /**
      * Return all repair request for a Technician
-     *
      * @param technicianID
      * @param status
      * @return RepairRequests for the particular Technician with the given status
@@ -66,13 +65,17 @@ public class RepairRequestDAOMemory implements RepairRequestDAO {
      * @status RepairRequest's status
      */
     @Override
-    public Set<RepairRequest> findAllForTechnicianByStatus(int technicianID, RepairRequest.Status status) {
-        return null;
+    public ArrayList<RepairRequest> findAllForTechnicianByStatus(int technicianID, RepairRequest.Status status)
+    {
+        ArrayList<RepairRequest> result = new ArrayList<RepairRequest>();
+        for(RepairRequest repairRequest : entities)
+            if(repairRequest.getJob().getTechnician().getUid() == technicianID && repairRequest.getStatus()==status)
+                result.add(repairRequest);
+        return result;
     }
 
     /**
      * Return all repair request for a Customer
-     *
      * @param customerID
      * @param status
      * @return RepairRequests for the particular Consumer with the given status
@@ -80,8 +83,13 @@ public class RepairRequestDAOMemory implements RepairRequestDAO {
      * @status RepairRequest's status
      */
     @Override
-    public Set<RepairRequest> findAllForCustomerByStatus(int customerID, RepairRequest.Status status) {
-        return null;
+    public ArrayList<RepairRequest> findAllForCustomerByStatus(int customerID, RepairRequest.Status status)
+    {
+        ArrayList<RepairRequest> result = new ArrayList<RepairRequest>();
+        for(RepairRequest repairRequest : entities)
+            if(repairRequest.getCustomer().getUid() == customerID && repairRequest.getStatus()==status)
+                result.add(repairRequest);
+        return result;
     }
 
     /**
