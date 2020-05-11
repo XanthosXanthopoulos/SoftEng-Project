@@ -8,6 +8,12 @@ import java.util.List;
 public interface JobTypeDAO {
 
     /**
+     * Delete a JobType
+     * @param entity JobType
+     */
+    void delete(JobType entity);
+
+    /**
      * Find all JobTypes
      * @return JobTypes
      */

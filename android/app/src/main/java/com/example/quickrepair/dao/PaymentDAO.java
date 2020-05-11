@@ -8,6 +8,12 @@ import java.util.List;
 public interface PaymentDAO {
 
     /**
+     * Delete a Payment
+     * @param entity Payment
+     */
+    public void delete(Payment entity);
+
+    /**
      * Find all Payments
      * @return Payments
      */

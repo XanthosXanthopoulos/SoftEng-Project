@@ -31,9 +31,10 @@ public interface RepairRequestDAO {
      */
     RepairRequest find(int RepairRequestID);
 
+
     /**
      * Return the next id for an RepairRequest.
-     * @return Repair's id
+     * @return RepairRequest's id
      */
     int nextId();
 }

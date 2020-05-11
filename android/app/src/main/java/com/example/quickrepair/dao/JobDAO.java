@@ -7,6 +7,12 @@ import java.util.List;
 public interface JobDAO {
 
     /**
+     * Delete a job
+     * @param entity Job
+     */
+    void delete(Job entity);
+
+    /**
      * Find all Jobs
      * @return Jobs
      */

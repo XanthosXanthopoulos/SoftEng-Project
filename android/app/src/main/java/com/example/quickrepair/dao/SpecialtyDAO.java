@@ -1,11 +1,17 @@
 package com.example.quickrepair.dao;
 
-
 import com.example.quickrepair.domain.Specialty;
 
 import java.util.List;
 
 public interface SpecialtyDAO {
+
+    /**
+     * Delete an Specialty
+     * @param entity Specialty
+     */
+    void delete(Specialty entity);
+
     /**
      * Find all Specialties
      * @return Specialties

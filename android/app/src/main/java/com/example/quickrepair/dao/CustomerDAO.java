@@ -3,6 +3,7 @@ package com.example.quickrepair.dao;
 import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.domain.RepairRequest;
 
+import java.util.List;
 import java.util.Set;
 
 public interface CustomerDAO {
@@ -24,6 +25,12 @@ public interface CustomerDAO {
      * @return Customer or null
      */
     Customer find(int customerID);
+
+    /**
+     * Returns all customers
+     * @return all Costumers
+     */
+    List<Customer> findAll();
 
     /**
      * Return all confirmed and uncompleted requests for a customer
