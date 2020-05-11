@@ -8,22 +8,22 @@ public interface JobDAO {
 
     /**
      * Find all Jobs
-     * @return Τα βιβλία
+     * @return Jobs
      */
     List<Job> findAll();
 
     /**
      * Save a Job
-     * @param entity JobType
+     * @param entity Job
      */
     void save(Job entity);
 
     /**
-     * Find the JobType with the given id
-     * @param jobTypeID Ο κωδικός του βιβλίο
-     * @return Το βιβλίο που βρέθηκε ή null
+     * Find the Job with the given id
+     * @param jobID job's id
+     * @return Job or null
      */
-    Job find(int jobTypeID);
+    Job find(int jobID);
 
     /**
      * Return the next id for a Job.

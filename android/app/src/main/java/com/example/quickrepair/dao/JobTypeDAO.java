@@ -1,5 +1,6 @@
 package com.example.quickrepair.dao;
 
+import com.example.quickrepair.domain.Job;
 import com.example.quickrepair.domain.JobType;
 
 import java.util.List;
@@ -8,7 +9,7 @@ public interface JobTypeDAO {
 
     /**
      * Find all JobTypes
-     * @return Τα βιβλία
+     * @return JobTypes
      */
     List<JobType> findAll();
 
@@ -20,17 +21,17 @@ public interface JobTypeDAO {
 
     /**
      * Find the JobType with the given id
-     * @param jobTypeID Ο κωδικός του βιβλίο
-     * @return Το βιβλίο που βρέθηκε ή null
+     * @param jobTypeID JobType's id
+     * @return JobType or null
      */
     JobType find(int jobTypeID);
 
     /**
      * Find all Jobs for the JobType with the given id
      * @param jobTypeID JobType's id
-     * @return JobType or null
+     * @return JobType with or null
      */
-    JobType findAllJobs(int jobTypeID);
+    List<Job> findAllJobs(int jobTypeID);
 
     /**
      * Return the next id for a JobType.
