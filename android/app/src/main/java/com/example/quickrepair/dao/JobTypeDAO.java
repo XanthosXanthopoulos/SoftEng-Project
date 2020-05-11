@@ -24,7 +24,7 @@ public interface JobTypeDAO {
      * @return Το βιβλίο που βρέθηκε ή null
      */
     JobType find(int jobTypeID);
-    
+
     /**
      * Find all Jobs for the JobType with the given id
      * @param jobTypeID JobType's id
@@ -32,10 +32,9 @@ public interface JobTypeDAO {
      */
     JobType findAllJobs(int jobTypeID);
 
-
     /**
-     * Επιστρέφει τον επόμενο κωδικό που μπορεί να αποδοθεί σε ένα βιβλίο.
-     * @return Ο κωδικός του βιβλίου
+     * Return the next id for a JobType.
+     * @return jobType's id
      */
     int nextId();
 }
