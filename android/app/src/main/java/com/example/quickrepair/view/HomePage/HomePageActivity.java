@@ -31,11 +31,13 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
         final HomePagePresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
 
+        //Buttons
         Button search = findViewById(R.id.search);
-        Button logInPage = findViewById(R.id.LoginButton);
-        Button registerTechnicianPage = findViewById(R.id.GoToRegister);
-        Button registerCustomerPage = findViewById(R.id.GoToRegister);
+        Button logInPage = findViewById(R.id.login);
+        Button registerTechnicianPage = findViewById(R.id.registerCustomer);
+        Button registerCustomerPage = findViewById(R.id.registerTeachnician);
 
+        //Button's listeners
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +77,6 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
         //navigate to login page
         Intent intent = new Intent(this, LoginActivity.class);
         startActivityForResult(intent, REQUEST_CODE_LOGIN);
-
         // close activity
         finish();
     }
