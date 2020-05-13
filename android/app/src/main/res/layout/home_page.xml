@@ -6,4 +6,35 @@
     android:layout_height="match_parent"
     android:padding="20dp">
 
+    <Button
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        android:text="@string/search"/>
+
+    <Button
+        android:id="@+id/LoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/search"
+        android:layout_marginTop="20dp"
+        android:text="@string/login"/>
+
+    <Button
+        android:id="@+id/registerCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/LoginButton"
+        android:layout_marginTop="20dp"
+        android:text="@string/registerCustomer"/>
+
+    <Button
+        android:id="@+id/registerTeachnician"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/registerCustomer"
+        android:layout_marginTop="20dp"
+        android:text="@string/registerTechnician"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

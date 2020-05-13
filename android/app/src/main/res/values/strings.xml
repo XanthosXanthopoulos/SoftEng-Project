@@ -7,6 +7,9 @@
     <string name="bank_account_number">Bank account number</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="search">Search</string>
     <string name="register">Register</string>
+    <string name="registerCustomer">Register As Customer</string>
+    <string name="registerTechnician">Register As Technician</string>
     <string name="login">Login</string>
 </resources>

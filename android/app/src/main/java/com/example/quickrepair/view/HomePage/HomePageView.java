@@ -1,4 +1,4 @@
-package com.example.quickrepair.view;
+package com.example.quickrepair.view.HomePage;
 
 public interface HomePageView
 {
@@ -12,7 +12,13 @@ public interface HomePageView
      * Όταν πραγματοποιείται click στο κουμπι για signup , ο χρηστης μεταφερεται στο κατάλληλο
      * activity
      */
-    void signUp();
+    void registerAsTechnician();
+
+    /**
+     * Όταν πραγματοποιείται click στο κουμπι για signup , ο χρηστης μεταφερεται στο κατάλληλο
+     * activity
+     */
+    void registerAsCustomer();
 
     /**
      * Όταν πραγματοποιείται click στο κουμπι για αναζήτηση τεχνικού μεταφερόμαστε στο κατάλληλο
@@ -20,10 +26,5 @@ public interface HomePageView
      */
     void searchTechnicians();
 
-    /**
-     * Αφού έχει ταυτοποιηθεί κάποιος χρήστης (τεχνικός η πελάτης) μπορεί να προβάλλει τα αιτήματα
-     *
-     */
-    void viewRepairRequests();
 
 }

@@ -5,7 +5,6 @@ import com.example.quickrepair.domain.RepairRequest;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class RepairRequestDAOMemory implements RepairRequestDAO {
     protected static ArrayList<RepairRequest> entities = new ArrayList<RepairRequest>();

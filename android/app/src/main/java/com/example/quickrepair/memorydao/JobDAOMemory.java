@@ -58,12 +58,27 @@ public class JobDAOMemory implements JobDAO {
     }
 
     /**
+     * Find all Jobs for the JobType with the given id
+     *
+     * @param jobTypeID JobType's id
+     * @return JobType with or null
+     */
+    @Override
+    public List<Job> findAllJobs(int jobTypeID) {
+        List<Job> result = new ArrayList<Job>();
+        for(Job job: entities)
+            if(job.getJobType().getUid() == jobTypeID)
+                result.add(job);
+        return result;
+    }
+
+    /**
      * Return the next id for a Job.
      *
      * @return Job's id
      */
     @Override
     public int nextId() {
-        return 0;
+        return (entities.size() > 0 ? entities.get(entities.size()-1).getUid()+1 : 1);
     }
 }

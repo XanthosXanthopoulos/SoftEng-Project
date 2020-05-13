@@ -32,6 +32,13 @@ public interface JobDAO {
     Job find(int jobID);
 
     /**
+     * Find all Jobs for the JobType with the given id
+     * @param jobTypeID JobType's id
+     * @return JobType with or null
+     */
+    List<Job> findAllJobs(int jobTypeID);
+
+    /**
      * Return the next id for a Job.
      * @return Job's id
      */

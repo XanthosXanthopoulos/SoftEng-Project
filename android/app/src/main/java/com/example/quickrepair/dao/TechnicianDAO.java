@@ -26,20 +26,13 @@ public interface TechnicianDAO {
      * @param technicianID Technician's id
      * @return Technician or null
      */
-    Customer find(int technicianID);
+    Technician find(int technicianID);
 
     /**
      * Return all Technicians
      * @return Technicians
      */
     List<Technician> findAll();
-
-    /**
-     * Return all unconfirmed requests for a Technician
-     * @returnunconfirmed RepairRequests for the Technician with the given id
-     */
-    Set<RepairRequest> findAllUnconfirmed(int technicianID);
-
 
     /**
      * Return the next id for a Technician.
