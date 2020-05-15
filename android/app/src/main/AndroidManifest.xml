@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.SearchTechnicians.SearchTechniciansActivity"></activity>
+
+        <activity android:name=".view.SearchTechnicians.SearchTechniciansActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".view.User.LoginUser.LoginActivity" />
         <activity android:name=".view.Customer.RegisterCustomer.CustomerRegisterActivity" />
+
         <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

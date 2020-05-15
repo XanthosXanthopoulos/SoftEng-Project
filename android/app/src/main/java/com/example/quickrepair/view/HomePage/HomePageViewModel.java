@@ -8,7 +8,7 @@ public class HomePageViewModel extends ViewModel {
     public HomePageViewModel(){
         super();
         //create Presenter
-
+        presenter = new HomePagePresenter();
     }
 
     public HomePagePresenter getPresenter() {
