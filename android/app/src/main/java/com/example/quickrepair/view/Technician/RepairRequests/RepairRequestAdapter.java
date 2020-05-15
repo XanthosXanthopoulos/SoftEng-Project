@@ -1,5 +1,6 @@
 package com.example.quickrepair.view.Technician.RepairRequests;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,7 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
         //get Repair Request
         final RepairRequest repairRequestAtPosition = itemList.get(position);
 
-        holder.txtRepairRequest.setText(repairRequestAtPosition.getUid());
+        holder.txtRepairRequest.setText(repairRequestAtPosition.getCustomer().getUsername());
         holder.btnSelectRepairRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +81,7 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
      */
     @Override
     public int getItemCount() {
-        return 0;
+        return itemList == null ? 0 :itemList.size();
     }
 
 

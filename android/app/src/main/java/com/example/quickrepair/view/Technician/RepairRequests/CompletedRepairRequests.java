@@ -1,6 +1,7 @@
 package com.example.quickrepair.view.Technician.RepairRequests;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class CompletedRepairRequests extends Fragment implements ItemSelectionLi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.uncomfirmed_repair_requests, container, false);
+        return inflater.inflate(R.layout.completed_repair_requests, container, false);
     }
 
     @Override
@@ -47,7 +48,8 @@ public class CompletedRepairRequests extends Fragment implements ItemSelectionLi
         ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getTechnicianID(), status);
 
         //update UI
-        recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view_completed);
+        Log.e("Completed Size ", String.valueOf(repairRequests.size()));
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(activity);

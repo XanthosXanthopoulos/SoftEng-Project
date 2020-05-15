@@ -1,6 +1,7 @@
 package com.example.quickrepair.view.Technician.RepairRequests;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +26,18 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
     private RepairRequestAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    private static boolean first = true;
+    private static UnconfirmedRepairRequests unconfirmedRepairRequests;
 
     //new instance of this fragment
     public static UnconfirmedRepairRequests newInstance() {
-        return new UnconfirmedRepairRequests();
+        if(first) {
+            unconfirmedRepairRequests = new UnconfirmedRepairRequests();
+            return unconfirmedRepairRequests;
+        }else{
+            first = false;
+            return unconfirmedRepairRequests;
+        }
     }
 
     @Override
@@ -50,9 +59,11 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
 
         //get unconfirmed repair requests for this technician
         ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getTechnicianID(), status);
+        Log.e("Uncorfirmed Size ", String.valueOf(repairRequests.size()));
 
         //update UI
-        recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view_unconfirmed);
+
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(activity);
@@ -60,9 +71,10 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
 
         mAdapter = new RepairRequestAdapter(new ArrayList<RepairRequest>(repairRequests));
         recyclerView.setAdapter(mAdapter);
-
         mAdapter.setRepairRequestSelectionListener(this);
     }
+
+
 
     /**
      * The method will be called by the adapter, whenever the user clicks on a list item
