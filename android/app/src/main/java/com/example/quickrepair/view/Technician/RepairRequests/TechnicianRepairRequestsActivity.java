@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.memorydao.MemoryInitializer;
 import com.example.quickrepair.view.Technician.ShowCompletedRepairRequest.CompletedRepairRequestPage;
 import com.example.quickrepair.view.Technician.ShowConfirmedRepairRequest.ConfirmedRepairRequestPage;
 import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.UnconfirmedRepairRequestPage;
@@ -17,20 +18,26 @@ import com.google.android.material.tabs.TabLayout;
 
 public class TechnicianRepairRequestsActivity extends AppCompatActivity implements TechnicianRepairRequestsView{
 
-    private static int technicianID = 0;
+    private static int technicianID = 1;
     private static TechnicianRepairRequestsViewModel technicianRepairRequestsViewModel;
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
 
+    boolean initialized = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.technician_repair_requests);
 
+        if(initialized == false){
+            new MemoryInitializer().prepareData();
+            initialized = true;
+        }
         //get Technician id
-        Intent intent = getIntent();
-        technicianID = intent.getIntExtra("TECHNICIAN_ID_EXTRA", 0);
+        //Intent intent = getIntent();
+        //technicianID = intent.getIntExtra("TECHNICIAN_ID_EXTRA", 0);
 
+        technicianID = 1;
         technicianRepairRequestsViewModel = new ViewModelProvider(this).get(TechnicianRepairRequestsViewModel.class);
 
         ViewRepairRequestsPagerAdapter sectionsPagerAdapter = new ViewRepairRequestsPagerAdapter(this, getSupportFragmentManager());
@@ -67,10 +74,6 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         finish();
     }
 
-    @Override
-    public void returnNonRequests(String message) {
-
-    }
 
     public TechnicianRepairRequestsViewModel getViewModel() {
         return technicianRepairRequestsViewModel;

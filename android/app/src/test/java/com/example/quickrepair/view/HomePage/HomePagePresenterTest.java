@@ -1,7 +1,8 @@
-package com.example.quickrepair.view;
+package com.example.quickrepair.view.HomePage;
 
 import com.example.quickrepair.view.HomePage.HomePagePresenter;
 import com.example.quickrepair.view.HomePage.HomePageView;
+import com.example.quickrepair.view.HomePageViewStub;
 
 import org.junit.Assert;
 import org.junit.Before;

@@ -84,7 +84,7 @@ public class MemoryInitializer extends Initializer {
      */
     @Override
     public RepairRequestDAO getRepairRequestDAO() {
-        return null;
+        return new RepairRequestDAOMemory();
     }
 
     /**

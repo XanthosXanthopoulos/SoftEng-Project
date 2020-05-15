@@ -12,7 +12,4 @@ public interface TechnicianRepairRequestsView {
 
     void returnRepairRequestCompleted(int repairRequestUid);
 
-    void returnNonRequests(String message);
-
-
 }

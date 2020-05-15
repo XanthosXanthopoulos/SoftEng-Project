@@ -34,6 +34,10 @@ public class TechnicianRepairRequestsPresenter {
         view.returnRepairRequestCompleted(repairRequest.getUid());
     }
 
+    public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAO) {
+        this.repairRequestDAO = repairRequestDAO;
+    }
+
     public void setView(TechnicianRepairRequestsView view) {
         this.view = view;
     }
@@ -41,4 +45,5 @@ public class TechnicianRepairRequestsPresenter {
     public void clearView() {
         this.view = null;
     }
+
 }
