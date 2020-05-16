@@ -6,4 +6,91 @@
     android:layout_height="match_parent"
     tools:context=".view.Technician.RegisterTechnician.TechnicianRegisterActivity">
 
+    <TextView
+        android:id="@+id/Title"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:id="@+id/Name"
+        app:layout_constraintTop_toBottomOf="@id/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/name"/>
+
+    <EditText
+        android:id="@+id/Surname"
+        app:layout_constraintTop_toBottomOf="@id/Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/surname"/>
+
+    <EditText
+        android:id="@+id/Email"
+        app:layout_constraintTop_toBottomOf="@id/Surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/email"/>
+
+    <EditText
+        android:id="@+id/PhoneNumber"
+        app:layout_constraintTop_toBottomOf="@id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/phone_number"/>
+
+    <EditText
+        android:id="@+id/BankAccount"
+        app:layout_constraintTop_toBottomOf="@id/PhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/bank_account_number"/>
+
+    <EditText
+        android:id="@+id/Username"
+        app:layout_constraintTop_toBottomOf="@id/BankAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/username"/>
+
+    <EditText
+        android:id="@+id/Password"
+        app:layout_constraintTop_toBottomOf="@id/Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/password"/>
+
+    <EditText
+        android:id="@+id/AFM"
+        app:layout_constraintTop_toBottomOf="@id/Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/password"/>
+
+    <Spinner
+        android:id="@+id/Speciality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/AFM"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Speciality"
+        android:layout_marginTop="20dp"
+        android:text="@string/register"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

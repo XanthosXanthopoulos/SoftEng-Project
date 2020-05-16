@@ -6,9 +6,11 @@ import androidx.lifecycle.ViewModelProvider;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView
 {
@@ -24,6 +26,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         final LoginPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
+
+        findViewById(R.id.LoginButton).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                presenter.login(getUsername(), getPassword());
+            }
+        });
     }
 
     @Override
@@ -53,6 +64,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView
     @Override
     public void OnLoginTechnicianSuccess(Integer id)
     {
-
+        Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
+        intent.putExtra("TECHNICIAN_ID_EXTRA", id);
+        startActivity(intent);
     }
 }
