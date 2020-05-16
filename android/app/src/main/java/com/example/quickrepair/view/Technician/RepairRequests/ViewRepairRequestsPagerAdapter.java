@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class ViewRepairRequestsPagerAdapter extends FragmentPagerAdapter {
 
-    private static final String[] TAB_TITLES = new String[]{ "Ανεπιβεβαιωτα", "Επιβεβαιωμενα", "Ολοκληρωμενα" };
+    private static final String[] TAB_TITLES = new String[]{ "Unconfirmed", "Confirmed", "Completed" };
 
     private final Context mContext;
     public ViewRepairRequestsPagerAdapter(Context context, FragmentManager fm) {
