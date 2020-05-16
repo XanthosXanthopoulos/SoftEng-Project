@@ -28,4 +28,34 @@ public class TechnicianRepairRequestsTest {
         ArrayList<RepairRequest> repairRequests = presenter.searchRepairRequests(1, RepairRequest.Status.UNCONFIRMED);
         Assert.assertEquals(2, repairRequests.size());
     }
+
+    @Test
+    public void searchForConfirmedRepairRequests(){
+        ArrayList<RepairRequest> repairRequests = presenter.searchRepairRequests(1, RepairRequest.Status.CONFIRMED);
+        Assert.assertEquals(2, repairRequests.size());
+    }
+
+    @Test
+    public void searchForCompletedRepairRequests(){
+        ArrayList<RepairRequest> repairRequests = presenter.searchRepairRequests(1, RepairRequest.Status.COMPLETED);
+        Assert.assertEquals(4, repairRequests.size());
+    }
+
+    @Test
+    public void clickedParticularUnconfirmed(){
+        view.returnRepairRequestUnconfirmed(1);
+        Assert.assertEquals(1, view.getCurrentRepairRequestUid());
+    }
+
+    @Test
+    public void clickedParticularConfirmed(){
+        view.returnRepairRequestConfirmed(1);
+        Assert.assertEquals(1, view.getCurrentRepairRequestUid());
+    }
+
+    @Test
+    public void clickedParticularCompleted(){
+        view.returnRepairRequestConfirmed(1);
+        Assert.assertEquals(1, view.getCurrentRepairRequestUid());
+    }
 }

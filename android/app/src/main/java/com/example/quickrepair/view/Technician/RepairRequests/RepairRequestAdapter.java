@@ -33,7 +33,7 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
         public ViewHolder(ViewGroup v) {
             super(v);
             listItem = v;
-            txtRepairRequest = listItem.findViewById(R.id.repair_request_data);
+            txtRepairRequest = listItem.findViewById(R.id.txt_repair_request);
             btnSelectRepairRequest = listItem.findViewById(R.id.btn_select_repair_request);
         }
     }
@@ -62,7 +62,7 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
         //get Repair Request
         final RepairRequest repairRequestAtPosition = itemList.get(position);
 
-        holder.txtRepairRequest.setText(repairRequestAtPosition.getCustomer().getUsername());
+        holder.txtRepairRequest.setText(repairRequestAtPosition.getJob().getJobType().getName() +"\nΑπό: " + repairRequestAtPosition.getCustomer().getUsername());
         holder.btnSelectRepairRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

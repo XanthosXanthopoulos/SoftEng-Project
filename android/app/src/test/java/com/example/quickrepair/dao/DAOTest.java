@@ -2,6 +2,8 @@ package com.example.quickrepair.dao;
 
 
 import com.example.quickrepair.domain.Customer;
+import com.example.quickrepair.domain.Job;
+import com.example.quickrepair.domain.JobType;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.domain.Technician;
@@ -22,6 +24,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DAOTest {
     private AreaDAO areaDAO;
@@ -84,5 +87,43 @@ public class DAOTest {
         ArrayList<RepairRequest> repairRequests = repairRequestDAO.findAllForTechnicianByStatus(1, RepairRequest.Status.UNCONFIRMED);
         Assert.assertEquals(2, repairRequests.size());
     }
+
+    @Test
+    public void findParticularTechnicianRepairRequestConfirmed() {
+        ArrayList<RepairRequest> repairRequests = repairRequestDAO.findAllForTechnicianByStatus(1, RepairRequest.Status.CONFIRMED);
+        Assert.assertEquals(2, repairRequests.size());
+    }
+
+    @Test
+    public void findParticularTechnicianRepairRequestCompleted() {
+        ArrayList<RepairRequest> repairRequests = repairRequestDAO.findAllForTechnicianByStatus(1, RepairRequest.Status.COMPLETED);
+        Assert.assertEquals(4, repairRequests.size());
+    }
+
+    @Test
+    public void findParticularTechnicianRepairRequestRejected() {
+        ArrayList<RepairRequest> repairRequests = repairRequestDAO.findAllForTechnicianByStatus(1, RepairRequest.Status.REJECTED);
+        Assert.assertEquals(1, repairRequests.size());
+    }
+
+    @Test
+    public void getParticularJobType(){
+        JobType jobType = jobTypeDAO.find(2);
+        Assert.assertEquals("Αλλαγή γραμμής ethernet", jobType.getName());
+    }
+
+    @Test
+    public void getParticularJob(){
+        Job job = jobDAO.find(2);
+        Assert.assertEquals("ΓΙΑΝΝΗΣ", job.getTechnician().getName());
+        Assert.assertEquals("aggelidis", job.getTechnician().getUsername());
+    }
+
+    @Test
+    public void getAllTechnicians(){
+        List<Technician> technicians = technicianDAO.findAll();
+        Assert.assertEquals(6, technicians.size());
+    }
+
 
 }

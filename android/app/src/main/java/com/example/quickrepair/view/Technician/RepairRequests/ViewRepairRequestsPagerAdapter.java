@@ -3,17 +3,13 @@ package com.example.quickrepair.view.Technician.RepairRequests;
 import android.content.Context;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.quickrepair.R;
-
 public class ViewRepairRequestsPagerAdapter extends FragmentPagerAdapter {
 
-    @StringRes
-    private static final int[] TAB_TITLES = new int[] { R.string.unconfirmed_position1, R.string.confirmed_position2, R.string.completed_position3 };
+    private static final String[] TAB_TITLES = new String[]{ "Ανεπιβεβαιωτα", "Επιβεβαιωμενα", "Ολοκληρωμενα" };
 
     private final Context mContext;
     public ViewRepairRequestsPagerAdapter(Context context, FragmentManager fm) {
@@ -36,7 +32,7 @@ public class ViewRepairRequestsPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getString(TAB_TITLES[position]);
+        return TAB_TITLES[position];
     }
     @Override
     public int getCount() {

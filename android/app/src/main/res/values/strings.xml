@@ -14,11 +14,8 @@
     <string name="login">Login</string>
 
     <string name="unconfirmed">Unconfirmed</string>
-    <string name="unconfirmed_position1">1</string>
 
     <string name="confirmed">Confirmed</string>
-    <string name="confirmed_position2">2</string>
 
     <string name="completed">Completed</string>
-    <string name="completed_position3">3</string>
 </resources>
