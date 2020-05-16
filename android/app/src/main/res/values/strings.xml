@@ -12,4 +12,5 @@
     <string name="registerCustomer">Register As Customer</string>
     <string name="registerTechnician">Register As Technician</string>
     <string name="login">Login</string>
+    <string name="ok">OK</string>
 </resources>
