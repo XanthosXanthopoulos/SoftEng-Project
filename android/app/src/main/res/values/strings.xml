@@ -12,5 +12,11 @@
     <string name="registerCustomer">Register As Customer</string>
     <string name="registerTechnician">Register As Technician</string>
     <string name="login">Login</string>
+
+    <string name="unconfirmed">Unconfirmed</string>
+
+    <string name="confirmed">Confirmed</string>
+
+    <string name="completed">Completed</string>
     <string name="ok">OK</string>
 </resources>

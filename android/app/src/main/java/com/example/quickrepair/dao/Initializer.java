@@ -122,7 +122,7 @@ public abstract class Initializer {
         TechnicianDAO technicianDAO = getTechnicianDAO();
 
         Technician technicianTmp;
-        technicianTmp = new Technician("ΓΙΑΝΝΗΣ", "ΑΓΓΕΛΪΔΗΣ", "698383838383", "aggelidisgiannis@repair.gr", "02345","aggelidis AE","123", getSpecialtyDAO().find(1),"2122772");
+        technicianTmp = new Technician("ΓΙΑΝΝΗΣ", "ΑΓΓΕΛΪΔΗΣ", "1010101010", "aggelidisgiannis@repair.gr", "02345","aggelidis","123", getSpecialtyDAO().find(1),"2122772");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Agia Varvara");
         technicianTmp.addArea("Alimos");
@@ -130,7 +130,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΠΑΝΑΓΙΩΤΗΣ", "ΖΑΧΟΣ", "75758392038", "zaxosohlktrologos@repair.gr", "003456","zaxos","123", getSpecialtyDAO().find(1),"212272");
+        technicianTmp = new Technician("ΠΑΝΑΓΙΩΤΗΣ", "ΖΑΧΟΣ", "1010101010", "zaxosohlktrologos@repair.gr", "003456","zaxos","123", getSpecialtyDAO().find(1),"212272");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Acharnes");
         technicianTmp.addArea("Alimos");
@@ -138,7 +138,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΔΗΜΗΤΡΗΣ", "ΔΑΜΑΣΚΗΝΟΣ", "75758300038", "damaskhnos@repair.gr", "199456","damaskhnos","123", getSpecialtyDAO().find(2),"210072");
+        technicianTmp = new Technician("ΔΗΜΗΤΡΗΣ", "ΔΑΜΑΣΚΗΝΟΣ", "1010101010", "damaskhnos@repair.gr", "199456","damaskhnos","123", getSpecialtyDAO().find(2),"210072");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Amaliada");
         technicianTmp.addArea("Alimos");
@@ -146,7 +146,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΗΛΙΑΣ", "ΑΡΓΥΡΙΑΔΗΣ", "75008300038", "hlias_argiriadis@repair.gr", "199456","argyriadis","123", getSpecialtyDAO().find(2),"200072");
+        technicianTmp = new Technician("ΗΛΙΑΣ", "ΑΡΓΥΡΙΑΔΗΣ", "7500830008", "hlias_argiriadis@repair.gr", "199456","argyriadis","123", getSpecialtyDAO().find(2),"200072");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Acharnes");
         technicianTmp.addArea("Alimos");
@@ -154,7 +154,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΝΙΚΟΣ", "ΣΜΥΡΝΙΟΥΔΗΣ", "75990300038", "smyrnioudis@repair.gr", "123419","smyrnioudis","123", getSpecialtyDAO().find(3),"211002");
+        technicianTmp = new Technician("ΝΙΚΟΣ", "ΣΜΥΡΝΙΟΥΔΗΣ", "7599030003", "smyrnioudis@repair.gr", "123419","smyrnioudis","123", getSpecialtyDAO().find(3),"211002");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Artemida");
         technicianTmp.addArea("Aspropyrgos");
@@ -162,7 +162,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΞΑΝΘΟΣ", "ΞΑΝΘΟΠΟΥΛΟΣ", "75990309038", "xanthopoulos@repair.gr", "123439","xanthopoulos","123", getSpecialtyDAO().find(3),"211202");
+        technicianTmp = new Technician("ΞΑΝΘΟΣ", "ΞΑΝΘΟΠΟΥΛΟΣ", "7599030903", "xanthopoulos@repair.gr", "123439","xanthopoulos","123", getSpecialtyDAO().find(3),"211202");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Artemida");
         technicianTmp.addArea("Aspropyrgos");
@@ -193,7 +193,7 @@ public abstract class Initializer {
         jobTmp.setUid(jobDAO.nextId());
         jobDAO.save(jobTmp);
 
-        jobTmp = technicianDAO.find(2).addJob(jobTypeDAO.find(2),110);
+        jobTmp = technicianDAO.find(2).addJob(jobTypeDAO.find(3),110);
         jobTmp.setUid(jobDAO.nextId());
         jobDAO.save(jobTmp);
 
@@ -231,16 +231,20 @@ public abstract class Initializer {
 
         //uncormirmed
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar2, jobDAO.find(2),"Έχω 3 χαλασμένες λάμπες. Είναι επίγον", address1);
+        repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar3,getJobDAO().find(3),"Είναι επίγον", address1);
+        repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
         //confirm
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar3,getJobDAO().find(2),"Είναι επίγον!!", address2);
+        repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar4,getJobDAO().find(3),"Είναι επίγον!!!", address2);
+        repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
         repairRequestDAO.find(3).confirm(30);
@@ -249,34 +253,49 @@ public abstract class Initializer {
 
         //completed
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!", address2);
+        repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(3),"Είναι επίγον!!!", address2);
+        repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
-        repairRequest = customerDAO.find(2).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!", address2);
+        repairRequest = customerDAO.find(2).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!", address1);
+        repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
-        repairRequest = customerDAO.find(3).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!", address2);
+        repairRequest = customerDAO.find(3).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!", address1);
+        repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
+
+        //rejected
+        repairRequest = customerDAO.find(2).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!", address1);
+        repairRequest.setUid(repairRequestDAO.nextId());
+        repairRequestDAO.save(repairRequest);
+        repairRequestDAO.find(9).reject();
+
 
         RepairDAO repairDAO = getRepairDAO();
 
         Repair repair;
         repairRequestDAO.find(5).confirm(30);
         repair = repairRequestDAO.find(5).complete(1);
+        repair.setUid(repairDAO.nextId());
         repairDAO.save(repair);
 
         repairRequestDAO.find(6).confirm(20);
         repair = repairRequestDAO.find(6).complete(10);
+        repair.setUid(repairDAO.nextId());
         repairDAO.save(repair);
 
         repairRequestDAO.find(7).confirm(20);
         repair = repairRequestDAO.find(7).complete(2);
+        repair.setUid(repairDAO.nextId());
         repairDAO.save(repair);
 
         repairRequestDAO.find(8).confirm(20);
         repair = repairRequestDAO.find(8).complete(60);
+        repair.setUid(repairDAO.nextId());
         repairDAO.save(repair);
 
         EvaluationDAO evaluationDAO = getEvaluationDAO();
