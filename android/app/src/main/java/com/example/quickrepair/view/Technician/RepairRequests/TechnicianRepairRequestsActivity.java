@@ -22,7 +22,8 @@ import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.Tech
 
 import com.google.android.material.tabs.TabLayout;
 
-public class TechnicianRepairRequestsActivity extends AppCompatActivity implements TechnicianRepairRequestsView{
+public class TechnicianRepairRequestsActivity extends AppCompatActivity implements TechnicianRepairRequestsView
+{
 
     //TODO: set 0
     private static int technicianID = 1;
@@ -35,18 +36,22 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     boolean initialized = false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.technician_repair_requests);
 
         //TODO: delete debug code, uncomment code
         if(initialized == false){
+
             new MemoryInitializer().prepareData();
             initialized = true;
         }
+
         //get Technician id
-        //Intent intent = getIntent();
-        //technicianID = intent.getIntExtra(TECHNICIAN_ID_EXTRA, 0);
+
+        Intent intent = getIntent();
+        technicianID = intent.getIntExtra("TECHNICIAN_ID_EXTRA", 0);
 
         technicianID = 1;
         technicianRepairRequestsViewModel = new ViewModelProvider(this).get(TechnicianRepairRequestsViewModel.class);
@@ -106,7 +111,8 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     }
 
     @Override
-    public void returnRepairRequestConfirmed(int repairRequestUid) {
+    public void returnRepairRequestConfirmed(int repairRequestUid)
+    {
         // return result to calling Activity
         Intent intent = new Intent(this, TechnicianConfirmedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
@@ -115,7 +121,8 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     }
 
     @Override
-    public void returnRepairRequestCompleted(int repairRequestUid) {
+    public void returnRepairRequestCompleted(int repairRequestUid)
+    {
         // return result to calling Activity
         Intent intent = new Intent(this, TechnicianCompletedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
@@ -123,11 +130,13 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     }
 
 
-    public TechnicianRepairRequestsViewModel getViewModel() {
+    public TechnicianRepairRequestsViewModel getViewModel()
+    {
         return technicianRepairRequestsViewModel;
     }
 
-    public static int getTechnicianID() {
+    public static int getTechnicianID()
+    {
         return technicianID;
     }
 
