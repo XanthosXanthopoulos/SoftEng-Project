@@ -1,9 +1,10 @@
-package com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest;
+package com.example.quickrepair.view.Technician.ShowCompletedRepairRequest;
 
-public interface TechnicianUnconfirmedRepairRequestView {
+public interface TechnicianCompletedRepairRequestView {
 
-    void reject();
-    void confirm();
+    void setEstimatedDuration(String conductionDate);
+
+    void setPrice(String conductionDate);
 
     void showError(String message);
 
@@ -12,6 +13,4 @@ public interface TechnicianUnconfirmedRepairRequestView {
     void setAddress(String Address);
     void setComments(String comments);
     void setConductionDate(String conductionDate);
-    void setButtonsListeners();
-
 }

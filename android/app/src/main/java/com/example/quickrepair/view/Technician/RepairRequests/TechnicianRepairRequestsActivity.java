@@ -110,6 +110,8 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         // return result to calling Activity
         Intent intent = new Intent(this, TechnicianConfirmedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
+        this.startActivity(intent);
     }
 
     @Override
@@ -117,6 +119,7 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         // return result to calling Activity
         Intent intent = new Intent(this, TechnicianCompletedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
+        this.startActivity(intent);
     }
 
 

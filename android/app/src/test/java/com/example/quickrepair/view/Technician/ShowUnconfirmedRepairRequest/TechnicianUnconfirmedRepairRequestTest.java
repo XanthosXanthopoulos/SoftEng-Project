@@ -11,7 +11,6 @@ import org.junit.Test;
 public class TechnicianUnconfirmedRepairRequestTest {
     TechnicianUnconfirmedRepairRequestViewStub view;
     TechnicianUnconfirmedRepairRequestPresenter presenter;
-    RepairRequest repairRequest;
 
     @Before
     public void setUp(){
@@ -20,28 +19,27 @@ public class TechnicianUnconfirmedRepairRequestTest {
         presenter.setView(view);
         new MemoryInitializer().prepareData();
         presenter.setRepairRequestDAOMemory(new RepairRequestDAOMemory());
-        repairRequest = presenter.searchRepairRequestData(1);
+        presenter.searchRepairRequestData(1);
     }
     @Test
-    public void testSearch(){
-        Assert.assertNotNull(repairRequest);
+    public void checkSetters(){
+        Assert.assertEquals(6, view.getSumOfsetter());
     }
+
     @Test
     public void testReject(){
         presenter.setReject();
-        Assert.assertEquals(RepairRequest.Status.REJECTED, repairRequest.getStatus());
         Assert.assertEquals(1, view.getState());
     }
     @Test
     public void testConfirmOk(){
         presenter.setConfirm("1");
-        Assert.assertEquals(RepairRequest.Status.CONFIRMED, repairRequest.getStatus());
         Assert.assertEquals(2, view.getState());
     }
     @Test
     public void testError(){
         presenter.setConfirm("Hello");
-        Assert.assertEquals(RepairRequest.Status.UNCONFIRMED, repairRequest.getStatus());
         Assert.assertEquals(3, view.getState());
     }
+
 }

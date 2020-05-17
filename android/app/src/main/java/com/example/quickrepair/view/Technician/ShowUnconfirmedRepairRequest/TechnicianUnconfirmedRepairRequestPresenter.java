@@ -3,6 +3,7 @@ package com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest;
 import com.example.quickrepair.R;
 import com.example.quickrepair.dao.RepairRequestDAO;
 import com.example.quickrepair.domain.RepairRequest;
+import com.example.quickrepair.util.Utilities;
 
 public class TechnicianUnconfirmedRepairRequestPresenter {
     private TechnicianUnconfirmedRepairRequestView view;
@@ -11,9 +12,22 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
 
     TechnicianUnconfirmedRepairRequestPresenter(){}
 
-    public RepairRequest searchRepairRequestData(int repairRequestId){
+    public void searchRepairRequestData(int repairRequestId){
+        if(repairRequestId == 0){
+            view.showError("Something went wrong");
+        }
+
         this.repairRequest = repairRequestDAOMemory.find(repairRequestId);
-        return repairRequest;
+
+        if(this.repairRequest == null){
+            view.showError("Something went wrong");
+        }
+        view.setJob(repairRequest.getJob().getJobType().getName());
+        view.setConsumerName("From: " + "\n" + repairRequest.getCustomer().getName());
+        view.setAddress("Address: " + "\n" + repairRequest.getAddress().toString());
+        view.setComments("Comments: " + "\n" + repairRequest.getCommentsFromCustomer());
+        view.setConductionDate("Date: " + "\n" + Utilities.getToString(repairRequest.getConductionDate()));
+        view.setButtonsListeners();
     }
 
     public void setReject(){

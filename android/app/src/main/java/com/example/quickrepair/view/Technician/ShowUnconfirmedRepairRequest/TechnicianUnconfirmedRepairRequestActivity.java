@@ -30,6 +30,7 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
     private static int repairRequestID = 0;
     private static int technicianID = 0;
     private TechnicianUnconfirmedRepairRequestViewModel technicianRepairRequestsViewModel;
+    private TechnicianUnconfirmedRepairRequestPresenter presenter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,46 +42,10 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
 
         technicianRepairRequestsViewModel = new ViewModelProvider(this).get(TechnicianUnconfirmedRepairRequestViewModel.class);
 
-        final TechnicianUnconfirmedRepairRequestPresenter presenter = technicianRepairRequestsViewModel.getPresenter();
+        presenter = technicianRepairRequestsViewModel.getPresenter();
         presenter.setView(this);
 
-        RepairRequest repairRequest = presenter.searchRepairRequestData(repairRequestID);
-
-        //set ui
-         TextView job = findViewById(R.id.job);
-         job.setText(repairRequest.getJob().getJobType().getName());
-
-        TextView consumer = findViewById(R.id.consumer);
-        String fromString = getResources().getString(R.string.from);
-        consumer.setText(fromString + "\n"+repairRequest.getCustomer().getUsername());
-
-        TextView address = findViewById(R.id.address);
-        String addressString = getResources().getString(R.string.address);
-        address.setText(addressString + "\n" +repairRequest.getAddress().toString());
-
-        TextView comments = findViewById(R.id.comments);
-        String commentsString= getResources().getString(R.string.comments);
-        comments.setText(commentsString + "\n" + repairRequest.getCommentsFromCustomer());
-
-        TextView conductionDate = findViewById(R.id.conduction_date);
-        String conductionDateString = getResources().getString(R.string.date);
-        conductionDate.setText(conductionDateString + "\n" + Utilities.getToString(repairRequest.getConductionDate()));
-
-        Button buttonReject = findViewById(R.id.reject);
-        buttonReject.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                presenter.setReject();
-            }
-        });
-
-        Button buttonConfirm = findViewById(R.id.confirm);
-        buttonConfirm.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                EditText editText = findViewById(R.id.duration);
-                String input = editText.getText().toString();
-                presenter.setConfirm(input);
-            }
-        });
+        presenter.searchRepairRequestData(repairRequestID);
     }
 
 
@@ -105,6 +70,56 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
     @Override
     public void showError(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void setJob(String job) {
+        TextView jobTextView = findViewById(R.id.job);
+        jobTextView.setText(job);
+    }
+
+    @Override
+    public void setConsumerName(String consumerName) {
+        TextView consumerTextView = findViewById(R.id.consumer);
+        consumerTextView.setText(consumerName);
+    }
+
+    @Override
+    public void setAddress(String address) {
+        TextView addressTextView = findViewById(R.id.address);
+        addressTextView.setText(address);
+    }
+
+    @Override
+    public void setComments(String comments) {
+        TextView commentsTextView = findViewById(R.id.comments);
+        commentsTextView.setText(comments);
+    }
+
+    @Override
+    public void setConductionDate(String conductionDate) {
+        TextView conductionDateTextView = findViewById(R.id.conduction_date);
+        conductionDateTextView.setText(conductionDate);
+
+    }
+
+    @Override
+    public void setButtonsListeners() {
+        Button buttonReject = findViewById(R.id.reject);
+        buttonReject.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                presenter.setReject();
+            }
+        });
+
+        Button buttonConfirm = findViewById(R.id.confirm);
+        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.duration);
+                String input = editText.getText().toString();
+                presenter.setConfirm(input);
+            }
+        });
     }
 
 }
