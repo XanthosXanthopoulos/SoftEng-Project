@@ -25,68 +25,77 @@ public class SearchTechniciansPresenter {
     private AreaDAO areaDAO;
 
 
-    public SearchTechniciansPresenter(SearchTechniciansView view , TechnicianDAO technicianDAO,
+    public SearchTechniciansPresenter(TechnicianDAO technicianDAO,
                                       SpecialtyDAO specialtyDAO , JobTypeDAO jobTypeDAO ,
                                       AreaDAO areaDAO
                                       ){
         this.technicianDAO = technicianDAO;
-        this.view = view;
         this.specialtyDAO = specialtyDAO;
         this.jobTypeDAO = jobTypeDAO;
         this.areaDAO = areaDAO;
     }
 
-    /**
-     * Starts the use case by looking through the dao and showing the specialty dialog
-     */
-    public void onStart(){
-        List<Specialty> specialties =  specialtyDAO.findAll();
-        List<Integer> specialtiesIds = new ArrayList<>();
-        List<String> specialtyNames = new ArrayList<>();
-        for(Specialty e : specialties){
-            specialtiesIds.add(e.getUid());
-            specialtyNames.add(e.getName());
-        }
-        view.showSpecialtyDialog(specialtiesIds , specialtyNames);
+    public void setView(SearchTechniciansView view){
+        this.view = view;
     }
 
     /**
-     * Selects the specialty and shows the dialog to choose the job tpye
-     * @param specialtyId the id of the specialty to select
+     * Starts the use case by looking through the dao and keeping all the specialties
+     */
+    public void onStart(){
+        List<Specialty> specialties =  specialtyDAO.findAll();
+        List<Integer> specialtyIds = new ArrayList<>();
+        List<String> specialtyNames = new ArrayList<>();
+        for(Specialty e : specialties){
+            specialtyIds.add(e.getUid());
+            specialtyNames.add(e.getName());
+        }
+        view.setSpecialtiesSource(specialtyIds , specialtyNames);
+        view.setJobTypeSpinnerEnabled(false);
+        view.setAreasSource(areaDAO.getAreas());
+    }
+    /**
+     *  Responds to the user selecting a specialty
      */
     public void selectSpecialty(int specialtyId){
-        Specialty specialty = specialtyDAO.find(specialtyId);
-        Set<JobType> jobTypes = specialty.getJobTypes();
+        Specialty selectedSpecialty =  specialtyDAO.find(specialtyId);
+        List<JobType> jobTypes =  jobTypeDAO.findAll();
         List<Integer> jobTypeIds = new ArrayList<>();
         List<String> jobTypeNames = new ArrayList<>();
-        for(JobType jobType : jobTypes){
-            jobTypeIds.add(jobType.getUid());
-            jobTypeNames.add(jobType.getName());
+        //Selecting only jobtypes of selected specialty
+        for(JobType e : jobTypes){
+            if(e.getSpecialty().getUid() == specialtyId){
+                jobTypeIds.add(e.getUid());
+                jobTypeNames.add(e.getName());
+            }
         }
-        view.showJobTypeDialog(jobTypeIds , jobTypeNames);
+        view.setJobTypesSource(jobTypeIds , jobTypeNames);
+        //Setting the job type drop down as enabled so the user can choose
+        view.setJobTypeSpinnerEnabled(true);
     }
+
 
     /**
      * A list that represents the technicians that are showed on the view
      */
-    List<Technician> techniciansFound = new ArrayList<>();
+    private List<Technician> techniciansFound = new ArrayList<>();
+    private int selectedJobTypeId;
     /**
      * Selects the jobType to search for
      * @param jobTypeId
      */
     public void selectJobType(int jobTypeId){
+        selectedJobTypeId = jobTypeId;
         List<Technician> technicians =  technicianDAO.findAll();
         for(Technician technician : technicians){
-            if(offersJobType(technician , jobTypeId)){
+            if(offersJobType(technician.getUid() , jobTypeId)){
                 techniciansFound.add(technician);
             }
         }
         repopulateTechnicianList();
 
     }
-    public List<String> getAllAreas(){
-        return areaDAO.getAreas();
-    }
+
     public void filterArea(String area){
         List<Technician> tempTechnicians = new ArrayList<>();
         for(Technician technician : techniciansFound){
@@ -100,6 +109,29 @@ public class SearchTechniciansPresenter {
 
     }
 
+    public void filterByMaxPrice(String input){
+        double price = 0;
+        //Checking if user has entered a valid price
+        try{
+            price = Double.parseDouble(input);
+        }
+        catch (NumberFormatException e){
+            view.showErrorMessage("Please enter a valid from of price");
+            return;
+        }
+        List<Technician> tempTechnicians = new ArrayList<>();
+        for(Technician technician : techniciansFound){
+            if(offersJobTypeForLessThan(technician.getUid() , selectedJobTypeId , price)) {
+                tempTechnicians.add(technician);
+            }
+        }
+        techniciansFound = tempTechnicians;
+        //Refreshing the technicianList
+        repopulateTechnicianList();
+
+    }
+    //TODO Select Date
+
     private void repopulateTechnicianList() {
         List<Integer> technicianIds = new ArrayList<>();
         //TODO Get average ratings from a technician reference for a jobtype or whatever
@@ -112,7 +144,7 @@ public class SearchTechniciansPresenter {
             technicianIds.add(technician.getUid());
             technicianNames.add(technician.getName());
             averageTechnicianRatings.add(0.0);
-            prices.add(0.0);
+            prices.add(getTechnicianPriceForJobType(technician.getUid() , selectedJobTypeId));
         }
         view.populateTechnicianList(technicianIds , technicianNames , averageRatings , prices);
     }
@@ -120,13 +152,34 @@ public class SearchTechniciansPresenter {
 
 
     //TODO Move this in domain or dao ?
-    private boolean offersJobType(Technician technician , int jobTypeId){
+    private boolean offersJobType(int technicianId , int jobTypeId){
+        Technician technician = technicianDAO.find(technicianId);
         for(Job job : technician.getJobs()){
             if(job.getJobType().getUid() == jobTypeId){
                 return true;
             }
         }
         return false;
+    }
+    private boolean offersJobTypeForLessThan(int technicianId , int jobTypeId , double price){
+        Technician technician = technicianDAO.find(technicianId);
+        for(Job job : technician.getJobs()){
+            if(job.getJobType().getUid() == jobTypeId){
+                if(job.getPrice() <= price){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private double getTechnicianPriceForJobType(int technicianId , int jobTypeId){
+        Technician technician = technicianDAO.find(technicianId);
+        for(Job job : technician.getJobs()){
+            if(job.getJobType().getUid() == jobTypeId){
+                return job.getPrice();
+            }
+        }
+        return 0;
     }
 
 

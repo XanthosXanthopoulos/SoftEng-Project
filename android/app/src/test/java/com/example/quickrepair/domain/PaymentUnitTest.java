@@ -1,4 +1,4 @@
-package com.example.quickrepair;
+package com.example.quickrepair.domain;
 
 import com.example.quickrepair.domain.Evaluation;
 import com.example.quickrepair.domain.Payment;
