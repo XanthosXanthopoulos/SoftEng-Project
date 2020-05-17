@@ -87,6 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/AFM"/>
 
     <Button
+        android:id="@+id/RegisterButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Speciality"

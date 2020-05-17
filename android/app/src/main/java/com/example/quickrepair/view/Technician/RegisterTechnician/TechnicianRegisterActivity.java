@@ -1,24 +1,47 @@
 package com.example.quickrepair.view.Technician.RegisterTechnician;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Technician.AddEditArea;
+import com.example.quickrepair.view.User.LoginUser.LoginPresenter;
+import com.example.quickrepair.view.User.LoginUser.LoginViewModel;
 
 import java.util.List;
 
 public class TechnicianRegisterActivity extends AppCompatActivity implements TechnicianRegisterView
 {
 
+    TechnicianRegisterViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_register);
+
+        viewModel = new ViewModelProvider(this).get(TechnicianRegisterViewModel.class);
+        final TechnicianRegisterPresenter presenter = viewModel.getPresenter();
+        presenter.setView(this);
+
+
+        findViewById(R.id.RegisterButton).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                presenter.registerTechnician();
+            }
+        });
     }
 
     @Override
@@ -72,7 +95,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
     @Override
     public Integer getSpecialityID()
     {
-        return null;
+        return ((Spinner)findViewById(R.id.Speciality)).getSelectedItemPosition() - 1;
     }
 
     @Override
@@ -88,12 +111,14 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
     @Override
     public void onSuccessfulRegister(Integer id)
     {
-
+        Intent intent = new Intent(this, AddEditArea.class);
+        intent.putExtra("TECHNICIAN_ID_EXTRA", id);
+        startActivity(intent);
     }
 
     @Override
     public void showErrorMessage(String title, String message)
     {
-
+        new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
     }
 }
