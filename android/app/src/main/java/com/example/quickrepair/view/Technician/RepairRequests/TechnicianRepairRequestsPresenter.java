@@ -11,27 +11,41 @@ import java.util.ArrayList;
 public class TechnicianRepairRequestsPresenter {
     private TechnicianRepairRequestsView view;
     private RepairRequestDAOMemory repairRequestDAO;
+    private ArrayList<RepairRequest> repairRequests;
 
     public TechnicianRepairRequestsPresenter(){}
 
     public ArrayList<RepairRequest> searchRepairRequests(int techid, RepairRequest.Status status){
         if(techid != 0 && status!=null){
             //get repair requests from DAO
-            return repairRequestDAO.findAllForTechnicianByStatus(techid, status);
+            repairRequests = this.repairRequestDAO.findAllForTechnicianByStatus(techid, status);
+            return repairRequests;
         }
         return null;
     }
 
     public void onRepairRequestSelectedUnconfirmed(RepairRequest repairRequest){
-        view.returnRepairRequestUnconfirmed(repairRequest.getUid());
+        if(repairRequest == null || repairRequest.getUid() == 0){
+            view.showError("Κάτι πήγε στραβά");
+        }else {
+            view.returnRepairRequestUnconfirmed(repairRequest.getUid());
+        }
     }
 
     public void onRepairRequestSelectedConfirmed(RepairRequest repairRequest){
-        view.returnRepairRequestConfirmed(repairRequest.getUid());
+        if(repairRequest == null || repairRequest.getUid() == 0){
+            view.showError("Κάτι πήγε στραβά");
+        }else {
+            view.returnRepairRequestConfirmed(repairRequest.getUid());
+        }
     }
 
     public void onRepairRequestSelectedCompleted(RepairRequest repairRequest){
-        view.returnRepairRequestCompleted(repairRequest.getUid());
+        if(repairRequest == null || repairRequest.getUid() == 0){
+            view.showError("Κάτι πήγε στραβά");
+        }else {
+            view.returnRepairRequestCompleted(repairRequest.getUid());
+        }
     }
 
     public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAO) {

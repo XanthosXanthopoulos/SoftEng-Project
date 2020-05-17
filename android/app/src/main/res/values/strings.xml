@@ -12,14 +12,17 @@
     <string name="registerCustomer">Register As Customer</string>
     <string name="registerTechnician">Register As Technician</string>
     <string name="login">Login</string>
-
     <string name="unconfirmed">Unconfirmed</string>
-
     <string name="confirmed">Confirmed</string>
-
     <string name="completed">Completed</string>
     <string name="specialty">Specialty</string>
     <string name="job_type">Job Type</string>
     <string name="max_price">Maximum Price</string>
     <string name="area">Area</string>
+    <string name="duration_hint">Please enter estimated duration(minutes)</string>
+    <string name="comments">Comments:</string>
+    <string name="from">From:</string>
+    <string name="date">Date:</string>
+    <string name="address">Address:</string>
+    <string name="ok">OK</string>
 </resources>

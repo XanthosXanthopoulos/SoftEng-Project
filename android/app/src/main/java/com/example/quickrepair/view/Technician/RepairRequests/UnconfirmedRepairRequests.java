@@ -78,6 +78,7 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
 
     /**
      * The method will be called by the adapter, whenever the user clicks on a list item
+     *
      * @param item Repair Request
      */
     @Override

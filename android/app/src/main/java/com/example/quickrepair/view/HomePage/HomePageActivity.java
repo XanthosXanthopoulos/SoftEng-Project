@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.memorydao.MemoryInitializer;
 import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterActivity;
 import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansActivity;
 import com.example.quickrepair.view.User.LoginUser.LoginActivity;
@@ -21,11 +22,18 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
     public static final int REQUEST_CODE_LOGIN = 2;
     public static final int REQUEST_CODE_REGISTER = 3;
 
+    boolean initialized = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
+
+        if(initialized == false){
+            new MemoryInitializer().prepareData();
+            initialized = true;
+        }
 
         viewModel = new ViewModelProvider(this).get(HomePageViewModel.class);
         final HomePagePresenter presenter = viewModel.getPresenter();
