@@ -13,4 +13,6 @@ public interface TechnicianRepairRequestsView {
     void returnRepairRequestCompleted(int repairRequestUid);
 
     void editData();
+
+    void showError(String message);
 }

@@ -1,5 +1,6 @@
 package com.example.quickrepair.util;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Utilities
@@ -17,5 +18,8 @@ public class Utilities
         int year = actualDate.get(actualDate.YEAR);
 
         return new GregorianCalendar(year, month, day);
+    }
+    public  static String getToString(GregorianCalendar date){
+        return date.get(Calendar.HOUR) + " : " + date.get(Calendar.MINUTE) + "  " + date.get(Calendar.DAY_OF_MONTH) + " / " + date.get(Calendar.MONTH) +" / " + date.get(Calendar.YEAR);
     }
 }

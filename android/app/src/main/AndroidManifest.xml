@@ -13,8 +13,9 @@
         <activity android:name=".view.SearchTechnicians.SearchTechniciansActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".view.User.LoginUser.LoginActivity" />
         <activity android:name=".view.Customer.RegisterCustomer.CustomerRegisterActivity" />
+        <activity android:name="com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestActivity"></activity>
 
-        <activity android:name=".view.Technician.RepairRequests.TechnicianRepairRequestsActivity" android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name="com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
