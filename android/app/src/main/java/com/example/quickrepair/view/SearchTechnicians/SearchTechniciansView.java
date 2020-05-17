@@ -4,24 +4,31 @@ import java.util.List;
 
 public interface SearchTechniciansView {
     /**
-     *  Δείχνει ολους τους τυπους εργασιας για την ειδικότητα που διάλεξε ο χρήστης
+     *  Θέτει τον spinner των τύπων εργασίας ως ενεργοποιημένο
      */
-    public void showJobTypeFromSpecialty(List<String> jobTypeNames);
+    public void setJobTypeSpinnerEnabled(boolean b);
     /**
-     *  Δείχνει μια λιστα με τους τεχνικους
+     *  Δείχνει ένα μήνυμα λάθους
+     */
+    public void showErrorMessage(String errrorMessage);
+    /**
+     *  Ορίζει τις ειδικότητες που μπορουν να εμφανιστούν στον spinner
+     */
+    public void setSpecialtiesSource(List<Integer> specialtyIds , List<String> specialtyNames);
+    /**
+     *  Ορίζει τους τύπους εργασίας που μπορούν να εμφανιστούν στον spinner
+     */
+    public void setJobTypesSource(List<Integer> jobTypeIds , List<String> jobTypeNames);
+    /**
+     *  Ορίζει την λίστα απο περιοχές απο την οποία μπορεί να διαλέξει ο χρήστης
+     */
+    public void setAreasSource(List<String> areas);
+
+    /**
+     *  Γεμίζει την λίστα με τεχνικούς
      */
     public void populateTechnicianList(List<Integer> technicianIds ,  List<String> technicianNames
                                        , List<Double> averageRatings , List<Double> prices);
-
-    /**
-     * Δειχνει μια λιστα με τις διαθέσιμες ειδικότητες απο τις οποίες μπορεί να διαλέξει ο χρήστης.
-     */
-    public void showSpecialtyDialog(List<Integer> specialtyIds , List<String> specialtyNames );
-
-    /**
-     * Δειχνει μια λιστα με τους διαθέσιμους τύπους εργασίας που διάλεξε ο χρήστης.
-     */
-    public void showJobTypeDialog(List<Integer> jobTypeIds , List<String> jobTypeNames);
 
     /**
      * Προχωράει στην περιπτωση χρησης δημιουργία ραντεβού

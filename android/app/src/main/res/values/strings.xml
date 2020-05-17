@@ -18,4 +18,8 @@
     <string name="confirmed">Confirmed</string>
 
     <string name="completed">Completed</string>
+    <string name="specialty">Specialty</string>
+    <string name="job_type">Job Type</string>
+    <string name="max_price">Maximum Price</string>
+    <string name="area">Area</string>
 </resources>
