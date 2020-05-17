@@ -12,4 +12,5 @@ public interface TechnicianRepairRequestsView {
 
     void returnRepairRequestCompleted(int repairRequestUid);
 
+    void editData();
 }

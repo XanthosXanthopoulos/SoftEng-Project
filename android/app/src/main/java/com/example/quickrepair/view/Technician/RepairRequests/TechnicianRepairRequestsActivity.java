@@ -25,7 +25,9 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
 
     private static int technicianID = 1;
     private static TechnicianRepairRequestsViewModel technicianRepairRequestsViewModel;
+
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
+    public static final String TECHNICIAN_ID_EXTRA = "technician_id";
 
     boolean initialized = false;
 
@@ -67,9 +69,21 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
 
         switch (id) {
             case R.id.edit:
+                technicianRepairRequestsViewModel.getPresenter().onEditDataPage();
                return true;
         }
         return super.onOptionsItemSelected(menuItem);
+    }
+
+
+    //TODO:go to edit page
+    @Override
+    public void editData() {
+        // return result to calling Activity
+        Intent intent = new Intent(this, UnconfirmedRepairRequestPage.class);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
+        // close activity
+        finish();
     }
 
     @Override
