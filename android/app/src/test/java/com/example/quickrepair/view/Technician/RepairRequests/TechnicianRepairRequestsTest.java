@@ -58,4 +58,10 @@ public class TechnicianRepairRequestsTest {
         view.returnRepairRequestConfirmed(1);
         Assert.assertEquals(1, view.getCurrentRepairRequestUid());
     }
+
+    @Test
+    public void clickedEditPage(){
+        view.editData();
+        Assert.assertEquals(true, view.getPressEdit());
+    }
 }

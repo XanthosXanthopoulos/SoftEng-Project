@@ -38,6 +38,9 @@ public class TechnicianRepairRequestsPresenter {
         this.repairRequestDAO = repairRequestDAO;
     }
 
+    public void onEditDataPage(){
+        view.editData();
+    }
     public void setView(TechnicianRepairRequestsView view) {
         this.view = view;
     }
