@@ -27,8 +27,8 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
     public static final String TECHNICIAN_ID_EXTRA = "technician_id";
 
-    private static int repairRequestID = 0;
-    private static int technicianID = 0;
+    private static int repairRequestID;
+    private static int technicianID;
     private TechnicianUnconfirmedRepairRequestViewModel technicianRepairRequestsViewModel;
     private TechnicianUnconfirmedRepairRequestPresenter presenter;
 

@@ -27,17 +27,11 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
     private RecyclerView.LayoutManager mLayoutManager;
 
     private static boolean first = true;
-    private static UnconfirmedRepairRequests unconfirmedRepairRequests;
-
     //new instance of this fragment
     public static UnconfirmedRepairRequests newInstance() {
-        if(first) {
-            unconfirmedRepairRequests = new UnconfirmedRepairRequests();
-            return unconfirmedRepairRequests;
-        }else{
-            first = false;
-            return unconfirmedRepairRequests;
-        }
+
+            return new UnconfirmedRepairRequests();
+
     }
 
     @Override

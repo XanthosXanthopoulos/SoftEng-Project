@@ -54,7 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/conduction_date"
-            android:hint="@string/duration_hint" />
+            android:hint="@string/duration_hint"
+            android:textSize="15dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -67,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:src="@android:drawable/ic_delete"></Button>
+                android:src="@android:drawable/ic_input_add"></Button>
 
             <Button
                 android:id="@+id/confirm"

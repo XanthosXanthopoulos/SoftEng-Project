@@ -12,6 +12,7 @@ import com.example.quickrepair.R;
 import com.example.quickrepair.memorydao.MemoryInitializer;
 import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterActivity;
 import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansActivity;
+import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity;
 import com.example.quickrepair.view.User.LoginUser.LoginActivity;
 
 public class HomePageActivity extends AppCompatActivity implements HomePageView {
@@ -96,8 +97,7 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
     @Override
     public void registerAsTechnician() {
         //navigate to register page
-        //TODO: allagh sth sosth klash
-        Intent intent = new Intent(this, SearchTechniciansActivity.class);
+        Intent intent = new Intent(this, TechnicianRegisterActivity.class);
         startActivityForResult(intent, REQUEST_CODE_REGISTER);
         // close activity
         finish();
