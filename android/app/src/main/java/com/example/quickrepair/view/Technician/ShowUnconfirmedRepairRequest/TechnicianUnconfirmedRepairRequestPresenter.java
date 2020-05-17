@@ -23,7 +23,7 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
             view.showError("Something went wrong");
         }
         view.setJob(repairRequest.getJob().getJobType().getName());
-        view.setConsumerName("From: " + "\n" + repairRequest.getCustomer().getName());
+        view.setConsumerName("From: " + "\n" + repairRequest.getCustomer().getUsername());
         view.setAddress("Address: " + "\n" + repairRequest.getAddress().toString());
         view.setComments("Comments: " + "\n" + repairRequest.getCommentsFromCustomer());
         view.setConductionDate("Date: " + "\n" + Utilities.getToString(repairRequest.getConductionDate()));

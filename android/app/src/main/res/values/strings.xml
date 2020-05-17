@@ -18,14 +18,8 @@
     <string name="confirmed">Confirmed</string>
 
     <string name="completed">Completed</string>
-<<<<<<< HEAD
 
     <string name="duration_hint">Please enter estimated duration(minutes)</string>
-    <string name="comments">Comments:</string>
-    <string name="from">From:</string>
-    <string name="date">Date:</string>
-    <string name="address">Address:</string>
-=======
     <string name="ok">OK</string>
 >>>>>>> 01423dc0936c9f36244fec9f1e4830b23b12386e
 </resources>

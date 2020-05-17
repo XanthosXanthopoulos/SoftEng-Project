@@ -2,10 +2,6 @@ package com.example.quickrepair.view.Technician.ShowCompletedRepairRequest;
 
 public interface TechnicianCompletedRepairRequestView {
 
-    void setEstimatedDuration(String conductionDate);
-
-    void setPrice(String conductionDate);
-
     void showError(String message);
 
     void setJob(String job);
@@ -13,4 +9,7 @@ public interface TechnicianCompletedRepairRequestView {
     void setAddress(String Address);
     void setComments(String comments);
     void setConductionDate(String conductionDate);
+    void setEstimatedDuration(String estimatedDuration);
+    void setCost(String cost);
+
 }

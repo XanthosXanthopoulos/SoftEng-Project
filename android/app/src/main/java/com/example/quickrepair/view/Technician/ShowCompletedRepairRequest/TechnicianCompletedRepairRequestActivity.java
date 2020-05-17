@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.quickrepair.R;
-import com.example.quickrepair.domain.RepairRequest;
-import com.example.quickrepair.util.Utilities;
 
 public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity implements TechnicianCompletedRepairRequestView{
 
@@ -22,7 +20,7 @@ public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.technician_unfconfirmed_repair_request);
+        setContentView(R.layout.technician_completed_repair_request);
 
         Intent intent = getIntent();
         repairRequestID = intent.getIntExtra(REPAIR_REQUEST_ID_EXTRA, 0);
@@ -75,9 +73,9 @@ public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity 
     }
 
     @Override
-    public void setPrice(String price) {
-        TextView priceTextView = findViewById(R.id.price);
-        priceTextView.setText(price);
+    public void setCost(String cost) {
+        TextView costTextView = findViewById(R.id.cost);
+        costTextView.setText(cost);
 
     }
     @Override

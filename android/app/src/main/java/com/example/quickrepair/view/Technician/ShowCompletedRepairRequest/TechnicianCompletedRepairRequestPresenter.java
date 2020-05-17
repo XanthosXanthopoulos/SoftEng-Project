@@ -25,12 +25,16 @@ public class TechnicianCompletedRepairRequestPresenter {
             view.showError("Something went wrong");
         }
         view.setJob(repairRequest.getJob().getJobType().getName());
-        view.setConsumerName("From: " + "\n" + repairRequest.getCustomer().getName());
+        view.setConsumerName("From: " + "\n" + repairRequest.getCustomer().getUsername());
         view.setAddress("Address: " + "\n" + repairRequest.getAddress().toString());
         view.setComments("Comments: " + "\n" + repairRequest.getCommentsFromCustomer());
         view.setConductionDate("Date: " + "\n" + Utilities.getToString(repairRequest.getConductionDate()));
-        view.setEstimatedDuration("Estimated Duration: " + "\n" +"");
-        view.setPrice("");
+        view.setEstimatedDuration("Estimated Duration: " + "\n" + repairRequest.getEstimatedDuration());
+        if(repairRequest.getRepair().getPayment() != null) {
+            view.setCost("Cost: " + "\n" + repairRequest.getRepair().getPayment().getCost());
+        }else{
+            view.setCost("Cost: " + "\n" +" - ");
+        }
     }
     public void setView(TechnicianCompletedRepairRequestView view) {
         this.view = view;
