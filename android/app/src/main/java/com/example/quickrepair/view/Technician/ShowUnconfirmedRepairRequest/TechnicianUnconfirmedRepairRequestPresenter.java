@@ -15,12 +15,14 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
     public void searchRepairRequestData(int repairRequestId){
         if(repairRequestId == 0){
             view.showError("Something went wrong");
+            return;
         }
 
         this.repairRequest = repairRequestDAO.find(repairRequestId);
 
         if(this.repairRequest == null){
             view.showError("Something went wrong");
+            return;
         }
         view.setJob(repairRequest.getJob().getJobType().getName());
         view.setConsumerName("From: " + "\n" + repairRequest.getCustomer().getUsername());
@@ -53,7 +55,7 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
         this.view = null;
     }
 
-    public void setRepairRequestDAOMemory(RepairRequestDAO repairRequestDAOMemory) {
-        this.repairRequestDAO = repairRequestDAOMemory;
+    public void setRepairRequestDAOMemory(RepairRequestDAO repairRequestDAO) {
+        this.repairRequestDAO = repairRequestDAO;
     }
 }

@@ -52,7 +52,6 @@ public class TechnicianRepairRequestsPresenter
         }
         else
         {
-            Log.e("Presenteeeer", String.valueOf(repairRequest.getUid()));
             view.returnRepairRequestConfirmed(repairRequest.getUid());
         }
     }
