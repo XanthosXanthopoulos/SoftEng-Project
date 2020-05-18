@@ -31,7 +31,7 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_repair_requests);
 
-        // get Technician id
+        // get customer id
         Intent intent = getIntent();
         customerID = intent.getIntExtra(CUSTOMER_ID_EXTRA, 0);
 
