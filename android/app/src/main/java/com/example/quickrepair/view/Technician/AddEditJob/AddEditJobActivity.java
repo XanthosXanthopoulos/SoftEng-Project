@@ -1,4 +1,4 @@
-package com.example.quickrepair.view.Technician;
+package com.example.quickrepair.view.Technician.AddEditJob;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.quickrepair.R;
 
-public class AddEditJob extends AppCompatActivity
+public class AddEditJobActivity extends AppCompatActivity
 {
 
     @Override

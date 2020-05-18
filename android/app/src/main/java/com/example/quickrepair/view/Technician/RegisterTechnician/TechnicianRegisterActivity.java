@@ -12,9 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.quickrepair.R;
-import com.example.quickrepair.view.Technician.AddEditArea;
-import com.example.quickrepair.view.User.LoginUser.LoginPresenter;
-import com.example.quickrepair.view.User.LoginUser.LoginViewModel;
+import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
 
 import java.util.List;
 
@@ -112,7 +110,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
     @Override
     public void onSuccessfulRegister(Integer id)
     {
-        Intent intent = new Intent(this, AddEditArea.class);
+        Intent intent = new Intent(this, AddEditAreaActivity.class);
         intent.putExtra("TECHNICIAN_ID_EXTRA", id);
         startActivity(intent);
     }
