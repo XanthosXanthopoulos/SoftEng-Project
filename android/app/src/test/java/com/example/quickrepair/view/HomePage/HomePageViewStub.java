@@ -1,6 +1,4 @@
-package com.example.quickrepair.view;
-
-import com.example.quickrepair.view.HomePage.HomePageView;
+package com.example.quickrepair.view.HomePage;
 
 public class HomePageViewStub implements HomePageView {
 

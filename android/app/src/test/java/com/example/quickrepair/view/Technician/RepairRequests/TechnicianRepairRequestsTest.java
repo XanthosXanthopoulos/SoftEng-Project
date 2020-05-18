@@ -13,14 +13,15 @@ import java.util.ArrayList;
 public class TechnicianRepairRequestsTest {
     TechnicianRepairRequestsViewStub view;
     TechnicianRepairRequestsPresenter presenter;
-
+    RepairRequestDAOMemory repairRequestDAOMemory;
     @Before
     public void setUp(){
         view = new TechnicianRepairRequestsViewStub();
         presenter = new TechnicianRepairRequestsPresenter();
         presenter.setView(view);
         new MemoryInitializer().prepareData();
-        presenter.setRepairRequestDAO(new RepairRequestDAOMemory());
+        repairRequestDAOMemory = new RepairRequestDAOMemory();
+        presenter.setRepairRequestDAO(repairRequestDAOMemory);
     }
 
     @Test
@@ -33,6 +34,7 @@ public class TechnicianRepairRequestsTest {
     public void searchForConfirmedRepairRequests(){
         ArrayList<RepairRequest> repairRequests = presenter.searchRepairRequests(1, RepairRequest.Status.CONFIRMED);
         Assert.assertEquals(2, repairRequests.size());
+
     }
 
     @Test
@@ -43,25 +45,48 @@ public class TechnicianRepairRequestsTest {
 
     @Test
     public void clickedParticularUnconfirmed(){
-        view.returnRepairRequestUnconfirmed(1);
+        RepairRequest repairRequest = repairRequestDAOMemory.findAllForTechnicianByStatus(1, RepairRequest.Status.UNCONFIRMED).get(0);
+        presenter.onRepairRequestSelectedUnconfirmed(repairRequest);
         Assert.assertEquals(1, view.getCurrentRepairRequestUid());
+        Assert.assertEquals(1, view.getCurrentState());
     }
 
     @Test
     public void clickedParticularConfirmed(){
-        view.returnRepairRequestConfirmed(1);
-        Assert.assertEquals(1, view.getCurrentRepairRequestUid());
+        RepairRequest repairRequest = repairRequestDAOMemory.findAllForTechnicianByStatus(1, RepairRequest.Status.CONFIRMED).get(0);
+        presenter.onRepairRequestSelectedConfirmed(repairRequest);
+        Assert.assertEquals(3, view.getCurrentRepairRequestUid());
+        Assert.assertEquals(2, view.getCurrentState());
     }
 
     @Test
     public void clickedParticularCompleted(){
-        view.returnRepairRequestConfirmed(1);
-        Assert.assertEquals(1, view.getCurrentRepairRequestUid());
+        RepairRequest repairRequest = repairRequestDAOMemory.findAllForTechnicianByStatus(1, RepairRequest.Status.COMPLETED).get(0);
+        presenter.onRepairRequestSelectedCompleted(repairRequest);
+        Assert.assertEquals(5, view.getCurrentRepairRequestUid());
+        Assert.assertEquals(3, view.getCurrentState());
     }
 
     @Test
     public void clickedEditPage(){
         view.editData();
         Assert.assertEquals(true, view.getPressEdit());
+    }
+
+    @Test
+    public void testError1(){
+        presenter.onRepairRequestSelectedUnconfirmed(null);
+        Assert.assertTrue(view.isError());
+    }
+    @Test
+    public void testError2(){
+        presenter.onRepairRequestSelectedConfirmed(null);
+        Assert.assertTrue(view.isError());
+    }
+
+    @Test
+    public void testError3(){
+        presenter.onRepairRequestSelectedCompleted(null);
+        Assert.assertTrue(view.isError());
     }
 }

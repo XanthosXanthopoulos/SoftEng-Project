@@ -8,6 +8,7 @@ import com.example.quickrepair.domain.Evaluation;
 import com.example.quickrepair.domain.Job;
 import com.example.quickrepair.domain.JobType;
 import com.example.quickrepair.domain.MeasurementUnit;
+import com.example.quickrepair.domain.PaymentType;
 import com.example.quickrepair.domain.Repair;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.domain.Specialty;
@@ -251,7 +252,7 @@ public abstract class Initializer {
 
         repairRequestDAO.find(4).confirm(20);
 
-        //completed
+        //completed, with a payment
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!", address2);
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
@@ -260,6 +261,7 @@ public abstract class Initializer {
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
+        //completed, without a payment
         repairRequest = customerDAO.find(2).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!", address1);
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
@@ -280,23 +282,27 @@ public abstract class Initializer {
         Repair repair;
         repairRequestDAO.find(5).confirm(30);
         repair = repairRequestDAO.find(5).complete(1);
+        repair.pay(gregorianCalendar4, PaymentType.CARD);
         repair.setUid(repairDAO.nextId());
         repairDAO.save(repair);
 
         repairRequestDAO.find(6).confirm(20);
         repair = repairRequestDAO.find(6).complete(10);
+        repair.pay(gregorianCalendar4, PaymentType.CARD);
         repair.setUid(repairDAO.nextId());
         repairDAO.save(repair);
 
+        //without payment
         repairRequestDAO.find(7).confirm(20);
-        repair = repairRequestDAO.find(7).complete(2);
+        repair = repairRequestDAO.find(7).complete(10);
         repair.setUid(repairDAO.nextId());
         repairDAO.save(repair);
 
         repairRequestDAO.find(8).confirm(20);
-        repair = repairRequestDAO.find(8).complete(60);
+        repair = repairRequestDAO.find(8).complete(10);
         repair.setUid(repairDAO.nextId());
         repairDAO.save(repair);
+
 
         EvaluationDAO evaluationDAO = getEvaluationDAO();
 
@@ -304,8 +310,8 @@ public abstract class Initializer {
         evaluation = repairDAO.find(1).evaluate("Πολύ καλή δουλειά!", "Πολύ καλή δουλειά", 5);
         evaluation = repairDAO.find(2).evaluate("Μέτρια δουλειά!", "Μέτρια δουλειά", 3);
 
-        evaluation = repairDAO.find(3).evaluate("Καλή δουλειά!", "Καλή δουλειά", 4);
-        evaluation = repairDAO.find(4).evaluate("Καλή δουλειά!", "Καλή δουλειά", 5);
+        //evaluation = repairDAO.find(3).evaluate("Καλή δουλειά!", "Καλή δουλειά", 4);
+        //evaluation = repairDAO.find(4).evaluate("Καλή δουλειά!", "Καλή δουλειά", 5);
 
     }
 

@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.memorydao.MemoryInitializer;
 import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterActivity;
 import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansActivity;
+import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity;
 import com.example.quickrepair.view.User.LoginUser.LoginActivity;
 
 public class HomePageActivity extends AppCompatActivity implements HomePageView {
@@ -21,11 +23,18 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
     public static final int REQUEST_CODE_LOGIN = 2;
     public static final int REQUEST_CODE_REGISTER = 3;
 
+    boolean initialized = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
+
+        if(initialized == false){
+            new MemoryInitializer().prepareData();
+            initialized = true;
+        }
 
         viewModel = new ViewModelProvider(this).get(HomePageViewModel.class);
         final HomePagePresenter presenter = viewModel.getPresenter();
@@ -88,8 +97,7 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
     @Override
     public void registerAsTechnician() {
         //navigate to register page
-        //TODO: allagh sth sosth klash
-        Intent intent = new Intent(this, SearchTechniciansActivity.class);
+        Intent intent = new Intent(this, TechnicianRegisterActivity.class);
         startActivityForResult(intent, REQUEST_CODE_REGISTER);
         // close activity
         finish();

@@ -57,6 +57,7 @@ public class CompletedRepairRequests extends Fragment implements ItemSelectionLi
 
         mAdapter = new RepairRequestAdapter(new ArrayList<RepairRequest>(repairRequests));
         recyclerView.setAdapter(mAdapter);
+        mAdapter.setRepairRequestSelectionListener(this);
     }
 
         /**

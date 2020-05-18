@@ -16,12 +16,15 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.User.LoginUser.LoginActivity" />
         <activity android:name=".view.Customer.RegisterCustomer.CustomerRegisterActivity" />
-        <activity
-            android:name=".view.Technician.RepairRequests.TechnicianRepairRequestsActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name="com.example.quickrepair.view.Technician.ShowCompletedRepairRequest.TechnicianCompletedRepairRequestActivity"/>
+        <activity android:name="com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestActivity"/>
+        <activity android:name="com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity"/>
+
+
+        <activity android:name="com.example.quickrepair.view.HomePage.HomePageActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

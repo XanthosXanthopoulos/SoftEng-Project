@@ -1,5 +1,7 @@
 package com.example.quickrepair.domain;
 
+import androidx.annotation.NonNull;
+
 import java.util.Objects;
 
 /**
@@ -62,5 +64,11 @@ public final class Address
     public int hashCode()
     {
         return Objects.hash(streetName, number);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return getStreetName() + " "+getNumber();
     }
 }
