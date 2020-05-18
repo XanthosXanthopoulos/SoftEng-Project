@@ -15,7 +15,8 @@ import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansActivity;
 import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity;
 import com.example.quickrepair.view.User.LoginUser.LoginActivity;
 
-public class HomePageActivity extends AppCompatActivity implements HomePageView {
+public class HomePageActivity extends AppCompatActivity implements HomePageView
+{
 
     private HomePageViewModel viewModel;
 
@@ -31,7 +32,8 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
 
-        if(initialized == false){
+        if (initialized == false)
+        {
             new MemoryInitializer().prepareData();
             initialized = true;
         }
@@ -43,34 +45,42 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
         //Buttons
         Button search = findViewById(R.id.search);
         Button logInPage = findViewById(R.id.login);
-        Button registerTechnicianPage = findViewById(R.id.registerCustomer);
-        Button registerCustomerPage = findViewById(R.id.registerTeachnician);
+        Button registerTechnicianPage = findViewById(R.id.registerTechnician);
+        Button registerCustomerPage = findViewById(R.id.registerCustomer);
 
         //Button's listeners
-        search.setOnClickListener(new View.OnClickListener() {
+        search.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 presenter.onSearchSelected();
             }
         });
 
-        logInPage.setOnClickListener(new View.OnClickListener() {
+        logInPage.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 presenter.onLogInSelected();
             }
         });
 
-        registerTechnicianPage.setOnClickListener(new View.OnClickListener() {
+        registerTechnicianPage.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 presenter.onRegisterAsTechnicianSelected();
             }
         });
 
-        registerCustomerPage.setOnClickListener(new View.OnClickListener() {
+        registerCustomerPage.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 presenter.onRegisterAsCustomerSelected();
             }
         });
@@ -82,7 +92,8 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
      * activity
      */
     @Override
-    public void login() {
+    public void login()
+    {
         //navigate to login page
         Intent intent = new Intent(this, LoginActivity.class);
         startActivityForResult(intent, REQUEST_CODE_LOGIN);
@@ -95,7 +106,8 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
      * activity
      */
     @Override
-    public void registerAsTechnician() {
+    public void registerAsTechnician()
+    {
         //navigate to register page
         Intent intent = new Intent(this, TechnicianRegisterActivity.class);
         startActivityForResult(intent, REQUEST_CODE_REGISTER);
@@ -108,7 +120,8 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
      * activity
      */
     @Override
-    public void registerAsCustomer() {
+    public void registerAsCustomer()
+    {
         //navigate to register page
         Intent intent = new Intent(this, CustomerRegisterActivity.class);
         startActivityForResult(intent, REQUEST_CODE_REGISTER);
@@ -121,7 +134,8 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
      * activity
      */
     @Override
-    public void searchTechnicians() {
+    public void searchTechnicians()
+    {
         //navigate to search page
         Intent intent = new Intent(this, SearchTechniciansActivity.class);
         startActivityForResult(intent, REQUEST_CODE_TECHNICIAN_SEARCH);

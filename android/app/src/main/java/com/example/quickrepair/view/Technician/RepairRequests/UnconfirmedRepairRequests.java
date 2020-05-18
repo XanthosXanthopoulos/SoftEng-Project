@@ -55,6 +55,8 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
         super.onViewCreated(view, savedInstanceState);
         activity = ((TechnicianRepairRequestsActivity) getActivity());
 
+        System.out.println("ID: " + activity.getTechnicianID());
+
         //get unconfirmed repair requests for this technician
         ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getTechnicianID(), status);
         Log.e("Uncorfirmed Size ", String.valueOf(repairRequests.size()));

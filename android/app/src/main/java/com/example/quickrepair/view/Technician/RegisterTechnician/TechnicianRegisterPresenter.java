@@ -21,12 +21,7 @@ public class TechnicianRegisterPresenter
 
     public TechnicianRegisterPresenter()
     {
-        ArrayList<String> specialities = new ArrayList<>();
-        for (Specialty speciality : specialtyDAO.findAll())
-        {
-            specialities.add(speciality.getName());
-        }
-        view.setSpecialityList(specialities, "Επιλέξτε ειδικότητα");
+
     }
 
     public void registerTechnician()
@@ -83,6 +78,21 @@ public class TechnicianRegisterPresenter
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
         this.technicianDAO = technicianDAO;
+    }
+
+    public void setSpecialtyDAO(SpecialtyDAO specialtyDAO)
+    {
+        this.specialtyDAO = specialtyDAO;
+    }
+
+    public void setUpDataSource()
+    {
+        ArrayList<String> specialities = new ArrayList<>();
+        for (Specialty speciality : specialtyDAO.findAll())
+        {
+            specialities.add(speciality.getName());
+        }
+        view.setSpecialityList(specialities, "Επιλέξτε ειδικότητα");
     }
 
     public void setJobTypeDAO(JobTypeDAO jobTypeDAO)
