@@ -26,10 +26,24 @@
             android:layout_marginTop="20dp"
             android:text="TextView"></TextView>
         <TextView
-            android:id="@+id/conduction_date"
+            android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/technician"
+            android:layout_marginTop="20dp"
+            android:text="TextView"></TextView>
+        <TextView
+            android:id="@+id/comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/address"
+            android:layout_marginTop="20dp"
+            android:text="TextView"></TextView>
+        <TextView
+            android:id="@+id/conduction_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/comments"
             android:layout_marginTop="20dp"
             android:text="TextView"></TextView>
         <TextView
@@ -52,11 +66,12 @@
             app:layout_constraintTop_toBottomOf="@id/cost"
             android:orientation="horizontal">
             <Button
-                android:id="@+id/confirm"
+                android:id="@+id/pay_button"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentRight="true"
-                android:text="Pay"></Button>
+                android:text="Pay"
+                ></Button>
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

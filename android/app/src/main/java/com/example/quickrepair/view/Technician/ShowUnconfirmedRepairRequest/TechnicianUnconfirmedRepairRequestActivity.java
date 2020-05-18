@@ -44,12 +44,20 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
         presenter.searchRepairRequestData(repairRequestID);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
+        this.startActivity(intent);
+        finish();
+    }
 
     @Override
     public void reject() {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
+        finish();
     }
 
     @Override
@@ -57,7 +65,7 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
-
+        finish();
     }
 
     @Override

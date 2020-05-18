@@ -76,21 +76,29 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
     public void returnRepairRequestUnconfirmed(int repairRequestUid) {
         Intent intent = new Intent(this, CustomerUnconfirmedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
+        intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
+
         this.startActivity(intent);
+        finish();
     }
 
     @Override
     public void returnRepairRequestConfirmed(int repairRequestUid) {
         Intent intent = new Intent(this, CustomerConfirmedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
+        intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
+
         this.startActivity(intent);
+        finish();
     }
 
     @Override
     public void returnRepairRequestCompleted(int repairRequestUid) {
         Intent intent = new Intent(this, CustomerCompletedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
+        intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
         this.startActivity(intent);
+        finish();
     }
 
     //TODO:go to edit page

@@ -257,12 +257,12 @@ public abstract class Initializer {
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
-        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(3),"Είναι επίγον!!!!!!", address2);
+        repairRequest = customerDAO.find(2).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(3),"Είναι επίγον!!!!!!", address2);
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
         //completed, without a payment
-        repairRequest = customerDAO.find(2).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!!!!!!", address1);
+        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!!!!!!", address1);
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 

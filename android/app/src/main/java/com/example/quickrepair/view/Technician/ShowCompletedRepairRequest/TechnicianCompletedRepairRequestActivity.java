@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity implements TechnicianCompletedRepairRequestView{
 
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
 
     private static int repairRequestID = 0;
-    private static int technicianID = 0;
 
     private TechnicianCompletedRepairRequestViewModel technicianCompletedRepairRequestViewModel;
 

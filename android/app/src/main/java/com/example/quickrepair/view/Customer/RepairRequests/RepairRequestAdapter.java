@@ -60,7 +60,7 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
         //get Repair Request
         final RepairRequest repairRequestAtPosition = itemList.get(position);
 
-        holder.txtRepairRequest.setText(repairRequestAtPosition.getJob().getJobType().getName() +"\nΣτον: " + repairRequestAtPosition.getJob().getTechnician().getSurname());
+        holder.txtRepairRequest.setText(repairRequestAtPosition.getJob().getJobType().getName() +"\nΤο: " + repairRequestAtPosition.getJob().getTechnician().getUsername());
         holder.btnSelectRepairRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

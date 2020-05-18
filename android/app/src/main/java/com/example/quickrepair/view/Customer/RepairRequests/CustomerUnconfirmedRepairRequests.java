@@ -52,7 +52,7 @@ public class CustomerUnconfirmedRepairRequests extends Fragment implements ItemS
         super.onViewCreated(view, savedInstanceState);
         activity = ((CustomerRepairRequestsActivity) getActivity());
 
-        //get unconfirmed repair requests for this technician
+        //get unconfirmed repair requests for this customer
         ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getCustomerID(), status);
 
         //update UI

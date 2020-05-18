@@ -42,6 +42,14 @@ public class TechnicianConfirmedRepairRequestActivity extends AppCompatActivity 
     }
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
+        this.startActivity(intent);
+        finish();
+    }
+
+    @Override
     public void showError(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
@@ -51,6 +59,7 @@ public class TechnicianConfirmedRepairRequestActivity extends AppCompatActivity 
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
+        finish();
     }
 
     @Override
