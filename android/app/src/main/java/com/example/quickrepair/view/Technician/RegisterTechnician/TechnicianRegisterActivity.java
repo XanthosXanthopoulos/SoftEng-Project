@@ -20,6 +20,7 @@ import java.util.List;
 
 public class TechnicianRegisterActivity extends AppCompatActivity implements TechnicianRegisterView
 {
+    public static final String TECHNICIAN_ID_EXTRA = "technician_id";
 
     TechnicianRegisterViewModel viewModel;
 
@@ -113,7 +114,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
     public void onSuccessfulRegister(Integer id)
     {
         Intent intent = new Intent(this, AddEditArea.class);
-        intent.putExtra("TECHNICIAN_ID_EXTRA", id);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, id);
         startActivity(intent);
     }
 

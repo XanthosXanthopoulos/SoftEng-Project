@@ -10,5 +10,7 @@ public interface TechnicianConfirmedRepairRequestView {
     void setAddress(String Address);
     void setComments(String comments);
     void setConductionDate(String conductionDate);
+    void setEstimatedDuration(String estimatedDuration);
     void setButtonListeners();
+
 }

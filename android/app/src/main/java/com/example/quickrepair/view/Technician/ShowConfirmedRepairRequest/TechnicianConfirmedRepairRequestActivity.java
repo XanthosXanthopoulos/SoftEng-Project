@@ -30,6 +30,7 @@ public class TechnicianConfirmedRepairRequestActivity extends AppCompatActivity 
 
         Intent intent = getIntent();
         repairRequestID = intent.getIntExtra(REPAIR_REQUEST_ID_EXTRA, 0);
+        technicianID = intent.getIntExtra(TECHNICIAN_ID_EXTRA, 0);
 
         technicianConfirmedRepairRequestViewModel = new ViewModelProvider(this).get(TechnicianConfirmedRepairRequestViewModel.class);
 
@@ -80,8 +81,14 @@ public class TechnicianConfirmedRepairRequestActivity extends AppCompatActivity 
     public void setConductionDate(String conductionDate) {
         TextView conductionDateTextView = findViewById(R.id.conduction_date);
         conductionDateTextView.setText(conductionDate);
-
     }
+
+    @Override
+    public void setEstimatedDuration(String estimatedDuration) {
+        TextView estimatedDurationTextView = findViewById(R.id.estimated_duration);
+        estimatedDurationTextView.setText(estimatedDuration);
+    }
+
     @Override
     public void setButtonListeners() {
         Button buttonConfirm = findViewById(R.id.complete);

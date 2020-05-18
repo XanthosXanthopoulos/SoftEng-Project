@@ -48,12 +48,18 @@
             app:layout_constraintTop_toBottomOf="@id/comments"
             android:layout_marginTop="20dp"
             android:text="TextView"></TextView>
-
+        <TextView
+            android:id="@+id/estimated_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/conduction_date"
+            android:layout_marginTop="20dp"
+            android:text="TextView"></TextView>
         <EditText
             android:id="@+id/quantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/conduction_date"
+            app:layout_constraintTop_toBottomOf="@id/estimated_duration"
             android:hint="@string/quantity_hint"
             android:textSize="15dp"/>
 

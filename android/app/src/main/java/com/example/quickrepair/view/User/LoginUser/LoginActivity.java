@@ -14,6 +14,7 @@ import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRe
 
 public class LoginActivity extends AppCompatActivity implements LoginView
 {
+    public static final String TECHNICIAN_ID_EXTRA = "technician_id";
     private LoginViewModel viewModel;
 
 
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
     public void OnLoginTechnicianSuccess(Integer id)
     {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
-        intent.putExtra("TECHNICIAN_ID_EXTRA", id);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, id);
         startActivity(intent);
     }
 }

@@ -55,9 +55,7 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
         System.out.println("ID: " + activity.getTechnicianID());
 
         //get unconfirmed repair requests for this technician
-        Log.e("2 size:", String.valueOf(activity.getTechnicianID()));
         ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getTechnicianID(), status);
-        Log.e("Uncorfirmed Size ", String.valueOf(repairRequests.size()));
 
         //update UI
         recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view_unconfirmed);

@@ -233,40 +233,40 @@ public abstract class Initializer {
         //uncormirmed
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar2, jobDAO.find(2),"Έχω 3 χαλασμένες λάμπες. Είναι επίγον", address1);
         repairRequest.setUid(repairRequestDAO.nextId());
+
         repairRequestDAO.save(repairRequest);
 
-        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar3,getJobDAO().find(3),"Είναι επίγον", address1);
+        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar3, getJobDAO().find(3),"Είναι επίγον, επιβεβαιώστε το", address1);
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
         //confirm
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar3,getJobDAO().find(2),"Είναι επίγον!!", address2);
         repairRequest.setUid(repairRequestDAO.nextId());
+        repairRequest.confirm(30);
         repairRequestDAO.save(repairRequest);
 
-        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar4,getJobDAO().find(3),"Είναι επίγον!!!", address2);
+        repairRequest = customerDAO.find(2).requestRepair(gregorianCalendar1, gregorianCalendar4,getJobDAO().find(3),"Είναι επίγον!!!", address2);
         repairRequest.setUid(repairRequestDAO.nextId());
+        repairRequest.confirm(20);
         repairRequestDAO.save(repairRequest);
 
-        repairRequestDAO.find(3).confirm(30);
-
-        repairRequestDAO.find(4).confirm(20);
 
         //completed, with a payment
-        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!", address2);
+        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!!!!", address2);
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
-        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(3),"Είναι επίγον!!!", address2);
+        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(3),"Είναι επίγον!!!!!!", address2);
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
         //completed, without a payment
-        repairRequest = customerDAO.find(2).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!", address1);
+        repairRequest = customerDAO.find(2).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!!!!!!", address1);
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 
-        repairRequest = customerDAO.find(3).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!", address1);
+        repairRequest = customerDAO.find(3).requestRepair(gregorianCalendar0, gregorianCalendar0,getJobDAO().find(2),"Είναι επίγον!!!!!!!!", address1);
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
 

@@ -35,7 +35,6 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
         repairRequestID = intent.getIntExtra(REPAIR_REQUEST_ID_EXTRA, 0);
         technicianID = intent.getIntExtra(TECHNICIAN_ID_EXTRA, 0);
 
-        System.out.println("IDDD " + technicianID);
 
         technicianRepairRequestsViewModel = new ViewModelProvider(this).get(TechnicianUnconfirmedRepairRequestViewModel.class);
 
@@ -49,17 +48,8 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
     @Override
     public void reject() {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
-<<<<<<< HEAD
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
-        Log.e("send size:", String.valueOf(technicianID));
         this.startActivity(intent);
-=======
-        intent.putExtra("TECHNICIAN_ID_EXTRA", technicianID);
-        //setResult(RESULT_OK, intent);
-        startActivity(intent);
->>>>>>> 8596088209097088427a9721c8d6116e02d02d66
-        // close activity
-        //finish();
     }
 
     @Override
@@ -67,8 +57,7 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
-        // close activity
-        finish();
+
     }
 
     @Override

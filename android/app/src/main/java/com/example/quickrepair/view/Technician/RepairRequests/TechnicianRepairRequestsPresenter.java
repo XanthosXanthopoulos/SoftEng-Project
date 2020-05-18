@@ -1,5 +1,7 @@
 package com.example.quickrepair.view.Technician.RepairRequests;
 
+import android.util.Log;
+
 import com.example.quickrepair.dao.RepairRequestDAO;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
@@ -50,6 +52,7 @@ public class TechnicianRepairRequestsPresenter
         }
         else
         {
+            Log.e("Presenteeeer", String.valueOf(repairRequest.getUid()));
             view.returnRepairRequestConfirmed(repairRequest.getUid());
         }
     }

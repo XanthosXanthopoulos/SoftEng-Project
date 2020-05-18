@@ -17,6 +17,7 @@
         <activity android:name=".view.User.LoginUser.LoginActivity" />
         <activity android:name=".view.Customer.RegisterCustomer.CustomerRegisterActivity" />
         <activity android:name="com.example.quickrepair.view.Technician.ShowCompletedRepairRequest.TechnicianCompletedRepairRequestActivity"/>
+        <activity android:name="com.example.quickrepair.view.Technician.ShowConfirmedRepairRequest.TechnicianConfirmedRepairRequestActivity"/>
         <activity android:name="com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestActivity"/>
         <activity android:name="com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity"/>

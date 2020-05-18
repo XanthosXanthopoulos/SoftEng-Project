@@ -1,10 +1,11 @@
 package com.example.quickrepair.view.Technician.ShowConfirmedRepairRequest;
 
+import android.util.Log;
+
 import com.example.quickrepair.dao.RepairRequestDAO;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
 import com.example.quickrepair.util.Utilities;
-import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestView;
 
 public class TechnicianConfirmedRepairRequestPresenter {
     private TechnicianConfirmedRepairRequestView view;
@@ -15,19 +16,20 @@ public class TechnicianConfirmedRepairRequestPresenter {
 
     public void searchRepairRequestData(int repairRequestId){
         if(repairRequestId == 0){
-            view.showError("Something went wrong");
+            view.showError("Something went wrong1");
         }
-
         this.repairRequest = repairRequestDAO.find(repairRequestId);
 
         if(this.repairRequest == null){
-            view.showError("Something went wrong");
+            view.showError("Something went wrong2");
         }
         view.setJob(repairRequest.getJob().getJobType().getName());
         view.setConsumerName("From: " + "\n" + repairRequest.getCustomer().getUsername());
         view.setAddress("Address: " + "\n" + repairRequest.getAddress().toString());
         view.setComments("Comments: " + "\n" + repairRequest.getCommentsFromCustomer());
         view.setConductionDate("Date: " + "\n" + Utilities.getToString(repairRequest.getConductionDate()));
+        view.setEstimatedDuration("Estimated Duration: " + "\n" + repairRequest.getEstimatedDuration());
+
         view.setButtonListeners();
     }
 
@@ -37,6 +39,7 @@ public class TechnicianConfirmedRepairRequestPresenter {
             repairRequestDAO.find(repairRequest.getUid()).complete(quantityInt);
             view.complete();
         }catch (Exception e){
+            e.printStackTrace();
             view.showError("Please enter estimated duration(minutes)");
         }
 
