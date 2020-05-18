@@ -1,6 +1,7 @@
 package com.example.quickrepair.view.SearchTechnicians;
 
 import com.example.quickrepair.dao.AreaDAO;
+import com.example.quickrepair.dao.CustomerDAO;
 import com.example.quickrepair.dao.JobTypeDAO;
 import com.example.quickrepair.dao.SpecialtyDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
@@ -39,6 +40,15 @@ public class SearchTechniciansPresenter {
         this.view = view;
     }
 
+    int loggedInUser = -1;
+
+    /**
+     * Sets the user that is currently logged in
+     * @param userId
+     */
+    public void setLoggedInUser(int userId){
+        loggedInUser = userId;
+    }
     /**
      * Starts the use case by looking through the dao and keeping all the specialties
      */
@@ -78,7 +88,6 @@ public class SearchTechniciansPresenter {
     /**
      * A list that represents the technicians that are showed on the view
      */
-    private List<Technician> techniciansFound = new ArrayList<>();
     private int selectedJobTypeId;
     /**
      * Selects the jobType to search for
@@ -86,29 +95,27 @@ public class SearchTechniciansPresenter {
      */
     public void selectJobType(int jobTypeId){
         selectedJobTypeId = jobTypeId;
-        List<Technician> technicians =  technicianDAO.findAll();
-        for(Technician technician : technicians){
-            if(offersJobType(technician.getUid() , jobTypeId)){
-                techniciansFound.add(technician);
-            }
-        }
         repopulateTechnicianList();
 
     }
 
+    /**
+     * Filters the technicians list according to the selected area
+     * @param area the selected area
+     */
+    String selectedArea;
     public void filterArea(String area){
-        List<Technician> tempTechnicians = new ArrayList<>();
-        for(Technician technician : techniciansFound){
-            if(technician.servesArea(area)) {
-                tempTechnicians.add(technician);
-            }
-        }
-        techniciansFound = tempTechnicians;
+        selectedArea = area;
         //Refreshing the technicianList
         repopulateTechnicianList();
 
     }
 
+    /**
+     * Filters the technician list according to their maximum price for the jobtype
+     * @param input the input maximum price
+     */
+    double selectedMaxPrice = 10000;
     public void filterByMaxPrice(String input){
         double price = 0;
         //Checking if user has entered a valid price
@@ -119,16 +126,20 @@ public class SearchTechniciansPresenter {
             view.showErrorMessage("Please enter a valid from of price");
             return;
         }
+        selectedMaxPrice = price;
         List<Technician> tempTechnicians = new ArrayList<>();
-        for(Technician technician : techniciansFound){
-            if(offersJobTypeForLessThan(technician.getUid() , selectedJobTypeId , price)) {
-                tempTechnicians.add(technician);
-            }
-        }
-        techniciansFound = tempTechnicians;
         //Refreshing the technicianList
         repopulateTechnicianList();
 
+    }
+
+    public void onTechnicianClick(int technicianId){
+        if(loggedInUser == -1){
+            //User is not logged In
+            view.showErrorMessage("You must be logged in to do that!");
+            view.navigateToLogin();
+        }
+        view.navigateToRequestRepair(technicianId , selectedJobTypeId);
     }
     //TODO Select Date
 
@@ -140,7 +151,13 @@ public class SearchTechniciansPresenter {
         List<Double> averageRatings = new ArrayList<>();
         //TODO Get price for a job type from a technician
         List<Double> prices = new ArrayList<>();
-        for(Technician technician : techniciansFound){
+        for(Technician technician : technicianDAO.findAll()){
+            boolean offersJobType = offersJobType(technician.getUid() , selectedJobTypeId);
+            boolean underMaxPrice = offersJobTypeForLessThan(technician.getUid() , selectedJobTypeId , selectedMaxPrice);
+            boolean servesArea = selectedArea == null ? true : technician.servesArea(selectedArea);
+            if(!(offersJobType && underMaxPrice && servesArea)){
+                continue;
+            }
             technicianIds.add(technician.getUid());
             technicianNames.add(technician.getName());
             averageTechnicianRatings.add(0.0);
