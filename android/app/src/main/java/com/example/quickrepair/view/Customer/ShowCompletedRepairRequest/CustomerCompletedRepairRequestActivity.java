@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
-import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 public class CustomerCompletedRepairRequestActivity extends AppCompatActivity implements CustomerCompletedRepairRequestView{
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
@@ -22,7 +21,7 @@ public class CustomerCompletedRepairRequestActivity extends AppCompatActivity im
     private static int repairRequestID;
     private static int customerID;
 
-    private CustomerCompletedRepairRequestViewModel technicianCompletedRepairRequestViewModel;
+    private CustomerCompletedRepairRequestViewModel customerCompletedRepairRequestViewModel;
     CustomerCompletedRepairRequestPresenter presenter;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +32,9 @@ public class CustomerCompletedRepairRequestActivity extends AppCompatActivity im
         repairRequestID = intent.getIntExtra(REPAIR_REQUEST_ID_EXTRA, 0);
         customerID = intent.getIntExtra(CUSTOMER_ID_EXTRA, 0);
 
-        technicianCompletedRepairRequestViewModel = new ViewModelProvider(this).get(CustomerCompletedRepairRequestViewModel.class);
+        customerCompletedRepairRequestViewModel = new ViewModelProvider(this).get(CustomerCompletedRepairRequestViewModel.class);
 
-        presenter = technicianCompletedRepairRequestViewModel.getPresenter();
+        presenter = customerCompletedRepairRequestViewModel.getPresenter();
         presenter.setView(this);
 
         presenter.searchRepairRequestData(repairRequestID);
