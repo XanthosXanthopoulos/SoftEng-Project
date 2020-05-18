@@ -1,9 +1,7 @@
 package com.example.quickrepair.view.Technician.RepairRequests;
 
-import com.example.quickrepair.dao.RepairRequestDAO;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
-import com.example.quickrepair.view.HomePage.HomePageView;
 
 import java.util.ArrayList;
 

@@ -18,6 +18,7 @@ import java.util.List;
 
 public class TechnicianRegisterActivity extends AppCompatActivity implements TechnicianRegisterView
 {
+    public static final String TECHNICIAN_ID_EXTRA = "technician_id";
 
     TechnicianRegisterViewModel viewModel;
 

@@ -9,13 +9,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity implements TechnicianCompletedRepairRequestView{
 
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
+    public static final String TECHNICIAN_ID_EXTRA = "technician_id";
 
-    private static int repairRequestID = 0;
-    private static int technicianID = 0;
+    private static int repairRequestID;
+    private static int technicianID;
+
     private TechnicianCompletedRepairRequestViewModel technicianCompletedRepairRequestViewModel;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,7 @@ public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity 
 
         Intent intent = getIntent();
         repairRequestID = intent.getIntExtra(REPAIR_REQUEST_ID_EXTRA, 0);
+        technicianID = intent.getIntExtra(TECHNICIAN_ID_EXTRA, 0);
 
         technicianCompletedRepairRequestViewModel = new ViewModelProvider(this).get(TechnicianCompletedRepairRequestViewModel.class);
 
@@ -32,6 +36,13 @@ public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity 
 
         presenter.searchRepairRequestData(repairRequestID);
 
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
+        this.startActivity(intent);
+        finish();
     }
 
     @Override

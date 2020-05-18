@@ -67,9 +67,11 @@ public class RepairRequestDAOMemory implements RepairRequestDAO {
     public ArrayList<RepairRequest> findAllForTechnicianByStatus(int technicianID, RepairRequest.Status status)
     {
         ArrayList<RepairRequest> result = new ArrayList<RepairRequest>();
-        for(RepairRequest repairRequest : entities)
-            if(repairRequest.getJob().getTechnician().getUid() == technicianID && repairRequest.getStatus()==status)
+        for(RepairRequest repairRequest : entities) {
+            if (repairRequest.getJob().getTechnician().getUid() == technicianID && repairRequest.getStatus() == status) {
                 result.add(repairRequest);
+            }
+        }
         return result;
     }
 

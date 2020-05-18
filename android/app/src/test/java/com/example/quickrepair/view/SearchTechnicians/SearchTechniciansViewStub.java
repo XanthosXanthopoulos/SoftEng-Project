@@ -25,6 +25,12 @@ public class SearchTechniciansViewStub implements SearchTechniciansView {
     public void onStart(){
         presenter.onStart();
     }
+    public void chooseTechnician(int position){
+        presenter.onTechnicianClick(technicianIds.get(position));
+    }
+    public void setLoggedInUser(int uid){
+        presenter.setLoggedInUser(uid);
+    }
 
     public boolean jobTypeSpinnerEnabled;
     @Override
@@ -70,9 +76,16 @@ public class SearchTechniciansViewStub implements SearchTechniciansView {
         this.averageRatings = averageRatings;
         this.prices = prices;
     }
-    boolean navigatedToRequestRepair;
+    boolean navigatedToRequestRepair =false;
+
     @Override
-    public void navigateToRequestRepair() {
+    public void navigateToRequestRepair(int technicianId, int jobTypeId) {
         navigatedToRequestRepair = true;
+    }
+
+    boolean navigatedToLogin = false;
+    @Override
+    public void navigateToLogin() {
+        navigatedToLogin = true;
     }
 }

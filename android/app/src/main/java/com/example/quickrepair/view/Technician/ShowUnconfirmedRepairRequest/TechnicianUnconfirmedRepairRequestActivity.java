@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,13 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.quickrepair.R;
-import com.example.quickrepair.domain.RepairRequest;
-import com.example.quickrepair.domain.Technician;
-import com.example.quickrepair.util.Utilities;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
-import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsPresenter;
-
-import java.util.Calendar;
 
 public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivity implements TechnicianUnconfirmedRepairRequestView {
 
@@ -34,13 +29,12 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.technician_unfconfirmed_repair_request);
+        setContentView(R.layout.technician_unconfirmed_repair_request);
 
         Intent intent = getIntent();
         repairRequestID = intent.getIntExtra(REPAIR_REQUEST_ID_EXTRA, 0);
         technicianID = intent.getIntExtra(TECHNICIAN_ID_EXTRA, 0);
 
-        System.out.println("IDDD " + technicianID);
 
         technicianRepairRequestsViewModel = new ViewModelProvider(this).get(TechnicianUnconfirmedRepairRequestViewModel.class);
 
@@ -50,15 +44,20 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
         presenter.searchRepairRequestData(repairRequestID);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
+        this.startActivity(intent);
+        finish();
+    }
 
     @Override
     public void reject() {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
-        intent.putExtra("TECHNICIAN_ID_EXTRA", technicianID);
-        //setResult(RESULT_OK, intent);
-        startActivity(intent);
-        // close activity
-        //finish();
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
+        this.startActivity(intent);
+        finish();
     }
 
     @Override
@@ -66,7 +65,6 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
-        // close activity
         finish();
     }
 

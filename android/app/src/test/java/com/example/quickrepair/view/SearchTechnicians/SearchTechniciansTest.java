@@ -41,6 +41,7 @@ public class SearchTechniciansTest {
     }
     @Test
     public void normalExecution(){
+        stub.setLoggedInUser(1);
         stub.chooseSpecialty(0);
         //Assert that the correct specialty was chosen
         Assert.assertTrue(specialtyDAO.findAll().get(0).getUid() == stub.specialtyIds.get(0));
@@ -80,5 +81,14 @@ public class SearchTechniciansTest {
         stub.chooseJobType(0);
         stub.setPrice("wrongPrice");
         Assert.assertNotNull(stub.lastMessage);
+    }
+    @Test
+    public void moveToRequestRepairWithoutLoggingIn(){
+        stub.chooseSpecialty(0);
+        stub.chooseJobType(0);
+        stub.setPrice("500");
+        stub.chooseTechnician(0);
+        Assert.assertTrue(stub.lastMessage != null);
+        Assert.assertTrue(stub.navigatedToLogin);
     }
 }

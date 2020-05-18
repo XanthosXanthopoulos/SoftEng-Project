@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.quickrepair.R;
 import com.example.quickrepair.domain.RepairRequest;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,11 +63,10 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
         //get Repair Request
         final RepairRequest repairRequestAtPosition = itemList.get(position);
 
-        holder.txtRepairRequest.setText(repairRequestAtPosition.getJob().getJobType().getName() +"\nΑπό: " + repairRequestAtPosition.getCustomer().getUsername());
+        holder.txtRepairRequest.setText(repairRequestAtPosition.getJob().getJobType().getName() +"\nFrom: " + repairRequestAtPosition.getCustomer().getUsername());
         holder.btnSelectRepairRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // notify the Activity of the selected book
                 if (repairRequestItemSelectionListener != null) {
                     repairRequestItemSelectionListener.onItemSelected(repairRequestAtPosition);
                 }

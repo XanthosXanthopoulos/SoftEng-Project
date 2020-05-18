@@ -1,7 +1,6 @@
 package com.example.quickrepair.view.Technician.RepairRequests;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,14 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.quickrepair.R;
-import com.example.quickrepair.memorydao.MemoryInitializer;
 import com.example.quickrepair.view.Technician.ShowCompletedRepairRequest.TechnicianCompletedRepairRequestActivity;
 import com.example.quickrepair.view.Technician.ShowConfirmedRepairRequest.TechnicianConfirmedRepairRequestActivity;
 import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestActivity;
@@ -25,6 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class TechnicianRepairRequestsActivity extends AppCompatActivity implements TechnicianRepairRequestsView
 {
+
 
     private static int technicianID;
     private static TechnicianRepairRequestsViewModel technicianRepairRequestsViewModel;
@@ -41,7 +40,7 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
 
         //get Technician id
         Intent intent = getIntent();
-        technicianID = intent.getIntExtra("TECHNICIAN_ID_EXTRA", 0);
+        technicianID = intent.getIntExtra(TECHNICIAN_ID_EXTRA, 0);
 
         technicianRepairRequestsViewModel = new ViewModelProvider(this).get(TechnicianRepairRequestsViewModel.class);
         technicianRepairRequestsViewModel.getPresenter().setView(this);
@@ -83,7 +82,6 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     @Override
     public void editData()
     {
-        // return result to calling Activity
         Intent intent = new Intent(this, TechnicianUnconfirmedRepairRequestActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
     }
@@ -102,6 +100,7 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivityForResult(intent, RESULT_OK);
+        finish();
     }
 
     @Override
@@ -111,6 +110,7 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
+        finish();
     }
 
     @Override
@@ -118,7 +118,9 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     {
         Intent intent = new Intent(this, TechnicianCompletedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
+        finish();
     }
 
 
@@ -127,7 +129,7 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         return technicianRepairRequestsViewModel;
     }
 
-    public static int getTechnicianID()
+    public int getTechnicianID()
     {
         return technicianID;
     }

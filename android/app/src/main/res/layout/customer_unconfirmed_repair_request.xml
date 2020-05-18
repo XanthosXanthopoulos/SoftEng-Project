@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestActivity">
+    tools:context="com.example.quickrepair.view.Customer.ShowUnconfirmedRepairRequest.CustomerUnconfirmedRepairRequestActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,9 +17,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="TextView"></TextView>
-
         <TextView
-            android:id="@+id/consumer"
+            android:id="@+id/technician"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/job"
@@ -29,10 +28,9 @@
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/consumer"
+            app:layout_constraintTop_toBottomOf="@id/technician"
             android:layout_marginTop="20dp"
             android:text="TextView"></TextView>
-
         <TextView
             android:id="@+id/comments"
             android:layout_width="match_parent"
@@ -40,7 +38,6 @@
             app:layout_constraintTop_toBottomOf="@id/address"
             android:layout_marginTop="20dp"
             android:text="TextView"></TextView>
-
         <TextView
             android:id="@+id/conduction_date"
             android:layout_width="match_parent"
@@ -48,34 +45,5 @@
             app:layout_constraintTop_toBottomOf="@id/comments"
             android:layout_marginTop="20dp"
             android:text="TextView"></TextView>
-
-        <EditText
-            android:id="@+id/duration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/conduction_date"
-            android:hint="@string/duration_hint"
-            android:textSize="15dp"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/duration"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/reject"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:src="@android:drawable/ic_input_add"></Button>
-
-            <Button
-                android:id="@+id/confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@android:drawable/ic_input_add"></Button>
-        </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

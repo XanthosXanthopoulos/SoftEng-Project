@@ -3,7 +3,7 @@ package com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest;
 import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestView;
 
 public class TechnicianUnconfirmedRepairRequestViewStub implements TechnicianUnconfirmedRepairRequestView {
-    //Buttons
+
     private static final int REJECTED = 1;
     private static final int CONFIRM = 2;
     private static final int ERROR = 3;
