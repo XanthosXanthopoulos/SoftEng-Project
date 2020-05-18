@@ -95,7 +95,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
     @Override
     public Integer getSpecialityID()
     {
-        return ((Spinner)findViewById(R.id.Speciality)).getSelectedItemPosition() - 1;
+        return ((Spinner)findViewById(R.id.Speciality)).getSelectedItemPosition();
     }
 
     @Override

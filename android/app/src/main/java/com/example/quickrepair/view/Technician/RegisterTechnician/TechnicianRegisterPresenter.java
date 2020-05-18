@@ -62,6 +62,7 @@ public class TechnicianRegisterPresenter
         Technician technician = new Technician();
         technician.setTechnicianInfo(name, surname, phoneNumber, email, accountNumber, username);
         technician.setPassword(password);
+        System.out.println("Spec: " + speciality);
         technician.setSpecialty(specialtyDAO.find(speciality));
         technician.setAFM(afm);
 

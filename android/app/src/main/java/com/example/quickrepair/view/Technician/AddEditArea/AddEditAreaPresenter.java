@@ -44,9 +44,9 @@ public class AddEditAreaPresenter
 
     public void setUpDataSource()
     {
-        view.setAreaList(areaDAO.getAreas(), "Επιλέξτε ειδικότητα");
+        view.setAreaList(new ArrayList<>(areaDAO.getAreas()), "Επιλέξτε περιοχή");
 
-        view.setSelectedArea(new ArrayList<String>(technician.getAreas()));
+        view.setSelectedArea(new ArrayList<>(technician.getAreas()));
     }
 
     public void addArea(Integer areaID)
@@ -61,6 +61,8 @@ public class AddEditAreaPresenter
         {
             technician.getAreas().add(area);
         }
+
+        view.setSelectedArea(new ArrayList<>(technician.getAreas()));
     }
 
     public void removeArea(String area)
