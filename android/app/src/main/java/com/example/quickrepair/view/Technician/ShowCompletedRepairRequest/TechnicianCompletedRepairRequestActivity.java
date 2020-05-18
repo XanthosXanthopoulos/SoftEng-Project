@@ -16,6 +16,7 @@ public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity 
 
     private static int repairRequestID = 0;
     private static int technicianID = 0;
+
     private TechnicianCompletedRepairRequestViewModel technicianCompletedRepairRequestViewModel;
 
     protected void onCreate(Bundle savedInstanceState) {

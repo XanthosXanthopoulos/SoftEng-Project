@@ -1,7 +1,6 @@
 package com.example.quickrepair.view.Technician.RepairRequests;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.quickrepair.R;
-import com.example.quickrepair.memorydao.MemoryInitializer;
 import com.example.quickrepair.view.Technician.ShowCompletedRepairRequest.TechnicianCompletedRepairRequestActivity;
 import com.example.quickrepair.view.Technician.ShowConfirmedRepairRequest.TechnicianConfirmedRepairRequestActivity;
 import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestActivity;
@@ -25,8 +23,8 @@ import com.google.android.material.tabs.TabLayout;
 public class TechnicianRepairRequestsActivity extends AppCompatActivity implements TechnicianRepairRequestsView
 {
 
-    private static int technicianID ;
-    private static TechnicianRepairRequestsViewModel technicianRepairRequestsViewModel;
+    private int technicianID ;
+    private TechnicianRepairRequestsViewModel technicianRepairRequestsViewModel;
 
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
     public static final String TECHNICIAN_ID_EXTRA = "technician_id";
@@ -40,7 +38,9 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
 
         //get Technician id
         Intent intent = getIntent();
-        technicianID = intent.getIntExtra("TECHNICIAN_ID_EXTRA", 0);
+        technicianID = intent.getIntExtra(TECHNICIAN_ID_EXTRA, 0);
+
+        Log.e("1 size:", String.valueOf(this.getTechnicianID()));
 
 
         technicianRepairRequestsViewModel = new ViewModelProvider(this).get(TechnicianRepairRequestsViewModel.class);
@@ -121,7 +121,7 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         return technicianRepairRequestsViewModel;
     }
 
-    public static int getTechnicianID()
+    public int getTechnicianID()
     {
         return technicianID;
     }

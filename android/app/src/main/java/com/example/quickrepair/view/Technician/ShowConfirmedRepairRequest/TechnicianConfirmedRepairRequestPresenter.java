@@ -1,16 +1,17 @@
-package com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest;
+package com.example.quickrepair.view.Technician.ShowConfirmedRepairRequest;
 
-import com.example.quickrepair.R;
 import com.example.quickrepair.dao.RepairRequestDAO;
 import com.example.quickrepair.domain.RepairRequest;
+import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
 import com.example.quickrepair.util.Utilities;
+import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestView;
 
-public class TechnicianUnconfirmedRepairRequestPresenter {
-    private TechnicianUnconfirmedRepairRequestView view;
+public class TechnicianConfirmedRepairRequestPresenter {
+    private TechnicianConfirmedRepairRequestView view;
     private RepairRequestDAO repairRequestDAO;
     private RepairRequest repairRequest;
 
-    TechnicianUnconfirmedRepairRequestPresenter(){}
+    TechnicianConfirmedRepairRequestPresenter(){}
 
     public void searchRepairRequestData(int repairRequestId){
         if(repairRequestId == 0){
@@ -27,25 +28,20 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
         view.setAddress("Address: " + "\n" + repairRequest.getAddress().toString());
         view.setComments("Comments: " + "\n" + repairRequest.getCommentsFromCustomer());
         view.setConductionDate("Date: " + "\n" + Utilities.getToString(repairRequest.getConductionDate()));
-        view.setButtonsListeners();
+        view.setButtonListeners();
     }
 
-    public void setReject(){
-        repairRequestDAO.find(repairRequest.getUid()).reject();
-        view.reject();
-    }
-
-    public void setConfirm(String estimatedDuration){
+    public void setCompleted(String quantity) {
         try{
-            int estimatedDurationInt = Integer.parseInt(estimatedDuration);
-            repairRequestDAO.find(repairRequest.getUid()).confirm(estimatedDurationInt);
-            view.confirm();
+            int quantityInt = Integer.parseInt(quantity);
+            repairRequestDAO.find(repairRequest.getUid()).complete(quantityInt);
+            view.complete();
         }catch (Exception e){
             view.showError("Please enter estimated duration(minutes)");
         }
-    }
 
-    public void setView(TechnicianUnconfirmedRepairRequestView view) {
+    }
+    public void setView(TechnicianConfirmedRepairRequestView view) {
         this.view = view;
     }
 
@@ -53,7 +49,8 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
         this.view = null;
     }
 
-    public void setRepairRequestDAOMemory(RepairRequestDAO repairRequestDAOMemory) {
-        this.repairRequestDAO = repairRequestDAOMemory;
+    public void setRepairRequestDAOMemory(RepairRequestDAOMemory repairRequestDAO) {
+        this.repairRequestDAO = repairRequestDAO;
     }
+
 }

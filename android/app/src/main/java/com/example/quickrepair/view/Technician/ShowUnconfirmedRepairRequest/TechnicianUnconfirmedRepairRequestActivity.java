@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,13 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.quickrepair.R;
-import com.example.quickrepair.domain.RepairRequest;
-import com.example.quickrepair.domain.Technician;
-import com.example.quickrepair.util.Utilities;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
-import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsPresenter;
-
-import java.util.Calendar;
 
 public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivity implements TechnicianUnconfirmedRepairRequestView {
 
@@ -53,6 +48,7 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
     public void reject() {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
+        Log.e("send size:", String.valueOf(technicianID));
         this.startActivity(intent);
         // close activity
         finish();

@@ -21,6 +21,6 @@
     <string name="max_price">Maximum Price</string>
     <string name="area">Area</string>
     <string name="duration_hint">Please enter estimated duration(minutes)</string>
-
+    <string name="quantity_hint">Please enter quantity</string>
     <string name="ok">OK</string>
 </resources>

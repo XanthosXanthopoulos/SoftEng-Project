@@ -26,12 +26,9 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
     private RepairRequestAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private static boolean first = true;
     //new instance of this fragment
     public static UnconfirmedRepairRequests newInstance() {
-
             return new UnconfirmedRepairRequests();
-
     }
 
     @Override
@@ -52,6 +49,7 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
         activity = ((TechnicianRepairRequestsActivity) getActivity());
 
         //get unconfirmed repair requests for this technician
+        Log.e("2 size:", String.valueOf(activity.getTechnicianID()));
         ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getTechnicianID(), status);
         Log.e("Uncorfirmed Size ", String.valueOf(repairRequests.size()));
 
