@@ -47,7 +47,6 @@ public class ConfirmedRepairRequests extends Fragment implements ItemSelectionLi
         //get unconfirmed repair requests for this technician
         ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getTechnicianID(), status);
 
-        Log.e("Confirmed Size ", String.valueOf(repairRequests.size()));
         //update UI
         recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view_confirmed);
 

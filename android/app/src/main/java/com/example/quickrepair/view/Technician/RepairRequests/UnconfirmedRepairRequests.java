@@ -18,7 +18,8 @@ import com.example.quickrepair.domain.RepairRequest;
 import java.util.ArrayList;
 
 
-public class UnconfirmedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest>{
+public class UnconfirmedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest>
+{
     public static final RepairRequest.Status status = RepairRequest.Status.UNCONFIRMED;
 
     TechnicianRepairRequestsActivity activity;
@@ -26,40 +27,35 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
     private RepairRequestAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private static boolean first = true;
-    private static UnconfirmedRepairRequests unconfirmedRepairRequests;
-
     //new instance of this fragment
     public static UnconfirmedRepairRequests newInstance() {
-        if(first) {
-            unconfirmedRepairRequests = new UnconfirmedRepairRequests();
-            return unconfirmedRepairRequests;
-        }else{
-            first = false;
-            return unconfirmedRepairRequests;
-        }
+            return new UnconfirmedRepairRequests();
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.uncomfirmed_repair_requests, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+    {
         super.onViewCreated(view, savedInstanceState);
         activity = ((TechnicianRepairRequestsActivity) getActivity());
 
+        System.out.println("ID: " + activity.getTechnicianID());
+
         //get unconfirmed repair requests for this technician
         ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getTechnicianID(), status);
-        Log.e("Uncorfirmed Size ", String.valueOf(repairRequests.size()));
 
         //update UI
         recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view_unconfirmed);
@@ -75,14 +71,14 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
     }
 
 
-
     /**
      * The method will be called by the adapter, whenever the user clicks on a list item
      *
      * @param item Repair Request
      */
     @Override
-    public void onItemSelected(RepairRequest item) {
+    public void onItemSelected(RepairRequest item)
+    {
         activity.getViewModel().getPresenter().onRepairRequestSelectedUnconfirmed(item);
     }
 }

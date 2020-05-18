@@ -1,6 +1,5 @@
-package com.example.quickrepair.view.Technician.RepairRequests;
+package com.example.quickrepair.view.Customer.RepairRequests;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.quickrepair.R;
 import com.example.quickrepair.domain.RepairRequest;
-
+import com.example.quickrepair.view.Technician.RepairRequests.ItemSelectionListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +20,7 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
 
     private List<RepairRequest> itemList;
 
-    private ItemSelectionListener<RepairRequest> repairRequestItemSelectionListener;
+    private com.example.quickrepair.view.Technician.RepairRequests.ItemSelectionListener<RepairRequest> repairRequestItemSelectionListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -53,17 +51,17 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
         // create a new view for the list
         ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_repair_request, parent, false);
-        ViewHolder vh = new ViewHolder(v);
+        RepairRequestAdapter.ViewHolder vh = new RepairRequestAdapter.ViewHolder(v);
         return vh;
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RepairRequestAdapter.ViewHolder holder, int position) {
         //get Repair Request
         final RepairRequest repairRequestAtPosition = itemList.get(position);
 
-        holder.txtRepairRequest.setText(repairRequestAtPosition.getJob().getJobType().getName() +"\nΑπό: " + repairRequestAtPosition.getCustomer().getUsername());
+        holder.txtRepairRequest.setText(repairRequestAtPosition.getJob().getJobType().getName() +"\nΣτον: " + repairRequestAtPosition.getJob().getTechnician().getSurname());
         holder.btnSelectRepairRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestActivity">
+    tools:context="com.example.quickrepair.view.Technician.ShowConfirmedRepairRequest.TechnicianConfirmedRepairRequestActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -48,34 +48,32 @@
             app:layout_constraintTop_toBottomOf="@id/comments"
             android:layout_marginTop="20dp"
             android:text="TextView"></TextView>
-
-        <EditText
-            android:id="@+id/duration"
+        <TextView
+            android:id="@+id/estimated_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/conduction_date"
-            android:hint="@string/duration_hint"
+            android:layout_marginTop="20dp"
+            android:text="TextView"></TextView>
+        <EditText
+            android:id="@+id/quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/estimated_duration"
+            android:hint="@string/quantity_hint"
             android:textSize="15dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/duration"
+            app:layout_constraintTop_toBottomOf="@id/quantity"
             android:orientation="horizontal">
-
             <Button
-                android:id="@+id/reject"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentLeft="true"
-                android:background="@android:drawable/ic_delete"></Button>
-
-            <Button
-                android:id="@+id/confirm"
+                android:id="@+id/complete"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentRight="true"
-                android:background="@android:drawable/ic_input_add"></Button>
+                android:background="@android:drawable/ic_input_add"></Button>`
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

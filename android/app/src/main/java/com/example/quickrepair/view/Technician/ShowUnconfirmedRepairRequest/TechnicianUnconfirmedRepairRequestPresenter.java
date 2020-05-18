@@ -7,7 +7,7 @@ import com.example.quickrepair.util.Utilities;
 
 public class TechnicianUnconfirmedRepairRequestPresenter {
     private TechnicianUnconfirmedRepairRequestView view;
-    private RepairRequestDAO repairRequestDAOMemory;
+    private RepairRequestDAO repairRequestDAO;
     private RepairRequest repairRequest;
 
     TechnicianUnconfirmedRepairRequestPresenter(){}
@@ -15,12 +15,14 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
     public void searchRepairRequestData(int repairRequestId){
         if(repairRequestId == 0){
             view.showError("Something went wrong");
+            return;
         }
 
-        this.repairRequest = repairRequestDAOMemory.find(repairRequestId);
+        this.repairRequest = repairRequestDAO.find(repairRequestId);
 
         if(this.repairRequest == null){
             view.showError("Something went wrong");
+            return;
         }
         view.setJob(repairRequest.getJob().getJobType().getName());
         view.setConsumerName("From: " + "\n" + repairRequest.getCustomer().getUsername());
@@ -31,14 +33,14 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
     }
 
     public void setReject(){
-        repairRequestDAOMemory.find(repairRequest.getUid()).reject();
+        repairRequestDAO.find(repairRequest.getUid()).reject();
         view.reject();
     }
 
     public void setConfirm(String estimatedDuration){
         try{
             int estimatedDurationInt = Integer.parseInt(estimatedDuration);
-            repairRequestDAOMemory.find(repairRequest.getUid()).confirm(estimatedDurationInt);
+            repairRequestDAO.find(repairRequest.getUid()).confirm(estimatedDurationInt);
             view.confirm();
         }catch (Exception e){
             view.showError("Please enter estimated duration(minutes)");
@@ -53,7 +55,7 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
         this.view = null;
     }
 
-    public void setRepairRequestDAOMemory(RepairRequestDAO repairRequestDAOMemory) {
-        this.repairRequestDAOMemory = repairRequestDAOMemory;
+    public void setRepairRequestDAOMemory(RepairRequestDAO repairRequestDAO) {
+        this.repairRequestDAO = repairRequestDAO;
     }
 }

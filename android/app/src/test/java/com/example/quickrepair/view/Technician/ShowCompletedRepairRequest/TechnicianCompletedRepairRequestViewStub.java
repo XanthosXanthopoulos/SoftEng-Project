@@ -1,26 +1,10 @@
-package com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest;
+package com.example.quickrepair.view.Technician.ShowCompletedRepairRequest;
 
-import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestView;
-
-public class TechnicianUnconfirmedRepairRequestViewStub implements TechnicianUnconfirmedRepairRequestView {
-
-    private static final int REJECTED = 1;
-    private static final int CONFIRM = 2;
-    private static final int ERROR = 3;
+public class TechnicianCompletedRepairRequestViewStub implements TechnicianCompletedRepairRequestView {
+    private static final int ERROR = 1;
     private static int state;
 
     private int sumOfsetter = 0;
-
-    @Override
-    public void reject() {
-        state = REJECTED;
-    }
-
-    @Override
-    public void confirm() {
-        state = CONFIRM;
-    }
-
     @Override
     public void showError(String message) {
         state = ERROR;
@@ -52,14 +36,17 @@ public class TechnicianUnconfirmedRepairRequestViewStub implements TechnicianUnc
     }
 
     @Override
-    public void setButtonsListeners() {
+    public void setEstimatedDuration(String estimatedDuration) {
         sumOfsetter++;
     }
 
+    @Override
+    public void setCost(String cost) {
+        sumOfsetter++;
+    }
     public int getSumOfsetter() {
         return sumOfsetter;
     }
-
     public static int getState() {
         return state;
     }

@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class TechnicianDAOMemory implements TechnicianDAO {
+public class TechnicianDAOMemory implements TechnicianDAO
+{
     protected static ArrayList<Technician> entities = new ArrayList<Technician>();
 
     /**
@@ -41,9 +42,10 @@ public class TechnicianDAOMemory implements TechnicianDAO {
      * @return Technician or null
      */
     @Override
-    public Technician find(int technicianID) {
-        for(Technician technician : entities)
-            if(technician.getUid() == technicianID)
+    public Technician find(int technicianID)
+    {
+        for (Technician technician : entities)
+            if (technician.getUid() == technicianID)
                 return technician;
         return null;
     }
@@ -54,7 +56,8 @@ public class TechnicianDAOMemory implements TechnicianDAO {
      * @return Technicians
      */
     @Override
-    public List<Technician> findAll() {
+    public List<Technician> findAll()
+    {
         ArrayList<Technician> result = new ArrayList<Technician>();
         result.addAll(entities);
         return result;
@@ -66,7 +69,8 @@ public class TechnicianDAOMemory implements TechnicianDAO {
      * @return Technician's id
      */
     @Override
-    public int nextId() {
-        return (entities.size() > 0 ? entities.get(entities.size()-1).getUid()+1 : 1);
+    public int nextId()
+    {
+        return (entities.size() > 0 ? entities.get(entities.size() - 1).getUid() + 1 : 1);
     }
 }
