@@ -118,7 +118,9 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     {
         Intent intent = new Intent(this, TechnicianCompletedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
+        finish();
     }
 
 
