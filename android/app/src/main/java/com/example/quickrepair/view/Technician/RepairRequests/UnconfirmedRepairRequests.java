@@ -18,7 +18,8 @@ import com.example.quickrepair.domain.RepairRequest;
 import java.util.ArrayList;
 
 
-public class UnconfirmedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest>{
+public class UnconfirmedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest>
+{
     public static final RepairRequest.Status status = RepairRequest.Status.UNCONFIRMED;
 
     TechnicianRepairRequestsActivity activity;
@@ -32,21 +33,26 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.uncomfirmed_repair_requests, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+    {
         super.onViewCreated(view, savedInstanceState);
         activity = ((TechnicianRepairRequestsActivity) getActivity());
+
+        System.out.println("ID: " + activity.getTechnicianID());
 
         //get unconfirmed repair requests for this technician
         Log.e("2 size:", String.valueOf(activity.getTechnicianID()));
@@ -67,14 +73,14 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
     }
 
 
-
     /**
      * The method will be called by the adapter, whenever the user clicks on a list item
      *
      * @param item Repair Request
      */
     @Override
-    public void onItemSelected(RepairRequest item) {
+    public void onItemSelected(RepairRequest item)
+    {
         activity.getViewModel().getPresenter().onRepairRequestSelectedUnconfirmed(item);
     }
 }

@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,8 +24,9 @@ import com.google.android.material.tabs.TabLayout;
 public class TechnicianRepairRequestsActivity extends AppCompatActivity implements TechnicianRepairRequestsView
 {
 
-    private int technicianID ;
-    private TechnicianRepairRequestsViewModel technicianRepairRequestsViewModel;
+
+    private static int technicianID;
+    private static TechnicianRepairRequestsViewModel technicianRepairRequestsViewModel;
 
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
     public static final String TECHNICIAN_ID_EXTRA = "technician_id";
@@ -42,7 +44,6 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
 
         Log.e("1 size:", String.valueOf(this.getTechnicianID()));
 
-
         technicianRepairRequestsViewModel = new ViewModelProvider(this).get(TechnicianRepairRequestsViewModel.class);
         technicianRepairRequestsViewModel.getPresenter().setView(this);
 
@@ -57,19 +58,23 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.technician_menu, menu);
         return true;
     }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
         int id = menuItem.getItemId();
 
-        switch (id) {
+        switch (id)
+        {
             case R.id.edit:
                 technicianRepairRequestsViewModel.getPresenter().onEditDataPage();
-               return true;
+                return true;
         }
         return super.onOptionsItemSelected(menuItem);
     }
@@ -77,25 +82,27 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
 
     //TODO:go to edit page
     @Override
-    public void editData() {
+    public void editData()
+    {
         // return result to calling Activity
         Intent intent = new Intent(this, TechnicianUnconfirmedRepairRequestActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
     }
 
     @Override
-    public void showError(String message) {
+    public void showError(String message)
+    {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void returnRepairRequestUnconfirmed(int repairRequestUid) {
+    public void returnRepairRequestUnconfirmed(int repairRequestUid)
+    {
         // return result to calling Activity
         Intent intent = new Intent(this, TechnicianUnconfirmedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
-        this.startActivity(intent);
-
+        this.startActivityForResult(intent, RESULT_OK);
     }
 
     @Override
@@ -125,5 +132,4 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     {
         return technicianID;
     }
-
 }

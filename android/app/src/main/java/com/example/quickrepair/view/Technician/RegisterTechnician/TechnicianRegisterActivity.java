@@ -32,6 +32,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
         viewModel = new ViewModelProvider(this).get(TechnicianRegisterViewModel.class);
         final TechnicianRegisterPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
+        presenter.setUpDataSource();
 
 
         findViewById(R.id.RegisterButton).setOnClickListener(new View.OnClickListener()
