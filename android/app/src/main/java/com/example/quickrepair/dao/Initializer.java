@@ -203,7 +203,7 @@ public abstract class Initializer {
         CustomerDAO customerDAO = getCustomerDAO();
 
         Customer customerTmp;
-        customerTmp = new Customer("ΑΝΝΑ", "ΑΡΓΥΡΑΚΗ","0000000001","anna@repair.gr","123433","anna.arguraki","123");
+        customerTmp = new Customer("ΑΝΝΑ", "ΑΡΓΥΡΑΚΗ","0000000001","anna@repair.gr","123433","ann","123");
         customerTmp.setUid(customerDAO.nextId());
         customerDAO.save(customerTmp);
 

@@ -1,7 +1,6 @@
-package com.example.quickrepair.view.Technician.RepairRequests;
+package com.example.quickrepair.view.Customer.RepairRequests;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,23 +12,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.domain.RepairRequest;
 
 import java.util.ArrayList;
 
-
-public class UnconfirmedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest>
+public class CustomerUnconfirmedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest>
 {
+
     public static final RepairRequest.Status status = RepairRequest.Status.UNCONFIRMED;
 
-    TechnicianRepairRequestsActivity activity;
+    CustomerRepairRequestsActivity activity;
     RecyclerView recyclerView;
     private RepairRequestAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     //new instance of this fragment
-    public static UnconfirmedRepairRequests newInstance() {
-            return new UnconfirmedRepairRequests();
+    public static CustomerUnconfirmedRepairRequests newInstance() {
+        return new CustomerUnconfirmedRepairRequests();
     }
 
     @Override
@@ -43,19 +43,17 @@ public class UnconfirmedRepairRequests extends Fragment implements ItemSelection
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.uncomfirmed_repair_requests, container, false);
+        return inflater.inflate(R.layout.customer_unconfirmed_repair_requests, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-        activity = ((TechnicianRepairRequestsActivity) getActivity());
-
-        System.out.println("ID: " + activity.getTechnicianID());
+        activity = ((CustomerRepairRequestsActivity) getActivity());
 
         //get unconfirmed repair requests for this technician
-        ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getTechnicianID(), status);
+        ArrayList<RepairRequest> repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getCustomerID(), status);
 
         //update UI
         recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view_unconfirmed);

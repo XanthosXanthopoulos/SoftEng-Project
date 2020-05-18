@@ -42,8 +42,6 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         Intent intent = getIntent();
         technicianID = intent.getIntExtra(TECHNICIAN_ID_EXTRA, 0);
 
-        Log.e("1 size:", String.valueOf(this.getTechnicianID()));
-
         technicianRepairRequestsViewModel = new ViewModelProvider(this).get(TechnicianRepairRequestsViewModel.class);
         technicianRepairRequestsViewModel.getPresenter().setView(this);
 
@@ -84,7 +82,6 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     @Override
     public void editData()
     {
-        // return result to calling Activity
         Intent intent = new Intent(this, TechnicianUnconfirmedRepairRequestActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
     }

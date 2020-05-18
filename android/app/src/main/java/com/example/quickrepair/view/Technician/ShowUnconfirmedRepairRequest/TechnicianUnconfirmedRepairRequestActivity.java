@@ -29,7 +29,7 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.technician_unfconfirmed_repair_request);
+        setContentView(R.layout.technician_unconfirmed_repair_request);
 
         Intent intent = getIntent();
         repairRequestID = intent.getIntExtra(REPAIR_REQUEST_ID_EXTRA, 0);

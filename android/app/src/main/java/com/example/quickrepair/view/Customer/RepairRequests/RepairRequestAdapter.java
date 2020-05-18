@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.domain.RepairRequest;
-import com.example.quickrepair.view.Technician.RepairRequests.ItemSelectionListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,7 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
 
     private List<RepairRequest> itemList;
 
-    private com.example.quickrepair.view.Technician.RepairRequests.ItemSelectionListener<RepairRequest> repairRequestItemSelectionListener;
+    private ItemSelectionListener<RepairRequest> repairRequestItemSelectionListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 

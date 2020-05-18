@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView
 {
     public static final String TECHNICIAN_ID_EXTRA = "technician_id";
+    public static final String CUSTOMER_ID_EXTRA = "customer_id";
     private LoginViewModel viewModel;
 
 
@@ -59,7 +61,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView
     @Override
     public void OnLoginCustomerSuccess(Integer id)
     {
-        Intent intent = new Intent();
+        Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
+        intent.putExtra(CUSTOMER_ID_EXTRA, id);
+        startActivity(intent);
     }
 
     @Override
