@@ -1,7 +1,6 @@
 package com.example.quickrepair.view.Technician.AddEditJob;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -18,16 +17,9 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder>
 {
     private List<Job> jobs;
 
-    private ItemSelectionListener<Job> jobItemSelectionListener;
-
     public JobAdapter(List<Job> jobs)
     {
         this.jobs = jobs;
-    }
-
-    public void setJobItemSelectionListener(ItemSelectionListener<Job> jobItemSelectionListener)
-    {
-        this.jobItemSelectionListener = jobItemSelectionListener;
     }
 
     @NonNull

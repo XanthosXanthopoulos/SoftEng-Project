@@ -16,6 +16,7 @@ public class AddEditAreaPresenter
     AreaDAO areaDAO;
 
     Technician technician;
+    ArrayList<String> areas;
 
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
@@ -46,12 +47,19 @@ public class AddEditAreaPresenter
     {
         view.setAreaList(new ArrayList<>(areaDAO.getAreas()), "Επιλέξτε περιοχή");
 
-        view.setSelectedArea(new ArrayList<>(technician.getAreas()));
+        areas = new ArrayList<>(technician.getAreas());
+        view.setSelectedArea(areas);
     }
 
     public void addArea(Integer areaID)
     {
-        String area = areaDAO.getAreas().get(areaID);
+        if (areaID == 0)
+        {
+            view.showErrorMessage("No area selected", "You have to add a valid area.");
+            return;
+        }
+
+        String area = areaDAO.getAreas().get(areaID - 1);
 
         if (technician.getAreas().contains(area))
         {
@@ -62,11 +70,13 @@ public class AddEditAreaPresenter
             technician.getAreas().add(area);
         }
 
-        view.setSelectedArea(new ArrayList<>(technician.getAreas()));
+        areas.add(area);
+        view.setSelectedArea(areas);
     }
 
-    public void removeArea(String area)
+    public void removeArea(int areaID)
     {
-        technician.getAreas().remove(area);
+        technician.getAreas().remove(areas.get(areaID));
+        view.setSelectedArea(areas);
     }
 }
