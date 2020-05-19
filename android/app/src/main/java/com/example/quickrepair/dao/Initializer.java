@@ -233,7 +233,6 @@ public abstract class Initializer {
         //uncormirmed
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar2, jobDAO.find(2),"Έχω 3 χαλασμένες λάμπες. Είναι επίγον", address1);
         repairRequest.setUid(repairRequestDAO.nextId());
-
         repairRequestDAO.save(repairRequest);
 
         repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar3, getJobDAO().find(3),"Είναι επίγον, επιβεβαιώστε το", address1);

@@ -1,4 +1,4 @@
-package com.example.quickrepair.view.Technician.ShowCompletedRepairRequest;
+package com.example.quickrepair.view.Customer.ShowConfirmedRepairRequest;
 
 import com.example.quickrepair.dao.RepairRequestDAO;
 import com.example.quickrepair.memorydao.MemoryInitializer;
@@ -8,28 +8,28 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TechnicianCompletedRepairRequestTest {
-    TechnicianCompletedRepairRequestViewStub view;
-    TechnicianCompletedRepairRequestPresenter presenter;
-    private static int repairRequestID;
+public class CustomerConfirmedRepairRequestTest {
+
+    CustomerConfirmedRepairRequestViewStub view;
+    CustomerConfirmedRepairRequestPresenter presenter;
+
     private RepairRequestDAO repairRequestDAO;
 
     @Before
     public void setUp(){
-        view = new TechnicianCompletedRepairRequestViewStub();
-        presenter = new TechnicianCompletedRepairRequestPresenter();
+        view = new CustomerConfirmedRepairRequestViewStub();
+        presenter = new CustomerConfirmedRepairRequestPresenter();
         presenter.setView(view);
         new MemoryInitializer().prepareData();
         repairRequestDAO = new RepairRequestDAOMemory();
         presenter.setRepairRequestDAO((RepairRequestDAOMemory) repairRequestDAO);
-        repairRequestID = 7;
-        presenter.searchRepairRequestData(repairRequestID);
+        presenter.searchRepairRequestData(3);
+
     }
     @Test
     public void checkSetters(){
-        Assert.assertEquals(7, view.getSumOfsetter());
+        Assert.assertEquals(6, view.getSumOfsetter());
     }
-
     @Test
     public void checkSearchErrorZero(){
         presenter.searchRepairRequestData(0);

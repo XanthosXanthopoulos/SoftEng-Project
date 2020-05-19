@@ -37,6 +37,12 @@ public class Technician extends User
         super(name, surname, phoneNumber, email, bankAccount, username, password);
         setSpecialty(specialty);
         setAFM(AFM);
+        Integer[][] schedule = new Integer[7][2];
+        for(int i = 0 ; i < 7 ; i++ ){
+            schedule[i][0] = 0;
+            schedule[i][1] = 24;
+        }
+        setSchedule(schedule);
     }
 
     //SETTERS

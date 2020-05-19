@@ -10,7 +10,7 @@
 
     <Spinner
         android:id="@+id/specialty_spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,7 +19,7 @@
         />
     <Spinner
         android:id="@+id/job_type_spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +28,7 @@
         />
     <EditText
         android:id="@+id/max_price_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/specialty_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,17 +37,67 @@
         />
     <Spinner
         android:id="@+id/area_spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/job_type_spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/max_price_text"
         android:hint="@string/area"
         />
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        />
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/number"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/phone_number"
+            android:textAlignment="center"
+            />
+        <TextView
+            android:id="@+id/name"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/name"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/price"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:id="@+id/average_rating"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/average_rating"
+            android:textAlignment="center"
+            />
+
+    </LinearLayout>
+
+
 
     <ListView
         android:id="@+id/technician_list"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/max_price_text"
         app:layout_constraintEnd_toEndOf="parent"

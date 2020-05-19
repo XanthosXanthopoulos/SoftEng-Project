@@ -2,7 +2,6 @@ package com.example.quickrepair.view.SearchTechnicians;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -28,22 +29,19 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
     Spinner specialtySpinner;
     Spinner jobTypeSpinner;
     Spinner areaSpinner;
+    EditText maxpriceText;
 
     ArrayAdapter<SpinnerEntry> specialtyAdapter;
     ArrayAdapter<SpinnerEntry> jobTypeAdapter;
     ArrayAdapter<String> areaAdapter;
 
     TechnicianAdapter technicianAdapter;
+    ListView techniciansList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_technicians);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         Intent intent = getIntent();
         //TODO get loggedin id somehow
 
@@ -60,6 +58,8 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
         else{
             id = 1;
         }
+        presenter.setLoggedInUser(id);
+        maxpriceText = findViewById(R.id.max_price_text);
 
         //Setting spinner adapters
         specialtySpinner = findViewById(R.id.specialty_spinner);
@@ -71,51 +71,49 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
         areaAdapter = new ArrayAdapter<>(this , R.layout.support_simple_spinner_dropdown_item);
 
 
+
+        specialtySpinner.setAdapter(specialtyAdapter);
+        jobTypeSpinner.setAdapter(jobTypeAdapter);
+        areaSpinner.setAdapter(areaAdapter);
+
         specialtySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 SpinnerEntry entry = (SpinnerEntry) parent.getAdapter().getItem(position);
-                System.out.println("Filtering specialty");
-                presenter.selectSpecialty(entry.id);
+                presenter.selectSpecialty(entry.getId());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                return;
-            }
-        });
-        jobTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                SpinnerEntry entry = (SpinnerEntry) parent.getAdapter().getItem(position);
-                System.out.println("Filtering jobtype");
-                presenter.selectJobType(entry.id);
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                return;
             }
         });
-        areaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println("Filtering area");
-                presenter.filterArea(parent.getAdapter().getItem(position).toString());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                return;
-            }
-        });
-        specialtySpinner.setAdapter(specialtyAdapter);
-        jobTypeSpinner.setAdapter(jobTypeAdapter);
-        areaSpinner.setAdapter(areaAdapter);
         //Setting technicianListAdapters
-        ListView techniciansList = findViewById(R.id.technician_list);
-        technicianAdapter = new TechnicianAdapter(this);
+        techniciansList = findViewById(R.id.technician_list);
+        technicianAdapter = new TechnicianAdapter(this , R.layout.search_technicians_technician_list_layout);
         techniciansList.setAdapter(technicianAdapter);
+
+        Button b = findViewById(R.id.search_button);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("w" , "vie button clicked");
+                SpinnerEntry entry = (SpinnerEntry) jobTypeSpinner.getSelectedItem();
+                int selectedJobTypeId = entry.getId();
+                String selectedMaxPrice =  maxpriceText.getText().toString();
+                String selectedArea = (String) areaSpinner.getSelectedItem();
+                presenter.selectJobType(selectedJobTypeId);
+                presenter.filterByMaxPrice(selectedMaxPrice);
+                presenter.filterArea(selectedArea);
+            }
+        });
+        techniciansList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e( "fuck", "Clicked on technician id  " + id);
+                presenter.onTechnicianClick((int)id);
+            }
+        });
         presenter.onStart();
 
     }
@@ -127,7 +125,7 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
 
     @Override
     public void showErrorMessage(String errorMessage) {
-        Toast.makeText(this , errorMessage , Toast.LENGTH_SHORT);
+        Toast.makeText(this , errorMessage , Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -144,6 +142,7 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
 
     @Override
     public void setJobTypesSource(List<Integer> jobTypeIds, List<String> jobTypeNames) {
+        System.out.println("Setting specialties source" + jobTypeNames);
         List<SpinnerEntry> list = new ArrayList<>();
         for(int i = 0 ; i < jobTypeIds.size() ; i++){
             list.add(new SpinnerEntry(jobTypeIds.get(i) , jobTypeNames.get(i)));
@@ -162,8 +161,14 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
 
     @Override
     public void populateTechnicianList(List<Integer> technicianIds, List<String> technicianNames, List<Double> averageRatings, List<Double> prices) {
-        Log.e("x" , "found" + technicianIds.size() + " technicians");
+        Log.e("Pop" , "Populating tech list with " + technicianIds);
+        System.out.println("tech size " + technicianIds.size());
+        System.out.println("names size " + technicianNames.size());
+        System.out.println("avg rat " + averageRatings.size());
+        System.out.println("prices z" + prices.size());
+        TechnicianAdapter technicianAdapter = new TechnicianAdapter(this, 2);
         technicianAdapter.setSource(technicianIds , technicianNames , averageRatings , prices);
+        techniciansList.setAdapter(technicianAdapter);
     }
 
     @Override
