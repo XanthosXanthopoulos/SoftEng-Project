@@ -66,6 +66,7 @@ public class RequestRepairPresenter {
     public void setAddress(String address){
         try{
             String[] tokens = address.split(",");
+            Integer.parseInt(tokens[1].trim());
             selectedAddress = new Address(tokens[0].trim() , tokens[1].trim());
         }
         catch (Exception e){
@@ -116,6 +117,7 @@ public class RequestRepairPresenter {
         RepairRequest  result = loggedInUser.requestRepair(dateNow , date , job , comments , address);
         //Saving the created repair request to the DAO
         repairRequestDAO.save(result);
+        view.showTimesAvailable(createListFromHourRanges(selectedTechnician));
 
     }
 
@@ -143,7 +145,7 @@ public class RequestRepairPresenter {
          //Using gregoriancalendars builtin compare to test if the target is between the range
          // of the calendars
 
-         return target.compareTo(end) <= 0 && target.compareTo(start) >= 0;
+         return target.compareTo(end) < 0 && target.compareTo(start) > 0;
 
     }
 
@@ -178,9 +180,9 @@ public class RequestRepairPresenter {
 
             start.add(Calendar.DAY_OF_MONTH , 1);
             int difference = start.compareTo(end);
-            if(difference == 0){
+            if(difference >= 0 && endHour == 0){
                 //This means the end gap was set to 24 so the calendar was rolled forward a day
-                result = "0:00 - 23:59";
+                result = startHour + ":" + startMinutes + " - 23:59";
             }
             timesAvailableForView.add(result);
         }
