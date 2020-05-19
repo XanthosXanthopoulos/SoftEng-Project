@@ -6,20 +6,32 @@
     <TextView
         android:id="@+id/number"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        />
     <TextView
         android:id="@+id/name"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        />
 
     <TextView
         android:id="@+id/price"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        />
 
     <TextView
         android:id="@+id/average_rating"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        />
 
 </LinearLayout>

@@ -1,5 +1,7 @@
 package com.example.quickrepair.view.SearchTechnicians;
 
+import android.util.Log;
+
 import com.example.quickrepair.dao.AreaDAO;
 import com.example.quickrepair.dao.CustomerDAO;
 import com.example.quickrepair.dao.JobTypeDAO;
@@ -67,6 +69,7 @@ public class SearchTechniciansPresenter {
     /**
      *  Responds to the user selecting a specialty
      */
+    int selectedSpecialtyId = -1;
     public void selectSpecialty(int specialtyId){
         Specialty selectedSpecialty =  specialtyDAO.find(specialtyId);
         List<JobType> jobTypes =  jobTypeDAO.findAll();
@@ -75,10 +78,12 @@ public class SearchTechniciansPresenter {
         //Selecting only jobtypes of selected specialty
         for(JobType e : jobTypes){
             if(e.getSpecialty().getUid() == specialtyId){
+
                 jobTypeIds.add(e.getUid());
                 jobTypeNames.add(e.getName());
             }
         }
+        selectedSpecialtyId = specialtyId;
         view.setJobTypesSource(jobTypeIds , jobTypeNames);
         //Setting the job type drop down as enabled so the user can choose
         view.setJobTypeSpinnerEnabled(true);
@@ -88,7 +93,7 @@ public class SearchTechniciansPresenter {
     /**
      * A list that represents the technicians that are showed on the view
      */
-    private int selectedJobTypeId;
+    private int selectedJobTypeId = -1;
     /**
      * Selects the jobType to search for
      * @param jobTypeId
@@ -103,7 +108,7 @@ public class SearchTechniciansPresenter {
      * Filters the technicians list according to the selected area
      * @param area the selected area
      */
-    String selectedArea;
+    String selectedArea = null;
     public void filterArea(String area){
         selectedArea = area;
         //Refreshing the technicianList
@@ -115,7 +120,7 @@ public class SearchTechniciansPresenter {
      * Filters the technician list according to their maximum price for the jobtype
      * @param input the input maximum price
      */
-    double selectedMaxPrice = 10000;
+    double selectedMaxPrice = -1;
     public void filterByMaxPrice(String input){
         double price = 0;
         //Checking if user has entered a valid price
@@ -127,7 +132,6 @@ public class SearchTechniciansPresenter {
             return;
         }
         selectedMaxPrice = price;
-        List<Technician> tempTechnicians = new ArrayList<>();
         //Refreshing the technicianList
         repopulateTechnicianList();
 
@@ -144,25 +148,29 @@ public class SearchTechniciansPresenter {
     //TODO Select Date
 
     private void repopulateTechnicianList() {
+        System.out.println("Selected specialty id " + selectedSpecialtyId);
+        System.out.println("Selected jt id " + selectedJobTypeId);
+        System.out.println("Selected mp id " + selectedMaxPrice);
+        System.out.println("Selected area id " + selectedArea);
         List<Integer> technicianIds = new ArrayList<>();
         //TODO Get average ratings from a technician reference for a jobtype or whatever
-        List<Double> averageTechnicianRatings = new ArrayList<>();
         List<String> technicianNames = new ArrayList<>();
         List<Double> averageRatings = new ArrayList<>();
-        //TODO Get price for a job type from a technician
         List<Double> prices = new ArrayList<>();
         for(Technician technician : technicianDAO.findAll()){
-            boolean offersJobType = offersJobType(technician.getUid() , selectedJobTypeId);
-            boolean underMaxPrice = offersJobTypeForLessThan(technician.getUid() , selectedJobTypeId , selectedMaxPrice);
-            boolean servesArea = selectedArea == null ? true : technician.servesArea(selectedArea);
-            if(!(offersJobType && underMaxPrice && servesArea)){
+            boolean hasSpecialty = selectedSpecialtyId==-1 || technician.getSpecialty().getUid() == selectedSpecialtyId;
+            boolean offersJobType = selectedJobTypeId == -1 || offersJobType(technician.getUid() , selectedJobTypeId);
+            boolean underMaxPrice = selectedJobTypeId == -1 || selectedMaxPrice < 0 || offersJobTypeForLessThan(technician.getUid() , selectedJobTypeId , selectedMaxPrice);
+            boolean servesArea = selectedArea == null || technician.servesArea(selectedArea);
+            if(!(hasSpecialty && offersJobType && underMaxPrice && servesArea)){
                 continue;
             }
             technicianIds.add(technician.getUid());
             technicianNames.add(technician.getName());
-            averageTechnicianRatings.add(0.0);
+            averageRatings.add(0.0);
             prices.add(getTechnicianPriceForJobType(technician.getUid() , selectedJobTypeId));
         }
+        System.out.println("Avg reating saize " + averageRatings);
         view.populateTechnicianList(technicianIds , technicianNames , averageRatings , prices);
     }
 
