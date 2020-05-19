@@ -41,7 +41,7 @@ public class CustomerUnconfirmedRepairRequestPresenter {
         this.view = null;
     }
 
-    public void setView(CustomerUnconfirmedRepairRequestActivity view) {
+    public void setView(CustomerUnconfirmedRepairRequestView view) {
         this.view = view;
     }
 
