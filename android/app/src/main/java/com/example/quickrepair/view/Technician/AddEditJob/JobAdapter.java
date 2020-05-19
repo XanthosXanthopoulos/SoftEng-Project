@@ -70,4 +70,9 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder>
             price = listItem.findViewById(R.id.PriceTextView);
         }
     }
+
+    public List<Job> getJobs()
+    {
+        return jobs;
+    }
 }

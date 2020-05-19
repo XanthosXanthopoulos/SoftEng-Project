@@ -1,7 +1,10 @@
 package com.example.quickrepair.view.Technician.AddEditJob;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,6 +39,29 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
         final AddEditJobPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
 
+        final RecyclerView jobList = findViewById(R.id.JobList);
+
+        RecyclerView.LayoutManager manager = new GridLayoutManager(this, 1);
+        jobList.setLayoutManager(manager);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT)
+        {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target)
+            {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir)
+            {
+                presenter.removeJob(viewHolder.getAdapterPosition());
+                presenter.setUpDataSource();
+            }
+        });
+
+        itemTouchHelper.attachToRecyclerView(jobList);
+
         presenter.setTechnician(getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));
         presenter.setUpDataSource();
 
@@ -44,8 +70,8 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
             @Override
             public void onClick(View v)
             {
-                int jobTypePosition = ((Spinner)findViewById(R.id.JobTypesSpinner)).getSelectedItemPosition();
-                double price = Double.parseDouble(((EditText)findViewById(R.id.PriceInput)).getText().toString());
+                int jobTypePosition = ((Spinner) findViewById(R.id.JobTypesSpinner)).getSelectedItemPosition();
+                double price = Double.parseDouble(((EditText) findViewById(R.id.PriceInput)).getText().toString());
 
                 presenter.addJob(jobTypePosition, price);
             }
@@ -68,17 +94,14 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, jobTypeList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ((Spinner)findViewById(R.id.JobTypesSpinner)).setAdapter(adapter);
+        ((Spinner) findViewById(R.id.JobTypesSpinner)).setAdapter(adapter);
     }
 
     @Override
     public void setJobList(List<Job> selectedJobs)
     {
         RecyclerView jobList = findViewById(R.id.JobList);
-
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
-        jobList.setLayoutManager(manager);
-        JobAdapter adapter = new JobAdapter(new ArrayList<Job>(selectedJobs));
+        JobAdapter adapter = new JobAdapter(new ArrayList<>(selectedJobs));
         jobList.setAdapter(adapter);
     }
 

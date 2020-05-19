@@ -16,6 +16,7 @@ public class AddEditJobPresenter
     AddEditJobView view;
 
     Technician technician;
+    ArrayList<Job> jobs;
 
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
@@ -47,15 +48,23 @@ public class AddEditJobPresenter
         }
         view.setJobTypeList(jobTypes, "Επιλέξτε εργασία");
 
-        view.setJobList(new ArrayList<>(technician.getJobs()));
+        jobs = new ArrayList<>(technician.getJobs());
+        view.setJobList(jobs);
     }
 
     public void addJob(Integer jobTypeID, double price)
     {
         JobType type = jobTypeDAO.find(jobTypeID);
 
-        technician.addJob(type, price);
-        view.setJobList(new ArrayList<>(technician.getJobs()));
+        Job job = technician.addJob(type, price);
+        jobs.add(job);
+        view.setJobList(jobs);
+    }
+
+    public void removeJob(int jobPosition)
+    {
+        technician.removeJob(jobs.remove(jobPosition));
+        view.setJobList(jobs);
     }
 
     public void clearView()
