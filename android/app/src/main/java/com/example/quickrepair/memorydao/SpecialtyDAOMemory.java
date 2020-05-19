@@ -28,7 +28,7 @@ public class SpecialtyDAOMemory implements SpecialtyDAO {
     @Override
     public List<Specialty> findAll()
     {
-        ArrayList<Specialty> result = new ArrayList<Specialty>();
+        ArrayList<Specialty> result = new ArrayList<>();
         result.addAll(entities);
         return result;
     }

@@ -49,12 +49,16 @@ public class User
     {
         if (name == null) throw new NullPointerException("Name can not be null.");
 
+        if (name.isEmpty()) throw new IllegalArgumentException("Name can not empty.");
+
         this.name = name;
     }
 
     private void setSurname(String surname)
     {
         if (surname == null) throw new NullPointerException("Surname can not be null.");
+
+        if (surname.isEmpty()) throw new IllegalArgumentException("Surname can not empty.");
 
         this.surname = surname;
     }
@@ -68,9 +72,9 @@ public class User
      */
     private void setPhoneNumber(String phoneNumber)
     {
-        if (surname == null) throw new NullPointerException("Surname can not be null.");
+        if (surname == null) throw new NullPointerException("Phone number can not be null.");
         if (!phoneNumber.matches("\\d{10}"))
-            throw new IllegalArgumentException("Wrong phone number format");
+            throw new IllegalArgumentException("Wrong phone number format. Must have exactly ten digits.");
 
         this.phoneNumber = phoneNumber;
     }
@@ -84,16 +88,12 @@ public class User
      */
     private void setEmail(String email)
     {
-        //Checks if the email is xxx@xxxxx.xxxx
-        if (email.matches("((\\w|\\d|\\.)+\\@(\\w|\\d)+\\.\\w+)"))
-        {
+        if (email == null) throw new NullPointerException("Email can not be null.");
 
-            this.email = email;
-        }
-        else
-        {
-            throw new IllegalArgumentException("Wrong email address format");
-        }
+        if (!email.matches("((\\w|\\d|\\.)+\\@(\\w|\\d)+\\.\\w+)"))
+            throw new IllegalArgumentException("Wrong email address format.");
+
+        this.email = email;
     }
 
     /**
@@ -105,21 +105,18 @@ public class User
      */
     private void setBankAccount(String bankAccount)
     {
-        //Checks if the bank account is of the form ???
-        if (true)
-        {
+        if (bankAccount == null) throw new NullPointerException("Bank number can not be null.");
 
-            this.bankAccount = bankAccount;
-        }
-        else
-        {
-            throw new IllegalArgumentException("Wrong bank account format");
-        }
+        if (bankAccount.length() != 22) throw new IllegalArgumentException("Wrong bank account format. Must have length 22.");
+
+        this.bankAccount = bankAccount;
     }
 
     public void setUsername(String username)
     {
         if (username == null) throw new NullPointerException("Username can not be null.");
+
+        if (username.isEmpty()) throw new IllegalArgumentException("Username can not be empty.");
 
         this.username = username;
     }
@@ -127,6 +124,9 @@ public class User
     public void setPassword(String password)
     {
         if (password == null) throw new NullPointerException("Password can not be null.");
+
+        if (password.isEmpty()) throw new IllegalArgumentException("Username can not be empty.");
+
         this.password = password;
     }
 

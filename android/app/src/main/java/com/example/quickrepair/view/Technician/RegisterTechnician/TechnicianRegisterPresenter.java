@@ -32,7 +32,7 @@ public class TechnicianRegisterPresenter
         String email = view.getEmail();
         String afm = view.getAFM();
         String accountNumber = view.getAccountNumber();
-        Integer speciality = view.getSpecialityID();
+        Integer specialityID = view.getSpecialityID();
         String username = view.getUsername();
         String password = view.getPassword();
 
@@ -60,10 +60,27 @@ public class TechnicianRegisterPresenter
         }
 
         Technician technician = new Technician();
-        technician.setTechnicianInfo(name, surname, phoneNumber, email, accountNumber, username);
+
+        try
+        {
+            technician.setTechnicianInfo(name, surname, phoneNumber, email, accountNumber, username);
+        }
+        catch (Exception e)
+        {
+            view.showErrorMessage("Invalid value", e.getMessage());
+            return;
+        }
+
+        Specialty speciality = specialtyDAO.find(specialityID);
+
+        if (speciality == null)
+        {
+            view.showErrorMessage("No speciality selected", "You must choose a speciality.");
+            return;
+        }
+
         technician.setPassword(password);
-        System.out.println("Spec: " + speciality);
-        technician.setSpecialty(specialtyDAO.find(speciality));
+        technician.setSpecialty(speciality);
         technician.setAFM(afm);
 
         technician.setUid(technicianDAO.nextId());
@@ -91,7 +108,7 @@ public class TechnicianRegisterPresenter
         ArrayList<String> specialities = new ArrayList<>();
         for (Specialty speciality : specialtyDAO.findAll())
         {
-            specialities.add(speciality.getName());
+            specialities.add(speciality.getName().trim());
         }
         view.setSpecialityList(specialities, "Επιλέξτε ειδικότητα");
     }

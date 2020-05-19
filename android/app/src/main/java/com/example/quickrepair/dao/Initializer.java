@@ -123,7 +123,7 @@ public abstract class Initializer {
         TechnicianDAO technicianDAO = getTechnicianDAO();
 
         Technician technicianTmp;
-        technicianTmp = new Technician("ΓΙΑΝΝΗΣ", "ΑΓΓΕΛΪΔΗΣ", "1010101010", "aggelidisgiannis@repair.gr", "02345","aggelidis","123", getSpecialtyDAO().find(1),"2122772");
+        technicianTmp = new Technician("ΓΙΑΝΝΗΣ", "ΑΓΓΕΛΪΔΗΣ", "1010101010", "aggelidisgiannis@repair.gr", "0034560101011234567890","aggelidis","123", getSpecialtyDAO().find(1),"2122772");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Agia Varvara");
         technicianTmp.addArea("Alimos");
@@ -131,7 +131,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΠΑΝΑΓΙΩΤΗΣ", "ΖΑΧΟΣ", "1010101010", "zaxosohlktrologos@repair.gr", "003456","zaxos","123", getSpecialtyDAO().find(1),"212272");
+        technicianTmp = new Technician("ΠΑΝΑΓΙΩΤΗΣ", "ΖΑΧΟΣ", "1010101010", "zaxosohlktrologos@repair.gr", "0034560101011234567890","zaxos","123", getSpecialtyDAO().find(1),"212272");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Acharnes");
         technicianTmp.addArea("Alimos");
@@ -139,7 +139,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΔΗΜΗΤΡΗΣ", "ΔΑΜΑΣΚΗΝΟΣ", "1010101010", "damaskhnos@repair.gr", "199456","damaskhnos","123", getSpecialtyDAO().find(2),"210072");
+        technicianTmp = new Technician("ΔΗΜΗΤΡΗΣ", "ΔΑΜΑΣΚΗΝΟΣ", "1010101010", "damaskhnos@repair.gr", "0034560101011234567890","damaskhnos","123", getSpecialtyDAO().find(2),"210072");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Amaliada");
         technicianTmp.addArea("Alimos");
@@ -147,7 +147,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΗΛΙΑΣ", "ΑΡΓΥΡΙΑΔΗΣ", "7500830008", "hlias_argiriadis@repair.gr", "199456","argyriadis","123", getSpecialtyDAO().find(2),"200072");
+        technicianTmp = new Technician("ΗΛΙΑΣ", "ΑΡΓΥΡΙΑΔΗΣ", "7500830008", "hlias_argiriadis@repair.gr", "0034560101011234567890","argyriadis","123", getSpecialtyDAO().find(2),"200072");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Acharnes");
         technicianTmp.addArea("Alimos");
@@ -155,7 +155,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΝΙΚΟΣ", "ΣΜΥΡΝΙΟΥΔΗΣ", "7599030003", "smyrnioudis@repair.gr", "123419","smyrnioudis","123", getSpecialtyDAO().find(3),"211002");
+        technicianTmp = new Technician("ΝΙΚΟΣ", "ΣΜΥΡΝΙΟΥΔΗΣ", "7599030003", "smyrnioudis@repair.gr", "0034560101011234567890","smyrnioudis","123", getSpecialtyDAO().find(3),"211002");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Artemida");
         technicianTmp.addArea("Aspropyrgos");
@@ -163,7 +163,7 @@ public abstract class Initializer {
         technicianTmp.addArea("Argyroupoli");
         technicianDAO.save(technicianTmp);
 
-        technicianTmp = new Technician("ΞΑΝΘΟΣ", "ΞΑΝΘΟΠΟΥΛΟΣ", "7599030903", "xanthopoulos@repair.gr", "123439","xanthopoulos","123", getSpecialtyDAO().find(3),"211202");
+        technicianTmp = new Technician("ΞΑΝΘΟΣ", "ΞΑΝΘΟΠΟΥΛΟΣ", "7599030903", "xanthopoulos@repair.gr", "0034560101011234567890","xanthopoulos","123", getSpecialtyDAO().find(3),"211202");
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Artemida");
         technicianTmp.addArea("Aspropyrgos");
@@ -203,15 +203,15 @@ public abstract class Initializer {
         CustomerDAO customerDAO = getCustomerDAO();
 
         Customer customerTmp;
-        customerTmp = new Customer("ΑΝΝΑ", "ΑΡΓΥΡΑΚΗ","0000000001","anna@repair.gr","123433","ann","123");
+        customerTmp = new Customer("ΑΝΝΑ", "ΑΡΓΥΡΑΚΗ","0000000001","anna@repair.gr","0034560101011234567890","ann","123");
         customerTmp.setUid(customerDAO.nextId());
         customerDAO.save(customerTmp);
 
-        customerTmp = new Customer("ΚΑΤΕΡΙΝΑ", "ΠΑΠΑΔΟΠΟΛΟΥ","0000004001","katerina@repair.gr","113433","katerina1","123");
+        customerTmp = new Customer("ΚΑΤΕΡΙΝΑ", "ΠΑΠΑΔΟΠΟΛΟΥ","0000004001","katerina@repair.gr","0034560101011234567890","katerina1","123");
         customerTmp.setUid(customerDAO.nextId());
         customerDAO.save(customerTmp);
 
-        customerTmp = new Customer("ΓΙΩΡΓΟΣ", "ΤΣΙΜΙΤΣΕΛΗΣ","0002004001","tsimitselis@repair.gr","123433","tsimitselis","123");
+        customerTmp = new Customer("ΓΙΩΡΓΟΣ", "ΤΣΙΜΙΤΣΕΛΗΣ","0002004001","tsimitselis@repair.gr","0034560101011234567890","tsimitselis","123");
         customerTmp.setUid(customerDAO.nextId());
         customerDAO.save(customerTmp);
 

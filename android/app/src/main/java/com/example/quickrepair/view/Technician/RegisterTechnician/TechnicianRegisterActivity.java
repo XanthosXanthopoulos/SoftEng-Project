@@ -114,6 +114,8 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
         Intent intent = new Intent(this, AddEditAreaActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, id);
         startActivity(intent);
+
+        finish();
     }
 
     @Override

@@ -17,6 +17,7 @@ public class AddEditJobPresenter
 
     Technician technician;
     ArrayList<Job> jobs;
+    ArrayList<JobType> jobTypes;
 
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
@@ -36,17 +37,18 @@ public class AddEditJobPresenter
     public void setTechnician(Integer id)
     {
         technician = technicianDAO.find(id);
+        jobTypes = new ArrayList<>(technician.getSpecialty().getJobTypes());
     }
 
     public void setUpDataSource()
     {
-        ArrayList<String> jobTypes = new ArrayList<>();
+        ArrayList<String> jobTypeNames = new ArrayList<>();
 
         for (JobType jobType : technician.getSpecialty().getJobTypes())
         {
-            jobTypes.add(jobType.getName());
+            jobTypeNames.add(jobType.getName());
         }
-        view.setJobTypeList(jobTypes, "Επιλέξτε εργασία");
+        view.setJobTypeList(jobTypeNames, "Επιλέξτε εργασία");
 
         jobs = new ArrayList<>(technician.getJobs());
         view.setJobList(jobs);
@@ -54,7 +56,9 @@ public class AddEditJobPresenter
 
     public void addJob(Integer jobTypeID, double price)
     {
-        JobType type = jobTypeDAO.find(jobTypeID);
+        if (jobTypeID == 0) view.showErrorMessage("No job selected", "You have to add a valid job.");
+
+        JobType type = jobTypes.get(jobTypeID - 1);
 
         Job job = technician.addJob(type, price);
         jobs.add(job);

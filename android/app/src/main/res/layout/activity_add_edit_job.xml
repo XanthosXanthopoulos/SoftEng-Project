@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".view.Technician.AddEditJob.AddEditJobActivity">
 
-    <GridLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_margin="5dp"
         android:id="@+id/controlsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,29 +16,32 @@
         android:rowCount="1">
 
         <Spinner
-            android:id="@+id/JobTypesSpinner"
-            android:layout_gravity="fill"
-            android:layout_column="0"
-            android:layout_row="0"
-            android:layout_columnWeight="1"/>
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/JobTypesSpinner"/>
 
         <EditText
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/JobTypesSpinner"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/AddJobButton"
             android:id="@+id/PriceInput"
-            android:layout_gravity="fill"
-            android:layout_column="1"
-            android:layout_row="0"
-            android:layout_columnWeight="0.6"
             android:hint="Price"/>
 
         <Button
+            android:layout_marginLeft="5dp"
             android:id="@+id/AddJobButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="0"
+            app:layout_constraintTop_toBottomOf="@id/JobTypesSpinner"
+            app:layout_constraintRight_toRightOf="parent"
             android:text="@string/add"/>
 
-    </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/JobList"

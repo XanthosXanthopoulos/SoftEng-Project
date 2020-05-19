@@ -13,9 +13,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.domain.Technician;
 import com.example.quickrepair.view.Technician.AddEditJob.AddEditJobActivity;
+import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity;
+import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,11 +108,23 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
         Intent intent = new Intent(this, AddEditJobActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));
         startActivity(intent);
+
+        finish();
     }
 
     @Override
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));
+        startActivity(intent);
+
+        finish();
     }
 }

@@ -18,6 +18,7 @@ import android.widget.Spinner;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.domain.Job;
+import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 import java.util.ArrayList;
@@ -114,6 +115,16 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
     public void finalizeChanges()
     {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));
+        startActivity(intent);
+
+        finish();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this, AddEditAreaActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));
         startActivity(intent);
 

@@ -38,7 +38,8 @@ public class Technician extends User
         setSpecialty(specialty);
         setAFM(AFM);
         Integer[][] schedule = new Integer[7][2];
-        for(int i = 0 ; i < 7 ; i++ ){
+        for (int i = 0; i < 7; i++)
+        {
             schedule[i][0] = 0;
             schedule[i][1] = 24;
         }
@@ -145,8 +146,12 @@ public class Technician extends User
     public Job addJob(JobType jobType, double price)
     {
         if (jobType == null) throw new NullPointerException();
+
+        System.out.println("Spec " + specialty.getName() + " job " + jobType.getSpecialty().getName());
+
         if (!jobType.getSpecialty().equals(getSpecialty()))
             throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
+
         if (price <= 0) throw new IllegalArgumentException();
 
         for (Job job : jobs)
