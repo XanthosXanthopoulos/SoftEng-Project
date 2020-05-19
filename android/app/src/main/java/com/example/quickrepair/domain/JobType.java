@@ -99,6 +99,7 @@ public class JobType
         if (specialty == null) throw new NullPointerException("Speciality can not be null.");
 
         this.specialty = specialty;
+        specialty.addJobType(this);
     }
 
     /**

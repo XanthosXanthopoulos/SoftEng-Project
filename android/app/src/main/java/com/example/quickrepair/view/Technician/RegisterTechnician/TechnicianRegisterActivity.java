@@ -16,10 +16,10 @@ import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
 
 import java.util.List;
 
+import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
+
 public class TechnicianRegisterActivity extends AppCompatActivity implements TechnicianRegisterView
 {
-    public static final String TECHNICIAN_ID_EXTRA = "technician_id";
-
     TechnicianRegisterViewModel viewModel;
 
     @Override
@@ -112,7 +112,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
     public void onSuccessfulRegister(Integer id)
     {
         Intent intent = new Intent(this, AddEditAreaActivity.class);
-        intent.putExtra("TECHNICIAN_ID_EXTRA", id);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, id);
         startActivity(intent);
     }
 

@@ -18,20 +18,23 @@ import com.example.quickrepair.domain.RepairRequest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdapter.ViewHolder>{
+public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdapter.ViewHolder>
+{
 
     private List<RepairRequest> itemList;
 
     private ItemSelectionListener<RepairRequest> repairRequestItemSelectionListener;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder
+    {
 
         // each data item is just a string in this case,
         public ViewGroup listItem;
         public TextView txtRepairRequest;
         public ImageButton btnSelectRepairRequest;
 
-        public ViewHolder(ViewGroup v) {
+        public ViewHolder(ViewGroup v)
+        {
             super(v);
             listItem = v;
             txtRepairRequest = listItem.findViewById(R.id.txt_repair_request);
@@ -40,16 +43,19 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
     }
 
 
-    public RepairRequestAdapter(ArrayList<RepairRequest> repairRequests) {
+    public RepairRequestAdapter(ArrayList<RepairRequest> repairRequests)
+    {
         itemList = repairRequests;
     }
 
-    public void setRepairRequestSelectionListener(ItemSelectionListener<RepairRequest> repairRequests) {
+    public void setRepairRequestSelectionListener(ItemSelectionListener<RepairRequest> repairRequests)
+    {
         this.repairRequestItemSelectionListener = repairRequests;
     }
 
     @Override
-    public RepairRequestAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RepairRequestAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
         // create a new view for the list
         ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_repair_request, parent, false);
@@ -59,15 +65,19 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position)
+    {
         //get Repair Request
         final RepairRequest repairRequestAtPosition = itemList.get(position);
 
-        holder.txtRepairRequest.setText(repairRequestAtPosition.getJob().getJobType().getName() +"\nFrom: " + repairRequestAtPosition.getCustomer().getUsername());
-        holder.btnSelectRepairRequest.setOnClickListener(new View.OnClickListener() {
+        holder.txtRepairRequest.setText(repairRequestAtPosition.getJob().getJobType().getName() + "\nFrom: " + repairRequestAtPosition.getCustomer().getUsername());
+        holder.btnSelectRepairRequest.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                if (repairRequestItemSelectionListener != null) {
+            public void onClick(View v)
+            {
+                if (repairRequestItemSelectionListener != null)
+                {
                     repairRequestItemSelectionListener.onItemSelected(repairRequestAtPosition);
                 }
             }
@@ -80,8 +90,9 @@ public class RepairRequestAdapter extends RecyclerView.Adapter<RepairRequestAdap
      * @return The total number of items in this adapter.
      */
     @Override
-    public int getItemCount() {
-        return itemList == null ? 0 :itemList.size();
+    public int getItemCount()
+    {
+        return itemList == null ? 0 : itemList.size();
     }
 
 

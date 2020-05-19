@@ -13,12 +13,10 @@ import android.widget.Spinner;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Technician.AddEditJob.AddEditJobActivity;
-import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterPresenter;
-import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterViewModel;
 
 import java.util.List;
 
-import static com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity.TECHNICIAN_ID_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
 public class AddEditAreaActivity extends AppCompatActivity implements AddEditAreaView
 {
@@ -34,7 +32,7 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
         final AddEditAreaPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
 
-        presenter.setTechnician(getIntent().getIntExtra("TECHNICIAN_ID_EXTRA", 0));
+        presenter.setTechnician(getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));
         presenter.setUpDataSource();
 
         findViewById(R.id.AddAreaButton).setOnClickListener(new View.OnClickListener()
@@ -77,7 +75,7 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
     public void goToEditJob()
     {
         Intent intent = new Intent(this, AddEditJobActivity.class);
-        intent.putExtra("TECHNICIAN_ID_EXTRA", getIntent().getIntExtra("TECHNICIAN_ID_EXTRA", 0));
+        intent.putExtra(TECHNICIAN_ID_EXTRA, getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));
         startActivity(intent);
     }
 

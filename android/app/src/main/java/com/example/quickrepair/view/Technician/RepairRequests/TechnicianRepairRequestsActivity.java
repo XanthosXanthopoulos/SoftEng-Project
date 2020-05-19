@@ -21,6 +21,8 @@ import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.Tech
 
 import com.google.android.material.tabs.TabLayout;
 
+import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
+
 public class TechnicianRepairRequestsActivity extends AppCompatActivity implements TechnicianRepairRequestsView
 {
 
@@ -29,7 +31,6 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     private static TechnicianRepairRequestsViewModel technicianRepairRequestsViewModel;
 
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
-    public static final String TECHNICIAN_ID_EXTRA = "technician_id";
 
 
     @Override

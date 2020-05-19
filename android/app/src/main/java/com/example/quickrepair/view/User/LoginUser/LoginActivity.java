@@ -13,9 +13,10 @@ import com.example.quickrepair.R;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
+import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
+
 public class LoginActivity extends AppCompatActivity implements LoginView
 {
-    public static final String TECHNICIAN_ID_EXTRA = "technician_id";
     public static final String CUSTOMER_ID_EXTRA = "customer_id";
     private LoginViewModel viewModel;
 

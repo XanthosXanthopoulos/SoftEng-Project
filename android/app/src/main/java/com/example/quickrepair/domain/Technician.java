@@ -139,7 +139,8 @@ public class Technician extends User
     public Job addJob(JobType jobType, double price)
     {
         if (jobType == null) throw new NullPointerException();
-        if (!jobType.getSpecialty().equals(getSpecialty())) throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
+        if (!jobType.getSpecialty().equals(getSpecialty()))
+            throw new IllegalArgumentException("A technician can only offer jobs from his specialty");
         if (price <= 0) throw new IllegalArgumentException();
 
         for (Job job : jobs)
