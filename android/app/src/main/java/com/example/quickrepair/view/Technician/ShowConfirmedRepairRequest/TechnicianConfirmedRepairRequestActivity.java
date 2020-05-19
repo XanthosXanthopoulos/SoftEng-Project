@@ -14,18 +14,19 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
+import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
-public class TechnicianConfirmedRepairRequestActivity extends AppCompatActivity implements TechnicianConfirmedRepairRequestView{
-    public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
-
+public class TechnicianConfirmedRepairRequestActivity extends AppCompatActivity implements TechnicianConfirmedRepairRequestView
+{
     TechnicianConfirmedRepairRequestViewModel technicianConfirmedRepairRequestViewModel;
     TechnicianConfirmedRepairRequestPresenter presenter;
 
     private static int repairRequestID = 0;
     private static int technicianID = 0;
 
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.technician_confirmed_repair_request);
 
@@ -43,7 +44,8 @@ public class TechnicianConfirmedRepairRequestActivity extends AppCompatActivity 
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
@@ -51,12 +53,14 @@ public class TechnicianConfirmedRepairRequestActivity extends AppCompatActivity 
     }
 
     @Override
-    public void showError(String message) {
+    public void showError(String message)
+    {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void complete() {
+    public void complete()
+    {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
@@ -64,46 +68,55 @@ public class TechnicianConfirmedRepairRequestActivity extends AppCompatActivity 
     }
 
     @Override
-    public void setJob(String job) {
+    public void setJob(String job)
+    {
         TextView jobTextView = findViewById(R.id.job);
         jobTextView.setText(job);
     }
 
     @Override
-    public void setConsumerName(String consumerName) {
+    public void setConsumerName(String consumerName)
+    {
         TextView consumerTextView = findViewById(R.id.consumer);
         consumerTextView.setText(consumerName);
     }
 
     @Override
-    public void setAddress(String address) {
+    public void setAddress(String address)
+    {
         TextView addressTextView = findViewById(R.id.address);
         addressTextView.setText(address);
     }
 
     @Override
-    public void setComments(String comments) {
+    public void setComments(String comments)
+    {
         TextView commentsTextView = findViewById(R.id.comments);
         commentsTextView.setText(comments);
     }
 
     @Override
-    public void setConductionDate(String conductionDate) {
+    public void setConductionDate(String conductionDate)
+    {
         TextView conductionDateTextView = findViewById(R.id.conduction_date);
         conductionDateTextView.setText(conductionDate);
     }
 
     @Override
-    public void setEstimatedDuration(String estimatedDuration) {
+    public void setEstimatedDuration(String estimatedDuration)
+    {
         TextView estimatedDurationTextView = findViewById(R.id.estimated_duration);
         estimatedDurationTextView.setText(estimatedDuration);
     }
 
     @Override
-    public void setButtonListeners() {
+    public void setButtonListeners()
+    {
         Button buttonConfirm = findViewById(R.id.complete);
-        buttonConfirm.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        buttonConfirm.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
                 EditText editText = findViewById(R.id.quantity);
                 String input = editText.getText().toString();
                 presenter.setCompleted(input);

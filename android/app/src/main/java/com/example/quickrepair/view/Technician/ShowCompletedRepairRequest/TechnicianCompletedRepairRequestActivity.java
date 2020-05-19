@@ -11,18 +11,18 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
+import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
-public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity implements TechnicianCompletedRepairRequestView{
-
-    public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
-
+public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity implements TechnicianCompletedRepairRequestView
+{
     private static int repairRequestID;
     private static int technicianID;
 
     private TechnicianCompletedRepairRequestViewModel technicianCompletedRepairRequestViewModel;
 
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.technician_completed_repair_request);
 
@@ -38,8 +38,10 @@ public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity 
         presenter.searchRepairRequestData(repairRequestID);
 
     }
+
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
@@ -47,51 +49,60 @@ public class TechnicianCompletedRepairRequestActivity extends AppCompatActivity 
     }
 
     @Override
-    public void setJob(String job) {
+    public void setJob(String job)
+    {
         TextView jobTextView = findViewById(R.id.job);
         jobTextView.setText(job);
     }
 
     @Override
-    public void setConsumerName(String consumerName) {
+    public void setConsumerName(String consumerName)
+    {
         TextView consumerTextView = findViewById(R.id.consumer);
         consumerTextView.setText(consumerName);
     }
 
     @Override
-    public void setAddress(String address) {
+    public void setAddress(String address)
+    {
         TextView addressTextView = findViewById(R.id.address);
         addressTextView.setText(address);
     }
 
     @Override
-    public void setComments(String comments) {
+    public void setComments(String comments)
+    {
         TextView commentsTextView = findViewById(R.id.comments);
         commentsTextView.setText(comments);
     }
 
     @Override
-    public void setConductionDate(String conductionDate) {
+    public void setConductionDate(String conductionDate)
+    {
         TextView conductionDateTextView = findViewById(R.id.conduction_date);
         conductionDateTextView.setText(conductionDate);
 
     }
 
     @Override
-    public void setEstimatedDuration(String estimatedDuration) {
+    public void setEstimatedDuration(String estimatedDuration)
+    {
         TextView estimatedDurationTextView = findViewById(R.id.estimated_duration);
         estimatedDurationTextView.setText(estimatedDuration);
 
     }
 
     @Override
-    public void setCost(String cost) {
+    public void setCost(String cost)
+    {
         TextView costTextView = findViewById(R.id.cost);
         costTextView.setText(cost);
 
     }
+
     @Override
-    public void showError(String message) {
+    public void showError(String message)
+    {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 

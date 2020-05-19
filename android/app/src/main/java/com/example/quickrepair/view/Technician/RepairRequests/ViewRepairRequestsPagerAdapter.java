@@ -7,37 +7,47 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.quickrepair.domain.Technician;
+public class ViewRepairRequestsPagerAdapter extends FragmentPagerAdapter
+{
 
-public class ViewRepairRequestsPagerAdapter extends FragmentPagerAdapter {
-
-    private static final String[] TAB_TITLES = new String[]{ "Unconfirmed", "Confirmed", "Completed" };
+    private static final String[] TAB_TITLES = new String[]{"Unconfirmed", "Confirmed", "Completed"};
 
     private final Context mContext;
-    public ViewRepairRequestsPagerAdapter(Context context, FragmentManager fm) {
+
+    public ViewRepairRequestsPagerAdapter(Context context, FragmentManager fm)
+    {
         super(fm);
         mContext = context;
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem(int position)
+    {
         // getItem is called to instantiate the fragment for the given page.
-        if (position == 0) {
+        if (position == 0)
+        {
             return TechnicianUnconfirmedRepairRequests.newInstance();
-        } else if(position == 1) {
+        }
+        else if (position == 1)
+        {
             return TechnicianConfirmedRepairRequests.newInstance();
-        }else{
+        }
+        else
+        {
             return TechnicianCompletedRepairRequests.newInstance();
         }
     }
 
     @Nullable
     @Override
-    public CharSequence getPageTitle(int position) {
+    public CharSequence getPageTitle(int position)
+    {
         return TAB_TITLES[position];
     }
+
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         // Show 2 total pages.
         return 3;
     }

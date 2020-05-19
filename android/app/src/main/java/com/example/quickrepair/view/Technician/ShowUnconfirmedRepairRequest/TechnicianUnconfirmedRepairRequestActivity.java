@@ -2,9 +2,6 @@ package com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,18 +14,19 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
+import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
-public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivity implements TechnicianUnconfirmedRepairRequestView {
-
-    public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
+public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivity implements TechnicianUnconfirmedRepairRequestView
+{
 
     private static int repairRequestID;
     private static int technicianID;
     private TechnicianUnconfirmedRepairRequestViewModel technicianRepairRequestsViewModel;
     private TechnicianUnconfirmedRepairRequestPresenter presenter;
 
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.technician_unconfirmed_repair_request);
 
@@ -46,7 +44,8 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
@@ -54,7 +53,8 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
     }
 
     @Override
-    public void reject() {
+    public void reject()
+    {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
@@ -62,7 +62,8 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
     }
 
     @Override
-    public void confirm() {
+    public void confirm()
+    {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
@@ -70,53 +71,64 @@ public class TechnicianUnconfirmedRepairRequestActivity extends AppCompatActivit
     }
 
     @Override
-    public void showError(String message) {
+    public void showError(String message)
+    {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void setJob(String job) {
+    public void setJob(String job)
+    {
         TextView jobTextView = findViewById(R.id.job);
         jobTextView.setText(job);
     }
 
     @Override
-    public void setConsumerName(String consumerName) {
+    public void setConsumerName(String consumerName)
+    {
         TextView consumerTextView = findViewById(R.id.consumer);
         consumerTextView.setText(consumerName);
     }
 
     @Override
-    public void setAddress(String address) {
+    public void setAddress(String address)
+    {
         TextView addressTextView = findViewById(R.id.address);
         addressTextView.setText(address);
     }
 
     @Override
-    public void setComments(String comments) {
+    public void setComments(String comments)
+    {
         TextView commentsTextView = findViewById(R.id.comments);
         commentsTextView.setText(comments);
     }
 
     @Override
-    public void setConductionDate(String conductionDate) {
+    public void setConductionDate(String conductionDate)
+    {
         TextView conductionDateTextView = findViewById(R.id.conduction_date);
         conductionDateTextView.setText(conductionDate);
 
     }
 
     @Override
-    public void setButtonsListeners() {
+    public void setButtonsListeners()
+    {
         Button buttonReject = findViewById(R.id.reject);
-        buttonReject.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        buttonReject.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
                 presenter.setReject();
             }
         });
 
         Button buttonConfirm = findViewById(R.id.confirm);
-        buttonConfirm.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        buttonConfirm.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
                 EditText editText = findViewById(R.id.duration);
                 String input = editText.getText().toString();
                 presenter.setConfirm(input);

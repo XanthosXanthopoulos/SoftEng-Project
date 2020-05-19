@@ -17,7 +17,8 @@ import com.example.quickrepair.domain.RepairRequest;
 
 import java.util.ArrayList;
 
-public class TechnicianCompletedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest> {
+public class TechnicianCompletedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest>
+{
 
     public static final RepairRequest.Status status = RepairRequest.Status.COMPLETED;
 
@@ -28,19 +29,22 @@ public class TechnicianCompletedRepairRequests extends Fragment implements ItemS
 
 
     //new instance of this fragment
-    public static TechnicianCompletedRepairRequests newInstance() {
+    public static TechnicianCompletedRepairRequests newInstance()
+    {
         return new TechnicianCompletedRepairRequests();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.technician_completed_repair_requests, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+    {
         super.onViewCreated(view, savedInstanceState);
         activity = ((TechnicianRepairRequestsActivity) getActivity());
 
@@ -59,12 +63,14 @@ public class TechnicianCompletedRepairRequests extends Fragment implements ItemS
         mAdapter.setRepairRequestSelectionListener(this);
     }
 
-        /**
-         * The method will be called by the adapter, whenever the user clicks on a list item
-         * @param item Repair Request
-         */
+    /**
+     * The method will be called by the adapter, whenever the user clicks on a list item
+     *
+     * @param item Repair Request
+     */
     @Override
-    public void onItemSelected(RepairRequest item) {
+    public void onItemSelected(RepairRequest item)
+    {
         activity.getViewModel().getPresenter().onRepairRequestSelectedCompleted(item);
     }
 }

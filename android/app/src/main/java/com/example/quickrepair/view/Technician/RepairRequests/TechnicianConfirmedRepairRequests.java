@@ -17,7 +17,8 @@ import com.example.quickrepair.domain.RepairRequest;
 
 import java.util.ArrayList;
 
-public class TechnicianConfirmedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest>{
+public class TechnicianConfirmedRepairRequests extends Fragment implements ItemSelectionListener<RepairRequest>
+{
 
     public static final RepairRequest.Status status = RepairRequest.Status.CONFIRMED;
 
@@ -28,19 +29,22 @@ public class TechnicianConfirmedRepairRequests extends Fragment implements ItemS
 
 
     //new instance of this fragment
-    public static TechnicianConfirmedRepairRequests newInstance() {
+    public static TechnicianConfirmedRepairRequests newInstance()
+    {
         return new TechnicianConfirmedRepairRequests();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.technician_confirmed_repair_requests, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+    {
         super.onViewCreated(view, savedInstanceState);
         activity = ((TechnicianRepairRequestsActivity) getActivity());
 
@@ -62,10 +66,12 @@ public class TechnicianConfirmedRepairRequests extends Fragment implements ItemS
 
     /**
      * The method will be called by the adapter, whenever the user clicks on a list item
+     *
      * @param item Repair Request
      */
     @Override
-    public void onItemSelected(RepairRequest item) {
+    public void onItemSelected(RepairRequest item)
+    {
         activity.getViewModel().getPresenter().onRepairRequestSelectedConfirmed(item);
     }
 }

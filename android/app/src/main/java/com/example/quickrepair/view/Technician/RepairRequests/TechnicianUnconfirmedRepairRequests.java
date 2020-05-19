@@ -28,8 +28,9 @@ public class TechnicianUnconfirmedRepairRequests extends Fragment implements Ite
     private RecyclerView.LayoutManager mLayoutManager;
 
     //new instance of this fragment
-    public static TechnicianUnconfirmedRepairRequests newInstance() {
-            return new TechnicianUnconfirmedRepairRequests();
+    public static TechnicianUnconfirmedRepairRequests newInstance()
+    {
+        return new TechnicianUnconfirmedRepairRequests();
     }
 
     @Override
