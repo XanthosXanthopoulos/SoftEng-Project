@@ -15,7 +15,7 @@ public class UserUnitTest
     public void setUpTests()
     {
         userToTest = new User("nikos", "sm", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "nikos", "123");
+                "asdih@ausdh.asdh", "1234567890123456789012", "nikos", "123");
     }
 
     @Test
@@ -25,7 +25,7 @@ public class UserUnitTest
         Assert.assertEquals("sm", userToTest.getSurname());
         Assert.assertEquals("6958475635", userToTest.getPhoneNumber());
         Assert.assertEquals("asdih@ausdh.asdh", userToTest.getEmail());
-        Assert.assertEquals("mybankaccount", userToTest.getBankAccount());
+        Assert.assertEquals("1234567890123456789012", userToTest.getBankAccount());
         Assert.assertEquals("nikos", userToTest.getUsername());
         Assert.assertEquals("123", userToTest.getPassword());
 
@@ -35,21 +35,21 @@ public class UserUnitTest
     public void setCorrectUserInfo()
     {
         userToTest.setUserInfo("nikos", "sm", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "nikos");
+                "asdih@ausdh.asdh", "1234567890123456789012", "nikos");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setIncorrectEmail()
     {
         userToTest.setUserInfo("nikos", "sm", "6958475635",
-                "asdihausdh.asdh", "mybankaccount", "nikos");
+                "asdihausdh.asdh", "1234567890123456789012", "nikos");
     }
 
     @Test
     public void setCorrectEmailWithNumbers()
     {
         userToTest.setUserInfo("nikos", "sm", "6958475635",
-                "asdihausdh1999@asdd.asdh", "mybankaccount", "nikos");
+                "asdihausdh1999@asdd.asdh", "1234567890123456789012", "nikos");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -70,7 +70,7 @@ public class UserUnitTest
     public void memberMethods()
     {
         User u1 = new User("nikos", "sm", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "nikos", "123");
+                "asdih@ausdh.asdh", "1234567890123456789012", "nikos", "123");
 
         Assert.assertNotEquals(userToTest, null);
         Assert.assertEquals(userToTest, userToTest);
@@ -80,7 +80,7 @@ public class UserUnitTest
         Assert.assertTrue(userToTest.hashCode() == u1.hashCode());
 
         u1 = new User("nikos", "sma", "6958475635",
-                "asdih@ausdh.asdh", "mybankaccount", "nikos", "123");
+                "asdih@ausdh.asdh", "1234567890123456789012", "nikos", "123");
 
         Assert.assertNotEquals(userToTest, u1);
     }

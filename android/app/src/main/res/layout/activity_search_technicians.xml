@@ -50,6 +50,33 @@
         android:layout_height="wrap_content"
         android:text="@string/search"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/year"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="YYYY"
+            />
+
+        <EditText
+            android:id="@+id/month"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="MM"
+            />
+
+        <EditText
+            android:id="@+id/day"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="DD" />
+    </LinearLayout>
 
 
     <LinearLayout

@@ -23,10 +23,10 @@ public class CustomerUnitTest
     public void setUpTests()
     {
         customerToTest = new Customer("nick", "sm", "6958375634",
-                "sss222@asdm.com", "123121231123", "nicksm",
+                "sss222@asdm.com", "1234567890123456789012", "nicksm",
                 "0j19283j1");
         job = new Job();
-        Technician technician = new Technician("xrisa", "dkn", "1234567890", "dkn@aueb.gr", "1234", "techo", "password", new Specialty(), "1234");
+        Technician technician = new Technician("xrisa", "dkn", "1234567890", "dkn@aueb.gr", "1234567890123456789012", "techo", "password", new Specialty(), "1234");
         job.setTechnician(technician);
     }
 
@@ -60,7 +60,7 @@ public class CustomerUnitTest
         Assert.assertEquals(false, customerToTest.equals(new Integer(100)));
 
         Customer customer = new Customer("nick", "sm", "6958375634",
-                "sss222@asdm.com", "123121231123", "nicksm",
+                "sss222@asdm.com", "1234567890123456789012", "nicksm",
                 "0j19283j1");
         Assert.assertEquals(true, customerToTest.equals(customer));
     }
@@ -69,7 +69,7 @@ public class CustomerUnitTest
     public void hashcodeTest()
     {
         Customer customer = new Customer("nick", "sm", "6958375634",
-                "sss222@asdm.com", "123121231123", "nicksm",
+                "sss222@asdm.com", "1234567890123456789012", "nicksm",
                 "0j19283j1");
 
         Assert.assertTrue(customer.equals(customerToTest) && customerToTest.equals(customer));

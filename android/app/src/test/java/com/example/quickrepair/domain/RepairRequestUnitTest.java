@@ -1,5 +1,8 @@
 package com.example.quickrepair.domain;
 
+import android.os.health.SystemHealthManager;
+import android.util.ArraySet;
+
 import com.example.quickrepair.domain.Address;
 import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.domain.Job;
@@ -17,6 +20,8 @@ import org.junit.Assert;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Set;
 
 public class RepairRequestUnitTest
 {
