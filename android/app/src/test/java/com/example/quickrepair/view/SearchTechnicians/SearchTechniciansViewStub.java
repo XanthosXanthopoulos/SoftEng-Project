@@ -17,10 +17,13 @@ public class SearchTechniciansViewStub implements SearchTechniciansView {
         presenter.selectJobType(jobTypeIds.get(position));
     }
     public void setPrice(String price){
-        presenter.filterByMaxPrice(price);
+        presenter.setMaxPrice(price);
     }
     public void setArea(int position){
-        presenter.filterArea(areas.get(position));
+        presenter.setArea(areas.get(position));
+    }
+    public void setDate(String year , String month , String day){
+        presenter.setDate(year , month, day);
     }
     public void onStart(){
         presenter.onStart();
@@ -40,8 +43,9 @@ public class SearchTechniciansViewStub implements SearchTechniciansView {
 
     String lastMessage;
     @Override
-    public void showErrorMessage(String errrorMessage) {
-        lastMessage = errrorMessage;
+    public void showErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+        lastMessage = errorMessage;
     }
 
     List<Integer> specialtyIds;
@@ -77,10 +81,16 @@ public class SearchTechniciansViewStub implements SearchTechniciansView {
         this.prices = prices;
     }
     boolean navigatedToRequestRepair =false;
+    int navYear = -1;
+    int navMonth = -1;
+    int navDay = -1;
 
     @Override
-    public void navigateToRequestRepair(int technicianId, int jobTypeId) {
+    public void navigateToRequestRepair(int technicianId, int jobTypeId , int year , int month , int dayOfMonth) {
         navigatedToRequestRepair = true;
+        navYear = year;
+        navMonth = month;
+        navDay = dayOfMonth;
     }
 
     boolean navigatedToLogin = false;

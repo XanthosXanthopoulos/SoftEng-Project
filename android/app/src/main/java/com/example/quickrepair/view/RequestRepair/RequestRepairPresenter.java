@@ -118,7 +118,8 @@ public class RequestRepairPresenter {
         //Saving the created repair request to the DAO
         repairRequestDAO.save(result);
         view.showTimesAvailable(createListFromHourRanges(selectedTechnician));
-
+        view.exit();
+        view.showInfo("Successfully created a repair request!");
     }
 
 

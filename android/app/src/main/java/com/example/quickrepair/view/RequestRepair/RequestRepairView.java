@@ -8,5 +8,7 @@ public interface RequestRepairView {
     public void setJobTypeName(String text);
     public void showTimesAvailable(List<String> availableHours);
     public void showError(String error);
+    public void exit();
+    public void showInfo(String message);
 
 }

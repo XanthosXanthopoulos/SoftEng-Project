@@ -59,6 +59,7 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
         technicianId = intent.getIntExtra("technicianId" , -1);
         jobTypeId = intent.getIntExtra("jobTypeId" , -1);
          */
+        System.out.println( "intent is " + getIntent());
         year = 2012;
         month = 5;
         dayOfMonth = 3;
@@ -120,5 +121,15 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
     @Override
     public void showError(String error) {
         Toast.makeText(this , error , Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void exit() {
+        onBackPressed();
+    }
+
+    @Override
+    public void showInfo(String message) {
+        Toast.makeText(this , message , Toast.LENGTH_SHORT).show();
     }
 }

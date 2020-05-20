@@ -39,4 +39,14 @@ public class RequestRepairViewStub implements RequestRepairView {
         System.out.println("javas error " + error);
         errorMessage = error;
     }
+
+    @Override
+    public void exit() {
+
+    }
+
+    @Override
+    public void showInfo(String message) {
+
+    }
 }

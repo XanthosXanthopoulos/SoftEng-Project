@@ -15,7 +15,9 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.quickrepair.QuickRepairApplication;
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.RequestRepair.RequestRepairActivity;
 import com.example.quickrepair.view.User.LoginUser.LoginActivity;
 
 import java.util.ArrayList;
@@ -35,31 +37,30 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
     ArrayAdapter<SpinnerEntry> jobTypeAdapter;
     ArrayAdapter<String> areaAdapter;
 
+    EditText yearText;
+    EditText monthText;
+    EditText dayText;
+
     TechnicianAdapter technicianAdapter;
     ListView techniciansList;
 
+    int loggedInUserId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_technicians);
         Intent intent = getIntent();
-        //TODO get loggedin id somehow
+        loggedInUserId = intent.getIntExtra(QuickRepairApplication.LOGGED_IN_USER_ID_EXTRA , -1);
 
 
         viewModel = new ViewModelProvider(this).get(SearchTechniciansViewModel.class);
         presenter = viewModel.getPresenter();
         presenter.setView(this);
 
-        int id = intent.getIntExtra("id" , -1);
-        if(id >= 0){
-            presenter.setLoggedInUser(id);
+        if(loggedInUserId >= 0){
+            presenter.setLoggedInUser(loggedInUserId);
         }
-        //TODO Remove this
-        else{
-            id = 1;
-        }
-        presenter.setLoggedInUser(id);
-        maxpriceText = findViewById(R.id.max_price_text);
+
 
         //Setting spinner adapters
         specialtySpinner = findViewById(R.id.specialty_spinner);
@@ -70,7 +71,10 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
         jobTypeAdapter = new ArrayAdapter<>(this , R.layout.support_simple_spinner_dropdown_item);
         areaAdapter = new ArrayAdapter<>(this , R.layout.support_simple_spinner_dropdown_item);
 
-
+        maxpriceText = findViewById(R.id.max_price_text);
+        yearText = findViewById(R.id.year);
+        monthText = findViewById(R.id.month);
+        dayText = findViewById(R.id.day);
 
         specialtySpinner.setAdapter(specialtyAdapter);
         jobTypeSpinner.setAdapter(jobTypeAdapter);
@@ -97,20 +101,26 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("w" , "vie button clicked");
+                Log.e("w" , "view button clicked");
                 SpinnerEntry entry = (SpinnerEntry) jobTypeSpinner.getSelectedItem();
                 int selectedJobTypeId = entry.getId();
                 String selectedMaxPrice =  maxpriceText.getText().toString();
                 String selectedArea = (String) areaSpinner.getSelectedItem();
+
+                String month = monthText.getText().toString();
+                String year = yearText.getText().toString();
+                String day = dayText.getText().toString();
+
+                presenter.setDate(year,month,day);
                 presenter.selectJobType(selectedJobTypeId);
-                presenter.filterByMaxPrice(selectedMaxPrice);
-                presenter.filterArea(selectedArea);
+                presenter.setMaxPrice(selectedMaxPrice);
+                presenter.setArea(selectedArea);
             }
         });
         techniciansList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e( "fuck", "Clicked on technician id  " + id);
+                Log.e( "test", "Clicked on technician id  " + id);
                 presenter.onTechnicianClick((int)id);
             }
         });
@@ -172,13 +182,17 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
     }
 
     @Override
-    public void navigateToRequestRepair(int technicianId, int jobTypeId) {
-        //TODO Fix this once requestrepairActivity is complete
+    public void navigateToRequestRepair(int technicianId, int jobTypeId , int year , int month , int dayOfMonth) {
         //navigate to login page
-        //Intent intent = new Intent(this, RequestRepairActivity.class);
-        //startActivityForResult(intent, 0);
-        // close activity
-        //finish();
+        Intent intent = new Intent(this, RequestRepairActivity.class);
+        intent.putExtra(QuickRepairApplication.LOGGED_IN_USER_ID_EXTRA , loggedInUserId);
+        intent.putExtra(QuickRepairApplication.TECHNICIAN_ID_EXTRA , technicianId);
+        intent.putExtra(QuickRepairApplication.JOBTYPE_ID_EXTRA , jobTypeId);
+        intent.putExtra(QuickRepairApplication.YEAR_EXTRA , year);
+        intent.putExtra(QuickRepairApplication.MONTH_EXTRA , month);
+        intent.putExtra(QuickRepairApplication.DAY_EXTRA , dayOfMonth);
+        // start activity
+        startActivity(intent);
     }
 
     @Override

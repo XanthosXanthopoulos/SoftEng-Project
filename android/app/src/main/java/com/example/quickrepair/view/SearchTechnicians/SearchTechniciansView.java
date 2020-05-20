@@ -33,7 +33,7 @@ public interface SearchTechniciansView {
     /**
      * Προχωράει στην περιπτωση χρησης δημιουργία ραντεβού
      */
-    public void navigateToRequestRepair(int technicianId , int jobTypeId);
+    public void navigateToRequestRepair(int technicianId , int jobTypeId , int year , int month , int dayOfMonth);
 
     /**
      * Πηγαίνει τον χρήστη στην οθόνη για login.
