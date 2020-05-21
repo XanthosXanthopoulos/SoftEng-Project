@@ -14,7 +14,7 @@ public class RequestRepairViewModel extends ViewModel {
     RequestRepairPresenter presenter;
 
     public RequestRepairViewModel() {
-
+        //TODO REMOVE INITIALIZER
         Initializer initializer= new MemoryInitializer();
         initializer.prepareData();
 

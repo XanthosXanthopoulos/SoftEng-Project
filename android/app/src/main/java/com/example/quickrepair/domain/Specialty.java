@@ -71,7 +71,7 @@ public class Specialty
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Specialty specialty = (Specialty) o;
-        return Objects.equals(name, specialty.name) && Objects.equals(jobTypes, specialty.jobTypes);
+        return Objects.equals(name, specialty.name);// && Objects.equals(jobTypes, specialty.jobTypes);
     }
 
     @Override

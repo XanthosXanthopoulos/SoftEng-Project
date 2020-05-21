@@ -54,6 +54,7 @@ public class SearchTechniciansTest {
         stub.chooseJobType(0);
         stub.setPrice("13");
         stub.setArea(2);
+        stub.setDate("2020" , "5" , "5");
 
         String correctArea = areaDAO.getAreas().get(2);
         String chosenArea = stub.areas.get(2);
@@ -74,6 +75,10 @@ public class SearchTechniciansTest {
         for(double price : resultPrices){
             Assert.assertTrue(price <= 13);
         }
+        stub.chooseTechnician(0);
+        Assert.assertTrue(stub.navDay == 5);
+        Assert.assertTrue(stub.navMonth == 5);
+        Assert.assertTrue(stub.navYear == 2020);
     }
     @Test
     public void setWrongPriceShowsErrorMessage(){
@@ -86,9 +91,28 @@ public class SearchTechniciansTest {
     public void moveToRequestRepairWithoutLoggingIn(){
         stub.chooseSpecialty(0);
         stub.chooseJobType(0);
+        stub.setDate("2020" , "10" , "1");
         stub.setPrice("500");
         stub.chooseTechnician(0);
         Assert.assertTrue(stub.lastMessage != null);
         Assert.assertTrue(stub.navigatedToLogin);
+    }
+    @Test
+    public void setWrongFormOfDate(){
+        stub.chooseSpecialty(0);
+        stub.chooseJobType(0);
+        stub.setDate("2020" , "13" , "1");
+        stub.setPrice("500");
+        stub.chooseTechnician(0);
+        Assert.assertTrue(stub.lastMessage != null);
+    }
+
+    @Test
+    public void noUpperBoundOnPrice(){
+        stub.chooseSpecialty(0);
+        stub.chooseJobType(0);
+        stub.setDate("2020" , "11" , "1");
+        stub.setArea(0);
+        Assert.assertFalse(stub.technicianIds.isEmpty());
     }
 }

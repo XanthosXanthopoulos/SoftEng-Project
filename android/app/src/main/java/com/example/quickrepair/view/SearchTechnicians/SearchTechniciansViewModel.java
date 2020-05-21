@@ -11,7 +11,7 @@ public class SearchTechniciansViewModel extends ViewModel {
 
     public SearchTechniciansViewModel() {
 
-        //Where do i get the daos ? TODO
+        // TODO REMOVE INITIALIZER
         Initializer initializer = new MemoryInitializer();
         initializer.prepareData();
         presenter = new SearchTechniciansPresenter(initializer.getTechnicianDAO() , initializer.getSpecialtyDAO()

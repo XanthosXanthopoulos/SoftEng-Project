@@ -14,7 +14,13 @@
         <activity android:name=".view.Technician.AddEditArea.AddEditAreaActivity" />
         <activity
             android:name=".view.SearchTechnicians.SearchTechniciansActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.User.LoginUser.LoginActivity" />
         <activity
             android:name=".view.Technician.RepairRequests.TechnicianRepairRequestsActivity"
@@ -31,11 +37,7 @@
         <activity android:name=".view.Customer.ShowUnconfirmedRepairRequest.CustomerUnconfirmedRepairRequestActivity" />
         <activity android:name=".view.Customer.RegisterCustomer.CustomerRegisterActivity" />
         <activity android:name=".view.HomePage.HomePageActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

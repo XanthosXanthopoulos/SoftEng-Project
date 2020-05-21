@@ -32,7 +32,7 @@ public class TechnicianUnitTest
     {
         exampleSpecialty = new Specialty("Electrician");
         technicianToTest = new Technician("nikos", "sm", "6958475635",
-                "example@example.com", "mybankaccount", "nikos",
+                "example@example.com", "1234567890123456789012", "nikos",
                 "123", exampleSpecialty, "128947");
         Address address = new Address("ath", "15");
 
@@ -152,7 +152,7 @@ public class TechnicianUnitTest
     public void setCorrectTechnicianInfo()
     {
         technicianToTest.setTechnicianInfo("nikos", "sm", "6958475635",
-                "example@example.com", "mybankaccount", "username");
+                "example@example.com", "1234567890123456789012", "username");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -197,13 +197,13 @@ public class TechnicianUnitTest
         req.setAddress(exampleAddress);
 
         technicianToTest.setTechnicianInfo("nikos", "sm",
-                "6958692431", "asd@gmail.com", "1111", "username");
+                "6958692431", "asd@gmail.com", "1234567890123456789012", "username");
         technicianToTest.setAFM("123142");
         assertEquals(technicianToTest.getEmail(), "asd@gmail.com");
         assertEquals(technicianToTest.getName(), "nikos");
         assertEquals(technicianToTest.getSurname(), "sm");
         assertEquals(technicianToTest.getPhoneNumber(), "6958692431");
-        assertEquals(technicianToTest.getBankAccount(), "1111");
+        assertEquals(technicianToTest.getBankAccount(), "1234567890123456789012");
         assertTrue(technicianToTest.getAFM().equals("123142"));
     }
 
@@ -222,7 +222,7 @@ public class TechnicianUnitTest
     public void userNameAndPasswordTest()
     {
         Technician newTechnician = new Technician("nikos", "sm", "6958475635",
-                "example@example.com", "mybankaccount", "nikos",
+                "example@example.com", "1234567890123456789012", "nikos",
                 "123", exampleSpecialty, "128947");
         assertEquals(newTechnician.getUsername(), "nikos");
         assertTrue(newTechnician.getPassword().equals("123"));
@@ -242,7 +242,7 @@ public class TechnicianUnitTest
                 , "", "", "");
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void setNullSurname()
     {
         technicianToTest.setTechnicianInfo("", null, ""
@@ -272,7 +272,7 @@ public class TechnicianUnitTest
     public void equalsTest()
     {
         Technician otherTechnician = new Technician("nikos", "sm", "6958475635",
-                "example@example.com", "mybankaccount", "nikos",
+                "example@example.com", "1234567890123456789012", "nikos",
                 "123", new Specialty("test"), "128947");
 
         assertEquals(technicianToTest, technicianToTest);
@@ -280,7 +280,7 @@ public class TechnicianUnitTest
         assertNotEquals(technicianToTest, otherTechnician);
 
         otherTechnician = new Technician("nikos", "sm", "6958475635",
-                "example@example.com", "mybankaccount", "nikos",
+                "example@example.com", "1234567890123456789012", "nikos",
                 "123", exampleSpecialty, "128947");
         otherTechnician.setSchedule(exampleSchedule);
 
