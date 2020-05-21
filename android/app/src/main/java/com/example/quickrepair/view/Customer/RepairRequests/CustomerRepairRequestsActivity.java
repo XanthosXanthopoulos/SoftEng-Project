@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.quickrepair.R;
-import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterActivity;
 import com.example.quickrepair.view.Customer.ShowCompletedRepairRequest.CustomerCompletedRepairRequestActivity;
 import com.example.quickrepair.view.Customer.ShowConfirmedRepairRequest.CustomerConfirmedRepairRequestActivity;
@@ -48,7 +47,7 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
 
