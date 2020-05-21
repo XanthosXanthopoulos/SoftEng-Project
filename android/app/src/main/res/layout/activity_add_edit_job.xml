@@ -4,50 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".view.Technician.AddEditJob.AddEditJobActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_margin="5dp"
-        android:id="@+id/controlsContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:columnCount="3"
-        android:rowCount="1">
 
         <Spinner
-            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/JobTypesSpinner"/>
 
         <EditText
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/JobTypesSpinner"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/AddJobButton"
+            app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/PriceInput"
-            android:hint="Price"/>
+            android:hint="@string/price"
+            android:layout_width="wrap_content"
+            android:minWidth="200dp"
+            />
 
         <Button
-            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/AddJobButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/JobTypesSpinner"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/add"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
         android:id="@+id/JobList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/controlsContainer"/>
+        app:layout_constraintTop_toBottomOf="@id/PriceInput"/>
 
     <Button
         android:id="@+id/FinalizeRegisterButton"

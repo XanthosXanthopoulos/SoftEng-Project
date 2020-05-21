@@ -14,14 +14,15 @@ public class TechnicianRegisterPresenter
 {
     CustomerDAO customerDAO;
     TechnicianDAO technicianDAO;
-    JobTypeDAO jobTypeDAO;
     SpecialtyDAO specialtyDAO;
+
+    Technician technician;
 
     TechnicianRegisterView view;
 
-    public TechnicianRegisterPresenter()
+    public void setTechnician(int id)
     {
-
+        technician = technicianDAO.find(id);
     }
 
     public void registerTechnician()
@@ -36,30 +37,34 @@ public class TechnicianRegisterPresenter
         String username = view.getUsername();
         String password = view.getPassword();
 
-        for (Technician technician : technicianDAO.findAll())
+        if (technician == null)
         {
-            if (technician.getUsername().equals(username))
-            {
-                view.showErrorMessage("Username already exist", "This username is already in use by another user.");
-                return;
-            }
-            else if (technician.getAFM().equals(afm))
-            {
-                view.showErrorMessage("Duplicate AFM", "Please make sure you do not have already an account and you have typed the correct AFM.");
-                return;
-            }
-        }
 
-        for (Customer customer : customerDAO.findAll())
-        {
-            if (customer.getUsername().equals(username))
+            for (Technician technician : technicianDAO.findAll())
             {
-                view.showErrorMessage("Username already exist", "This username is already in use by another user.");
-                return;
+                if (technician.getUsername().equals(username))
+                {
+                    view.showErrorMessage("Username already exist", "This username is already in use by another user.");
+                    return;
+                }
+                else if (technician.getAFM().equals(afm))
+                {
+                    view.showErrorMessage("Duplicate AFM", "Please make sure you do not have already an account and you have typed the correct AFM.");
+                    return;
+                }
             }
-        }
 
-        Technician technician = new Technician();
+            for (Customer customer : customerDAO.findAll())
+            {
+                if (customer.getUsername().equals(username))
+                {
+                    view.showErrorMessage("Username already exist", "This username is already in use by another user.");
+                    return;
+                }
+            }
+
+            technician = new Technician();
+        }
 
         try
         {
@@ -80,11 +85,20 @@ public class TechnicianRegisterPresenter
         }
 
         technician.setPassword(password);
-        technician.setSpecialty(speciality);
+
+        if (technician.getSpecialty() == null || technician.getSpecialty().getUid() != specialityID)
+        {
+            technician.setSpecialty(speciality);
+        }
+
         technician.setAFM(afm);
 
-        technician.setUid(technicianDAO.nextId());
-        technicianDAO.save(technician);
+        if (technician.getUid() == 0)
+        {
+            technician.setUid(technicianDAO.nextId());
+            technicianDAO.save(technician);
+        }
+
         view.onSuccessfulRegister(technician.getUid());
     }
 
@@ -111,11 +125,19 @@ public class TechnicianRegisterPresenter
             specialities.add(speciality.getName().trim());
         }
         view.setSpecialityList(specialities, "Επιλέξτε ειδικότητα");
-    }
 
-    public void setJobTypeDAO(JobTypeDAO jobTypeDAO)
-    {
-        this.jobTypeDAO = jobTypeDAO;
+        if (technician != null)
+        {
+            view.setName(technician.getName());
+            view.setSurname(technician.getSurname());
+            view.setEmail(technician.getEmail());
+            view.setPhoneNumber(technician.getPhoneNumber());
+            view.setAccountNumber(technician.getBankAccount());
+            view.setUsername(technician.getUsername());
+            view.setPassword(technician.getPassword());
+            view.setAFM(technician.getAFM());
+            view.setSpecialityID(technician.getSpecialty().getUid());
+        }
     }
 
     public void setView(TechnicianRegisterView view)

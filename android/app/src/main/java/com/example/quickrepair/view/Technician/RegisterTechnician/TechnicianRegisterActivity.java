@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
@@ -31,8 +33,16 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
         viewModel = new ViewModelProvider(this).get(TechnicianRegisterViewModel.class);
         final TechnicianRegisterPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
+
+        int technicianID = getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0);
+        presenter.setTechnician(technicianID);
         presenter.setUpDataSource();
 
+        if (technicianID != 0)
+        {
+            ((TextView)findViewById(R.id.Title)).setText("Profile");
+            ((Button)findViewById(R.id.RegisterButton)).setText("Save");
+        }
 
         findViewById(R.id.RegisterButton).setOnClickListener(new View.OnClickListener()
         {
@@ -42,6 +52,60 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
                 presenter.registerTechnician();
             }
         });
+    }
+
+    @Override
+    public void setName(String name)
+    {
+        ((EditText)findViewById(R.id.Name)).setText(name);
+    }
+
+    @Override
+    public void setSurname(String surname)
+    {
+        ((EditText)findViewById(R.id.Surname)).setText(surname);
+    }
+
+    @Override
+    public void setPhoneNumber(String phoneNumber)
+    {
+        ((EditText)findViewById(R.id.PhoneNumber)).setText(phoneNumber);
+    }
+
+    @Override
+    public void setEmail(String email)
+    {
+        ((EditText)findViewById(R.id.Email)).setText(email);
+    }
+
+    @Override
+    public void setAccountNumber(String accountNumber)
+    {
+        ((EditText)findViewById(R.id.BankAccount)).setText(accountNumber);
+    }
+
+    @Override
+    public void setAFM(String AFM)
+    {
+        ((EditText)findViewById(R.id.AFM)).setText(AFM);
+    }
+
+    @Override
+    public void setUsername(String username)
+    {
+        ((EditText)findViewById(R.id.Username)).setText(username);
+    }
+
+    @Override
+    public void setPassword(String password)
+    {
+        ((EditText)findViewById(R.id.Password)).setText(password);
+    }
+
+    @Override
+    public void setSpecialityID(int specialityID)
+    {
+        ((Spinner)findViewById(R.id.Speciality)).setSelection(specialityID);
     }
 
     @Override

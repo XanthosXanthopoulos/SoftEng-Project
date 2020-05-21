@@ -72,7 +72,7 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
             public void onClick(View v)
             {
                 int jobTypePosition = ((Spinner) findViewById(R.id.JobTypesSpinner)).getSelectedItemPosition();
-                double price = Double.parseDouble(((EditText) findViewById(R.id.PriceInput)).getText().toString());
+                String price = ((EditText) findViewById(R.id.PriceInput)).getText().toString();
 
                 presenter.addJob(jobTypePosition, price);
             }
