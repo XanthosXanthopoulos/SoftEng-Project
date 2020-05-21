@@ -74,6 +74,7 @@
         android:hint="@string/password"/>
 
     <Button
+        android:id="@+id/CustomerRegisterButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Password"

@@ -1,7 +1,6 @@
 package com.example.quickrepair.view.Technician.RegisterTechnician;
 
 import com.example.quickrepair.dao.CustomerDAO;
-import com.example.quickrepair.dao.JobTypeDAO;
 import com.example.quickrepair.dao.SpecialtyDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.domain.Customer;

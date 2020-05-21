@@ -14,9 +14,10 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
 
+import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
+
 public class CustomerCompletedRepairRequestActivity extends AppCompatActivity implements CustomerCompletedRepairRequestView{
-    public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
-    public static final String CUSTOMER_ID_EXTRA = "customer_id";
 
     private static int repairRequestID;
     private static int customerID;
