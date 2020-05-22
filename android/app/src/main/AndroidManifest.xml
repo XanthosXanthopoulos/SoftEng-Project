@@ -12,8 +12,9 @@
         <activity android:name=".view.RequestRepair.RequestRepairActivity"></activity>
         <activity android:name=".view.Technician.AddEditJob.AddEditJobActivity" />
         <activity android:name=".view.Technician.AddEditArea.AddEditAreaActivity" />
+        <activity android:name=".view.SearchTechnicians.SearchTechniciansActivity"/>
         <activity
-            android:name=".view.SearchTechnicians.SearchTechniciansActivity"
+            android:name=".view.HomePage.HomePageActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,9 +37,7 @@
         <activity android:name=".view.Customer.ShowConfirmedRepairRequest.CustomerConfirmedRepairRequestActivity" />
         <activity android:name=".view.Customer.ShowUnconfirmedRepairRequest.CustomerUnconfirmedRepairRequestActivity" />
         <activity android:name=".view.Customer.RegisterCustomer.CustomerRegisterActivity" />
-        <activity android:name=".view.HomePage.HomePageActivity">
 
-        </activity>
     </application>
 
 </manifest>

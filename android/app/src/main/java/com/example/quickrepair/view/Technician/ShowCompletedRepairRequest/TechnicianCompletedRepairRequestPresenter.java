@@ -8,7 +8,7 @@ import com.example.quickrepair.util.Utilities;
 
 public class TechnicianCompletedRepairRequestPresenter {
 
-    private RepairRequestDAOMemory repairRequestDAO;
+    private RepairRequestDAO repairRequestDAO;
     private TechnicianCompletedRepairRequestView view;
     private RepairRequest repairRequest;
 

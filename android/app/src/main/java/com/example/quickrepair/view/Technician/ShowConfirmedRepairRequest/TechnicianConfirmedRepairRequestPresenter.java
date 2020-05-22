@@ -38,7 +38,7 @@ public class TechnicianConfirmedRepairRequestPresenter {
     public void setCompleted(String quantity) {
         try{
             int quantityInt = Integer.parseInt(quantity);
-            repairRequestDAO.find(repairRequest.getUid()).complete(quantityInt);
+            repairRequest.complete(quantityInt);
             view.complete();
         }catch (Exception e){
             e.printStackTrace();

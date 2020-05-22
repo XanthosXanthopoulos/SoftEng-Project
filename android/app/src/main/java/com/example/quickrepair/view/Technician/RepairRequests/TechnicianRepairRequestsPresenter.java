@@ -1,5 +1,6 @@
 package com.example.quickrepair.view.Technician.RepairRequests;
 
+import com.example.quickrepair.dao.RepairRequestDAO;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 public class TechnicianRepairRequestsPresenter
 {
     private TechnicianRepairRequestsView view;
-    private RepairRequestDAOMemory repairRequestDAO;
+    private RepairRequestDAO repairRequestDAO;
     private ArrayList<RepairRequest> repairRequests;
 
     public TechnicianRepairRequestsPresenter()
@@ -32,7 +33,7 @@ public class TechnicianRepairRequestsPresenter
     {
         if (repairRequest == null || repairRequest.getUid() == 0)
         {
-            view.showError("Κάτι πήγε στραβά");
+            view.showError("Something went wrong");
         }
         else
         {
@@ -44,7 +45,7 @@ public class TechnicianRepairRequestsPresenter
     {
         if (repairRequest == null || repairRequest.getUid() == 0)
         {
-            view.showError("Κάτι πήγε στραβά");
+            view.showError("Something went wrong");
         }
         else
         {
@@ -56,7 +57,7 @@ public class TechnicianRepairRequestsPresenter
     {
         if (repairRequest == null || repairRequest.getUid() == 0)
         {
-            view.showError("Κάτι πήγε στραβά");
+            view.showError("Something went wrong");
         }
         else
         {
@@ -64,7 +65,7 @@ public class TechnicianRepairRequestsPresenter
         }
     }
 
-    public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAO)
+    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO)
     {
         this.repairRequestDAO = repairRequestDAO;
     }

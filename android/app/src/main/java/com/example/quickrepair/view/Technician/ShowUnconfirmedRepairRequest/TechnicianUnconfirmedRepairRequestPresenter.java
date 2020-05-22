@@ -33,7 +33,7 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
     }
 
     public void setReject(){
-        repairRequestDAO.find(repairRequest.getUid()).reject();
+        repairRequest.reject();
         view.reject();
     }
 
