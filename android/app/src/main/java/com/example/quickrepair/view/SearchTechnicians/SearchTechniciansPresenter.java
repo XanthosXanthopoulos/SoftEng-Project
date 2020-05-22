@@ -4,16 +4,21 @@ import android.util.Log;
 
 import com.example.quickrepair.dao.AreaDAO;
 import com.example.quickrepair.dao.CustomerDAO;
+import com.example.quickrepair.dao.EvaluationDAO;
 import com.example.quickrepair.dao.JobTypeDAO;
 import com.example.quickrepair.dao.SpecialtyDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
+import com.example.quickrepair.domain.Evaluation;
 import com.example.quickrepair.domain.Job;
 import com.example.quickrepair.domain.JobType;
+import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.memorydao.EvaluationDAOMemory;
 import com.example.quickrepair.memorydao.MemoryInitializer;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -189,7 +194,6 @@ public class SearchTechniciansPresenter {
         System.out.println("Selected mp id " + selectedMaxPrice);
         System.out.println("Selected area id " + selectedArea);
         List<Integer> technicianIds = new ArrayList<>();
-        //TODO Get average ratings from a technician reference for a jobtype or whatever
         List<String> technicianNames = new ArrayList<>();
         List<Double> averageRatings = new ArrayList<>();
         List<Double> prices = new ArrayList<>();
@@ -203,15 +207,16 @@ public class SearchTechniciansPresenter {
             }
             technicianIds.add(technician.getUid());
             technicianNames.add(technician.getName());
-            averageRatings.add(0.0);
+            averageRatings.add(getTechnicianAverageRatings(technician.getUid()));
             prices.add(getTechnicianPriceForJobType(technician.getUid() , selectedJobTypeId));
         }
         view.populateTechnicianList(technicianIds , technicianNames , averageRatings , prices);
     }
 
 
-
-    //TODO Move this in domain or dao ?
+    /**
+     * Checks if the technician offers the given jobtype
+     */
     private boolean offersJobType(int technicianId , int jobTypeId){
         Technician technician = technicianDAO.find(technicianId);
         for(Job job : technician.getJobs()){
@@ -221,6 +226,9 @@ public class SearchTechniciansPresenter {
         }
         return false;
     }
+    /**
+     * Checks if the technician offers the given jobtype for less than the given amount of money
+     */
     private boolean offersJobTypeForLessThan(int technicianId , int jobTypeId , double price){
         Technician technician = technicianDAO.find(technicianId);
         for(Job job : technician.getJobs()){
@@ -232,6 +240,10 @@ public class SearchTechniciansPresenter {
         }
         return false;
     }
+
+    /**
+     * Returns the technicians price for the given jobtype
+     */
     private double getTechnicianPriceForJobType(int technicianId , int jobTypeId){
         Technician technician = technicianDAO.find(technicianId);
         for(Job job : technician.getJobs()){
@@ -242,5 +254,27 @@ public class SearchTechniciansPresenter {
         return 0;
     }
 
+    /**
+     * Calculates the average ratings for a technician
+     */
+    private double getTechnicianAverageRatings(int technicianId ){
+        Technician technician = technicianDAO.find(technicianId);
+
+        int ratingSum = 0;
+        int nRatings = 0;
+        for(Job job : technician.getJobs()){
+            for(RepairRequest repairRequest : job.getRepairRequests()){
+                //Evaluation exists if repair request is completed
+                if(repairRequest.isCompleted() && repairRequest.getRepair().getEvaluation() != null) {
+
+                    Evaluation evaluation = repairRequest.getRepair().getEvaluation();
+                    System.out.println("Found 1 evalutaion" + evaluation.getComment());
+                    ratingSum += evaluation.getRate();
+                    nRatings++;
+                }
+            }
+        }
+        return nRatings == 0 ? 0 : ratingSum / (float) nRatings;
+    }
 
 }
