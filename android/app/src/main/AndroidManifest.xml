@@ -13,10 +13,7 @@
         <activity android:name=".view.Technician.AddEditJob.AddEditJobActivity" />
         <activity android:name=".view.Technician.AddEditArea.AddEditAreaActivity" />
         <activity android:name=".view.SearchTechnicians.SearchTechniciansActivity"/>
-        <activity
-            android:name=".view.HomePage.HomePageActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+
         <activity android:name=".view.User.LoginUser.LoginActivity" />
         <activity
             android:name=".view.Technician.RepairRequests.TechnicianRepairRequestsActivity"
@@ -32,9 +29,7 @@
         <activity android:name=".view.Customer.ShowConfirmedRepairRequest.CustomerConfirmedRepairRequestActivity" />
         <activity android:name=".view.Customer.ShowUnconfirmedRepairRequest.CustomerUnconfirmedRepairRequestActivity" />
         <activity android:name=".view.Customer.RegisterCustomer.CustomerRegisterActivity" />
-<<<<<<< HEAD
 
-=======
         <activity android:name=".view.HomePage.HomePageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
->>>>>>> 839e619befe4191b2582f52074b343d5b9a978e5
     </application>
 
 </manifest>

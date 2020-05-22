@@ -9,7 +9,7 @@
       <w>240</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>:TechnicianRepairRequestsPresenter</panel_attributes>
+    <panel_attributes>:CustomerRepairRequestsPresenter</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -152,7 +152,7 @@ showError(msg)</panel_attributes>
       <w>220</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>:TechnicianRepairRequestsView</panel_attributes>
+    <panel_attributes>:CustomerRepairRequestsView</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

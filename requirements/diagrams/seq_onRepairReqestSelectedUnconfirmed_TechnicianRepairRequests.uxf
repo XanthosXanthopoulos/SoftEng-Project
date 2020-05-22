@@ -9,7 +9,7 @@
       <w>240</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>:searchRepairRequestsPresenter</panel_attributes>
+    <panel_attributes>:TechnicianRepairRequestsPresenter</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

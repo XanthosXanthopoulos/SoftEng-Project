@@ -9,7 +9,7 @@
       <w>240</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>:TechnicianRepairRequestsPresenter</panel_attributes>
+    <panel_attributes>:CustomerRepairRequestsPresenter</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -32,7 +32,7 @@
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-onRepairRequestSelectedCompleted(repairRequest)</panel_attributes>
+onRepairRequestSelectedConfirmed(repairRequest)</panel_attributes>
     <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -152,7 +152,7 @@ showError(msg)</panel_attributes>
       <w>220</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>:TechnicianRepairRequestsView</panel_attributes>
+    <panel_attributes>:CustomerRepairRequestsView</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -175,7 +175,7 @@ showError(msg)</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-returnRepairRequestCompleted(id)</panel_attributes>
+returnRepairRequestConfirmed(id)</panel_attributes>
     <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
