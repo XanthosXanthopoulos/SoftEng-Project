@@ -115,4 +115,12 @@ public class RequestRepairPresenterTest {
         Assert.assertNotNull(stub.errorMessage);
     }
 
+
+    @Test
+    public void invalidTechnicianId(){
+        presenter.setDate(2020 , 11 ,12 );
+        presenter.setTechnicianId(15);
+        Assert.assertTrue(stub.exited);
+    }
+
 }

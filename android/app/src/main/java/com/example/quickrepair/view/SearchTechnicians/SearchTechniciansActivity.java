@@ -195,14 +195,38 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
         startActivity(intent);
     }
 
+    /**
+     * Starts the login activity , expects a result on onActivityResult
+     */
     @Override
     public void navigateToLogin() {
         //navigate to login page
         Intent intent = new Intent(this, LoginActivity.class);
-        startActivityForResult(intent, 0);
-        // close activity
-        finish();
+        startActivityForResult(intent, QuickRepairApplication.REQUEST_CODE_LOGIN);
     }
+
+    /**
+     * Called when we get a result from the login activity
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == QuickRepairApplication.REQUEST_CODE_LOGIN) {
+            if(resultCode == QuickRepairApplication.RESULT_OK){
+                int loggedInUserId =data.getIntExtra(QuickRepairApplication.LOGGED_IN_USER_ID_EXTRA , -1);
+                presenter.setLoggedInUser(loggedInUserId);
+            }
+            if (resultCode == QuickRepairApplication.RESULT_CANCELED) {
+                //Nothing to do if the user refused to login
+            }
+        }
+    }
+
+
+
+
+
     private  class SpinnerEntry {
         int id;
         String value;

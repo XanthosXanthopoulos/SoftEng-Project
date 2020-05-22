@@ -13,4 +13,10 @@ public class QuickRepairApplication extends Application
     public final static String LOGGED_IN_USER_ID_EXTRA = "logged_in_id";
 
     public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
+
+
+    //REQUEST CODES
+    public static final int RESULT_OK = 0;
+    public static final int RESULT_CANCELED = 1;
+    public static final int REQUEST_CODE_LOGIN = 2;
 }

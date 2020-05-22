@@ -65,7 +65,7 @@ public class TechnicianAdapter extends ArrayAdapter<Object> {
         TextView averageRatingText =  result.findViewById(R.id.average_rating);
         //Todo set number to position
 
-        numberText.setText(String.valueOf(technicianIds.get(position)));
+        numberText.setText(String.valueOf(position  + 1 ));
         nameText.setText(technicianNames.get(position));
         priceText.setText("" +prices.get(position));
         averageRatingText.setText("" +averageRatings.get(position));
