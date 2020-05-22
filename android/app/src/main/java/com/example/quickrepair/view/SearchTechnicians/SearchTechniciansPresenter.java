@@ -91,6 +91,10 @@ public class SearchTechniciansPresenter {
     int year = -1;
     int month = -1;
     int dayOfMonth = -1;
+
+    /**
+     * Sets the date the customer wants the technician to be available
+     */
     public void setDate(String yearString, String monthString, String dayOfMonthString){
         try {
             int year = Integer.parseInt(yearString);
@@ -157,6 +161,9 @@ public class SearchTechniciansPresenter {
 
     }
 
+    /**
+     * Called when a user clicks on a technician on the list
+     */
     public void onTechnicianClick(int technicianId){
         if(year == -1 || month == -1 || dayOfMonth == -1){
             view.showErrorMessage("Please enter a valid Date (YYYY/MM/DD)");
@@ -166,11 +173,16 @@ public class SearchTechniciansPresenter {
             //User is not logged In
             view.showErrorMessage("You must be logged in to do that!");
             view.navigateToLogin();
+            return;
         }
         view.navigateToRequestRepair(technicianId , selectedJobTypeId , year , month , dayOfMonth);
     }
     //TODO Select Date
 
+    /**
+     * Searches the DAO and applies the given criteria to find the right technicians and populates
+     * the view with results
+     */
     private void repopulateTechnicianList() {
         System.out.println("Selected specialty id " + selectedSpecialtyId);
         System.out.println("Selected jt id " + selectedJobTypeId);

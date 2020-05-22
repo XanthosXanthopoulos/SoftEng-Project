@@ -39,10 +39,10 @@ public class RequestRepairViewStub implements RequestRepairView {
         System.out.println("javas error " + error);
         errorMessage = error;
     }
-
+    boolean exited = false;
     @Override
     public void exit() {
-
+        exited = true;
     }
 
     @Override

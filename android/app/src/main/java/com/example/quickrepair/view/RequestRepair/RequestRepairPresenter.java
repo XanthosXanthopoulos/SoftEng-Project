@@ -37,21 +37,35 @@ public class RequestRepairPresenter {
     }
     //PARAMETERS PASSED FROM PREVIOUS ACTIVITIES
     Technician selectedTechnician;
-    //TODO Throw exception if invalid data has been passed by other activities
     public void setTechnicianId(int technicianId){
         selectedTechnician = technicianDAO.find(technicianId);
+        if(selectedTechnician == null){
+            view.showError("Something went wrong. The technician could not be found.");
+            view.exit();
+        }
     }
     JobType selectedJobType;
+
+    /**
+     * Sets the jobType Id the customer requests a repair for
+     */
     public void setJobTypeId(int jobTypeId){
         selectedJobType = jobTypeDAO.find(jobTypeId);
     }
     Customer loggedInUser;
+    /**
+     * Sets the current user logged in. To request a repair the user must be a customer
+     */
     public void setLoggedInUser(int userId){
         loggedInUser =  customerDAO.find(userId);
     }
     int year;
     int month;
     int day;
+
+    /**
+     * Sets the date the repair request will take place
+     */
     public void setDate(int year , int month , int day){
         this.year = year;
         this.month = month;
@@ -59,10 +73,17 @@ public class RequestRepairPresenter {
     }
     //Inputs from user during activity
     private String selectedComments = "";
+
+    /**
+     * Sets the comments from the customer to the repairRequest
+     */
     public void setComments(String comments){
         if(comments != null) this.selectedComments = comments;
     }
     private Address selectedAddress = null;
+    /**
+     * Sets the address for the repair Request
+     */
     public void setAddress(String address){
         try{
             String[] tokens = address.split(",");
@@ -76,6 +97,10 @@ public class RequestRepairPresenter {
     }
     int hourOfDay = -1;
     int minutes = -1;
+
+    /**
+     * Sets the time for the repair request
+     */
     public void setTime(int hourOfDay , int minutes){
         if(hourOfDay <24 && hourOfDay >= 0 && minutes < 60 && minutes >= 0 ){
             if(!timeInRange(hourOfDay,minutes , selectedTechnician , year , month, day)){
@@ -91,6 +116,10 @@ public class RequestRepairPresenter {
             return;
         }
     }
+
+    /**
+     * Method called when the view is started
+     */
     public void onStart(){
         view.setJobTypeName(selectedJobType.getName());
         view.setTechnicianName(selectedTechnician.getName());
@@ -100,6 +129,10 @@ public class RequestRepairPresenter {
         view.showTimesAvailable(timesAvailableForView);
 
     }
+
+    /**
+     * Called when the user confirms the repair request
+     */
     public void requestRepair(){
         GregorianCalendar dateNow = (GregorianCalendar) Calendar.getInstance();
         GregorianCalendar date = null;
@@ -122,7 +155,9 @@ public class RequestRepairPresenter {
         view.showInfo("Successfully created a repair request!");
     }
 
-
+    /**
+     * returns the job the techcnician has for the job type
+     */
     Job getJobFromJobType(Technician technician , JobType jobType){
         for(Job job : technician.getJobs()){
             if(job.getJobType().getUid() == jobType.getUid()){
