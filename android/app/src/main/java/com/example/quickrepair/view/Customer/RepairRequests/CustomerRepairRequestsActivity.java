@@ -12,22 +12,25 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterActivity;
 import com.example.quickrepair.view.Customer.ShowCompletedRepairRequest.CustomerCompletedRepairRequestActivity;
 import com.example.quickrepair.view.Customer.ShowConfirmedRepairRequest.CustomerConfirmedRepairRequestActivity;
 import com.example.quickrepair.view.Customer.ShowUnconfirmedRepairRequest.CustomerUnconfirmedRepairRequestActivity;
 import com.google.android.material.tabs.TabLayout;
 
+import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
 
-public class CustomerRepairRequestsActivity extends AppCompatActivity implements CustomerRepairRequestsView {
 
-    private static int customerID ;
+public class CustomerRepairRequestsActivity extends AppCompatActivity implements CustomerRepairRequestsView
+{
+
+    private static int customerID;
     private static CustomerRepairRequestsViewModel customerRepairRequestsViewModel;
 
-    public static final String REPAIR_REQUEST_ID_EXTRA = "repair_request_id";
-    public static final String CUSTOMER_ID_EXTRA = "customer_id";
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_repair_requests);
 
@@ -44,7 +47,7 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
 
@@ -73,7 +76,8 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void returnRepairRequestUnconfirmed(int repairRequestUid) {
+    public void returnRepairRequestUnconfirmed(int repairRequestUid)
+    {
         Intent intent = new Intent(this, CustomerUnconfirmedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
@@ -83,7 +87,8 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void returnRepairRequestConfirmed(int repairRequestUid) {
+    public void returnRepairRequestConfirmed(int repairRequestUid)
+    {
         Intent intent = new Intent(this, CustomerConfirmedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
@@ -93,7 +98,8 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void returnRepairRequestCompleted(int repairRequestUid) {
+    public void returnRepairRequestCompleted(int repairRequestUid)
+    {
         Intent intent = new Intent(this, CustomerCompletedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
@@ -101,30 +107,37 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
         finish();
     }
 
-    //TODO:go to edit page
     @Override
-    public void editData() {
-        Intent intent = new Intent(this, CustomerUnconfirmedRepairRequestActivity.class);
+    public void editData()
+    {
+        Intent intent = new Intent(this, CustomerRegisterActivity.class);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
+        startActivity(intent);
+
+        finish();
     }
 
     //TODO:go to search
     @Override
-    public void search() {
+    public void search()
+    {
         Intent intent = new Intent(this, CustomerUnconfirmedRepairRequestActivity.class);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
     }
 
     @Override
-    public void showError(String message) {
+    public void showError(String message)
+    {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
-    public CustomerRepairRequestsViewModel getViewModel() {
+    public CustomerRepairRequestsViewModel getViewModel()
+    {
         return customerRepairRequestsViewModel;
     }
 
-    public int getCustomerID() {
+    public int getCustomerID()
+    {
         return customerID;
     }
 }

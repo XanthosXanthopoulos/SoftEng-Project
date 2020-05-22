@@ -6,6 +6,8 @@ import com.example.quickrepair.domain.Job;
 import com.example.quickrepair.domain.JobType;
 import com.example.quickrepair.domain.Technician;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class AddEditJobPresenter
@@ -54,13 +56,41 @@ public class AddEditJobPresenter
         view.setJobList(jobs);
     }
 
-    public void addJob(Integer jobTypeID, double price)
+    public void addJob(Integer jobTypeID, String price)
     {
         if (jobTypeID == 0) view.showErrorMessage("No job selected", "You have to add a valid job.");
 
-        JobType type = jobTypes.get(jobTypeID - 1);
+        double priceConverted = 0;
+        try
+        {
+            NumberFormat format = NumberFormat.getInstance();
+            priceConverted = format.parse(price).doubleValue();
+        }
+        catch (ParseException e)
+        {
+            view.showErrorMessage("Invalid price value", "Please enter a valid price value");
+            return;
+        }
 
-        Job job = technician.addJob(type, price);
+        if (priceConverted == 0)
+        {
+            view.showErrorMessage("Invalid price value", "Price can not be zero.");
+            return;
+        }
+
+        JobType type = jobTypes.get(jobTypeID - 1);
+        Job job = null;
+
+        try
+        {
+            job = technician.addJob(type, priceConverted);
+        }
+        catch (IllegalArgumentException e)
+        {
+            view.showErrorMessage("Invalid value.", e.getMessage());
+            return;
+        }
+
         jobs.add(job);
         view.setJobList(jobs);
     }

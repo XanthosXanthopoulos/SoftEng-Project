@@ -4,7 +4,8 @@ import com.example.quickrepair.domain.RepairRequest;
 
 import java.util.ArrayList;
 
-public interface TechnicianRepairRequestsView {
+public interface TechnicianRepairRequestsView
+{
 
     void returnRepairRequestUnconfirmed(int repairRequestUid);
 

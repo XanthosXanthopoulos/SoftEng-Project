@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpecialtyDAOMemory implements SpecialtyDAO {
-    protected static ArrayList<Specialty> entities = new ArrayList<Specialty>();
+    protected static ArrayList<Specialty> entities = new ArrayList<>();
 
     /**
      * Delete an Specialty

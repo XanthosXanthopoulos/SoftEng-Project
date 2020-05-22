@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity;
 import com.example.quickrepair.view.Technician.ShowCompletedRepairRequest.TechnicianCompletedRepairRequestActivity;
 import com.example.quickrepair.view.Technician.ShowConfirmedRepairRequest.TechnicianConfirmedRepairRequestActivity;
 import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestActivity;
@@ -77,13 +78,14 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         return super.onOptionsItemSelected(menuItem);
     }
 
-
-    //TODO:go to edit page
     @Override
     public void editData()
     {
-        Intent intent = new Intent(this, TechnicianUnconfirmedRepairRequestActivity.class);
+        Intent intent = new Intent(this, TechnicianRegisterActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
+        startActivity(intent);
+
+        finish();
     }
 
     @Override
@@ -120,6 +122,7 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(TECHNICIAN_ID_EXTRA, technicianID);
         this.startActivity(intent);
+
         finish();
     }
 

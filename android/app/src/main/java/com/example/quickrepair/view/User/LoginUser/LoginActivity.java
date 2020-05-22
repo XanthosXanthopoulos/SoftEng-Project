@@ -13,11 +13,11 @@ import com.example.quickrepair.R;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
+import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
 public class LoginActivity extends AppCompatActivity implements LoginView
 {
-    public static final String CUSTOMER_ID_EXTRA = "customer_id";
     private LoginViewModel viewModel;
 
 
@@ -44,13 +44,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView
     @Override
     public String getUsername()
     {
-        return ((EditText)findViewById(R.id.Username)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.Username)).getText().toString().trim();
     }
 
     @Override
     public String getPassword()
     {
-        return ((EditText)findViewById(R.id.Password)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.Password)).getText().toString().trim();
     }
 
     @Override
@@ -65,6 +65,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView
         Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
         intent.putExtra(CUSTOMER_ID_EXTRA, id);
         startActivity(intent);
+
+        finish();
     }
 
     @Override
@@ -73,5 +75,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, id);
         startActivity(intent);
+
+        finish();
     }
 }

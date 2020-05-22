@@ -22,10 +22,12 @@ public class User
 
     public User()
     {
+        uid = 0;
     }
 
     public User(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password)
     {
+        this();
         setUserInfo(name, surname, phoneNumber, email, bankAccount, username);
         setPassword(password);
     }
