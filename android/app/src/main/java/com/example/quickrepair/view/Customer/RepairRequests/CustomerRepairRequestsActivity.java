@@ -16,6 +16,7 @@ import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterAc
 import com.example.quickrepair.view.Customer.ShowCompletedRepairRequest.CustomerCompletedRepairRequestActivity;
 import com.example.quickrepair.view.Customer.ShowConfirmedRepairRequest.CustomerConfirmedRepairRequestActivity;
 import com.example.quickrepair.view.Customer.ShowUnconfirmedRepairRequest.CustomerUnconfirmedRepairRequestActivity;
+import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
@@ -24,9 +25,8 @@ import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_E
 
 public class CustomerRepairRequestsActivity extends AppCompatActivity implements CustomerRepairRequestsView
 {
-
-    private static int customerID;
-    private static CustomerRepairRequestsViewModel customerRepairRequestsViewModel;
+    int customerID;
+    CustomerRepairRequestsViewModel customerRepairRequestsViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,9 +34,7 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_repair_requests);
 
-        // get customer id
-        Intent intent = getIntent();
-        customerID = intent.getIntExtra(CUSTOMER_ID_EXTRA, 0);
+        customerID = getIntent().getIntExtra(CUSTOMER_ID_EXTRA, 0);
 
         customerRepairRequestsViewModel = new ViewModelProvider(this).get(CustomerRepairRequestsViewModel.class);
         customerRepairRequestsViewModel.getPresenter().setView(this);
@@ -81,8 +79,8 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
         Intent intent = new Intent(this, CustomerUnconfirmedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
+        startActivity(intent);
 
-        this.startActivity(intent);
         finish();
     }
 
@@ -92,8 +90,8 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
         Intent intent = new Intent(this, CustomerConfirmedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
+        startActivity(intent);
 
-        this.startActivity(intent);
         finish();
     }
 
@@ -103,7 +101,8 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
         Intent intent = new Intent(this, CustomerCompletedRepairRequestActivity.class);
         intent.putExtra(REPAIR_REQUEST_ID_EXTRA, repairRequestUid);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
-        this.startActivity(intent);
+        startActivity(intent);
+
         finish();
     }
 
@@ -117,12 +116,16 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
         finish();
     }
 
-    //TODO:go to search
     @Override
     public void search()
     {
-        Intent intent = new Intent(this, CustomerUnconfirmedRepairRequestActivity.class);
+        System.out.println("AAAAAAAAAAAA");
+
+        Intent intent = new Intent(this, SearchTechniciansActivity.class);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
+        startActivity(intent);
+
+        finish();
     }
 
     @Override

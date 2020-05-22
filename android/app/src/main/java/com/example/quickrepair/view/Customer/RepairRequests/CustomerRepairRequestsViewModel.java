@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
 
-public class CustomerRepairRequestsViewModel extends ViewModel {
+public class CustomerRepairRequestsViewModel extends ViewModel
+{
     private CustomerRepairRequestsPresenter presenter;
 
-    public CustomerRepairRequestsViewModel(){
+    public CustomerRepairRequestsViewModel()
+    {
         super();
         //create Presenter
         presenter = new CustomerRepairRequestsPresenter();
@@ -17,12 +19,14 @@ public class CustomerRepairRequestsViewModel extends ViewModel {
         presenter.setRepairRequestDAO(repairRequestDAO);
     }
 
-    public CustomerRepairRequestsPresenter getPresenter() {
+    public CustomerRepairRequestsPresenter getPresenter()
+    {
         return presenter;
     }
 
     @Override
-    protected void onCleared() {
+    protected void onCleared()
+    {
         super.onCleared();
         // avoid leaking activity for any reason
         presenter.clearView();

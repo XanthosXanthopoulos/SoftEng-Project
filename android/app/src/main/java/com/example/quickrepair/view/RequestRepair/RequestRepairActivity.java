@@ -3,7 +3,6 @@ package com.example.quickrepair.view.RequestRepair;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,13 +15,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quickrepair.R;
-import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
-import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansViewModel;
 
 import java.util.List;
 
 import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.DAY_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.JOBTYPE_ID_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.MONTH_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.YEAR_EXTRA;
 
 public class RequestRepairActivity extends AppCompatActivity implements RequestRepairView
 {
@@ -57,31 +59,23 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
         presenter.setView(this);
         //Reading parameters from the intent that created the activity
         //TODO Integrate with search technicians
-        /*
+
         Intent intent = getIntent();
-        year = intent.getIntExtra("year" , -1);
-        month = intent.getIntExtra("month" , -1);
-        dayOfMonth =  intent.getIntExtra("dayOfMonth" , -1);
-        loggedInCustomerId =  intent.getIntExtra("loggedInCustomerId" , -1);
-        technicianId = intent.getIntExtra("technicianId" , -1);
-        jobTypeId = intent.getIntExtra("jobTypeId" , -1);
-         */
-        System.out.println("intent is " + getIntent());
-        year = 2012;
-        month = 5;
-        dayOfMonth = 3;
-        loggedInCustomerId = 1;
-        technicianId = 1;
-        jobTypeId = 1;
+        year = intent.getIntExtra(YEAR_EXTRA , 0);
+        month = intent.getIntExtra(MONTH_EXTRA , 0);
+        dayOfMonth =  intent.getIntExtra(DAY_EXTRA , 0);
+        loggedInCustomerId =  intent.getIntExtra(CUSTOMER_ID_EXTRA , 0);
+        technicianId = intent.getIntExtra(TECHNICIAN_ID_EXTRA , 0);
+        jobTypeId = intent.getIntExtra(JOBTYPE_ID_EXTRA , 0);
+
         presenter.setDate(year, month, dayOfMonth);
-        //TODO Check if user logged in is a customer
         presenter.setLoggedInUser(loggedInCustomerId);
         presenter.setJobTypeId(jobTypeId);
         presenter.setTechnicianId(technicianId);
 
         timesList = findViewById(R.id.times_list);
-        addressText = (EditText) findViewById(R.id.address);
-        commentsText = (EditText) findViewById(R.id.comments);
+        addressText = findViewById(R.id.address);
+        commentsText = findViewById(R.id.comments);
         hourNumber = findViewById(R.id.hour);
         minuteNumber = findViewById(R.id.minutes);
         hourNumber.setMaxValue(23);
@@ -101,6 +95,7 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
                 presenter.requestRepair();
             }
         });
+
         presenter.onStart();
         //TODO onclicks for buttons
 
@@ -134,13 +129,7 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
     @Override
     public void showError(String error)
     {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void exit()
-    {
-        onBackPressed();
+        Toast.makeText(this, error, Toast.LENGTH_LONG).show();
     }
 
     public void submit()
@@ -153,8 +142,12 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
     }
 
     @Override
-    public void showInfo(String message)
+    public void onBackPressed()
     {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
+        intent.putExtra(CUSTOMER_ID_EXTRA, getIntent().getIntExtra(CUSTOMER_ID_EXTRA, 0));
+        startActivity(intent);
+
+        finish();
     }
 }

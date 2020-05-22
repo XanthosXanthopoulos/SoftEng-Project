@@ -6,12 +6,15 @@ import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
 
 import java.util.ArrayList;
 
-public class CustomerRepairRequestsPresenter {
+public class CustomerRepairRequestsPresenter
+{
     private CustomerRepairRequestsView view;
     private RepairRequestDAOMemory repairRequestDAO;
     private ArrayList<RepairRequest> repairRequests;
 
-    public CustomerRepairRequestsPresenter(){}
+    public CustomerRepairRequestsPresenter()
+    {
+    }
 
     public ArrayList<RepairRequest> searchRepairRequests(int customerID, RepairRequest.Status status)
     {
@@ -67,9 +70,11 @@ public class CustomerRepairRequestsPresenter {
         view.editData();
     }
 
-    public void searchForJob(){
+    public void searchForJob()
+    {
         view.search();
     }
+
     public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAO)
     {
         this.repairRequestDAO = repairRequestDAO;

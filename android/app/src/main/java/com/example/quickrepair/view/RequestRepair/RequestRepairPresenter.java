@@ -28,6 +28,18 @@ public class RequestRepairPresenter
     private CustomerDAO customerDAO;
     private RepairRequestDAO repairRequestDAO;
 
+    private Technician selectedTechnician;
+    private Customer loggedInUser;
+
+    private int year;
+    private int month;
+    private int day;
+
+    private int hourOfDay = -1;
+    private int minutes = -1;
+
+    private JobType selectedJobType;
+
     public RequestRepairPresenter(TechnicianDAO technicianDAO, JobTypeDAO jobTypeDAO, CustomerDAO customerDAO, RepairRequestDAO repairRequestDAO)
     {
         this.technicianDAO = technicianDAO;
@@ -41,20 +53,15 @@ public class RequestRepairPresenter
         this.view = view;
     }
 
-    //PARAMETERS PASSED FROM PREVIOUS ACTIVITIES
-    Technician selectedTechnician;
-
     public void setTechnicianId(int technicianId)
     {
         selectedTechnician = technicianDAO.find(technicianId);
+
         if (selectedTechnician == null)
         {
             view.showError("Something went wrong. The technician could not be found.");
-            view.exit();
         }
     }
-
-    JobType selectedJobType;
 
     /**
      * Sets the jobType Id the customer requests a repair for
@@ -64,8 +71,6 @@ public class RequestRepairPresenter
         selectedJobType = jobTypeDAO.find(jobTypeId);
     }
 
-    Customer loggedInUser;
-
     /**
      * Sets the current user logged in. To request a repair the user must be a customer
      */
@@ -73,10 +78,6 @@ public class RequestRepairPresenter
     {
         loggedInUser = customerDAO.find(userId);
     }
-
-    int year;
-    int month;
-    int day;
 
     /**
      * Sets the date the repair request will take place
@@ -115,12 +116,8 @@ public class RequestRepairPresenter
         catch (Exception e)
         {
             view.showError("Please enter an address in the correct form e.g. your_address_name , number ");
-            return;
         }
     }
-
-    int hourOfDay = -1;
-    int minutes = -1;
 
     /**
      * Sets the time for the repair request
@@ -131,17 +128,16 @@ public class RequestRepairPresenter
         {
             if (!timeInRange(hourOfDay, minutes, selectedTechnician, year, month, day))
             {
-                view.showError("The technician is not available on that time. Please enter an alternate " +
-                        "time");
+                view.showError("The technician is not available on that time. Please enter an alternate time");
                 return;
             }
+
             this.hourOfDay = hourOfDay;
             this.minutes = minutes;
         }
         else
         {
             view.showError("Please enter a time between 0:00 and 23:59");
-            return;
         }
     }
 
@@ -153,10 +149,8 @@ public class RequestRepairPresenter
         view.setJobTypeName(selectedJobType.getName());
         view.setTechnicianName(selectedTechnician.getName());
         view.setTechnicianPhoneNumber(selectedTechnician.getPhoneNumber());
-        ArrayList<ArrayList<GregorianCalendar>> hourRanges = selectedTechnician.getAvailableHourRanges(new GregorianCalendar(year, month, day, 2, 2));
         List<String> timesAvailableForView = createListFromHourRanges(selectedTechnician);
         view.showTimesAvailable(timesAvailableForView);
-
     }
 
     /**
@@ -165,33 +159,34 @@ public class RequestRepairPresenter
     public void requestRepair()
     {
         GregorianCalendar dateNow = (GregorianCalendar) Calendar.getInstance();
-        GregorianCalendar date = null;
+        GregorianCalendar date;
+
         if (hourOfDay == -1 || minutes == -1)
         {
             return;
         }
+
         date = new GregorianCalendar(year, month, day, hourOfDay, minutes);
         Job job = getJobFromJobType(selectedTechnician, selectedJobType);
         String comments = selectedComments;
+
         if (selectedAddress == null)
         {
-
             return;
         }
+
         Address address = selectedAddress;
         RepairRequest result = loggedInUser.requestRepair(dateNow, date, job, comments, address);
-        //Saving the created repair request to the DAO
+        result.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(result);
-        //view.showTimesAvailable(createListFromHourRanges(selectedTechnician));
-        //view.exit();
-        //view.showInfo("Successfully created a repair request!");
+
         view.submit();
     }
 
     /**
      * returns the job the techcnician has for the job type
      */
-    Job getJobFromJobType(Technician technician, JobType jobType)
+    private Job getJobFromJobType(Technician technician, JobType jobType)
     {
         for (Job job : technician.getJobs())
         {
@@ -207,7 +202,7 @@ public class RequestRepairPresenter
      * Returns true if the input time is between the range of the calendars (taking into consideration
      * only the hourofday and minutes)
      */
-    boolean timeInRange(int hourOfDay, int minutes, GregorianCalendar start, GregorianCalendar end)
+    private boolean timeInRange(int hourOfDay, int minutes, GregorianCalendar start, GregorianCalendar end)
     {
         int year = start.get(Calendar.YEAR);
         int month = start.get(Calendar.MONTH);
@@ -215,7 +210,7 @@ public class RequestRepairPresenter
 
 
         GregorianCalendar target = new GregorianCalendar(year, month, dayOfMonth, hourOfDay, minutes);
-        //Using gregoriancalendars builtin compare to test if the target is between the range
+        //Using gregorianCalendar's built in compare to test if the target is between the range
         // of the calendars
 
         return target.compareTo(end) < 0 && target.compareTo(start) > 0;
@@ -223,12 +218,13 @@ public class RequestRepairPresenter
     }
 
     /**
-     * Checks if the techncician is available on the certain time
+     * Checks if the technician is available on the certain time
      */
-    boolean timeInRange(int hourOfDay, int minutes, Technician technician, int year, int month, int dayOfMonth)
+    private boolean timeInRange(int hourOfDay, int minutes, Technician technician, int year, int month, int dayOfMonth)
     {
-        ArrayList<ArrayList<GregorianCalendar>> hourRanges =
-                technician.getAvailableHourRanges(new GregorianCalendar(year, month, dayOfMonth, 2, 2));
+        if (technician == null) return false;
+
+        ArrayList<ArrayList<GregorianCalendar>> hourRanges = technician.getAvailableHourRanges(new GregorianCalendar(year, month, dayOfMonth, 2, 2));
         for (ArrayList<GregorianCalendar> list : hourRanges)
         {
             if (timeInRange(hourOfDay, minutes, list.get(0), list.get(1)))
@@ -236,13 +232,14 @@ public class RequestRepairPresenter
                 return true;
             }
         }
+
         return false;
     }
 
     /**
      * Creates a list to print from the hour ranges of the technician
      */
-    List<String> createListFromHourRanges(Technician technician)
+    private List<String> createListFromHourRanges(Technician technician)
     {
         ArrayList<ArrayList<GregorianCalendar>> hourRanges = technician.getAvailableHourRanges(new GregorianCalendar(year, month, day, 2, 2));
         List<String> timesAvailableForView = new ArrayList<>();

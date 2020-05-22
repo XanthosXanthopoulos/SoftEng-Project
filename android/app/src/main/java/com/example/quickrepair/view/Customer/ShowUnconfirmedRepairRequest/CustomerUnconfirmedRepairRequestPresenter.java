@@ -6,25 +6,34 @@ import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
 import com.example.quickrepair.util.Utilities;
 
-public class CustomerUnconfirmedRepairRequestPresenter {
+public class CustomerUnconfirmedRepairRequestPresenter
+{
     private CustomerUnconfirmedRepairRequestView view;
     private RepairRequestDAO repairRequestDAO;
     private RepairRequest repairRequest;
 
-    CustomerUnconfirmedRepairRequestPresenter(){}
+    CustomerUnconfirmedRepairRequestPresenter()
+    {
+    }
 
-    public void searchRepairRequestData(int repairRequestId){
-        if(repairRequestId == 0){
+    public void searchRepairRequestData(int repairRequestId)
+    {
+        if (repairRequestId == 0)
+        {
             view.showError("Something went wrong");
             return;
         }
+
+        System.out.println(repairRequestId);
 
         this.repairRequest = repairRequestDAO.find(repairRequestId);
 
-        if(this.repairRequest == null){
+        if (this.repairRequest == null)
+        {
             view.showError("Something went wrong");
             return;
         }
+
         view.setJob(repairRequest.getJob().getJobType().getName());
         view.setTechnicianName("To: " + "\n" + repairRequest.getJob().getTechnician().getUsername());
         view.setAddress("Address: " + "\n" + repairRequest.getAddress().toString());
@@ -33,15 +42,18 @@ public class CustomerUnconfirmedRepairRequestPresenter {
 
     }
 
-    public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAOMemory) {
+    public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAOMemory)
+    {
         this.repairRequestDAO = repairRequestDAOMemory;
     }
 
-    public void clearView() {
+    public void clearView()
+    {
         this.view = null;
     }
 
-    public void setView(CustomerUnconfirmedRepairRequestView view) {
+    public void setView(CustomerUnconfirmedRepairRequestView view)
+    {
         this.view = view;
     }
 
