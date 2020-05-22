@@ -15,6 +15,8 @@ import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRe
 
 import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.REDIRECT_TO_SEARCH_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.RESULT_DENIED;
+import static com.example.quickrepair.QuickRepairApplication.RESULT_INVALID;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
 public class LoginActivity extends AppCompatActivity implements LoginView
@@ -57,13 +59,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView
     @Override
     public void showErrorMessage(String title, String message)
     {
-        new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
-
         if (getIntent().getBooleanExtra(REDIRECT_TO_SEARCH_EXTRA, false))
         {
             Intent intent = new Intent();
-            setResult(RESULT_CANCELED, intent);
+            setResult(RESULT_INVALID, intent);
             finish();
+        }
+        else
+        {
+            new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
         }
     }
 
@@ -89,9 +93,18 @@ public class LoginActivity extends AppCompatActivity implements LoginView
     @Override
     public void OnLoginTechnicianSuccess(Integer id)
     {
-        Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
-        intent.putExtra(TECHNICIAN_ID_EXTRA, id);
-        startActivity(intent);
+
+        if (getIntent().getBooleanExtra(REDIRECT_TO_SEARCH_EXTRA, false))
+        {
+            Intent intent = new Intent();
+            setResult(RESULT_DENIED, intent);
+        }
+        else
+        {
+            Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
+            intent.putExtra(TECHNICIAN_ID_EXTRA, id);
+            startActivity(intent);
+        }
 
         finish();
     }

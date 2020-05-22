@@ -16,11 +16,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.domain.Customer;
+import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
 import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansViewModel;
 
 import java.util.List;
 
-public class RequestRepairActivity extends AppCompatActivity implements RequestRepairView {
+import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+
+public class RequestRepairActivity extends AppCompatActivity implements RequestRepairView
+{
     RequestRepairViewModel viewModel;
     RequestRepairPresenter presenter;
 
@@ -41,8 +46,10 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
     NumberPicker minuteNumber;
 
     Button confirmButton;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_repair);
         viewModel = new ViewModelProvider(this).get(RequestRepairViewModel.class);
@@ -59,14 +66,14 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
         technicianId = intent.getIntExtra("technicianId" , -1);
         jobTypeId = intent.getIntExtra("jobTypeId" , -1);
          */
-        System.out.println( "intent is " + getIntent());
+        System.out.println("intent is " + getIntent());
         year = 2012;
         month = 5;
         dayOfMonth = 3;
         loggedInCustomerId = 1;
         technicianId = 1;
         jobTypeId = 1;
-        presenter.setDate(year , month , dayOfMonth);
+        presenter.setDate(year, month, dayOfMonth);
         //TODO Check if user logged in is a customer
         presenter.setLoggedInUser(loggedInCustomerId);
         presenter.setJobTypeId(jobTypeId);
@@ -83,11 +90,13 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
         minuteNumber.setMinValue(0);
 
         confirmButton = findViewById(R.id.confirm_button);
-        confirmButton.setOnClickListener(new View.OnClickListener() {
+        confirmButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 presenter.setComments(commentsText.getText().toString());
-                presenter.setTime(hourNumber.getValue() , minuteNumber.getValue());
+                presenter.setTime(hourNumber.getValue(), minuteNumber.getValue());
                 presenter.setAddress(addressText.getText().toString());
                 presenter.requestRepair();
             }
@@ -98,38 +107,54 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
     }
 
     @Override
-    public void setTechnicianPhoneNumber(String text) {
+    public void setTechnicianPhoneNumber(String text)
+    {
         ((TextView) findViewById(R.id.phone_number)).setText(text);
     }
 
     @Override
-    public void setTechnicianName(String text) {
+    public void setTechnicianName(String text)
+    {
         ((TextView) findViewById(R.id.technician_name)).setText(text);
     }
 
     @Override
-    public void setJobTypeName(String text) {
+    public void setJobTypeName(String text)
+    {
         ((TextView) findViewById(R.id.job_type_name)).setText(text);
     }
 
     @Override
-    public void showTimesAvailable(List<String> availableHours) {
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<>(this , R.layout.support_simple_spinner_dropdown_item , availableHours);
+    public void showTimesAvailable(List<String> availableHours)
+    {
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, availableHours);
         timesList.setAdapter(listAdapter);
     }
 
     @Override
-    public void showError(String error) {
-        Toast.makeText(this , error , Toast.LENGTH_SHORT).show();
+    public void showError(String error)
+    {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void exit() {
+    public void exit()
+    {
         onBackPressed();
     }
 
+    public void submit()
+    {
+        Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
+        intent.putExtra(CUSTOMER_ID_EXTRA, getIntent().getIntExtra(CUSTOMER_ID_EXTRA, 0));
+        startActivity(intent);
+
+        finish();
+    }
+
     @Override
-    public void showInfo(String message) {
-        Toast.makeText(this , message , Toast.LENGTH_SHORT).show();
+    public void showInfo(String message)
+    {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -77,16 +77,10 @@ public class LoginPresenter
                 view.OnLoginCustomerSuccess(id);
                 break;
             case VALID_TECHNICIAN:
-                if (redirect)
-                {
-                    view.showErrorMessage("Access denied", "This page is not available for technicians.");
-                }
-                else
-                {
-                    view.OnLoginTechnicianSuccess(id);
-                }
+                view.OnLoginTechnicianSuccess(id);
                 break;
             default:
+                view.showErrorMessage("Invalid credentials", "Invalid username or password.");
                 break;
         }
     }

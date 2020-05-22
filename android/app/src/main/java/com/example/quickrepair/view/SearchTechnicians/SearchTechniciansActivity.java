@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.example.quickrepair.R;
 import com.example.quickrepair.view.RequestRepair.RequestRepairActivity;
 import com.example.quickrepair.view.User.LoginUser.LoginActivity;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,8 @@ import static com.example.quickrepair.QuickRepairApplication.JOBTYPE_ID_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.MONTH_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.REDIRECT_TO_SEARCH_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.REQUEST_CODE_LOGIN;
+import static com.example.quickrepair.QuickRepairApplication.RESULT_DENIED;
+import static com.example.quickrepair.QuickRepairApplication.RESULT_INVALID;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.YEAR_EXTRA;
 
@@ -43,8 +47,6 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
     Spinner jobTypeSpinner;
     Spinner areaSpinner;
     EditText maxpriceText;
-
-    Intent pendingLogin;
 
     ArrayAdapter<SpinnerEntry> specialtyAdapter;
     ArrayAdapter<SpinnerEntry> jobTypeAdapter;
@@ -65,14 +67,14 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_technicians);
         Intent intent = getIntent();
-        loggedInUserId = intent.getIntExtra(QuickRepairApplication.LOGGED_IN_USER_ID_EXTRA, -1);
+        loggedInUserId = intent.getIntExtra(CUSTOMER_ID_EXTRA, 0);
 
 
         viewModel = new ViewModelProvider(this).get(SearchTechniciansViewModel.class);
         presenter = viewModel.getPresenter();
         presenter.setView(this);
 
-        if (loggedInUserId >= 0)
+        if (loggedInUserId != 0)
         {
             presenter.setLoggedInUser(loggedInUserId);
         }
@@ -215,22 +217,29 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
     @Override
     public void navigateToRequestRepair(int technicianId, int jobTypeId, int year, int month, int dayOfMonth)
     {
-        pendingLogin = new Intent(this, RequestRepairActivity.class);
-        pendingLogin.putExtra(TECHNICIAN_ID_EXTRA, technicianId);
-        pendingLogin.putExtra(JOBTYPE_ID_EXTRA, jobTypeId);
-        pendingLogin.putExtra(YEAR_EXTRA, year);
-        pendingLogin.putExtra(MONTH_EXTRA, month);
-        pendingLogin.putExtra(DAY_EXTRA, dayOfMonth);
+        Intent intent = new Intent(this, RequestRepairActivity.class);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianId);
+        intent.putExtra(JOBTYPE_ID_EXTRA, jobTypeId);
+        intent.putExtra(YEAR_EXTRA, year);
+        intent.putExtra(MONTH_EXTRA, month);
+        intent.putExtra(DAY_EXTRA, dayOfMonth);
 
-        if (loggedInUserId == 0)
+        if (loggedInUserId != 0)
         {
-            pendingLogin.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);
-            startActivity(pendingLogin);
+            intent.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);
+            startActivity(intent);
 
             finish();
         }
         else
         {
+            SharedPreferences settings = getSharedPreferences("PREFERENCES", 0);
+            SharedPreferences.Editor editor = settings.edit();
+            String uriString = intent.toUri(0);
+
+            editor.putString("Repair", uriString);
+            editor.apply();
+
             navigateToLogin();
         }
     }
@@ -256,15 +265,36 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
 
         if (requestCode == REQUEST_CODE_LOGIN)
         {
-            if (resultCode == QuickRepairApplication.RESULT_OK)
+            if (resultCode == RESULT_OK)
             {
                 loggedInUserId = data.getIntExtra(CUSTOMER_ID_EXTRA, 0);
                 presenter.setLoggedInUser(loggedInUserId);
 
-                pendingLogin.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);
-                startActivity(pendingLogin);
+                SharedPreferences settings = getSharedPreferences("PREFERENCES", 0);
+                String uri = settings.getString("Repair", null);
+
+                Intent intent = null;
+                try
+                {
+                    intent = Intent.parseUri(uri, 0);
+                }
+                catch (URISyntaxException e)
+                {
+                    e.printStackTrace();
+                }
+
+                intent.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);
+                startActivity(intent);
 
                 finish();
+            }
+            else if (resultCode == RESULT_INVALID)
+            {
+                showErrorMessage("Invalid customer credentials.");
+            }
+            else if (resultCode == RESULT_DENIED)
+            {
+                showErrorMessage("Only customer accounts have access to the requested page.");
             }
         }
     }

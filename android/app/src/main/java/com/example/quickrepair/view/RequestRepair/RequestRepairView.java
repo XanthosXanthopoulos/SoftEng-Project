@@ -32,4 +32,6 @@ public interface RequestRepairView {
      */
     public void showInfo(String message);
 
+    void submit();
+
 }

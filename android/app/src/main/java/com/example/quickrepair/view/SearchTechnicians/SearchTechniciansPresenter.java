@@ -206,14 +206,6 @@ public class SearchTechniciansPresenter
             view.showErrorMessage("Please enter a valid Date (YYYY/MM/DD)");
             return;
         }
-        if (loggedInUser == -1)
-        {
-            //User is not logged In
-            view.showErrorMessage("You must be logged in to do that!");
-            view.navigateToLogin();
-            return;
-        }
-
 
         view.navigateToRequestRepair(technicianId, selectedJobTypeId, year, month, dayOfMonth);
     }
