@@ -14,6 +14,7 @@ import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairReques
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.REDIRECT_TO_SEARCH_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
 public class LoginActivity extends AppCompatActivity implements LoginView
@@ -36,7 +37,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
             @Override
             public void onClick(View v)
             {
-                presenter.login(getUsername(), getPassword());
+                presenter.login(getUsername(), getPassword(), getIntent().getBooleanExtra(REDIRECT_TO_SEARCH_EXTRA, false));
             }
         });
     }
@@ -57,14 +58,30 @@ public class LoginActivity extends AppCompatActivity implements LoginView
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
+
+        if (getIntent().getBooleanExtra(REDIRECT_TO_SEARCH_EXTRA, false))
+        {
+            Intent intent = new Intent();
+            setResult(RESULT_CANCELED, intent);
+            finish();
+        }
     }
 
     @Override
     public void OnLoginCustomerSuccess(Integer id)
     {
-        Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
-        intent.putExtra(CUSTOMER_ID_EXTRA, id);
-        startActivity(intent);
+        if (getIntent().getBooleanExtra(REDIRECT_TO_SEARCH_EXTRA, false))
+        {
+            Intent intent = new Intent();
+            intent.putExtra(CUSTOMER_ID_EXTRA, id);
+            setResult(RESULT_OK, intent);
+        }
+        else
+        {
+            Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
+            intent.putExtra(CUSTOMER_ID_EXTRA, id);
+            startActivity(intent);
+        }
 
         finish();
     }
