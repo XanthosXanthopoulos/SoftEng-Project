@@ -50,22 +50,24 @@ public class CustomerCompletedRepairRequestViewStub implements CustomerCompleted
 
     @Override
     public void setEvaluationData(String title, String comments, String rate) {
-
+        state = PAID;
+        sumOfsetter++;
     }
 
     @Override
     public void setPayAndEvaluationFields() {
-
+        sumOfsetter++;
     }
 
     @Override
     public void setPayListener() {
-        state = PAY;
+        state = NOT_PAID;
+        sumOfsetter++;
     }
 
     @Override
     public void donePayAndEvaluate() {
-
+        state = PAY;
     }
     public int getSumOfsetter(){
         return sumOfsetter;

@@ -29,16 +29,16 @@ public class CustomerCompletedRepairRequestTest {
     public void checkSettersNotPayed(){
         repairRequestNotPayedID = 7;
         presenter.searchRepairRequestData(repairRequestNotPayedID);
-        Assert.assertEquals(7, view.getSumOfsetter());
-        Assert.assertEquals(3, view.getState());
+        Assert.assertEquals(9, view.getSumOfsetter());
+        Assert.assertEquals(2, view.getState());
     }
 
     @Test
-    public void checkSettersPayed(){
+    public void checkSettersPaid(){
         repairRequestPayedID = 5;
         presenter.searchRepairRequestData(repairRequestPayedID);
-        Assert.assertEquals(7, view.getSumOfsetter());
-        Assert.assertEquals(2, view.getState());
+        Assert.assertEquals(8, view.getSumOfsetter());
+        Assert.assertEquals(3, view.getState());
     }
 
     @Test
@@ -49,6 +49,28 @@ public class CustomerCompletedRepairRequestTest {
     @Test
     public void checkSearchError(){
         presenter.searchRepairRequestData(100);
+        Assert.assertEquals(1, view.getState());
+    }
+    @Test
+    public void checkPayAndEvaluate(){
+        repairRequestNotPayedID = 7;
+        presenter.searchRepairRequestData(repairRequestNotPayedID);
+        presenter.payAndEvaluate("title", "coms", 5);
+        Assert.assertEquals(4, view.getState());
+    }
+    @Test
+    public void checkPayAndEvaluateNullFields(){
+        repairRequestNotPayedID = 7;
+        presenter.searchRepairRequestData(repairRequestNotPayedID);
+        presenter.payAndEvaluate(null, null, 5);
+        Assert.assertEquals(1, view.getState());
+    }
+
+    @Test
+    public void checkPayAndEvaluateEmptyFields(){
+        repairRequestNotPayedID = 7;
+        presenter.searchRepairRequestData(repairRequestNotPayedID);
+        presenter.payAndEvaluate("", "", 5);
         Assert.assertEquals(1, view.getState());
     }
 }
