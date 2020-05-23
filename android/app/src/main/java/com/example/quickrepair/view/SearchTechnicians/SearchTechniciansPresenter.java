@@ -209,7 +209,6 @@ public class SearchTechniciansPresenter
 
         view.navigateToRequestRepair(technicianId, selectedJobTypeId, year, month, dayOfMonth);
     }
-    //TODO Select Date
 
     /**
      * Searches the DAO and applies the given criteria to find the right technicians and populates

@@ -61,7 +61,6 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
         presenter = viewModel.getPresenter();
         presenter.setView(this);
         //Reading parameters from the intent that created the activity
-        //TODO Integrate with search technicians
 
         Intent intent = getIntent();
         year = intent.getIntExtra(YEAR_EXTRA , 0);
@@ -100,7 +99,6 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
         });
 
         presenter.onStart();
-        //TODO onclicks for buttons
 
     }
 
@@ -140,10 +138,6 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
         Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
         intent.putExtra(CUSTOMER_ID_EXTRA, getIntent().getIntExtra(CUSTOMER_ID_EXTRA, 0));
         startActivity(intent);
-        //TODO REMOVE THIS
-        for(RepairRequest rr : new RepairRequestDAOMemory().findAll()){
-            System.out.println(rr.getCommentsFromCustomer());
-        }
 
         finish();
     }

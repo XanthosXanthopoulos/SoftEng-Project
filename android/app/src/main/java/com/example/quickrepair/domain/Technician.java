@@ -381,7 +381,6 @@ public class Technician extends User
         return isAfterStart && isBeforeEnd;
     }
 
-    //TODO: is DayAvailable
 
     /**
      * Checks if the technician is available on the given day of the week

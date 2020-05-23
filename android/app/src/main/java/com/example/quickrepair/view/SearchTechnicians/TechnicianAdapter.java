@@ -58,12 +58,10 @@ public class TechnicianAdapter extends ArrayAdapter<Object> {
         System.out.println("Get view at pos" + position);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         LinearLayout result = (LinearLayout)inflater.inflate( R.layout.search_technicians_technician_list_layout, parent , false);
-        //Todo add buttons to navigate to request repair
         TextView numberText =  result.findViewById(R.id.number);
         TextView nameText =  result.findViewById(R.id.name);
         TextView priceText =  result.findViewById(R.id.price);
         TextView averageRatingText =  result.findViewById(R.id.average_rating);
-        //Todo set number to position
 
         numberText.setText(String.valueOf(position  + 1 ));
         nameText.setText(technicianNames.get(position));
