@@ -125,7 +125,6 @@ public class RepairRequest implements Comparable<RepairRequest>
         this.estimatedDuration = estimatedDuration;
     }
 
-    //TODO: tests for getStatus
     /**
      * Get the repair request status.
      *

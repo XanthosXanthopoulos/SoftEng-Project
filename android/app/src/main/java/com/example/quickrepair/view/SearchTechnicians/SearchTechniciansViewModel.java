@@ -24,11 +24,4 @@ public class SearchTechniciansViewModel extends ViewModel {
         return presenter;
     }
 
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-        // clear view instance to avoid leaking activity , i dont understand what i am supposed to do
-        //TODO
-        //presenter.clearView();
-    }
 }
