@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -90,13 +91,28 @@ public class CustomerCompletedRepairRequestActivity extends AppCompatActivity im
     }
 
     @Override
-    public void canNotPay() {
+    public void setPayAndEvaluationFields() {
+
         Button pay = findViewById(R.id.pay_button);
-        pay.setVisibility(View.GONE);
+        pay.setVisibility(View.VISIBLE);
+
+        EditText editTextTitle = findViewById(R.id.title);
+        EditText editTextEvaluate = findViewById(R.id.evaluate);
+
+        editTextTitle.setVisibility(View.VISIBLE);
+        editTextEvaluate.setVisibility(View.VISIBLE);
+
+        NumberPicker rate = findViewById(R.id.rate);
+        rate.setVisibility(View.VISIBLE);
+
+        rate.setMaxValue(5);
+        rate.setMinValue(1);
     }
 
+
+
     @Override
-    public void donePayment() {
+    public void donePayAndEvaluate() {
         Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
         this.startActivity(intent);
@@ -108,15 +124,33 @@ public class CustomerCompletedRepairRequestActivity extends AppCompatActivity im
         Button buttonConfirm = findViewById(R.id.pay_button);
         buttonConfirm.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                presenter.pay();
+                // get title, evaluate
+                EditText editTextTitle = findViewById(R.id.title);
+                EditText editTextEvaluate = findViewById(R.id.evaluate);
+                String title = editTextTitle.getText().toString();
+                String evaluate = editTextEvaluate.getText().toString();
+                //get rate
+                NumberPicker numberPicker = findViewById(R.id.rate);
+                int rate = numberPicker.getValue();
+                presenter.payAndEvaluate(title, evaluate, rate);
             }
         });
     }
 
     @Override
-    public void setNullCost() {
-        TextView cost = findViewById(R.id.cost);
-        cost.setVisibility(View.GONE);
+    public void setEvaluationData(String title, String comments, String rate) {
+        TextView evaluationTitleText = findViewById(R.id.evaluation_title);
+        TextView evaluationCommentsText = findViewById(R.id.evaluation_comments);
+        TextView evaluationRateText = findViewById(R.id.evaluation_rate);
+
+        // set text
+        evaluationTitleText.setText(title);
+        evaluationCommentsText.setText(comments);
+        evaluationRateText.setText(rate);
+        // set visible
+        evaluationTitleText.setVisibility(View.VISIBLE);
+        evaluationCommentsText.setVisibility(View.VISIBLE);
+        evaluationRateText.setVisibility(View.VISIBLE);
     }
 
     @Override

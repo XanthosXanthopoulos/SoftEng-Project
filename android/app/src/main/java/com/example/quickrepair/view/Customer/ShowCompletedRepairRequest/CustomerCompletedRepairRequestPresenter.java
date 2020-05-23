@@ -1,6 +1,7 @@
 package com.example.quickrepair.view.Customer.ShowCompletedRepairRequest;
 
 import com.example.quickrepair.domain.Customer;
+import com.example.quickrepair.domain.Evaluation;
 import com.example.quickrepair.domain.PaymentType;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
@@ -33,19 +34,35 @@ public class CustomerCompletedRepairRequestPresenter {
         view.setComments("Comments: " + "\n" + repairRequest.getCommentsFromCustomer());
         view.setConductionDate("Date: " + "\n" + Utilities.getToString(repairRequest.getConductionDate()));
         view.setEstimatedDuration("Estimated Duration: " + "\n" + repairRequest.getEstimatedDuration());
-        if(repairRequest.getRepair().getPayment() != null) {
-            view.setCost("Cost: " + "\n" + repairRequest.getRepair().getPayment().getCost());
-            view.canNotPay();
+
+        view.setCost("Cost: " + "\n" + repairRequest.getRepair().calculateCost());
+
+        if(repairRequest.getRepair().getPayment() != null ) {
+            Evaluation evaluation= repairRequest.getRepair().getEvaluation();
+            if(evaluation!=null) {
+                view.setEvaluationData("Evaluation's title:" + "\n" + evaluation.getTitle(),
+                        "Evaluation's comments: " + "\n" + evaluation.getComment(),
+                        "Evaluation's rate: "+evaluation.getRate());
+            }
         }else{
-            view.setNullCost();
+            view.setPayAndEvaluationFields();
             view.setPayListener();
         }
     }
 
-    public void pay(){
-        GregorianCalendar now = (GregorianCalendar)Calendar.getInstance();
-        repairRequest.getRepair().pay(now, PaymentType.CARD);
-        view.donePayment();
+    public void payAndEvaluate(String title, String comments, int rate){
+        if(title != null && title.length() > 0 && comments != null && comments.length() > 0 ) {
+            // pay
+            GregorianCalendar now = (GregorianCalendar) Calendar.getInstance();
+            repairRequest.getRepair().pay(now, PaymentType.CARD);
+            //evaluate
+            repairRequest.getRepair().evaluate(title ,comments, rate);
+            //done
+            view.donePayAndEvaluate();
+        }else{
+            view.showError("Please enter an evaluation");
+        }
+
     }
     public void setView(CustomerCompletedRepairRequestView view) {
         this.view = view;

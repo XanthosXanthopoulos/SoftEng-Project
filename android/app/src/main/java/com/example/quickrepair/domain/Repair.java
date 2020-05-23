@@ -188,11 +188,14 @@ public class Repair
     public Payment pay(Calendar date, PaymentType paymentType)
     {
         Payment payment = new Payment(this, date, paymentType);
-        payment.setCost(quantity * repairRequest.getJob().getPrice());
+        payment.setCost(calculateCost());
         setPayment(payment);
         return payment;
     }
 
+    public double calculateCost(){
+        return quantity * repairRequest.getJob().getPrice();
+    }
     @Override
     public boolean equals(Object o)
     {

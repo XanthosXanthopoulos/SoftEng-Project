@@ -2,8 +2,9 @@ package com.example.quickrepair.view.Customer.ShowCompletedRepairRequest;
 
 public class CustomerCompletedRepairRequestViewStub implements CustomerCompletedRepairRequestView {
     private static final int ERROR = 1;
-    private static final int CAN_NOT_PAY = 2;
-    private static final int PAY = 3;
+    private static final int NOT_PAID = 2;
+    private static final int PAID = 3;
+    private static final int PAY = 4;
     private static int state;
 
     private int sumOfsetter;
@@ -48,8 +49,13 @@ public class CustomerCompletedRepairRequestViewStub implements CustomerCompleted
     }
 
     @Override
-    public void canNotPay() {
-        state = CAN_NOT_PAY;
+    public void setEvaluationData(String title, String comments, String rate) {
+
+    }
+
+    @Override
+    public void setPayAndEvaluationFields() {
+
     }
 
     @Override
@@ -58,13 +64,8 @@ public class CustomerCompletedRepairRequestViewStub implements CustomerCompleted
     }
 
     @Override
-    public void setNullCost() {
-        sumOfsetter++;
-    }
+    public void donePayAndEvaluate() {
 
-    @Override
-    public void donePayment() {
-        state = PAY;
     }
     public int getSumOfsetter(){
         return sumOfsetter;
