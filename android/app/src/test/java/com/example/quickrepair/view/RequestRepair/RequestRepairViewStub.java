@@ -2,7 +2,7 @@ package com.example.quickrepair.view.RequestRepair;
 
 import java.util.List;
 
-public class RequestRepairViewStub implements RequestRepairView {
+public abstract class RequestRepairViewStub implements RequestRepairView {
     private RequestRepairPresenter presenter;
     public void setPresenter(RequestRepairPresenter presenter){
         this.presenter = presenter;

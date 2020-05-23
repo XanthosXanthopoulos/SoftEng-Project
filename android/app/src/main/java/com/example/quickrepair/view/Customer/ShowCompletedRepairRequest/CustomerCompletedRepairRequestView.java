@@ -10,11 +10,11 @@ public interface CustomerCompletedRepairRequestView {
     void setConductionDate(String conductionDate);
     void setEstimatedDuration(String estimatedDuration);
     void setCost(String cost);
+    void setEvaluationData(String title, String comments, String rate);
 
-    void canNotPay();
+    void setPayAndEvaluationFields();
     void setPayListener();
 
-    void setNullCost();
 
-    void donePayment();
+    void donePayAndEvaluate();
 }
