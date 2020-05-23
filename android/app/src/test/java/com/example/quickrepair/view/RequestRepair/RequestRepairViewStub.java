@@ -41,12 +41,8 @@ public class RequestRepairViewStub implements RequestRepairView {
     }
     boolean exited = false;
     @Override
-    public void exit() {
+    public void submit() {
         exited = true;
     }
 
-    @Override
-    public void showInfo(String message) {
-
-    }
 }

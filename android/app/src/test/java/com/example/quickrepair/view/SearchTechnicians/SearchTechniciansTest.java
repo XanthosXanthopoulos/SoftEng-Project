@@ -88,16 +88,6 @@ public class SearchTechniciansTest {
         Assert.assertNotNull(stub.lastMessage);
     }
     @Test
-    public void moveToRequestRepairWithoutLoggingIn(){
-        stub.chooseSpecialty(0);
-        stub.chooseJobType(0);
-        stub.setDate("2020" , "10" , "1");
-        stub.setPrice("500");
-        stub.chooseTechnician(0);
-        Assert.assertTrue(stub.lastMessage != null);
-        Assert.assertTrue(stub.navigatedToLogin);
-    }
-    @Test
     public void setWrongFormOfDate(){
         stub.chooseSpecialty(0);
         stub.chooseJobType(0);

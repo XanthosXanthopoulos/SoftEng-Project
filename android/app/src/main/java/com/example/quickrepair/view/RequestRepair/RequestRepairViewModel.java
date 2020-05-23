@@ -14,9 +14,6 @@ public class RequestRepairViewModel extends ViewModel {
     RequestRepairPresenter presenter;
 
     public RequestRepairViewModel() {
-        //TODO REMOVE INITIALIZER
-        Initializer initializer= new MemoryInitializer();
-        initializer.prepareData();
 
         presenter = new RequestRepairPresenter(new TechnicianDAOMemory(), new JobTypeDAOMemory()
                 , new CustomerDAOMemory(), new RepairRequestDAOMemory());

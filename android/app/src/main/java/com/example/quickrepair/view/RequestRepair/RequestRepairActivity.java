@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.dao.RepairRequestDAO;
+import com.example.quickrepair.domain.RepairRequest;
+import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
 
 import java.util.List;
@@ -137,6 +140,10 @@ public class RequestRepairActivity extends AppCompatActivity implements RequestR
         Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
         intent.putExtra(CUSTOMER_ID_EXTRA, getIntent().getIntExtra(CUSTOMER_ID_EXTRA, 0));
         startActivity(intent);
+        //TODO REMOVE THIS
+        for(RepairRequest rr : new RepairRequestDAOMemory().findAll()){
+            System.out.println(rr.getCommentsFromCustomer());
+        }
 
         finish();
     }
