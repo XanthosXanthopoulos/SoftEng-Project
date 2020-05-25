@@ -40,6 +40,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
 
         if (technicianID != 0)
         {
+            findViewById(R.id.Username).setEnabled(false);
             ((TextView)findViewById(R.id.Title)).setText("Profile");
             ((Button)findViewById(R.id.RegisterButton)).setText("Save");
         }
@@ -49,7 +50,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
             @Override
             public void onClick(View v)
             {
-                presenter.registerTechnician();
+                presenter.registerTechnician(getName(), getSurname(), getPhoneNumber(), getEmail(), getAFM(), getAccountNumber(), getUsername(), getPassword(), getSpecialityID());
             }
         });
     }
