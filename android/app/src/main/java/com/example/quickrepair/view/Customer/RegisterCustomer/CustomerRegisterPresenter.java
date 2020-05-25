@@ -47,6 +47,7 @@ public class CustomerRegisterPresenter
         catch (Exception e)
         {
             view.showErrorMessage("Invalid value", e.getMessage());
+            customer = null;
             return;
         }
 

@@ -36,6 +36,7 @@ public class CustomerRegisterActivity extends AppCompatActivity implements Custo
 
         if (customerID != 0)
         {
+            findViewById(R.id.Username).setEnabled(false);
             ((TextView) findViewById(R.id.Title)).setText("Profile");
             ((Button) findViewById(R.id.CustomerRegisterButton)).setText("Save");
         }
