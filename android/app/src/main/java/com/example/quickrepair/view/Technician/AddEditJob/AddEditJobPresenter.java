@@ -58,7 +58,11 @@ public class AddEditJobPresenter
 
     public void addJob(Integer jobTypeID, String price)
     {
-        if (jobTypeID == 0) view.showErrorMessage("No job selected", "You have to add a valid job.");
+        if (jobTypeID == 0)
+        {
+            view.showErrorMessage("No job selected", "You have to add a valid job.");
+            return;
+        }
 
         double priceConverted = 0;
         try
@@ -72,9 +76,9 @@ public class AddEditJobPresenter
             return;
         }
 
-        if (priceConverted == 0)
+        if (priceConverted <= 0)
         {
-            view.showErrorMessage("Invalid price value", "Price can not be zero.");
+            view.showErrorMessage("Invalid price value", "Price can not be zero or negative.");
             return;
         }
 
