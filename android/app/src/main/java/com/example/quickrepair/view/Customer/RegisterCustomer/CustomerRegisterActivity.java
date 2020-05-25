@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +37,9 @@ public class CustomerRegisterActivity extends AppCompatActivity implements Custo
 
         if (customerID != 0)
         {
-            findViewById(R.id.Username).setEnabled(false);
+            ((EditText)findViewById(R.id.Username)).setInputType(InputType.TYPE_NULL);
+            ((EditText)findViewById(R.id.Username)).setEnabled(false);
+            ((EditText)findViewById(R.id.Username)).setFocusable(false);
             ((TextView) findViewById(R.id.Title)).setText("Profile");
             ((Button) findViewById(R.id.CustomerRegisterButton)).setText("Save");
         }
