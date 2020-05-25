@@ -64,6 +64,7 @@ public class AddEditAreaPresenter
         if (technician.getAreas().contains(area))
         {
             view.showErrorMessage("Area already exist", "This area is already selected.");
+            return;
         }
         else
         {
@@ -76,7 +77,7 @@ public class AddEditAreaPresenter
 
     public void removeArea(int areaID)
     {
-        technician.getAreas().remove(areas.get(areaID));
+        technician.getAreas().remove(areas.remove(areaID));
         view.setSelectedArea(areas);
     }
 }
