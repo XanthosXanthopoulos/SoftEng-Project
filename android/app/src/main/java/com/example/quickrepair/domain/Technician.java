@@ -245,12 +245,21 @@ public class Technician extends User
 
         ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<>();
 
-        if (repairRequests == null || repairRequests.size() == 0)
+        if (repairRequests.isEmpty())
         {
             //only one gap, he is free all day
             ArrayList<GregorianCalendar> gap = new ArrayList<>();
             GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), start, 0);
-            GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
+
+            GregorianCalendar endCal;
+            if (end == 24)
+            {
+                endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
+            }
+            else
+            {
+                endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end - 1, 59);
+            }
             gap.add(startCal);
             gap.add(endCal);
             gaps.add(gap);
@@ -310,7 +319,16 @@ public class Technician extends User
                 //new gap
                 ArrayList<GregorianCalendar> gap = new ArrayList<>();
                 GregorianCalendar startCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), beforeRepairReqCalendar.get(beforeRepairReqCalendar.HOUR_OF_DAY), beforeRepairReqCalendar.get(beforeRepairReqCalendar.MINUTE));
-                GregorianCalendar endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
+
+                GregorianCalendar endCal;
+                if (end == 24)
+                {
+                    endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
+                }
+                else
+                {
+                    endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end - 1, 59);
+                }
                 gap.add(startCal);
                 gap.add(endCal);
                 gaps.add(gap);
@@ -351,7 +369,7 @@ public class Technician extends User
             getSchedule()[day][1] = hourEnd;
             return;
         }
-        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 23 || hourStart > 23 || hourStart >= hourEnd)
+        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 24 || hourStart > 23 || hourStart >= hourEnd)
         {
             throw new IllegalArgumentException("out of range");
         }
@@ -399,9 +417,7 @@ public class Technician extends User
         System.out.println(getSchedule()[day][0]);
         System.out.println(getSchedule()[day][1]);
 
-        boolean isAfterStart = !(getSchedule()[day][0] == 0);
-        boolean isBeforeEnd = !(getSchedule()[day][1] == 0);
-        return isAfterStart || isBeforeEnd;
+        return getSchedule()[day][1] == 0 || getSchedule()[day][0] == 0;
     }
 
     @Override
