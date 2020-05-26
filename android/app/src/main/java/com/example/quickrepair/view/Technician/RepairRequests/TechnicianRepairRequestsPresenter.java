@@ -17,12 +17,12 @@ public class TechnicianRepairRequestsPresenter
     {
     }
 
-    public ArrayList<RepairRequest> searchRepairRequests(int techid, RepairRequest.Status status)
+    public ArrayList<RepairRequest> searchRepairRequests(int technicianID, RepairRequest.Status status)
     {
-        if (techid != 0 && status != null)
+        if (technicianID != 0 && status != null)
         {
             //get repair requests from DAO
-            repairRequests = this.repairRequestDAO.findAllForTechnicianByStatus(techid, status);
+            repairRequests = this.repairRequestDAO.findAllForTechnicianByStatus(technicianID, status);
             return repairRequests;
         }
 
