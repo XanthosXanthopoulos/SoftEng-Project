@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
+import com.example.quickrepair.view.Technician.AddEditSchedule.AddEditScheduleActivity;
 
 import java.util.List;
 
@@ -179,7 +180,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
     @Override
     public void onSuccessfulRegister(Integer id)
     {
-        Intent intent = new Intent(this, AddEditAreaActivity.class);
+        Intent intent = new Intent(this, AddEditScheduleActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, id);
         startActivity(intent);
 

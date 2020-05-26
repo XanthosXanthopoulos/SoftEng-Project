@@ -92,7 +92,7 @@ public class Technician extends User
         {
             if (schedule[i] == null || schedule[i].length != 2)
             {
-                throw new IllegalArgumentException("Every entry must have 2 calendars");
+                throw new IllegalArgumentException("Every entry must have 2 calendars.");
             }
 
             if (schedule[i][0] == null || schedule[i][1] == null)
@@ -100,9 +100,21 @@ public class Technician extends User
                 throw new NullPointerException("null schedule entries on " + i);
             }
 
-            this.schedule.setSchedule(i + 1, schedule[i][0], schedule[i][1]);
-
+            if (schedule[i][1] > schedule[i][0])
+            {
+                throw new IllegalArgumentException("Starting hour can not be after ending hour.");
+            }
         }
+
+        for (int i = 0; i < 7; i++)
+        {
+            this.schedule.setSchedule(Calendar.SUNDAY + i, schedule[i][0], schedule[i][1]);
+        }
+    }
+
+    public Schedule.ScheduleEntry getSchedule(int day)
+    {
+        return schedule.getSchedule(day);
     }
 
     public void setAFM(String AFM)
@@ -360,7 +372,8 @@ public class Technician extends User
     {
         if (!isDayAvailable(day)) return false;
 
-        if (hourOfDay < 0 || hourOfDay > 24) throw new IllegalArgumentException("Hour must be between zero and twenty four inclusive");
+        if (hourOfDay < 0 || hourOfDay > 24)
+            throw new IllegalArgumentException("Hour must be between zero and twenty four inclusive");
 
         return schedule.getSchedule(day).getStartingHour() <= hourOfDay && schedule.getSchedule(day).getEndingHour() >= hourOfDay;
     }

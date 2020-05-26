@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.RequestRepair.RequestRepairActivity"></activity>
+        <activity android:name=".view.Technician.AddEditSchedule.AddEditScheduleActivity"></activity>
+        <activity android:name=".view.RequestRepair.RequestRepairActivity" />
         <activity android:name=".view.Technician.AddEditJob.AddEditJobActivity" />
         <activity android:name=".view.Technician.AddEditArea.AddEditAreaActivity" />
-        <activity android:name=".view.SearchTechnicians.SearchTechniciansActivity"/>
-
+        <activity android:name=".view.SearchTechnicians.SearchTechniciansActivity" />
         <activity android:name=".view.User.LoginUser.LoginActivity" />
         <activity
             android:name=".view.Technician.RepairRequests.TechnicianRepairRequestsActivity"
@@ -29,7 +29,6 @@
         <activity android:name=".view.Customer.ShowConfirmedRepairRequest.CustomerConfirmedRepairRequestActivity" />
         <activity android:name=".view.Customer.ShowUnconfirmedRepairRequest.CustomerUnconfirmedRepairRequestActivity" />
         <activity android:name=".view.Customer.RegisterCustomer.CustomerRegisterActivity" />
-
         <activity android:name=".view.HomePage.HomePageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

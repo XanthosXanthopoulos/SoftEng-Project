@@ -18,11 +18,11 @@ public class Schedule
 
     public void setSchedule(int day, int startingHour, int endingHour)
     {
-        if (day < 1 || day > 7) throw new IllegalArgumentException("Day should be between one and seven inclusive");
+        if (day < 1 || day > 7) throw new IllegalArgumentException("Day should be between one and seven inclusive.");
 
-        if (startingHour < 0 || startingHour > 24)  throw new IllegalArgumentException("Day should be between zero and twenty three inclusive");
+        if (startingHour < 0 || startingHour > 24)  throw new IllegalArgumentException("Day should be between zero and twenty three inclusive.");
 
-        if (endingHour < 0 || endingHour > 24)  throw new IllegalArgumentException("Day should be between zero and twenty three inclusive");
+        if (endingHour < 0 || endingHour > 24)  throw new IllegalArgumentException("Day should be between zero and twenty three inclusive.");
 
         entries.set(day - 1, new ScheduleEntry(startingHour, endingHour));
     }
