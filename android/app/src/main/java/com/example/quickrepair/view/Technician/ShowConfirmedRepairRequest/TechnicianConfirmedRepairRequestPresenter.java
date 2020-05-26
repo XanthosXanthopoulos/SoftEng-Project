@@ -50,7 +50,7 @@ public class TechnicianConfirmedRepairRequestPresenter {
         this.view = view;
     }
 
-    public void setRepairRequestDAOMemory(RepairRequestDAOMemory repairRequestDAO) {
+    public void setRepairRequestDAOMemory(RepairRequestDAO repairRequestDAO) {
         this.repairRequestDAO = repairRequestDAO;
     }
 

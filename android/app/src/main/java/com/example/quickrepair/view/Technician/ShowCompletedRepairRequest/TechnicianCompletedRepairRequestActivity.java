@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
-import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;

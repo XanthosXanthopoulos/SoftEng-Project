@@ -5,7 +5,7 @@ public interface CustomerCompletedRepairRequestView {
 
     void setJob(String job);
     void setTechnicianName(String technicianName);
-    void setAddress(String Address);
+    void setAddress(String address);
     void setComments(String comments);
     void setConductionDate(String conductionDate);
     void setEstimatedDuration(String estimatedDuration);

@@ -1,5 +1,6 @@
 package com.example.quickrepair.view.Customer.RepairRequests;
 
+import com.example.quickrepair.dao.RepairRequestDAO;
 import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 public class CustomerRepairRequestsPresenter
 {
     private CustomerRepairRequestsView view;
-    private RepairRequestDAOMemory repairRequestDAO;
+    private RepairRequestDAO repairRequestDAO;
     private ArrayList<RepairRequest> repairRequests;
 
     public CustomerRepairRequestsPresenter()
@@ -75,7 +76,7 @@ public class CustomerRepairRequestsPresenter
         view.search();
     }
 
-    public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAO)
+    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO)
     {
         this.repairRequestDAO = repairRequestDAO;
     }
