@@ -35,7 +35,7 @@ public class CustomerConfirmedRepairRequestPresenter {
         this.view = view;
     }
 
-    public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAO) {
+    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO) {
         this.repairRequestDAO = repairRequestDAO;
     }
 

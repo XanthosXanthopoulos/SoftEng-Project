@@ -1,18 +1,16 @@
 package com.example.quickrepair.view.Customer.ShowCompletedRepairRequest;
 
-import com.example.quickrepair.domain.Customer;
+import com.example.quickrepair.dao.RepairRequestDAO;
 import com.example.quickrepair.domain.Evaluation;
 import com.example.quickrepair.domain.PaymentType;
 import com.example.quickrepair.domain.RepairRequest;
-import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
 import com.example.quickrepair.util.Utilities;
-import com.example.quickrepair.view.Technician.ShowCompletedRepairRequest.TechnicianCompletedRepairRequestView;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class CustomerCompletedRepairRequestPresenter {
-    private RepairRequestDAOMemory repairRequestDAO;
+    private RepairRequestDAO repairRequestDAO;
     private CustomerCompletedRepairRequestView view;
     private RepairRequest repairRequest;
 
@@ -72,7 +70,7 @@ public class CustomerCompletedRepairRequestPresenter {
         this.view = null;
     }
 
-    public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAO) {
+    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO) {
         this.repairRequestDAO = repairRequestDAO;
     }
 }
