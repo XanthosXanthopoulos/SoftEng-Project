@@ -24,18 +24,8 @@ public class TechnicianRegisterPresenter
         technician = technicianDAO.find(id);
     }
 
-    public void registerTechnician()
+    public void registerTechnician(String name, String surname, String phoneNumber, String email, String AFM, String accountNumber, String username, String password, int specialityID)
     {
-        String name = view.getName();
-        String surname = view.getSurname();
-        String phoneNumber = view.getPhoneNumber();
-        String email = view.getEmail();
-        String afm = view.getAFM();
-        String accountNumber = view.getAccountNumber();
-        Integer specialityID = view.getSpecialityID();
-        String username = view.getUsername();
-        String password = view.getPassword();
-
         if (technician == null)
         {
 
@@ -46,7 +36,7 @@ public class TechnicianRegisterPresenter
                     view.showErrorMessage("Username already exist", "This username is already in use by another user.");
                     return;
                 }
-                else if (technician.getAFM().equals(afm))
+                else if (technician.getAFM().equals(AFM))
                 {
                     view.showErrorMessage("Duplicate AFM", "Please make sure you do not have already an account and you have typed the correct AFM.");
                     return;
@@ -72,6 +62,7 @@ public class TechnicianRegisterPresenter
         catch (Exception e)
         {
             view.showErrorMessage("Invalid value", e.getMessage());
+            technician = null;
             return;
         }
 
@@ -80,6 +71,7 @@ public class TechnicianRegisterPresenter
         if (speciality == null)
         {
             view.showErrorMessage("No speciality selected", "You must choose a speciality.");
+            technician = null;
             return;
         }
 
@@ -90,7 +82,7 @@ public class TechnicianRegisterPresenter
             technician.setSpecialty(speciality);
         }
 
-        technician.setAFM(afm);
+        technician.setAFM(AFM);
 
         if (technician.getUid() == 0)
         {

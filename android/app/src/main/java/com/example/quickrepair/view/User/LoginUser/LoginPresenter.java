@@ -27,7 +27,7 @@ public class LoginPresenter
         this.view = view;
     }
 
-    public void login(String username, String password, boolean redirect)
+    public void login(String username, String password)
     {
         LoginState state = LoginState.NO_ACCOUNT;
         Integer id = null;

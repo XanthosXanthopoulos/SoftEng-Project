@@ -119,8 +119,6 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
     @Override
     public void search()
     {
-        System.out.println("AAAAAAAAAAAA");
-
         Intent intent = new Intent(this, SearchTechniciansActivity.class);
         intent.putExtra(CUSTOMER_ID_EXTRA, customerID);
         startActivity(intent);

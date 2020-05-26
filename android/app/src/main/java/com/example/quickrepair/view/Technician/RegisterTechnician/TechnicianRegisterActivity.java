@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,6 +41,9 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
 
         if (technicianID != 0)
         {
+            ((EditText)findViewById(R.id.Username)).setInputType(InputType.TYPE_NULL);
+            ((EditText)findViewById(R.id.Username)).setEnabled(false);
+            ((EditText)findViewById(R.id.Username)).setFocusable(false);
             ((TextView)findViewById(R.id.Title)).setText("Profile");
             ((Button)findViewById(R.id.RegisterButton)).setText("Save");
         }
@@ -49,7 +53,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
             @Override
             public void onClick(View v)
             {
-                presenter.registerTechnician();
+                presenter.registerTechnician(getName(), getSurname(), getPhoneNumber(), getEmail(), getAFM(), getAccountNumber(), getUsername(), getPassword(), getSpecialityID());
             }
         });
     }

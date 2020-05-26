@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
             @Override
             public void onClick(View v)
             {
-                presenter.login(getUsername(), getPassword(), getIntent().getBooleanExtra(REDIRECT_TO_SEARCH_EXTRA, false));
+                presenter.login(getUsername(), getPassword());
             }
         });
     }
