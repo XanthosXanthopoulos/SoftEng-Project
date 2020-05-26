@@ -41,9 +41,9 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
 
         if (technicianID != 0)
         {
+            findViewById(R.id.Username).setEnabled(false);
+            findViewById(R.id.Username).setFocusable(false);
             ((EditText)findViewById(R.id.Username)).setInputType(InputType.TYPE_NULL);
-            ((EditText)findViewById(R.id.Username)).setEnabled(false);
-            ((EditText)findViewById(R.id.Username)).setFocusable(false);
             ((TextView)findViewById(R.id.Title)).setText("Profile");
             ((Button)findViewById(R.id.RegisterButton)).setText("Save");
         }
@@ -61,109 +61,109 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
     @Override
     public void setName(String name)
     {
-        ((EditText)findViewById(R.id.Name)).setText(name);
+        ((EditText) findViewById(R.id.Name)).setText(name);
     }
 
     @Override
     public void setSurname(String surname)
     {
-        ((EditText)findViewById(R.id.Surname)).setText(surname);
+        ((EditText) findViewById(R.id.Surname)).setText(surname);
     }
 
     @Override
     public void setPhoneNumber(String phoneNumber)
     {
-        ((EditText)findViewById(R.id.PhoneNumber)).setText(phoneNumber);
+        ((EditText) findViewById(R.id.PhoneNumber)).setText(phoneNumber);
     }
 
     @Override
     public void setEmail(String email)
     {
-        ((EditText)findViewById(R.id.Email)).setText(email);
+        ((EditText) findViewById(R.id.Email)).setText(email);
     }
 
     @Override
     public void setAccountNumber(String accountNumber)
     {
-        ((EditText)findViewById(R.id.BankAccount)).setText(accountNumber);
+        ((EditText) findViewById(R.id.BankAccount)).setText(accountNumber);
     }
 
     @Override
     public void setAFM(String AFM)
     {
-        ((EditText)findViewById(R.id.AFM)).setText(AFM);
+        ((EditText) findViewById(R.id.AFM)).setText(AFM);
     }
 
     @Override
     public void setUsername(String username)
     {
-        ((EditText)findViewById(R.id.Username)).setText(username);
+        ((EditText) findViewById(R.id.Username)).setText(username);
     }
 
     @Override
     public void setPassword(String password)
     {
-        ((EditText)findViewById(R.id.Password)).setText(password);
+        ((EditText) findViewById(R.id.Password)).setText(password);
     }
 
     @Override
     public void setSpecialityID(int specialityID)
     {
-        ((Spinner)findViewById(R.id.Speciality)).setSelection(specialityID);
+        ((Spinner) findViewById(R.id.Speciality)).setSelection(specialityID);
     }
 
     @Override
     public String getName()
     {
-        return ((EditText)findViewById(R.id.Name)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.Name)).getText().toString().trim();
     }
 
     @Override
     public String getSurname()
     {
-        return ((EditText)findViewById(R.id.Surname)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.Surname)).getText().toString().trim();
     }
 
     @Override
     public String getPhoneNumber()
     {
-        return ((EditText)findViewById(R.id.PhoneNumber)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.PhoneNumber)).getText().toString().trim();
     }
 
     @Override
     public String getAccountNumber()
     {
-        return ((EditText)findViewById(R.id.BankAccount)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.BankAccount)).getText().toString().trim();
     }
 
     @Override
     public String getEmail()
     {
-        return ((EditText)findViewById(R.id.Email)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.Email)).getText().toString().trim();
     }
 
     @Override
     public String getUsername()
     {
-        return ((EditText)findViewById(R.id.Username)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.Username)).getText().toString().trim();
     }
 
     @Override
     public String getPassword()
     {
-        return ((EditText)findViewById(R.id.Password)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.Password)).getText().toString().trim();
     }
 
     @Override
     public String getAFM()
     {
-        return ((EditText)findViewById(R.id.AFM)).getText().toString().trim();
+        return ((EditText) findViewById(R.id.AFM)).getText().toString().trim();
     }
 
     @Override
     public Integer getSpecialityID()
     {
-        return ((Spinner)findViewById(R.id.Speciality)).getSelectedItemPosition();
+        return ((Spinner) findViewById(R.id.Speciality)).getSelectedItemPosition();
     }
 
     @Override
@@ -173,7 +173,7 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, specialityList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ((Spinner)findViewById(R.id.Speciality)).setAdapter(adapter);
+        ((Spinner) findViewById(R.id.Speciality)).setAdapter(adapter);
     }
 
     @Override

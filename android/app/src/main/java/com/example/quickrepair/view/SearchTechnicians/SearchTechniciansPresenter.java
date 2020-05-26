@@ -18,6 +18,8 @@ import com.example.quickrepair.memorydao.EvaluationDAOMemory;
 import com.example.quickrepair.memorydao.MemoryInitializer;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,12 +34,13 @@ public class SearchTechniciansPresenter
     private SpecialtyDAO specialtyDAO;
     private JobTypeDAO jobTypeDAO;
     private AreaDAO areaDAO;
+    private int loggedInUser = -1;
+    private int selectedSpecialtyId = -1;
+    private double selectedMaxPrice = -1;
+    private String selectedArea = null;
 
 
-    public SearchTechniciansPresenter(TechnicianDAO technicianDAO,
-                                      SpecialtyDAO specialtyDAO, JobTypeDAO jobTypeDAO,
-                                      AreaDAO areaDAO
-    )
+    public SearchTechniciansPresenter(TechnicianDAO technicianDAO, SpecialtyDAO specialtyDAO, JobTypeDAO jobTypeDAO, AreaDAO areaDAO)
     {
         this.technicianDAO = technicianDAO;
         this.specialtyDAO = specialtyDAO;
@@ -49,8 +52,6 @@ public class SearchTechniciansPresenter
     {
         this.view = view;
     }
-
-    int loggedInUser = -1;
 
     /**
      * Sets the user that is currently logged in
@@ -83,11 +84,8 @@ public class SearchTechniciansPresenter
     /**
      * Responds to the user selecting a specialty
      */
-    int selectedSpecialtyId = -1;
-
     public void selectSpecialty(int specialtyId)
     {
-        Specialty selectedSpecialty = specialtyDAO.find(specialtyId);
         List<JobType> jobTypes = jobTypeDAO.findAll();
         List<Integer> jobTypeIds = new ArrayList<>();
         List<String> jobTypeNames = new ArrayList<>();
@@ -107,9 +105,7 @@ public class SearchTechniciansPresenter
         view.setJobTypeSpinnerEnabled(true);
     }
 
-    int year = -1;
-    int month = -1;
-    int dayOfMonth = -1;
+    GregorianCalendar date;
 
     /**
      * Sets the date the customer wants the technician to be available
@@ -123,9 +119,7 @@ public class SearchTechniciansPresenter
             int dayOfMonth = Integer.parseInt(dayOfMonthString);
             if (year >= 0 && month <= 12 && month >= 1 && dayOfMonth <= 31 && dayOfMonth >= 0)
             {
-                this.year = year;
-                this.month = month;
-                this.dayOfMonth = dayOfMonth;
+                date = new GregorianCalendar(year, month, dayOfMonth);
             }
             else
             {
@@ -151,8 +145,6 @@ public class SearchTechniciansPresenter
     public void selectJobType(int jobTypeId)
     {
         selectedJobTypeId = jobTypeId;
-        repopulateTechnicianList();
-
     }
 
     /**
@@ -160,13 +152,10 @@ public class SearchTechniciansPresenter
      *
      * @param area the selected area
      */
-    String selectedArea = null;
 
     public void setArea(String area)
     {
         selectedArea = area;
-        //Refreshing the technicianList
-        repopulateTechnicianList();
     }
 
     /**
@@ -174,7 +163,6 @@ public class SearchTechniciansPresenter
      *
      * @param input the input maximum price
      */
-    double selectedMaxPrice = -1;
 
     public void setMaxPrice(String input)
     {
@@ -191,9 +179,8 @@ public class SearchTechniciansPresenter
             view.showErrorMessage("Please enter a valid from of price");
             return;
         }
+
         selectedMaxPrice = price;
-        //Refreshing the technicianList
-        repopulateTechnicianList();
     }
 
     /**
@@ -201,13 +188,33 @@ public class SearchTechniciansPresenter
      */
     public void onTechnicianClick(int technicianId)
     {
-        if (year == -1 || month == -1 || dayOfMonth == -1)
+        if (date == null)
         {
             view.showErrorMessage("Please enter a valid Date (YYYY/MM/DD)");
             return;
         }
 
-        view.navigateToRequestRepair(technicianId, selectedJobTypeId, year, month, dayOfMonth);
+        view.navigateToRequestRepair(technicianId, selectedJobTypeId, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
+    }
+
+    public void search(int jobID, String price, String area, String year, String month, String day)
+    {
+        selectedJobTypeId = -1;
+        selectedArea = null;
+        selectedMaxPrice = -1;
+        date = null;
+
+        selectJobType(jobID);
+        setMaxPrice(price);
+        setArea(area);
+        setDate(year, month, day);
+
+        if (selectedJobTypeId == -1 || selectedArea == null || date == null)
+        {
+            return;
+        }
+
+        repopulateTechnicianList();
     }
 
     /**
@@ -216,10 +223,6 @@ public class SearchTechniciansPresenter
      */
     private void repopulateTechnicianList()
     {
-        System.out.println("Selected specialty id " + selectedSpecialtyId);
-        System.out.println("Selected jt id " + selectedJobTypeId);
-        System.out.println("Selected mp id " + selectedMaxPrice);
-        System.out.println("Selected area id " + selectedArea);
         List<Integer> technicianIds = new ArrayList<>();
         List<String> technicianNames = new ArrayList<>();
         List<Double> averageRatings = new ArrayList<>();
@@ -230,7 +233,8 @@ public class SearchTechniciansPresenter
             boolean offersJobType = selectedJobTypeId == -1 || offersJobType(technician.getUid(), selectedJobTypeId);
             boolean underMaxPrice = selectedJobTypeId == -1 || selectedMaxPrice < 0 || offersJobTypeForLessThan(technician.getUid(), selectedJobTypeId, selectedMaxPrice);
             boolean servesArea = selectedArea == null || technician.servesArea(selectedArea);
-            if (!(hasSpecialty && offersJobType && underMaxPrice && servesArea))
+            boolean available = technician.isDayAvailable(date.get(Calendar.DAY_OF_WEEK));
+            if (!(hasSpecialty && offersJobType && underMaxPrice && servesArea && available))
             {
                 continue;
             }

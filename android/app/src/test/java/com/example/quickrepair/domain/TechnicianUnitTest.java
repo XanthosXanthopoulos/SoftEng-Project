@@ -1,14 +1,5 @@
 package com.example.quickrepair.domain;
 
-import com.example.quickrepair.domain.Address;
-import com.example.quickrepair.domain.Job;
-import com.example.quickrepair.domain.JobType;
-import com.example.quickrepair.domain.MeasurementUnit;
-import com.example.quickrepair.domain.Repair;
-import com.example.quickrepair.domain.RepairRequest;
-import com.example.quickrepair.domain.Specialty;
-import com.example.quickrepair.domain.Technician;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,10 +47,10 @@ public class TechnicianUnitTest
     public void setCorrectSchedule()
     {
         technicianToTest.setSchedule(exampleSchedule);
-        assertTrue(technicianToTest.isNormallyAvailable(0, 13));
-        assertFalse(technicianToTest.isNormallyAvailable(0, 5));
-        assertFalse(technicianToTest.isNormallyAvailable(0, 23));
-        assertFalse(technicianToTest.isNormallyAvailable(0, 0));
+        assertTrue(technicianToTest.isNormallyAvailable(1, 13));
+        assertFalse(technicianToTest.isNormallyAvailable(1, 5));
+        assertFalse(technicianToTest.isNormallyAvailable(1, 23));
+        assertFalse(technicianToTest.isNormallyAvailable(1, 0));
         assertFalse(technicianToTest.isNormallyAvailable(6, 0));
     }
 
@@ -108,14 +99,14 @@ public class TechnicianUnitTest
     public void isNormallyAvailableWithWrongParameters1()
     {
         technicianToTest.setSchedule(exampleSchedule);
-        technicianToTest.isNormallyAvailable(7, 5);
+        technicianToTest.isNormallyAvailable(8, 5);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void isNormallyAvailableWithWrongParameters2()
     {
         technicianToTest.setSchedule(exampleSchedule);
-        technicianToTest.isNormallyAvailable(6, 24);
+        technicianToTest.isNormallyAvailable(6, 25);
     }
 
     @Test(expected = NullPointerException.class)
@@ -137,14 +128,14 @@ public class TechnicianUnitTest
     public void changeScheduleForMonday()
     {
         technicianToTest.setSchedule(exampleSchedule);
-        technicianToTest.setAvailableOnDay(0, 2, 5);
+        technicianToTest.setAvailableOnDay(Calendar.MONDAY, 2, 4);
         for (int i = 5; i < 24; i++)
         {
-            assertFalse(technicianToTest.isNormallyAvailable(0, i));
+            assertFalse(technicianToTest.isNormallyAvailable(Calendar.MONDAY, i));
         }
         for (int i = 2; i < 5; i++)
         {
-            assertTrue(technicianToTest.isNormallyAvailable(0, i));
+            assertTrue(technicianToTest.isNormallyAvailable(Calendar.MONDAY, i));
         }
     }
 
@@ -264,8 +255,8 @@ public class TechnicianUnitTest
     @Test
     public void testIsDayAvailableOkFalse()
     {
-        technicianToTest.setAvailableOnDay(0, 0, 0);
-        Assert.assertFalse(technicianToTest.isDayAvailable(0));
+        technicianToTest.setAvailableOnDay(Calendar.MONDAY, 0, 0);
+        Assert.assertFalse(technicianToTest.isDayAvailable(Calendar.MONDAY));
     }
 
     @Test
@@ -373,7 +364,7 @@ public class TechnicianUnitTest
     {
         GregorianCalendar date = new GregorianCalendar(2020, Calendar.APRIL, 6);
 
-        technicianToTest.setAvailableOnDay(Calendar.MONDAY - 1, 0, 0);
+        technicianToTest.setAvailableOnDay(Calendar.MONDAY, 0, 0);
         Assert.assertEquals(null, technicianToTest.getAvailableHourRanges(date));
     }
 
@@ -381,7 +372,7 @@ public class TechnicianUnitTest
     public void testGetAvailableHourRangesOneGap()
     {
         GregorianCalendar date = new GregorianCalendar(2020, Calendar.APRIL, 6);
-        technicianToTest.setAvailableOnDay(Calendar.MONDAY - 1, 6, 19);
+        technicianToTest.setAvailableOnDay(Calendar.MONDAY, 6, 19);
 
         ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<>();
         ArrayList<GregorianCalendar> gap1 = new ArrayList<>();
@@ -397,7 +388,7 @@ public class TechnicianUnitTest
     public void testGetAvailableHourRanges2Gaps()
     {
         GregorianCalendar date = new GregorianCalendar(2020, Calendar.APRIL, 6);
-        technicianToTest.setAvailableOnDay(Calendar.MONDAY - 1, 6, 19);
+        technicianToTest.setAvailableOnDay(Calendar.MONDAY, 6, 19);
 
         GregorianCalendar date1 = new GregorianCalendar(2020, Calendar.APRIL, 6, 8, 30);
         technicianToTest.setSpecialty(exampleSpecialty);
@@ -410,14 +401,14 @@ public class TechnicianUnitTest
 
         job.addRepairRequest(repairRequest);
 
-        ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<ArrayList<GregorianCalendar>>();
+        ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<>();
 
         ArrayList<GregorianCalendar> gap1 = new ArrayList<>();
         gap1.add(new GregorianCalendar(2020, Calendar.APRIL, 6, 6, 0));
         gap1.add(date1);
         gaps.add(gap1);
 
-        ArrayList<GregorianCalendar> gap2 = new ArrayList<GregorianCalendar>();
+        ArrayList<GregorianCalendar> gap2 = new ArrayList<>();
         GregorianCalendar date1New = (GregorianCalendar) date1.clone();
         date1New.add(date1New.MINUTE, 30);
         gap2.add(date1New);
@@ -434,7 +425,7 @@ public class TechnicianUnitTest
     public void testGetAvailableHourRanges3Gaps()
     {
         GregorianCalendar date = new GregorianCalendar(2020, Calendar.APRIL, 6);
-        technicianToTest.setAvailableOnDay(Calendar.MONDAY - 1, 6, 19);
+        technicianToTest.setAvailableOnDay(Calendar.MONDAY, 6, 19);
 
         technicianToTest.setSpecialty(exampleSpecialty);
         Job job = technicianToTest.addJob(exampleJobType, 10);

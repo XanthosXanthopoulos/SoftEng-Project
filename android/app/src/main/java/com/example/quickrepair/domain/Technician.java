@@ -26,10 +26,13 @@ public class Technician extends User
     //for each day of the week -> (startHour, endHour)
     //Special Cases: (0,0): Technician doesn't work that day
     //(0,24): Technician work all day
-    private Integer[][] schedule = new Integer[7][2];
+    //private Integer[][] schedule = new Integer[7][2];
+
+    private Schedule schedule;
 
     public Technician()
     {
+        schedule = new Schedule();
     }
 
     public Technician(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password, Specialty specialty, String AFM)
@@ -37,13 +40,7 @@ public class Technician extends User
         super(name, surname, phoneNumber, email, bankAccount, username, password);
         setSpecialty(specialty);
         setAFM(AFM);
-        Integer[][] schedule = new Integer[7][2];
-        for (int i = 0; i < 7; i++)
-        {
-            schedule[i][0] = 0;
-            schedule[i][1] = 24;
-        }
-        setSchedule(schedule);
+        schedule = new Schedule();
     }
 
     //SETTERS
@@ -103,9 +100,9 @@ public class Technician extends User
                 throw new NullPointerException("null schedule entries on " + i);
             }
 
-        }
+            this.schedule.setSchedule(i + 1, schedule[i][0], schedule[i][1]);
 
-        this.schedule = schedule;
+        }
     }
 
     public void setAFM(String AFM)
@@ -127,11 +124,6 @@ public class Technician extends User
     public HashSet<String> getAreas()
     {
         return areas;
-    }
-
-    public Integer[][] getSchedule()
-    {
-        return schedule;
     }
 
     public String getAFM()
@@ -221,13 +213,13 @@ public class Technician extends User
     {
         int dayOfWeek = date.get(Calendar.DAY_OF_WEEK);
 
-        if (!isDayAvailable(dayOfWeek - 1))
+        if (!isDayAvailable(dayOfWeek))
         {
             return null;
         }
 
-        int start = schedule[dayOfWeek - 1][0];
-        int end = schedule[dayOfWeek - 1][1];
+        int start = schedule.getSchedule(dayOfWeek).getStartingHour();
+        int end = schedule.getSchedule(dayOfWeek).getEndingHour();
 
         GregorianCalendar newDate = Utilities.getYearMonthDay(date);
         ArrayList<RepairRequest> repairRequests = new ArrayList<>();
@@ -254,11 +246,11 @@ public class Technician extends User
             GregorianCalendar endCal;
             if (end == 24)
             {
-                endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
+                endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end - 1, 59);
             }
             else
             {
-                endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end - 1, 59);
+                endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
             }
             gap.add(startCal);
             gap.add(endCal);
@@ -323,11 +315,11 @@ public class Technician extends User
                 GregorianCalendar endCal;
                 if (end == 24)
                 {
-                    endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
+                    endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end - 1, 59);
                 }
                 else
                 {
-                    endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end - 1, 59);
+                    endCal = new GregorianCalendar(date.get(date.YEAR), date.get(date.MONTH), date.get(date.DAY_OF_MONTH), end, 0);
                 }
                 gap.add(startCal);
                 gap.add(endCal);
@@ -354,28 +346,7 @@ public class Technician extends User
      */
     public void setAvailableOnDay(int day, int hourStart, int hourEnd)
     {
-
-        //technician doesn't work that day
-        if (hourStart == 0 && hourEnd == 0)
-        {
-            getSchedule()[day][0] = hourStart;
-            getSchedule()[day][1] = hourEnd;
-            return;
-        }
-        //technician works all day
-        if (hourStart == 0 && hourEnd == 24)
-        {
-            getSchedule()[day][0] = hourStart;
-            getSchedule()[day][1] = hourEnd;
-            return;
-        }
-        if (day < 0 || day > 6 || hourStart < 0 || hourEnd < 0 || hourEnd > 24 || hourStart > 23 || hourStart >= hourEnd)
-        {
-            throw new IllegalArgumentException("out of range");
-        }
-
-        getSchedule()[day][0] = hourStart;
-        getSchedule()[day][1] = hourEnd;
+        schedule.setSchedule(day, hourStart, hourEnd);
     }
 
 
@@ -387,16 +358,11 @@ public class Technician extends User
      */
     public boolean isNormallyAvailable(int day, int hourOfDay)
     {
-        //Argument checks
-        if (day < 0 || day > 6 || hourOfDay < 0
-                || hourOfDay > 23)
-        {
-            throw new IllegalArgumentException("out of range");
-        }
+        if (!isDayAvailable(day)) return false;
 
-        boolean isAfterStart = getSchedule()[day][0] <= hourOfDay;
-        boolean isBeforeEnd = getSchedule()[day][1] > hourOfDay;
-        return isAfterStart && isBeforeEnd;
+        if (hourOfDay < 0 || hourOfDay > 24) throw new IllegalArgumentException("Hour must be between zero and twenty four inclusive");
+
+        return schedule.getSchedule(day).getStartingHour() <= hourOfDay && schedule.getSchedule(day).getEndingHour() >= hourOfDay;
     }
 
 
@@ -408,16 +374,7 @@ public class Technician extends User
      */
     public boolean isDayAvailable(int day)
     {
-        //Argument checks
-        if (day < 0 || day > 6)
-        {
-            throw new IllegalArgumentException("out of range");
-        }
-
-        System.out.println(getSchedule()[day][0]);
-        System.out.println(getSchedule()[day][1]);
-
-        return getSchedule()[day][1] == 0 || getSchedule()[day][0] == 0;
+        return schedule.getSchedule(day).getStartingHour() != schedule.getSchedule(day).getEndingHour();
     }
 
     @Override
@@ -430,15 +387,12 @@ public class Technician extends User
         return Objects.equals(AFM, that.AFM) &&
                 Objects.equals(jobs, that.jobs) &&
                 Objects.equals(specialty, that.specialty) &&
-                Objects.equals(areas, that.areas) &&
-                Arrays.deepEquals(schedule, that.schedule);
+                Objects.equals(areas, that.areas);
     }
 
     @Override
     public int hashCode()
     {
-        int result = Objects.hash(super.hashCode(), AFM, specialty, areas);
-        result = 31 * result + Arrays.hashCode(schedule);
-        return result;
+        return Objects.hash(super.hashCode(), AFM, specialty, areas);
     }
 }

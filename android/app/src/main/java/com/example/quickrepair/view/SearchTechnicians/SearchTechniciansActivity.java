@@ -124,7 +124,6 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
             @Override
             public void onClick(View v)
             {
-                Log.e("w", "view button clicked");
                 SpinnerEntry entry = (SpinnerEntry) jobTypeSpinner.getSelectedItem();
                 int selectedJobTypeId = entry.getId();
                 String selectedMaxPrice = maxpriceText.getText().toString();
@@ -134,23 +133,20 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
                 String year = yearText.getText().toString();
                 String day = dayText.getText().toString();
 
-                presenter.setDate(year, month, day);
-                presenter.selectJobType(selectedJobTypeId);
-                presenter.setMaxPrice(selectedMaxPrice);
-                presenter.setArea(selectedArea);
+                presenter.search(selectedJobTypeId, selectedMaxPrice, selectedArea, year, month, day);
             }
         });
+
         techniciansList.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Log.e("test", "Clicked on technician id  " + id);
                 presenter.onTechnicianClick((int) id);
             }
         });
-        presenter.onStart();
 
+        presenter.onStart();
     }
 
     @Override
@@ -182,7 +178,6 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
     @Override
     public void setJobTypesSource(List<Integer> jobTypeIds, List<String> jobTypeNames)
     {
-        System.out.println("Setting specialties source" + jobTypeNames);
         List<SpinnerEntry> list = new ArrayList<>();
         for (int i = 0; i < jobTypeIds.size(); i++)
         {
@@ -204,11 +199,6 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
     @Override
     public void populateTechnicianList(List<Integer> technicianIds, List<String> technicianNames, List<Double> averageRatings, List<Double> prices)
     {
-        Log.e("Pop", "Populating tech list with " + technicianIds);
-        System.out.println("tech size " + technicianIds.size());
-        System.out.println("names size " + technicianNames.size());
-        System.out.println("avg rat " + averageRatings.size());
-        System.out.println("prices z" + prices.size());
         TechnicianAdapter technicianAdapter = new TechnicianAdapter(this, 2);
         technicianAdapter.setSource(technicianIds, technicianNames, averageRatings, prices);
         techniciansList.setAdapter(technicianAdapter);
