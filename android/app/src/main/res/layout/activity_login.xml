@@ -29,13 +29,4 @@
         android:layout_marginTop="20dp"
         android:text="@string/login"/>
 
-    <Button
-        android:id="@+id/GoToRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/LoginButton"
-        android:layout_marginTop="10dp"
-        android:text="Don't have an account? Register here."
-        android:textAllCaps="false" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

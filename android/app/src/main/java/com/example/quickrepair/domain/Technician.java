@@ -2,15 +2,11 @@ package com.example.quickrepair.domain;
 
 import com.example.quickrepair.util.Utilities;
 
-import java.awt.font.NumericShaper;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -20,14 +16,6 @@ public class Technician extends User
     private Set<Job> jobs = new HashSet<>();
     private Specialty specialty;
     private HashSet<String> areas = new HashSet<>();
-
-    //This structure will set up by the technician
-    //it is necessary for a costumer to know when the technician is on duty
-    //for each day of the week -> (startHour, endHour)
-    //Special Cases: (0,0): Technician doesn't work that day
-    //(0,24): Technician work all day
-    //private Integer[][] schedule = new Integer[7][2];
-
     private Schedule schedule;
 
     public Technician()

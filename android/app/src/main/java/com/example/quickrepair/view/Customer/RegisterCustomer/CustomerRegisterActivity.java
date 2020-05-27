@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
+import com.example.quickrepair.view.HomePage.HomePageActivity;
 
 import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
 
@@ -152,5 +153,14 @@ public class CustomerRegisterActivity extends AppCompatActivity implements Custo
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this, HomePageActivity.class);
+        startActivity(intent);
+
+        finish();
     }
 }

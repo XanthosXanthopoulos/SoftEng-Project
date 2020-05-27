@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.HomePage.HomePageActivity;
 import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
 import com.example.quickrepair.view.Technician.AddEditSchedule.AddEditScheduleActivity;
 
@@ -191,5 +192,14 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this, HomePageActivity.class);
+        startActivity(intent);
+
+        finish();
     }
 }

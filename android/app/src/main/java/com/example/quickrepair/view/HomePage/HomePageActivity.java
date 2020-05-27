@@ -20,10 +20,6 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView
 
     private HomePageViewModel viewModel;
 
-    public static final int REQUEST_CODE_TECHNICIAN_SEARCH = 1;
-    public static final int REQUEST_CODE_LOGIN = 2;
-    public static final int REQUEST_CODE_REGISTER = 3;
-
     boolean initialized = false;
 
     @Override
@@ -94,10 +90,9 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView
     @Override
     public void login()
     {
-        //navigate to login page
         Intent intent = new Intent(this, LoginActivity.class);
-        startActivityForResult(intent, REQUEST_CODE_LOGIN);
-        // close activity
+        startActivity(intent);
+
         finish();
     }
 
@@ -108,10 +103,9 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView
     @Override
     public void registerAsTechnician()
     {
-        //navigate to register page
         Intent intent = new Intent(this, TechnicianRegisterActivity.class);
-        startActivityForResult(intent, REQUEST_CODE_REGISTER);
-        // close activity
+        startActivity(intent);
+
         finish();
     }
 
@@ -122,10 +116,9 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView
     @Override
     public void registerAsCustomer()
     {
-        //navigate to register page
         Intent intent = new Intent(this, CustomerRegisterActivity.class);
-        startActivityForResult(intent, REQUEST_CODE_REGISTER);
-        // close activity
+        startActivity(intent);
+
         finish();
     }
 
@@ -136,10 +129,9 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView
     @Override
     public void searchTechnicians()
     {
-        //navigate to search page
         Intent intent = new Intent(this, SearchTechniciansActivity.class);
-        startActivityForResult(intent, REQUEST_CODE_TECHNICIAN_SEARCH);
-        // close activity
+        startActivity(intent);
+
         finish();
     }
 

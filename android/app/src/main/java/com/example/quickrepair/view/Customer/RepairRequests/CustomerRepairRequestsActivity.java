@@ -141,4 +141,11 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
     {
         return customerID;
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        finishAffinity();
+    }
 }

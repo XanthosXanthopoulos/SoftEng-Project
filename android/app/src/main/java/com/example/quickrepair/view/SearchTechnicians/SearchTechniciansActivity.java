@@ -19,6 +19,9 @@ import android.widget.Toast;
 
 import com.example.quickrepair.QuickRepairApplication;
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterActivity;
+import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
+import com.example.quickrepair.view.HomePage.HomePageActivity;
 import com.example.quickrepair.view.RequestRepair.RequestRepairActivity;
 import com.example.quickrepair.view.User.LoginUser.LoginActivity;
 
@@ -289,6 +292,23 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
         }
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        if (loggedInUserId == 0)
+        {
+            Intent intent = new Intent(this, HomePageActivity.class);
+            startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
+            intent.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);
+            startActivity(intent);
+        }
+
+        finish();
+    }
 
     private class SpinnerEntry
     {

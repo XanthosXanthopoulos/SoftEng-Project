@@ -136,4 +136,11 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     {
         return technicianID;
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        finishAffinity();
+    }
 }

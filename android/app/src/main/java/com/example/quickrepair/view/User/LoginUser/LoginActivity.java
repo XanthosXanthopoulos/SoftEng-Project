@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
+import com.example.quickrepair.view.HomePage.HomePageActivity;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
@@ -105,6 +106,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView
             intent.putExtra(TECHNICIAN_ID_EXTRA, id);
             startActivity(intent);
         }
+
+        finish();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this, HomePageActivity.class);
+        startActivity(intent);
 
         finish();
     }
