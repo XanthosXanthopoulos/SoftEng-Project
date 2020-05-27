@@ -68,7 +68,7 @@ public class Technician extends User
     {
         if (schedule == null)
         {
-            throw new NullPointerException("null schedule");
+            throw new NullPointerException("Null schedule");
         }
 
         if (schedule.length != 7)
@@ -88,7 +88,7 @@ public class Technician extends User
                 throw new NullPointerException("null schedule entries on " + i);
             }
 
-            if (schedule[i][1] > schedule[i][0])
+            if (schedule[i][0] > schedule[i][1])
             {
                 throw new IllegalArgumentException("Starting hour can not be after ending hour.");
             }
