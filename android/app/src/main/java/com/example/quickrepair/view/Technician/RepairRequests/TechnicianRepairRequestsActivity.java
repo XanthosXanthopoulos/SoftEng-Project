@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.HomePage.HomePageActivity;
 import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity;
 import com.example.quickrepair.view.Technician.ShowCompletedRepairRequest.TechnicianCompletedRepairRequestActivity;
 import com.example.quickrepair.view.Technician.ShowConfirmedRepairRequest.TechnicianConfirmedRepairRequestActivity;
@@ -22,6 +23,7 @@ import com.example.quickrepair.view.Technician.ShowUnconfirmedRepairRequest.Tech
 
 import com.google.android.material.tabs.TabLayout;
 
+import static com.example.quickrepair.QuickRepairApplication.INITIALIZED_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
@@ -73,6 +75,10 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
         {
             case R.id.edit:
                 technicianRepairRequestsViewModel.getPresenter().onEditDataPage();
+                return true;
+
+            case R.id.logout:
+                logout();
                 return true;
         }
         return super.onOptionsItemSelected(menuItem);
@@ -135,6 +141,15 @@ public class TechnicianRepairRequestsActivity extends AppCompatActivity implemen
     public int getTechnicianID()
     {
         return technicianID;
+    }
+
+    private void logout()
+    {
+        Intent intent = new Intent(this, HomePageActivity.class);
+        intent.putExtra(INITIALIZED_EXTRA, true);
+        startActivity(intent);
+
+        finish();
     }
 
     @Override

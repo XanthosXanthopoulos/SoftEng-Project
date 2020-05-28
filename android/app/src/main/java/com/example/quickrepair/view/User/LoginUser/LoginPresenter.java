@@ -12,21 +12,42 @@ public class LoginPresenter
 
     LoginView view;
 
+    /**
+     * Set the customer DAO for the presenter.
+     *
+     * @param customerDAO The customer DAO.
+     */
     public void setCustomerDAO(CustomerDAO customerDAO)
     {
         this.customerDAO = customerDAO;
     }
 
+    /**
+     * Set the technician DAO for the presenter.
+     *
+     * @param technicianDAO The technician DAO.
+     */
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
         this.technicianDAO = technicianDAO;
     }
 
+    /**
+     * Set the view for the presenter.
+     *
+     * @param view The view.
+     */
     public void setView(LoginView view)
     {
         this.view = view;
     }
 
+    /**
+     * Try to log in the user with the given credentials.
+     *
+     * @param username The username of the user.
+     * @param password The password of the user.
+     */
     public void login(String username, String password)
     {
         LoginState state = LoginState.NO_ACCOUNT;
@@ -85,6 +106,9 @@ public class LoginPresenter
         }
     }
 
+    /**
+     * Clear the view of the presenter.
+     */
     public void clearView()
     {
         view = null;

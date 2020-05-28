@@ -16,10 +16,12 @@ import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterAc
 import com.example.quickrepair.view.Customer.ShowCompletedRepairRequest.CustomerCompletedRepairRequestActivity;
 import com.example.quickrepair.view.Customer.ShowConfirmedRepairRequest.CustomerConfirmedRepairRequestActivity;
 import com.example.quickrepair.view.Customer.ShowUnconfirmedRepairRequest.CustomerUnconfirmedRepairRequestActivity;
+import com.example.quickrepair.view.HomePage.HomePageActivity;
 import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+import static com.example.quickrepair.QuickRepairApplication.INITIALIZED_EXTRA;
 import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
 
 
@@ -68,6 +70,9 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
                 return true;
             case R.id.search:
                 customerRepairRequestsViewModel.getPresenter().searchForJob();
+                return true;
+            case R.id.logout:
+                logout();
                 return true;
         }
         return super.onOptionsItemSelected(menuItem);
@@ -140,6 +145,15 @@ public class CustomerRepairRequestsActivity extends AppCompatActivity implements
     public int getCustomerID()
     {
         return customerID;
+    }
+
+    private void logout()
+    {
+        Intent intent = new Intent(this, HomePageActivity.class);
+        intent.putExtra(INITIALIZED_EXTRA, true);
+        startActivity(intent);
+
+        finish();
     }
 
     @Override

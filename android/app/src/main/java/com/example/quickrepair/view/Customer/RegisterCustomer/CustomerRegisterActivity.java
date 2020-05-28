@@ -22,6 +22,11 @@ public class CustomerRegisterActivity extends AppCompatActivity implements Custo
 {
     CustomerRegisterViewModel viewModel;
 
+    /**
+     * Create and initialize the activity.
+     *
+     * @param savedInstanceState The activity's saved instance.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -55,90 +60,165 @@ public class CustomerRegisterActivity extends AppCompatActivity implements Custo
         });
     }
 
+    /**
+     * Set the name of the user trying to register or edit.
+     *
+     * @param name The name of the customer.
+     */
     @Override
     public void setName(String name)
     {
         ((EditText) findViewById(R.id.Name)).setText(name);
     }
 
+    /**
+     * Set the surname of the user trying to register or edit.
+     *
+     * @param surname The surname of the customer.
+     */
     @Override
     public void setSurname(String surname)
     {
         ((EditText) findViewById(R.id.Surname)).setText(surname);
     }
 
+    /**
+     * Set the phone number of the user trying to register or edit.
+     *
+     * @param phoneNumber The phone number of the customer.
+     */
     @Override
     public void setPhoneNumber(String phoneNumber)
     {
         ((EditText) findViewById(R.id.PhoneNumber)).setText(phoneNumber);
     }
 
+    /**
+     * Set the bank account number of the user trying to register or edit.
+     *
+     * @param accountNumber The bank account number of the customer.
+     */
     @Override
     public void setBankAccountNumber(String accountNumber)
     {
         ((EditText) findViewById(R.id.BankAccount)).setText(accountNumber);
     }
 
+    /**
+     * Set the email of the user trying to register or edit.
+     *
+     * @param email The email of the customer.
+     */
     @Override
     public void setEmail(String email)
     {
         ((EditText) findViewById(R.id.Email)).setText(email);
     }
 
+    /**
+     * Set the username of the user trying to register or edit.
+     *
+     * @param username The username of the customer.
+     */
     @Override
     public void setUsername(String username)
     {
         ((EditText) findViewById(R.id.Username)).setText(username);
     }
 
+    /**
+     * Set the password of the user trying to register or edit.
+     *
+     * @param password The password of the customer.
+     */
     @Override
     public void setPassword(String password)
     {
         ((EditText) findViewById(R.id.Password)).setText(password);
     }
 
+    /**
+     * Get the name of the customer trying to register or edit.
+     *
+     * @return The name of the customer trying to register or edit.
+     */
     @Override
     public String getName()
     {
         return ((EditText) findViewById(R.id.Name)).getText().toString().trim();
     }
 
+    /**
+     * Get the surname of the customer trying to register or edit.
+     *
+     * @return The surname of the customer trying to register or edit.
+     */
     @Override
     public String getSurname()
     {
         return ((EditText) findViewById(R.id.Surname)).getText().toString().trim();
     }
 
+    /**
+     * Get the phone number of the customer trying to register or edit.
+     *
+     * @return The phone number of the customer trying to register or edit.
+     */
     @Override
     public String getPhoneNumber()
     {
         return ((EditText) findViewById(R.id.PhoneNumber)).getText().toString().trim();
     }
 
+    /**
+     * Get the bank account number of the customer trying to register or edit.
+     *
+     * @return The bank account number of the customer trying to register or edit.
+     */
     @Override
     public String getBankAccountNumber()
     {
         return ((EditText) findViewById(R.id.BankAccount)).getText().toString().trim();
     }
 
+    /**
+     * Get the email of the customer trying to register or edit.
+     *
+     * @return The email of the customer trying to register or edit.
+     */
     @Override
     public String getEmail()
     {
         return ((EditText) findViewById(R.id.Email)).getText().toString().trim();
     }
 
+    /**
+     * Get the username of the customer trying to register or edit.
+     *
+     * @return The username of the customer trying to register or edit.
+     */
     @Override
     public String getUsername()
     {
         return ((EditText) findViewById(R.id.Username)).getText().toString().trim();
     }
 
+    /**
+     * Get the password of the customer trying to register or edit.
+     *
+     * @return The password of the customer trying to register or edit.
+     */
     @Override
     public String getPassword()
     {
         return ((EditText) findViewById(R.id.Password)).getText().toString().trim();
     }
 
+    /**
+     * Navigate a valid customer to the customer home page.
+     *
+     * @param id The customer's id.
+     */
     @Override
     public void onSuccessfulRegister(Integer id)
     {
@@ -149,12 +229,21 @@ public class CustomerRegisterActivity extends AppCompatActivity implements Custo
         finish();
     }
 
+    /**
+     * Display a message in the event of an error.
+     *
+     * @param title The title of the error.
+     * @param message The message of the error.
+     */
     @Override
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
     }
 
+    /**
+     * Handle on back button press event.
+     */
     @Override
     public void onBackPressed()
     {

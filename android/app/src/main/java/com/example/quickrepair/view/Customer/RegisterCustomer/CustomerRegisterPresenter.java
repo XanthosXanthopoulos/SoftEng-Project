@@ -14,6 +14,17 @@ public class CustomerRegisterPresenter
 
     CustomerRegisterView view;
 
+    /**
+     * Try to register a customer with the given information.
+     *
+     * @param name The name of the customer.
+     * @param surname The surname of the customer.
+     * @param phoneNumber The phone number of the customer.
+     * @param email The email of the customer.
+     * @param accountNumber The bank account number of the customer.
+     * @param username The username of the customer.
+     * @param password The password of the customer.
+     */
     public void registerCustomer(String name, String surname, String phoneNumber, String email, String accountNumber, String username, String password)
     {
         if (customer == null)
@@ -76,26 +87,49 @@ public class CustomerRegisterPresenter
         }
     }
 
+    /**
+     * Set the technician DAO for the presenter.
+     *
+     * @param technicianDAO The technician DAO.
+     */
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
         this.technicianDAO = technicianDAO;
     }
 
+    /**
+     * Set the customer DAO for the presenter.
+     *
+     * @param customerDAO The customer DAO.
+     */
     public void setCustomerDAO(CustomerDAO customerDAO)
     {
         this.customerDAO = customerDAO;
     }
 
+    /**
+     * Load the customer in case of edit.
+     *
+     * @param customerID the customer id.
+     */
     public void setCustomer(int customerID)
     {
         customer = customerDAO.find(customerID);
     }
 
+    /**
+     * Set the view for the presenter.
+     *
+     * @param view The view.
+     */
     public void setView(CustomerRegisterView view)
     {
         this.view = view;
     }
 
+    /**
+     * Clear the view of the presenter.
+     */
     public void clearView()
     {
         view = null;

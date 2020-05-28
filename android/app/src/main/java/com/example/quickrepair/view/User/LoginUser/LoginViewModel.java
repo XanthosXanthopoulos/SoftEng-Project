@@ -13,6 +13,9 @@ public class LoginViewModel extends ViewModel
 {
     LoginPresenter presenter;
 
+    /**
+     * Default constructor.
+     */
     public LoginViewModel()
     {
         super();
@@ -25,11 +28,19 @@ public class LoginViewModel extends ViewModel
         presenter.setTechnicianDAO(technicianDAO);
     }
 
+    /**
+     * Get the presenter associated with the view model.
+     *
+     * @return The presenter associated with the view model.
+     */
     public LoginPresenter getPresenter()
     {
         return presenter;
     }
 
+    /**
+     * Clear any references to other components.
+     */
     @Override
     protected void onCleared()
     {

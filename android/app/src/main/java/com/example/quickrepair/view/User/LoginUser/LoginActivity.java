@@ -24,7 +24,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 {
     private LoginViewModel viewModel;
 
-
+    /**
+     * Create and initialize the activity.
+     *
+     * @param savedInstanceState The activity's saved instance.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -45,18 +49,34 @@ public class LoginActivity extends AppCompatActivity implements LoginView
         });
     }
 
+    /**
+     * Get the username of the user trying to log in.
+     *
+     * @return The username of the user trying to log in.
+     */
     @Override
     public String getUsername()
     {
         return ((EditText) findViewById(R.id.Username)).getText().toString().trim();
     }
 
+    /**
+     * Get the password of the user trying to log in.
+     *
+     * @return The password of the user trying to log in.
+     */
     @Override
     public String getPassword()
     {
         return ((EditText) findViewById(R.id.Password)).getText().toString().trim();
     }
 
+    /**
+     * Display a message in the event of an error.
+     *
+     * @param title The title of the error.
+     * @param message The message of the error.
+     */
     @Override
     public void showErrorMessage(String title, String message)
     {
@@ -72,6 +92,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView
         }
     }
 
+    /**
+     * Navigate a valid customer to the customer home page.
+     *
+     * @param id The customer's id.
+     */
     @Override
     public void OnLoginCustomerSuccess(Integer id)
     {
@@ -91,6 +116,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView
         finish();
     }
 
+    /**
+     * Navigate a valid technician to the technician home page.
+     *
+     * @param id The technician's id.
+     */
     @Override
     public void OnLoginTechnicianSuccess(Integer id)
     {
@@ -110,6 +140,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView
         finish();
     }
 
+    /**
+     * Handle on back button press event.
+     */
     @Override
     public void onBackPressed()
     {

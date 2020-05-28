@@ -15,12 +15,12 @@ import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansActivity;
 import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity;
 import com.example.quickrepair.view.User.LoginUser.LoginActivity;
 
+import static com.example.quickrepair.QuickRepairApplication.INITIALIZED_EXTRA;
+
 public class HomePageActivity extends AppCompatActivity implements HomePageView
 {
 
     private HomePageViewModel viewModel;
-
-    boolean initialized = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,10 +28,11 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
 
-        if (initialized == false)
+        boolean initialized = getIntent().getBooleanExtra(INITIALIZED_EXTRA, false);
+
+        if (!initialized)
         {
             new MemoryInitializer().prepareData();
-            initialized = true;
         }
 
         viewModel = new ViewModelProvider(this).get(HomePageViewModel.class);
