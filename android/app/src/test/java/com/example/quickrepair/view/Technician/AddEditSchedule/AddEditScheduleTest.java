@@ -44,8 +44,6 @@ public class AddEditScheduleTest
             {
                 schedule[i][j] = i + j + 1;
             }
-
-            System.out.println(schedule[i][0] + " " + schedule[i][1]);
         }
 
         presenter.submit(schedule);
