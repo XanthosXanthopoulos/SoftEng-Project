@@ -15,6 +15,9 @@ public class TechnicianRegisterViewModel extends ViewModel
 {
     TechnicianRegisterPresenter presenter;
 
+    /**
+     * Default constructor.
+     */
     public TechnicianRegisterViewModel()
     {
         super();
@@ -29,11 +32,19 @@ public class TechnicianRegisterViewModel extends ViewModel
         presenter.setSpecialtyDAO(specialtyDAO);
     }
 
+    /**
+     * Get the presenter associated with the view model.
+     *
+     * @return The presenter associated with the view model.
+     */
     public TechnicianRegisterPresenter getPresenter()
     {
         return presenter;
     }
 
+    /**
+     * Clear any references to other components.
+     */
     @Override
     protected void onCleared()
     {

@@ -19,11 +19,29 @@ public class TechnicianRegisterPresenter
 
     TechnicianRegisterView view;
 
+    /**
+     * Load the technician in case of edit.
+     *
+     * @param id The technician's id.
+     */
     public void setTechnician(int id)
     {
         technician = technicianDAO.find(id);
     }
 
+    /**
+     * Try to register a technician with the given information.
+     *
+     * @param name The name of the technician.
+     * @param surname The surname of the technician.
+     * @param phoneNumber The phone number of the technician.
+     * @param email The email of the technician.
+     * @param AFM The AFM of the technician.
+     * @param accountNumber The bank account number of the technician.
+     * @param username The username of the technician.
+     * @param password The password of the technician.
+     * @param specialityID The speciality id of the technician.
+     */
     public void registerTechnician(String name, String surname, String phoneNumber, String email, String AFM, String accountNumber, String username, String password, int specialityID)
     {
         if (technician == null)
@@ -93,21 +111,39 @@ public class TechnicianRegisterPresenter
         view.onSuccessfulRegister(technician.getUid());
     }
 
+    /**
+     * Set the customer DAO for the presenter.
+     *
+     * @param customerDAO The customer DAO.
+     */
     public void setCustomerDAO(CustomerDAO customerDAO)
     {
         this.customerDAO = customerDAO;
     }
 
+    /**
+     * Set the technician DAO for the presenter.
+     *
+     * @param technicianDAO The technician DAO.
+     */
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
         this.technicianDAO = technicianDAO;
     }
 
-    public void setSpecialtyDAO(SpecialtyDAO specialtyDAO)
+    /**
+     * Set the speciality DAO for the presenter.
+     *
+     * @param specialityDAO The speciality DAO.
+     */
+    public void setSpecialtyDAO(SpecialtyDAO specialityDAO)
     {
-        this.specialtyDAO = specialtyDAO;
+        this.specialtyDAO = specialityDAO;
     }
 
+    /**
+     * Initialize the view.
+     */
     public void setUpDataSource()
     {
         ArrayList<String> specialities = new ArrayList<>();
@@ -131,11 +167,19 @@ public class TechnicianRegisterPresenter
         }
     }
 
+    /**
+     * Set the view for the presenter.
+     *
+     * @param view The view.
+     */
     public void setView(TechnicianRegisterView view)
     {
         this.view = view;
     }
 
+    /**
+     * Clear the view of the presenter.
+     */
     public void clearView()
     {
         this.view = null;

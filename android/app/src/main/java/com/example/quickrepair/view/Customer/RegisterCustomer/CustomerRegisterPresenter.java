@@ -73,6 +73,9 @@ public class CustomerRegisterPresenter
         view.onSuccessfulRegister(customer.getUid());
     }
 
+    /**
+     * Initialize the view.
+     */
     public void setUpDataSource()
     {
         if (customer != null)

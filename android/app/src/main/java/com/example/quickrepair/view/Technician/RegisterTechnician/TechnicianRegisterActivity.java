@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.HomePage.HomePageActivity;
-import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
 import com.example.quickrepair.view.Technician.AddEditSchedule.AddEditScheduleActivity;
 
 import java.util.List;
@@ -27,6 +26,11 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
 {
     TechnicianRegisterViewModel viewModel;
 
+    /**
+     * Create and initialize the activity.
+     *
+     * @param savedInstanceState The activity's saved instance.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -60,114 +64,210 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
         });
     }
 
+    /**
+     * Set the name of the technician trying to register or edit.
+     *
+     * @param name The name of the technician.
+     */
     @Override
     public void setName(String name)
     {
         ((EditText) findViewById(R.id.Name)).setText(name);
     }
 
+    /**
+     * Set the surname of the technician trying to register or edit.
+     *
+     * @param surname The surname of the technician.
+     */
     @Override
     public void setSurname(String surname)
     {
         ((EditText) findViewById(R.id.Surname)).setText(surname);
     }
 
+    /**
+     * Set the phone number of the technician trying to register or edit.
+     *
+     * @param phoneNumber The phone number of the technician.
+     */
     @Override
     public void setPhoneNumber(String phoneNumber)
     {
         ((EditText) findViewById(R.id.PhoneNumber)).setText(phoneNumber);
     }
 
+    /**
+     * Set the email of the technician trying to register or edit.
+     *
+     * @param email The email of the technician.
+     */
     @Override
     public void setEmail(String email)
     {
         ((EditText) findViewById(R.id.Email)).setText(email);
     }
 
+    /**
+     * Set the bank account number of the technician trying to register or edit.
+     *
+     * @param accountNumber The bank account number of the technician.
+     */
     @Override
     public void setAccountNumber(String accountNumber)
     {
         ((EditText) findViewById(R.id.BankAccount)).setText(accountNumber);
     }
 
+    /**
+     * Set the AFM of the technician trying to register or edit.
+     *
+     * @param AFM The AFM of the technician.
+     */
     @Override
     public void setAFM(String AFM)
     {
         ((EditText) findViewById(R.id.AFM)).setText(AFM);
     }
 
+    /**
+     * Set the username of the technician trying to register or edit.
+     *
+     * @param username The username of the technician.
+     */
     @Override
     public void setUsername(String username)
     {
         ((EditText) findViewById(R.id.Username)).setText(username);
     }
 
+    /**
+     * Set the password of the technician trying to register or edit.
+     *
+     * @param password The password of the technician.
+     */
     @Override
     public void setPassword(String password)
     {
         ((EditText) findViewById(R.id.Password)).setText(password);
     }
 
+    /**
+     * Set the speciality of the user trying to register or edit.
+     *
+     * @param specialityID The speciality id of the technician.
+     */
     @Override
     public void setSpecialityID(int specialityID)
     {
         ((Spinner) findViewById(R.id.Speciality)).setSelection(specialityID);
     }
 
+    /**
+     * Get the name of the technician trying to register or edit.
+     *
+     * @return The name of the technician trying to register or edit.
+     */
     @Override
     public String getName()
     {
         return ((EditText) findViewById(R.id.Name)).getText().toString().trim();
     }
 
+    /**
+     * Get the surname of the technician trying to register or edit.
+     *
+     * @return The surname of the technician trying to register or edit.
+     */
     @Override
     public String getSurname()
     {
         return ((EditText) findViewById(R.id.Surname)).getText().toString().trim();
     }
 
+    /**
+     * Get the phone number of the technician trying to register or edit.
+     *
+     * @return The phone number of the technician trying to register or edit.
+     */
     @Override
     public String getPhoneNumber()
     {
         return ((EditText) findViewById(R.id.PhoneNumber)).getText().toString().trim();
     }
 
+    /**
+     * Get the bank account number of the technician trying to register or edit.
+     *
+     * @return The bank account number of the technician trying to register or edit.
+     */
     @Override
     public String getAccountNumber()
     {
         return ((EditText) findViewById(R.id.BankAccount)).getText().toString().trim();
     }
 
+    /**
+     * Get the email of the technician trying to register or edit.
+     *
+     * @return The email of the technician trying to register or edit.
+     */
     @Override
     public String getEmail()
     {
         return ((EditText) findViewById(R.id.Email)).getText().toString().trim();
     }
 
+    /**
+     * Get the username of the technician trying to register or edit.
+     *
+     * @return The username of the technician trying to register or edit.
+     */
     @Override
     public String getUsername()
     {
         return ((EditText) findViewById(R.id.Username)).getText().toString().trim();
     }
 
+    /**
+     * Get the password of the technician trying to register or edit.
+     *
+     * @return The password of the technician trying to register or edit.
+     */
     @Override
     public String getPassword()
     {
         return ((EditText) findViewById(R.id.Password)).getText().toString().trim();
     }
 
+    /**
+     * Get the AFM of the technician trying to register or edit.
+     *
+     * @return The AFM of the technician trying to register or edit.
+     */
     @Override
     public String getAFM()
     {
         return ((EditText) findViewById(R.id.AFM)).getText().toString().trim();
     }
 
+    /**
+     *  Get the speciality id of the technician trying to register or edit.
+     *
+     * @return The speciality id of the technician trying to register or edit.
+     */
     @Override
     public Integer getSpecialityID()
     {
         return ((Spinner) findViewById(R.id.Speciality)).getSelectedItemPosition();
     }
 
+    /**
+     * Populate the list holding all available specialities.
+     *
+     * @param specialityList The list of specialities.
+     * @param defaultName A default speciality placeholder.
+     */
     @Override
     public void setSpecialityList(List<String> specialityList, String defaultName)
     {
@@ -178,6 +278,11 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
         ((Spinner) findViewById(R.id.Speciality)).setAdapter(adapter);
     }
 
+    /**
+     * Navigate a valid technician to the technician schedule page.
+     *
+     * @param id The technician's id.
+     */
     @Override
     public void onSuccessfulRegister(Integer id)
     {
@@ -188,12 +293,21 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
         finish();
     }
 
+    /**
+     * Display a message in the event of an error.
+     *
+     * @param title The title of the error.
+     * @param message The message of the error.
+     */
     @Override
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
     }
 
+    /**
+     * Handle on back button press event.
+     */
     @Override
     public void onBackPressed()
     {
