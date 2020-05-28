@@ -30,6 +30,11 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
 {
     AddEditJobViewModel viewModel;
 
+    /**
+     * Create and initialize the activity.
+     *
+     * @param savedInstanceState The activity's saved instance.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -88,6 +93,12 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
         });
     }
 
+    /**
+     * Populate the list holding all available job types.
+     *
+     * @param jobTypeList The list of job types.
+     * @param defaultName A default job type placeholder.
+     */
     @Override
     public void setJobTypeList(List<String> jobTypeList, String defaultName)
     {
@@ -98,6 +109,11 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
         ((Spinner) findViewById(R.id.JobTypesSpinner)).setAdapter(adapter);
     }
 
+    /**
+     * Populate the list holding the technician's job types.
+     *
+     * @param selectedJobs The list of the technician's job types.
+     */
     @Override
     public void setJobList(List<Job> selectedJobs)
     {
@@ -106,12 +122,21 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
         jobList.setAdapter(adapter);
     }
 
+    /**
+     * Display a message in the event of an error.
+     *
+     * @param title The title of the error.
+     * @param message The message of the error.
+     */
     @Override
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
     }
 
+    /**
+     * Navigate to the technician home page.
+     */
     public void finalizeChanges()
     {
         Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
@@ -121,6 +146,9 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
         finish();
     }
 
+    /**
+     * Handle on back button press event.
+     */
     @Override
     public void onBackPressed()
     {

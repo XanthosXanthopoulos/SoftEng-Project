@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
-import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
@@ -20,6 +19,11 @@ public class AddEditScheduleActivity extends AppCompatActivity implements AddEdi
 {
     AddEditScheduleViewModel viewModel;
 
+    /**
+     * Create and initialize the activity.
+     *
+     * @param savedInstanceState The activity's saved instance.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -52,6 +56,13 @@ public class AddEditScheduleActivity extends AppCompatActivity implements AddEdi
         });
     }
 
+    /**
+     * Set the starting and ending hour of the given day.
+     *
+     * @param day The day to set the hours.
+     * @param start The starting hour.
+     * @param end The ending hour.
+     */
     @Override
     public void setDay(int day, int start, int end)
     {
@@ -75,12 +86,23 @@ public class AddEditScheduleActivity extends AppCompatActivity implements AddEdi
         }
     }
 
+    /**
+     * Display a message in the event of an error.
+     *
+     * @param title The title of the error.
+     * @param message The message of the error.
+     */
     @Override
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
     }
 
+    /**
+     * Generate a two dimensional array representing the technician's schedule.
+     *
+     * @return A two dimensional array representing the technician's schedule.
+     */
     private Integer[][] generateSchedule()
     {
         Integer[][] schedule = new Integer[7][2];
@@ -110,7 +132,23 @@ public class AddEditScheduleActivity extends AppCompatActivity implements AddEdi
         return schedule;
     }
 
-    public void goToArea()
+    /**
+     * Navigate to EddEditArea page.
+     */
+    private void goToArea()
+    {
+        Intent intent = new Intent(this, AddEditAreaActivity.class);
+        intent.putExtra(TECHNICIAN_ID_EXTRA, getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));
+        startActivity(intent);
+
+        finish();
+    }
+
+    /**
+     * Handle on back button press event.
+     */
+    @Override
+    public void onBackPressed()
     {
         Intent intent = new Intent(this, AddEditAreaActivity.class);
         intent.putExtra(TECHNICIAN_ID_EXTRA, getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));

@@ -14,16 +14,29 @@ public class AddEditSchedulePresenter
 
     Technician technician;
 
+    /**
+     * Set the technician DAO for the presenter.
+     *
+     * @param technicianDAO The technician DAO.
+     */
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
         this.technicianDAO = technicianDAO;
     }
 
+    /**
+     * Load the technician in case of edit.
+     *
+     * @param id The technician's id.
+     */
     public void setTechnician(int id)
     {
         technician = technicianDAO.find(id);
     }
 
+    /**
+     * Initialize the view.
+     */
     public void setUpDataSource()
     {
         for (int i = 0; i < 7; ++i)
@@ -34,6 +47,11 @@ public class AddEditSchedulePresenter
         }
     }
 
+    /**
+     * Apply the new schedule to the technician.
+     *
+     * @param schedule The new schedule of the technician.
+     */
     public void submit(Integer[][] schedule)
     {
         try
@@ -46,11 +64,19 @@ public class AddEditSchedulePresenter
         }
     }
 
+    /**
+     * Set the view for the presenter.
+     *
+     * @param view The view.
+     */
     public void setView(AddEditScheduleView view)
     {
         this.view = view;
     }
 
+    /**
+     * Clear the view of the presenter.
+     */
     public void clearView()
     {
         view = null;

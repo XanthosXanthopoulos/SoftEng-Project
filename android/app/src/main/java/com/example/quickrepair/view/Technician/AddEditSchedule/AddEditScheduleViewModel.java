@@ -10,6 +10,9 @@ public class AddEditScheduleViewModel extends ViewModel
 {
     AddEditSchedulePresenter presenter;
 
+    /**
+     * Default constructor.
+     */
     public AddEditScheduleViewModel()
     {
         super();
@@ -20,11 +23,19 @@ public class AddEditScheduleViewModel extends ViewModel
         presenter.setTechnicianDAO(technicianDAO);
     }
 
+    /**
+     * Get the presenter associated with the view model.
+     *
+     * @return The presenter associated with the view model.
+     */
     public AddEditSchedulePresenter getPresenter()
     {
         return presenter;
     }
 
+    /**
+     * Clear any references to other components.
+     */
     @Override
     protected void onCleared()
     {

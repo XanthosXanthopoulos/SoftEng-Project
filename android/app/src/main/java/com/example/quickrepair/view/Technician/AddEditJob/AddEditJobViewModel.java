@@ -12,6 +12,9 @@ public class AddEditJobViewModel extends ViewModel
 {
     AddEditJobPresenter presenter;
 
+    /**
+     * Default constructor.
+     */
     public AddEditJobViewModel()
     {
         super();
@@ -24,11 +27,19 @@ public class AddEditJobViewModel extends ViewModel
         presenter.setJobTypeDAO(jobTypeDAO);
     }
 
+    /**
+     * Get the presenter associated with the view model.
+     *
+     * @return The presenter associated with the view model.
+     */
     public AddEditJobPresenter getPresenter()
     {
         return presenter;
     }
 
+    /**
+     * Clear any references to other components.
+     */
     @Override
     protected void onCleared()
     {

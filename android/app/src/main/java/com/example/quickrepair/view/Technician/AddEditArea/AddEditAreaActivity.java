@@ -30,6 +30,11 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
 {
     AddEditAreaViewModel viewModel;
 
+    /**
+     * Create and initialize the activity.
+     *
+     * @param savedInstanceState The activity's saved instance.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -85,6 +90,12 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
         });
     }
 
+    /**
+     * Populate the list holding all available areas.
+     *
+     * @param areaList The list of areas.
+     * @param defaultName A default area placeholder.
+     */
     @Override
     public void setAreaList(List<String> areaList, String defaultName)
     {
@@ -95,6 +106,11 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
         ((Spinner)findViewById(R.id.AreaSpinner)).setAdapter(adapter);
     }
 
+    /**
+     * Populate the list holding the technician's areas.
+     *
+     * @param selectedArea The list of the technician's areas.
+     */
     @Override
     public void setSelectedArea(List<String> selectedArea)
     {
@@ -103,6 +119,9 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
         areaList.setAdapter(adapter);
     }
 
+    /**
+     * Navigate to the AddEditJob page.
+     */
     public void goToEditJob()
     {
         Intent intent = new Intent(this, AddEditJobActivity.class);
@@ -112,12 +131,21 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
         finish();
     }
 
+    /**
+     * Display a message in the event of an error.
+     *
+     * @param title The title of the error.
+     * @param message The message of the error.
+     */
     @Override
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
     }
 
+    /**
+     * Handle on back button press event.
+     */
     @Override
     public void onBackPressed()
     {

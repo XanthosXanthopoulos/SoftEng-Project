@@ -11,6 +11,9 @@ public class AddEditAreaViewModel extends ViewModel
 {
     AddEditAreaPresenter presenter;
 
+    /**
+     * Default constructor.
+     */
     public AddEditAreaViewModel()
     {
         super();
@@ -23,11 +26,19 @@ public class AddEditAreaViewModel extends ViewModel
         presenter.setAreaDAO(areaDAO);
     }
 
+    /**
+     * Get the presenter associated with the view model.
+     *
+     * @return The presenter associated with the view model.
+     */
     public AddEditAreaPresenter getPresenter()
     {
         return presenter;
     }
 
+    /**
+     * Clear any references to other components.
+     */
     @Override
     protected void onCleared()
     {

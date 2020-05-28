@@ -21,27 +21,50 @@ public class AddEditJobPresenter
     ArrayList<Job> jobs;
     ArrayList<JobType> jobTypes;
 
+    /**
+     * Set the technician DAO for the presenter.
+     *
+     * @param technicianDAO The technician DAO.
+     */
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
         this.technicianDAO = technicianDAO;
     }
 
+    /**
+     * Set the jobType DAO for the presenter.
+     *
+     * @param jobTypeDAO The jobType DAO.
+     */
     public void setJobTypeDAO(JobTypeDAO jobTypeDAO)
     {
         this.jobTypeDAO = jobTypeDAO;
     }
 
+    /**
+     * Set the view for the presenter.
+     *
+     * @param view The view.
+     */
     public void setView(AddEditJobView view)
     {
         this.view = view;
     }
 
+    /**
+     * Load the technician in case of edit.
+     *
+     * @param id The technician's id.
+     */
     public void setTechnician(Integer id)
     {
         technician = technicianDAO.find(id);
         jobTypes = new ArrayList<>(technician.getSpecialty().getJobTypes());
     }
 
+    /**
+     * Initialize the view.
+     */
     public void setUpDataSource()
     {
         ArrayList<String> jobTypeNames = new ArrayList<>();
@@ -56,6 +79,12 @@ public class AddEditJobPresenter
         view.setJobList(jobs);
     }
 
+    /**
+     * Add a new job to the technician.
+     *
+     * @param jobTypeID the job type id.
+     * @param price The price offer for the job.
+     */
     public void addJob(Integer jobTypeID, String price)
     {
         if (jobTypeID == 0)
@@ -99,12 +128,20 @@ public class AddEditJobPresenter
         view.setJobList(jobs);
     }
 
+    /**
+     * Remove a job from the technician.
+     *
+     * @param jobPosition the job position in the list of jobs of the technician.
+     */
     public void removeJob(int jobPosition)
     {
         technician.removeJob(jobs.remove(jobPosition));
         view.setJobList(jobs);
     }
 
+    /**
+     * Clear the view of the presenter.
+     */
     public void clearView()
     {
         view = null;
