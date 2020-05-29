@@ -239,7 +239,7 @@ public class RequestRepairPresenter
     /**
      * Creates a list to print from the hour ranges of the technician
      */
-    private List<String> createListFromHourRanges(Technician technician)
+    List<String> createListFromHourRanges(Technician technician)
     {
         ArrayList<ArrayList<GregorianCalendar>> hourRanges = technician.getAvailableHourRanges(new GregorianCalendar(year, month, day, 2, 2));
         List<String> timesAvailableForView = new ArrayList<>();

@@ -106,10 +106,10 @@ public class RequestRepairPresenterTest {
     }
     @Test
     public void timeNotWithinGap(){
-        presenter.setDate(2020 , 11 ,12 );
+        presenter.setDate(2020 , 11 ,11 );
         presenter.onStart();
         presenter.setAddress("Papagou ,  23");
-        presenter.setTime(10 , 10);
+        presenter.setTime(17 , 10);
         presenter.setComments("newrepairRequestFromTest");
         presenter.requestRepair();
         Assert.assertNotNull(stub.errorMessage);
