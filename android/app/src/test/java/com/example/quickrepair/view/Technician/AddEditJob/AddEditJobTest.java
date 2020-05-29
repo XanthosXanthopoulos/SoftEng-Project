@@ -23,7 +23,6 @@ public class AddEditJobTest
 
         view = new AddEditJobViewStub();
         presenter = new AddEditJobPresenter();
-        presenter.setJobTypeDAO(new JobTypeDAOMemory());
         presenter.setTechnicianDAO(new TechnicianDAOMemory());
         presenter.setView(view);
     }

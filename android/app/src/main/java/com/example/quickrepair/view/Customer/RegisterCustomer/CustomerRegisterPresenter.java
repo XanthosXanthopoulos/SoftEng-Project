@@ -4,26 +4,25 @@ import com.example.quickrepair.dao.CustomerDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.view.Base.BasePresenter;
 
-public class CustomerRegisterPresenter
+public class CustomerRegisterPresenter extends BasePresenter<CustomerRegisterView>
 {
     CustomerDAO customerDAO;
     TechnicianDAO technicianDAO;
 
     Customer customer;
 
-    CustomerRegisterView view;
-
     /**
      * Try to register a customer with the given information.
      *
-     * @param name The name of the customer.
-     * @param surname The surname of the customer.
-     * @param phoneNumber The phone number of the customer.
-     * @param email The email of the customer.
+     * @param name          The name of the customer.
+     * @param surname       The surname of the customer.
+     * @param phoneNumber   The phone number of the customer.
+     * @param email         The email of the customer.
      * @param accountNumber The bank account number of the customer.
-     * @param username The username of the customer.
-     * @param password The password of the customer.
+     * @param username      The username of the customer.
+     * @param password      The password of the customer.
      */
     public void registerCustomer(String name, String surname, String phoneNumber, String email, String accountNumber, String username, String password)
     {
@@ -118,23 +117,5 @@ public class CustomerRegisterPresenter
     public void setCustomer(int customerID)
     {
         customer = customerDAO.find(customerID);
-    }
-
-    /**
-     * Set the view for the presenter.
-     *
-     * @param view The view.
-     */
-    public void setView(CustomerRegisterView view)
-    {
-        this.view = view;
-    }
-
-    /**
-     * Clear the view of the presenter.
-     */
-    public void clearView()
-    {
-        view = null;
     }
 }

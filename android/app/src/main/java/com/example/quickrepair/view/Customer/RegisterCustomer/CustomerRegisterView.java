@@ -1,8 +1,8 @@
 package com.example.quickrepair.view.Customer.RegisterCustomer;
 
-import java.util.List;
+import com.example.quickrepair.view.Base.BaseView;
 
-public interface CustomerRegisterView
+public interface CustomerRegisterView extends BaseView
 {
     /**
      * Set the name of the user trying to register or edit.
@@ -108,12 +108,4 @@ public interface CustomerRegisterView
      * @param id The customer's id.
      */
     void onSuccessfulRegister(Integer id);
-
-    /**
-     * Display a message in the event of an error.
-     *
-     * @param title The title of the error.
-     * @param message The message of the error.
-     */
-    void showErrorMessage(String title, String message);
 }

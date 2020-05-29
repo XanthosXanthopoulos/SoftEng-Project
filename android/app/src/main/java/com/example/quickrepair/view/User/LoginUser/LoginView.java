@@ -1,6 +1,8 @@
 package com.example.quickrepair.view.User.LoginUser;
 
-public interface LoginView
+import com.example.quickrepair.view.Base.BaseView;
+
+public interface LoginView extends BaseView
 {
     /**
      * Get the username of the user trying to log in.
@@ -15,14 +17,6 @@ public interface LoginView
      * @return The password of the user trying to log in.
      */
     String getPassword();
-
-    /**
-     * Display a message in the event of an error.
-     *
-     * @param title The title of the error.
-     * @param message The message of the error.
-     */
-    void showErrorMessage(String title, String message);
 
     /**
      * Navigate a valid customer to the customer home page.

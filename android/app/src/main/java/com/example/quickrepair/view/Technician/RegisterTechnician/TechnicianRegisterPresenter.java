@@ -6,18 +6,17 @@ import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.view.Base.BasePresenter;
 
 import java.util.ArrayList;
 
-public class TechnicianRegisterPresenter
+public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegisterView>
 {
     CustomerDAO customerDAO;
     TechnicianDAO technicianDAO;
     SpecialtyDAO specialtyDAO;
 
     Technician technician;
-
-    TechnicianRegisterView view;
 
     /**
      * Load the technician in case of edit.
@@ -165,23 +164,5 @@ public class TechnicianRegisterPresenter
             view.setAFM(technician.getAFM());
             view.setSpecialityID(technician.getSpecialty().getUid());
         }
-    }
-
-    /**
-     * Set the view for the presenter.
-     *
-     * @param view The view.
-     */
-    public void setView(TechnicianRegisterView view)
-    {
-        this.view = view;
-    }
-
-    /**
-     * Clear the view of the presenter.
-     */
-    public void clearView()
-    {
-        this.view = null;
     }
 }

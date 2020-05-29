@@ -1,46 +1,24 @@
 package com.example.quickrepair.view.Technician.AddEditSchedule;
 
-import androidx.lifecycle.ViewModel;
-
 import com.example.quickrepair.dao.TechnicianDAO;
-import com.example.quickrepair.domain.Technician;
 import com.example.quickrepair.memorydao.TechnicianDAOMemory;
+import com.example.quickrepair.view.Base.BaseViewModel;
 
-public class AddEditScheduleViewModel extends ViewModel
+public class AddEditScheduleViewModel extends BaseViewModel<AddEditSchedulePresenter>
 {
-    AddEditSchedulePresenter presenter;
-
     /**
-     * Default constructor.
-     */
-    public AddEditScheduleViewModel()
-    {
-        super();
-
-        TechnicianDAO technicianDAO = new TechnicianDAOMemory();
-
-        presenter = new AddEditSchedulePresenter();
-        presenter.setTechnicianDAO(technicianDAO);
-    }
-
-    /**
-     * Get the presenter associated with the view model.
+     * Create and initialize the presenter.
      *
-     * @return The presenter associated with the view model.
-     */
-    public AddEditSchedulePresenter getPresenter()
-    {
-        return presenter;
-    }
-
-    /**
-     * Clear any references to other components.
+     * @return The initialized presenter.
      */
     @Override
-    protected void onCleared()
+    protected AddEditSchedulePresenter createPresenter()
     {
-        super.onCleared();
+        TechnicianDAO technicianDAO = new TechnicianDAOMemory();
 
-        presenter.clearView();
+        AddEditSchedulePresenter presenter = new AddEditSchedulePresenter();
+        presenter.setTechnicianDAO(technicianDAO);
+
+        return presenter;
     }
 }

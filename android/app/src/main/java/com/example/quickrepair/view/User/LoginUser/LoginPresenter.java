@@ -4,13 +4,12 @@ import com.example.quickrepair.dao.CustomerDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.view.Base.BasePresenter;
 
-public class LoginPresenter
+public class LoginPresenter extends BasePresenter<LoginView>
 {
-    CustomerDAO customerDAO;
-    TechnicianDAO technicianDAO;
-
-    LoginView view;
+    private CustomerDAO customerDAO;
+    private TechnicianDAO technicianDAO;
 
     /**
      * Set the customer DAO for the presenter.
@@ -30,16 +29,6 @@ public class LoginPresenter
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
         this.technicianDAO = technicianDAO;
-    }
-
-    /**
-     * Set the view for the presenter.
-     *
-     * @param view The view.
-     */
-    public void setView(LoginView view)
-    {
-        this.view = view;
     }
 
     /**
@@ -104,14 +93,6 @@ public class LoginPresenter
                 view.showErrorMessage("Invalid credentials", "Invalid username or password.");
                 break;
         }
-    }
-
-    /**
-     * Clear the view of the presenter.
-     */
-    public void clearView()
-    {
-        view = null;
     }
 
     private enum LoginState

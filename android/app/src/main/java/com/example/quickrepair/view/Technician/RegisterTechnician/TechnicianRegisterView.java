@@ -1,10 +1,11 @@
 package com.example.quickrepair.view.Technician.RegisterTechnician;
 
 import com.example.quickrepair.domain.Specialty;
+import com.example.quickrepair.view.Base.BaseView;
 
 import java.util.List;
 
-public interface TechnicianRegisterView
+public interface TechnicianRegisterView extends BaseView
 {
     /**
      * Set the name of the technician trying to register or edit.
@@ -146,12 +147,4 @@ public interface TechnicianRegisterView
      * @param id The technician's id.
      */
     void onSuccessfulRegister(Integer id);
-
-    /**
-     * Display a message in the event of an error.
-     *
-     * @param title The title of the error.
-     * @param message The message of the error.
-     */
-    void showErrorMessage(String title, String message);
 }

@@ -1,9 +1,7 @@
 package com.example.quickrepair.view.Technician.RegisterTechnician;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -15,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Base.BaseActivity;
 import com.example.quickrepair.view.HomePage.HomePageActivity;
 import com.example.quickrepair.view.Technician.AddEditSchedule.AddEditScheduleActivity;
 
@@ -22,10 +21,8 @@ import java.util.List;
 
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
-public class TechnicianRegisterActivity extends AppCompatActivity implements TechnicianRegisterView
+public class TechnicianRegisterActivity extends BaseActivity<TechnicianRegisterViewModel> implements TechnicianRegisterView
 {
-    TechnicianRegisterViewModel viewModel;
-
     /**
      * Create and initialize the activity.
      *
@@ -37,7 +34,6 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_register);
 
-        viewModel = new ViewModelProvider(this).get(TechnicianRegisterViewModel.class);
         final TechnicianRegisterPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
 
@@ -50,8 +46,8 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
             findViewById(R.id.Username).setEnabled(false);
             findViewById(R.id.Username).setFocusable(false);
             ((EditText)findViewById(R.id.Username)).setInputType(InputType.TYPE_NULL);
-            ((TextView)findViewById(R.id.Title)).setText("Profile");
-            ((Button)findViewById(R.id.RegisterButton)).setText("Save");
+            ((TextView)findViewById(R.id.Title)).setText(R.string.profile);
+            ((Button)findViewById(R.id.RegisterButton)).setText(R.string.save);
         }
 
         findViewById(R.id.RegisterButton).setOnClickListener(new View.OnClickListener()
@@ -62,6 +58,17 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
                 presenter.registerTechnician(getName(), getSurname(), getPhoneNumber(), getEmail(), getAFM(), getAccountNumber(), getUsername(), getPassword(), getSpecialityID());
             }
         });
+    }
+
+    /**
+     * Get the viewModel associated with this activity.
+     *
+     * @return The viewModel.
+     */
+    @Override
+    protected TechnicianRegisterViewModel getViewModel()
+    {
+        return new ViewModelProvider(this).get(TechnicianRegisterViewModel.class);
     }
 
     /**
@@ -291,18 +298,6 @@ public class TechnicianRegisterActivity extends AppCompatActivity implements Tec
         startActivity(intent);
 
         finish();
-    }
-
-    /**
-     * Display a message in the event of an error.
-     *
-     * @param title The title of the error.
-     * @param message The message of the error.
-     */
-    @Override
-    public void showErrorMessage(String title, String message)
-    {
-        new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
     }
 
     /**

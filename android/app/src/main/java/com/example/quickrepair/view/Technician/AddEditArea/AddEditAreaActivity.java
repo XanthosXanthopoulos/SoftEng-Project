@@ -1,24 +1,20 @@
 package com.example.quickrepair.view.Technician.AddEditArea;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.quickrepair.R;
-import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.view.Base.BaseActivity;
 import com.example.quickrepair.view.Technician.AddEditJob.AddEditJobActivity;
-import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 import java.util.ArrayList;
@@ -26,10 +22,8 @@ import java.util.List;
 
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
-public class AddEditAreaActivity extends AppCompatActivity implements AddEditAreaView
+public class AddEditAreaActivity extends BaseActivity<AddEditAreaViewModel> implements AddEditAreaView
 {
-    AddEditAreaViewModel viewModel;
-
     /**
      * Create and initialize the activity.
      *
@@ -41,7 +35,6 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_area);
 
-        viewModel = new ViewModelProvider(this).get(AddEditAreaViewModel.class);
         final AddEditAreaPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
 
@@ -59,7 +52,7 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
             }
 
             @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir)
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int swipeDir)
             {
                 presenter.removeArea(viewHolder.getAdapterPosition());
                 presenter.setUpDataSource();
@@ -132,15 +125,14 @@ public class AddEditAreaActivity extends AppCompatActivity implements AddEditAre
     }
 
     /**
-     * Display a message in the event of an error.
+     * Get the viewModel associated with this activity.
      *
-     * @param title The title of the error.
-     * @param message The message of the error.
+     * @return The viewModel.
      */
     @Override
-    public void showErrorMessage(String title, String message)
+    protected AddEditAreaViewModel getViewModel()
     {
-        new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
+        return new ViewModelProvider(this).get(AddEditAreaViewModel.class);
     }
 
     /**

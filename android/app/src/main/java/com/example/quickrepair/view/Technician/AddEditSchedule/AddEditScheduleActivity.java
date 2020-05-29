@@ -1,9 +1,7 @@
 package com.example.quickrepair.view.Technician.AddEditSchedule;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,14 +9,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Base.BaseActivity;
 import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
 
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
-public class AddEditScheduleActivity extends AppCompatActivity implements AddEditScheduleView
+public class AddEditScheduleActivity extends BaseActivity<AddEditScheduleViewModel> implements AddEditScheduleView
 {
-    AddEditScheduleViewModel viewModel;
-
     /**
      * Create and initialize the activity.
      *
@@ -30,7 +27,6 @@ public class AddEditScheduleActivity extends AppCompatActivity implements AddEdi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_schedule);
 
-        viewModel = new ViewModelProvider(this).get(AddEditScheduleViewModel.class);
         final AddEditSchedulePresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
 
@@ -87,15 +83,14 @@ public class AddEditScheduleActivity extends AppCompatActivity implements AddEdi
     }
 
     /**
-     * Display a message in the event of an error.
+     * Get the viewModel associated with this activity.
      *
-     * @param title The title of the error.
-     * @param message The message of the error.
+     * @return The viewModel.
      */
     @Override
-    public void showErrorMessage(String title, String message)
+    protected AddEditScheduleViewModel getViewModel()
     {
-        new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
+        return new ViewModelProvider(this).get(AddEditScheduleViewModel.class);
     }
 
     /**

@@ -1,10 +1,11 @@
 package com.example.quickrepair.view.Technician.AddEditJob;
 
 import com.example.quickrepair.domain.Job;
+import com.example.quickrepair.view.Base.BaseView;
 
 import java.util.List;
 
-public interface AddEditJobView
+public interface AddEditJobView extends BaseView
 {
     /**
      * Populate the list holding all available job types.
@@ -20,12 +21,4 @@ public interface AddEditJobView
      * @param selectedJobs The list of the technician's job types.
      */
     void setJobList(List<Job> selectedJobs);
-
-    /**
-     * Display a message in the event of an error.
-     *
-     * @param title The title of the error.
-     * @param message The message of the error.
-     */
-    void showErrorMessage(String title, String message);
 }

@@ -5,13 +5,12 @@ import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.domain.Address;
 import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.view.Base.BasePresenter;
 
 import java.util.ArrayList;
 
-public class AddEditAreaPresenter
+public class AddEditAreaPresenter extends BasePresenter<AddEditAreaView>
 {
-    AddEditAreaView view;
-
     TechnicianDAO technicianDAO;
     AreaDAO areaDAO;
 
@@ -36,24 +35,6 @@ public class AddEditAreaPresenter
     public void setAreaDAO(AreaDAO areaDAO)
     {
         this.areaDAO = areaDAO;
-    }
-
-    /**
-     * Set the view for the presenter.
-     *
-     * @param view The view.
-     */
-    public void setView(AddEditAreaView view)
-    {
-        this.view = view;
-    }
-
-    /**
-     * Clear the view of the presenter.
-     */
-    public void clearView()
-    {
-        view = null;
     }
 
     /**

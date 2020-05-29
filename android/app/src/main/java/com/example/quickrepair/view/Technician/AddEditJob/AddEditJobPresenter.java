@@ -5,21 +5,19 @@ import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.domain.Job;
 import com.example.quickrepair.domain.JobType;
 import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.view.Base.BasePresenter;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-public class AddEditJobPresenter
+public class AddEditJobPresenter extends BasePresenter<AddEditJobView>
 {
-    TechnicianDAO technicianDAO;
-    JobTypeDAO jobTypeDAO;
+    private TechnicianDAO technicianDAO;
 
-    AddEditJobView view;
-
-    Technician technician;
-    ArrayList<Job> jobs;
-    ArrayList<JobType> jobTypes;
+    private Technician technician;
+    private ArrayList<Job> jobs;
+    private ArrayList<JobType> jobTypes;
 
     /**
      * Set the technician DAO for the presenter.
@@ -29,26 +27,6 @@ public class AddEditJobPresenter
     public void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
         this.technicianDAO = technicianDAO;
-    }
-
-    /**
-     * Set the jobType DAO for the presenter.
-     *
-     * @param jobTypeDAO The jobType DAO.
-     */
-    public void setJobTypeDAO(JobTypeDAO jobTypeDAO)
-    {
-        this.jobTypeDAO = jobTypeDAO;
-    }
-
-    /**
-     * Set the view for the presenter.
-     *
-     * @param view The view.
-     */
-    public void setView(AddEditJobView view)
-    {
-        this.view = view;
     }
 
     /**
@@ -137,13 +115,5 @@ public class AddEditJobPresenter
     {
         technician.removeJob(jobs.remove(jobPosition));
         view.setJobList(jobs);
-    }
-
-    /**
-     * Clear the view of the presenter.
-     */
-    public void clearView()
-    {
-        view = null;
     }
 }

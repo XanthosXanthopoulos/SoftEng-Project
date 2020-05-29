@@ -10,46 +10,27 @@ import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.memorydao.CustomerDAOMemory;
 import com.example.quickrepair.memorydao.SpecialtyDAOMemory;
 import com.example.quickrepair.memorydao.TechnicianDAOMemory;
+import com.example.quickrepair.view.Base.BaseViewModel;
 
-public class TechnicianRegisterViewModel extends ViewModel
+public class TechnicianRegisterViewModel extends BaseViewModel<TechnicianRegisterPresenter>
 {
-    TechnicianRegisterPresenter presenter;
-
     /**
-     * Default constructor.
+     * Create and initialize the presenter.
+     *
+     * @return The initialized presenter.
      */
-    public TechnicianRegisterViewModel()
+    @Override
+    protected TechnicianRegisterPresenter createPresenter()
     {
-        super();
-
         CustomerDAO customerDAO = new CustomerDAOMemory();
         TechnicianDAO technicianDAO = new TechnicianDAOMemory();
         SpecialtyDAO specialtyDAO = new SpecialtyDAOMemory();
 
-        presenter = new TechnicianRegisterPresenter();
+        TechnicianRegisterPresenter presenter = new TechnicianRegisterPresenter();
         presenter.setCustomerDAO(customerDAO);
         presenter.setTechnicianDAO(technicianDAO);
         presenter.setSpecialtyDAO(specialtyDAO);
-    }
 
-    /**
-     * Get the presenter associated with the view model.
-     *
-     * @return The presenter associated with the view model.
-     */
-    public TechnicianRegisterPresenter getPresenter()
-    {
         return presenter;
-    }
-
-    /**
-     * Clear any references to other components.
-     */
-    @Override
-    protected void onCleared()
-    {
-        super.onCleared();
-
-        presenter.clearView();
     }
 }

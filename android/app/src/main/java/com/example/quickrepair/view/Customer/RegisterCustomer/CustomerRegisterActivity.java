@@ -1,9 +1,7 @@
 package com.example.quickrepair.view.Customer.RegisterCustomer;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -13,15 +11,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Base.BaseActivity;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
 import com.example.quickrepair.view.HomePage.HomePageActivity;
 
 import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
 
-public class CustomerRegisterActivity extends AppCompatActivity implements CustomerRegisterView
+public class CustomerRegisterActivity extends BaseActivity<CustomerRegisterViewModel> implements CustomerRegisterView
 {
-    CustomerRegisterViewModel viewModel;
-
     /**
      * Create and initialize the activity.
      *
@@ -33,7 +30,6 @@ public class CustomerRegisterActivity extends AppCompatActivity implements Custo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_register2);
 
-        viewModel = new ViewModelProvider(this).get(CustomerRegisterViewModel.class);
         final CustomerRegisterPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
 
@@ -45,9 +41,9 @@ public class CustomerRegisterActivity extends AppCompatActivity implements Custo
         {
             findViewById(R.id.Username).setEnabled(false);
             findViewById(R.id.Username).setFocusable(false);
-            ((EditText)findViewById(R.id.Username)).setInputType(InputType.TYPE_NULL);
-            ((TextView) findViewById(R.id.Title)).setText("Profile");
-            ((Button) findViewById(R.id.CustomerRegisterButton)).setText("Save");
+            ((EditText) findViewById(R.id.Username)).setInputType(InputType.TYPE_NULL);
+            ((TextView) findViewById(R.id.Title)).setText(R.string.profile);
+            ((Button) findViewById(R.id.CustomerRegisterButton)).setText(R.string.save);
         }
 
         findViewById(R.id.CustomerRegisterButton).setOnClickListener(new View.OnClickListener()
@@ -230,15 +226,14 @@ public class CustomerRegisterActivity extends AppCompatActivity implements Custo
     }
 
     /**
-     * Display a message in the event of an error.
+     * Get the viewModel associated with this activity.
      *
-     * @param title The title of the error.
-     * @param message The message of the error.
+     * @return The viewModel.
      */
     @Override
-    public void showErrorMessage(String title, String message)
+    protected CustomerRegisterViewModel getViewModel()
     {
-        new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
+        return new ViewModelProvider(this).get(CustomerRegisterViewModel.class);
     }
 
     /**

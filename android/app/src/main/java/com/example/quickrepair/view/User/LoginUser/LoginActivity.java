@@ -1,6 +1,5 @@
 package com.example.quickrepair.view.User.LoginUser;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.quickrepair.R;
+import com.example.quickrepair.view.Base.BaseActivity;
 import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
 import com.example.quickrepair.view.HomePage.HomePageActivity;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
@@ -20,10 +20,8 @@ import static com.example.quickrepair.QuickRepairApplication.RESULT_DENIED;
 import static com.example.quickrepair.QuickRepairApplication.RESULT_INVALID;
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
-public class LoginActivity extends AppCompatActivity implements LoginView
+public class LoginActivity extends BaseActivity<LoginViewModel> implements LoginView
 {
-    private LoginViewModel viewModel;
-
     /**
      * Create and initialize the activity.
      *
@@ -35,7 +33,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         final LoginPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
 
@@ -90,6 +87,17 @@ public class LoginActivity extends AppCompatActivity implements LoginView
         {
             new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
         }
+    }
+
+    /**
+     * Get the viewModel associated with this activity.
+     *
+     * @return The viewModel.
+     */
+    @Override
+    protected LoginViewModel getViewModel()
+    {
+        return new ViewModelProvider(this).get(LoginViewModel.class);
     }
 
     /**

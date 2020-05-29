@@ -1,50 +1,24 @@
 package com.example.quickrepair.view.Technician.AddEditJob;
 
-import androidx.lifecycle.ViewModel;
-
-import com.example.quickrepair.dao.JobTypeDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
-import com.example.quickrepair.memorydao.JobTypeDAOMemory;
 import com.example.quickrepair.memorydao.TechnicianDAOMemory;
-import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaPresenter;
+import com.example.quickrepair.view.Base.BaseViewModel;
 
-public class AddEditJobViewModel extends ViewModel
+public class AddEditJobViewModel extends BaseViewModel<AddEditJobPresenter>
 {
-    AddEditJobPresenter presenter;
-
     /**
-     * Default constructor.
-     */
-    public AddEditJobViewModel()
-    {
-        super();
-
-        TechnicianDAO technicianDAO = new TechnicianDAOMemory();
-        JobTypeDAO jobTypeDAO = new JobTypeDAOMemory();
-
-        presenter = new AddEditJobPresenter();
-        presenter.setTechnicianDAO(technicianDAO);
-        presenter.setJobTypeDAO(jobTypeDAO);
-    }
-
-    /**
-     * Get the presenter associated with the view model.
+     * Create and initialize the presenter.
      *
-     * @return The presenter associated with the view model.
-     */
-    public AddEditJobPresenter getPresenter()
-    {
-        return presenter;
-    }
-
-    /**
-     * Clear any references to other components.
+     * @return The initialized presenter.
      */
     @Override
-    protected void onCleared()
+    protected AddEditJobPresenter createPresenter()
     {
-        super.onCleared();
+        TechnicianDAO technicianDAO = new TechnicianDAOMemory();
 
-        presenter.clearView();
+        AddEditJobPresenter presenter = new AddEditJobPresenter();
+        presenter.setTechnicianDAO(technicianDAO);
+
+        return presenter;
     }
 }

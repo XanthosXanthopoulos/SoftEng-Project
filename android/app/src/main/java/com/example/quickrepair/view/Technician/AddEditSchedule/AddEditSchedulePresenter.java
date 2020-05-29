@@ -3,16 +3,15 @@ package com.example.quickrepair.view.Technician.AddEditSchedule;
 import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.domain.Schedule;
 import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.view.Base.BasePresenter;
 
 import java.util.Calendar;
 
-public class AddEditSchedulePresenter
+public class AddEditSchedulePresenter extends BasePresenter<AddEditScheduleView>
 {
-    TechnicianDAO technicianDAO;
+    private TechnicianDAO technicianDAO;
 
-    AddEditScheduleView view;
-
-    Technician technician;
+    private Technician technician;
 
     /**
      * Set the technician DAO for the presenter.
@@ -62,23 +61,5 @@ public class AddEditSchedulePresenter
         {
             view.showErrorMessage("Invalid value", e.getMessage());
         }
-    }
-
-    /**
-     * Set the view for the presenter.
-     *
-     * @param view The view.
-     */
-    public void setView(AddEditScheduleView view)
-    {
-        this.view = view;
-    }
-
-    /**
-     * Clear the view of the presenter.
-     */
-    public void clearView()
-    {
-        view = null;
     }
 }

@@ -1,14 +1,11 @@
 package com.example.quickrepair.view.Technician.AddEditJob;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +15,7 @@ import android.widget.Spinner;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.domain.Job;
+import com.example.quickrepair.view.Base.BaseActivity;
 import com.example.quickrepair.view.Technician.AddEditArea.AddEditAreaActivity;
 import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
@@ -26,10 +24,8 @@ import java.util.List;
 
 import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
 
-public class AddEditJobActivity extends AppCompatActivity implements AddEditJobView
+public class AddEditJobActivity extends BaseActivity<AddEditJobViewModel> implements AddEditJobView
 {
-    AddEditJobViewModel viewModel;
-
     /**
      * Create and initialize the activity.
      *
@@ -41,7 +37,6 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_job);
 
-        viewModel = new ViewModelProvider(this).get(AddEditJobViewModel.class);
         final AddEditJobPresenter presenter = viewModel.getPresenter();
         presenter.setView(this);
 
@@ -59,7 +54,7 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
             }
 
             @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir)
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int swipeDir)
             {
                 presenter.removeJob(viewHolder.getAdapterPosition());
                 presenter.setUpDataSource();
@@ -123,15 +118,14 @@ public class AddEditJobActivity extends AppCompatActivity implements AddEditJobV
     }
 
     /**
-     * Display a message in the event of an error.
+     * Get the viewModel associated with this activity.
      *
-     * @param title The title of the error.
-     * @param message The message of the error.
+     * @return The viewModel.
      */
     @Override
-    public void showErrorMessage(String title, String message)
+    protected AddEditJobViewModel getViewModel()
     {
-        new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();
+        return new ViewModelProvider(this).get(AddEditJobViewModel.class);
     }
 
     /**

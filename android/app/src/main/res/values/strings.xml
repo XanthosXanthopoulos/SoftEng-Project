@@ -35,4 +35,6 @@
     <string name="comments">Comments</string>
     <string name="afm">AFM</string>
     <string name="number">No.</string>
+    <string name="profile">Profile</string>
+    <string name="save">Save</string>
 </resources>
