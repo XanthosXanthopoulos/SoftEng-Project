@@ -213,7 +213,7 @@ public class RequestRepairPresenter
         //Using gregorianCalendar's built in compare to test if the target is between the range
         // of the calendars
 
-        return target.compareTo(end) < 0 && target.compareTo(start) > 0;
+        return target.compareTo(end) < 0 && target.compareTo(start) >= 0;
 
     }
 

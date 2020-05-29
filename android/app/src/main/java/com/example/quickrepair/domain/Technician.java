@@ -228,7 +228,7 @@ public class Technician extends User
         {
             for (RepairRequest repairRequest : job.getRepairRequests())
             {
-                if (Utilities.getYearMonthDay(repairRequest.getConductionDate()).compareTo(newDate) == 0)
+                if (Utilities.getYearMonthDay(repairRequest.getConductionDate()).compareTo(newDate) == 0 && repairRequest.isConfirmed())
                 {
                     repairRequests.add(repairRequest);
                 }

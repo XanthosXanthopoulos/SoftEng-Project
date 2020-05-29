@@ -77,10 +77,7 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
         presenter = viewModel.getPresenter();
         presenter.setView(this);
 
-        if (loggedInUserId != 0)
-        {
-            presenter.setLoggedInUser(loggedInUserId);
-        }
+        presenter.setLoggedInUser(loggedInUserId);
 
 
         //Setting spinner adapters
@@ -216,35 +213,35 @@ public class SearchTechniciansActivity extends AppCompatActivity implements Sear
         intent.putExtra(YEAR_EXTRA, year);
         intent.putExtra(MONTH_EXTRA, month);
         intent.putExtra(DAY_EXTRA, dayOfMonth);
+        intent.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);
+        startActivity(intent);
 
-        if (loggedInUserId != 0)
-        {
-            intent.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);
-            startActivity(intent);
-
-            finish();
-        }
-        else
-        {
-            SharedPreferences settings = getSharedPreferences("PREFERENCES", 0);
-            SharedPreferences.Editor editor = settings.edit();
-            String uriString = intent.toUri(0);
-
-            editor.putString("Repair", uriString);
-            editor.apply();
-
-            navigateToLogin();
-        }
+        finish();
     }
 
     /**
      * Starts the login activity , expects a result on onActivityResult
      */
     @Override
-    public void navigateToLogin()
+    public void navigateToLogin(int technicianId, int jobTypeId, int year, int month, int dayOfMonth)
     {
         Intent intent = new Intent(this, LoginActivity.class);
         intent.putExtra(REDIRECT_TO_SEARCH_EXTRA, true);
+
+        Intent repairIntent = new Intent(this, RequestRepairActivity.class);
+        repairIntent.putExtra(TECHNICIAN_ID_EXTRA, technicianId);
+        repairIntent.putExtra(JOBTYPE_ID_EXTRA, jobTypeId);
+        repairIntent.putExtra(YEAR_EXTRA, year);
+        repairIntent.putExtra(MONTH_EXTRA, month);
+        repairIntent.putExtra(DAY_EXTRA, dayOfMonth);
+
+        SharedPreferences settings = getSharedPreferences("PREFERENCES", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        String uriString = repairIntent.toUri(0);
+
+        editor.putString("Repair", uriString);
+        editor.apply();
+
         startActivityForResult(intent, REQUEST_CODE_LOGIN);
     }
 

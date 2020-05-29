@@ -38,6 +38,6 @@ public interface SearchTechniciansView {
     /**
      * Πηγαίνει τον χρήστη στην οθόνη για login.
      */
-    public void navigateToLogin();
+    public void navigateToLogin(int technicianId, int jobTypeId, int year, int month, int dayOfMonth);
 
 }

@@ -146,12 +146,12 @@ public abstract class Initializer {
         technicianTmp.addArea("Argos");
         technicianTmp.addArea("Argyroupoli");
         technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 9, 17);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.MONDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.TUESDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.WEDNESDAY, 9, 17);
+        technicianTmp.setAvailableOnDay(Calendar.THURSDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.FRIDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.SATURDAY, 0, 0);
         technicianDAO.save(technicianTmp);
 
         technicianTmp = new Technician("ΔΗΜΗΤΡΗΣ", "ΔΑΜΑΣΚΗΝΟΣ", "1010101010", "damaskhnos@repair.gr", "0034560101011234567890","damaskhnos","123", getSpecialtyDAO().find(2),"210072");
@@ -161,12 +161,12 @@ public abstract class Initializer {
         technicianTmp.addArea("Argos");
         technicianTmp.addArea("Argyroupoli");
         technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 9, 17);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.MONDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.TUESDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.WEDNESDAY, 9, 17);
+        technicianTmp.setAvailableOnDay(Calendar.THURSDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.FRIDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.SATURDAY, 0, 0);
         technicianDAO.save(technicianTmp);
 
         technicianTmp = new Technician("ΗΛΙΑΣ", "ΑΡΓΥΡΙΑΔΗΣ", "7500830008", "hlias_argiriadis@repair.gr", "0034560101011234567890","argyriadis","123", getSpecialtyDAO().find(2),"200072");
@@ -176,12 +176,12 @@ public abstract class Initializer {
         technicianTmp.addArea("Argos");
         technicianTmp.addArea("Argyroupoli");
         technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 9, 17);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.MONDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.TUESDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.WEDNESDAY, 9, 17);
+        technicianTmp.setAvailableOnDay(Calendar.THURSDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.FRIDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.SATURDAY, 0, 0);
         technicianDAO.save(technicianTmp);
 
         technicianTmp = new Technician("ΝΙΚΟΣ", "ΣΜΥΡΝΙΟΥΔΗΣ", "7599030003", "smyrnioudis@repair.gr", "0034560101011234567890","smyrnioudis","123", getSpecialtyDAO().find(3),"211002");
@@ -191,12 +191,12 @@ public abstract class Initializer {
         technicianTmp.addArea("Athens");
         technicianTmp.addArea("Argyroupoli");
         technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 9, 17);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.MONDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.TUESDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.WEDNESDAY, 9, 17);
+        technicianTmp.setAvailableOnDay(Calendar.THURSDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.FRIDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.SATURDAY, 0, 0);
         technicianDAO.save(technicianTmp);
 
         technicianTmp = new Technician("ΞΑΝΘΟΣ", "ΞΑΝΘΟΠΟΥΛΟΣ", "7599030903", "xanthopoulos@repair.gr", "0034560101011234567890","xanthopoulos","123", getSpecialtyDAO().find(3),"211202");
@@ -206,12 +206,12 @@ public abstract class Initializer {
         technicianTmp.addArea("Athens");
         technicianTmp.addArea("Argyroupoli");
         technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 9, 17);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 8, 16);
-        technicianTmp.setAvailableOnDay(Calendar.SUNDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.MONDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.TUESDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.WEDNESDAY, 9, 17);
+        technicianTmp.setAvailableOnDay(Calendar.THURSDAY, 0, 0);
+        technicianTmp.setAvailableOnDay(Calendar.FRIDAY, 8, 16);
+        technicianTmp.setAvailableOnDay(Calendar.SATURDAY, 0, 0);
         technicianDAO.save(technicianTmp);
 
         JobDAO jobDAO = getJobDAO();

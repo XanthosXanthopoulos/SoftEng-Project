@@ -34,10 +34,11 @@ public class SearchTechniciansPresenter
     private SpecialtyDAO specialtyDAO;
     private JobTypeDAO jobTypeDAO;
     private AreaDAO areaDAO;
-    private int loggedInUser = -1;
+    private int loggedInUser = 0;
     private int selectedSpecialtyId = -1;
     private double selectedMaxPrice = -1;
     private String selectedArea = null;
+    private GregorianCalendar date;
 
 
     public SearchTechniciansPresenter(TechnicianDAO technicianDAO, SpecialtyDAO specialtyDAO, JobTypeDAO jobTypeDAO, AreaDAO areaDAO)
@@ -94,7 +95,6 @@ public class SearchTechniciansPresenter
         {
             if (e.getSpecialty().getUid() == specialtyId)
             {
-
                 jobTypeIds.add(e.getUid());
                 jobTypeNames.add(e.getName());
             }
@@ -104,8 +104,6 @@ public class SearchTechniciansPresenter
         //Setting the job type drop down as enabled so the user can choose
         view.setJobTypeSpinnerEnabled(true);
     }
-
-    GregorianCalendar date;
 
     /**
      * Sets the date the customer wants the technician to be available
@@ -194,7 +192,14 @@ public class SearchTechniciansPresenter
             return;
         }
 
-        view.navigateToRequestRepair(technicianId, selectedJobTypeId, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
+        if (loggedInUser != 0)
+        {
+            view.navigateToRequestRepair(technicianId, selectedJobTypeId, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
+        }
+        else
+        {
+            view.navigateToLogin(technicianId, selectedJobTypeId, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
+        }
     }
 
     public void search(int jobID, String price, String area, String year, String month, String day)
@@ -324,5 +329,4 @@ public class SearchTechniciansPresenter
         }
         return nRatings == 0 ? 0 : ratingSum / (float) nRatings;
     }
-
 }
