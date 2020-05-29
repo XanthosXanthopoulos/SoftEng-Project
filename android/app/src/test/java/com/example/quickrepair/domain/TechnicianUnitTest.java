@@ -443,7 +443,7 @@ public class TechnicianUnitTest
         RepairRequest repairRequest2 = new RepairRequest();
         repairRequest2.setJob(job);
         repairRequest2.setConductionDate(date2);
-        repairRequest2.confirm(20); //30 minutes to do the job, so he is going to have a gap at 9
+        repairRequest2.confirm(20);
 
         job.addRepairRequest(repairRequest2);
 

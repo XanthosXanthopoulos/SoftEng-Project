@@ -106,8 +106,8 @@ public class RequestRepairPresenterTest {
     }
     @Test
     public void timeNotWithinGap(){
-        presenter.setDate(2020 , 11 ,12 );
         presenter.onStart();
+        presenter.setDate(2020 , 11 ,12 );
         presenter.setAddress("Papagou ,  23");
         presenter.setTime(10 , 10);
         presenter.setComments("newrepairRequestFromTest");
