@@ -397,8 +397,7 @@ public class TechnicianUnitTest
         RepairRequest repairRequest = new RepairRequest();
         repairRequest.setJob(job);
         repairRequest.setConductionDate(date1);
-        repairRequest.setEstimatedDuration(30); //30 minutes to do the job, so he is going to have a gap at 9
-
+        repairRequest.confirm(30);
         job.addRepairRequest(repairRequest);
 
         ArrayList<ArrayList<GregorianCalendar>> gaps = new ArrayList<>();
@@ -435,7 +434,7 @@ public class TechnicianUnitTest
         RepairRequest repairRequest = new RepairRequest();
         repairRequest.setJob(job);
         repairRequest.setConductionDate(date1);
-        repairRequest.setEstimatedDuration(30); //30 minutes to do the job, so he is going to have a gap at 9
+        repairRequest.confirm(30); //30 minutes to do the job, so he is going to have a gap at 9
 
         job.addRepairRequest(repairRequest);
 
@@ -444,7 +443,7 @@ public class TechnicianUnitTest
         RepairRequest repairRequest2 = new RepairRequest();
         repairRequest2.setJob(job);
         repairRequest2.setConductionDate(date2);
-        repairRequest2.setEstimatedDuration(20); //30 minutes to do the job, so he is going to have a gap at 9
+        repairRequest2.confirm(20); //30 minutes to do the job, so he is going to have a gap at 9
 
         job.addRepairRequest(repairRequest2);
 

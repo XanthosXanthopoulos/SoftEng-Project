@@ -6,7 +6,8 @@ import com.example.quickrepair.domain.Specialty;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpecialtyDAOMemory implements SpecialtyDAO {
+public class SpecialtyDAOMemory implements SpecialtyDAO
+{
     protected static ArrayList<Specialty> entities = new ArrayList<>();
 
     /**
@@ -51,9 +52,10 @@ public class SpecialtyDAOMemory implements SpecialtyDAO {
      * @return Specialty or null
      */
     @Override
-    public Specialty find(int specialtyID) {
-        for(Specialty specialty : entities)
-            if(specialty.getUid() == specialtyID)
+    public Specialty find(int specialtyID)
+    {
+        for (Specialty specialty : entities)
+            if (specialty.getUid() == specialtyID)
                 return specialty;
         return null;
     }
@@ -64,7 +66,8 @@ public class SpecialtyDAOMemory implements SpecialtyDAO {
      * @return Specialty's id
      */
     @Override
-    public int nextId() {
-        return (entities.size() > 0 ? entities.get(entities.size()-1).getUid()+1 : 1);
+    public int nextId()
+    {
+        return (entities.size() > 0 ? entities.get(entities.size() - 1).getUid() + 1 : 1);
     }
 }
