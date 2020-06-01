@@ -12,6 +12,10 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
 
     TechnicianUnconfirmedRepairRequestPresenter(){}
 
+    /**
+     * search data for the repair request with the given id and show them
+     * @param repairRequestId The repairRequest id
+     */
     public void searchRepairRequestData(int repairRequestId){
         if(repairRequestId == 0){
             view.showError("Something went wrong");
@@ -32,11 +36,20 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
         view.setButtonsListeners();
     }
 
+    /**
+     * reject repair request
+     * then go to page with repairRequests
+     */
     public void setReject(){
         repairRequest.reject();
         view.reject();
     }
 
+    /**
+     * set repair request as confirm and add estimated duration
+     * then go to page with repairRequests
+     * @param estimatedDuration The estimated duration
+     */
     public void setConfirm(String estimatedDuration){
         try{
             int estimatedDurationInt = Integer.parseInt(estimatedDuration);
@@ -47,15 +60,27 @@ public class TechnicianUnconfirmedRepairRequestPresenter {
         }
     }
 
+    /**
+     * set repairRequestDAO
+     * @param repairRequestDAO The RepairRequestDAO
+     */
+    public void setRepairRequestDAOMemory(RepairRequestDAO repairRequestDAO) {
+        this.repairRequestDAO = repairRequestDAO;
+    }
+
+    /**
+     * set view
+     * @param view The TechnicianUnconfirmedRepairRequestView
+     */
     public void setView(TechnicianUnconfirmedRepairRequestView view) {
         this.view = view;
     }
 
+    /**
+     * clear view
+     */
     public void clearView() {
         this.view = null;
     }
 
-    public void setRepairRequestDAOMemory(RepairRequestDAO repairRequestDAO) {
-        this.repairRequestDAO = repairRequestDAO;
-    }
 }

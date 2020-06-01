@@ -123,6 +123,10 @@ public class Payment
         this.repair = repair;
     }
 
+    /**
+     * get payment's cost
+     * @return payment's cost
+     */
     public double getCost()
     {
         return cost;

@@ -16,6 +16,10 @@ public class CustomerUnconfirmedRepairRequestPresenter
     {
     }
 
+    /**
+     * search data for the repair request with the given id and show them
+     * @param repairRequestId The repairRequest id
+     */
     public void searchRepairRequestData(int repairRequestId)
     {
         if (repairRequestId == 0)
@@ -42,19 +46,30 @@ public class CustomerUnconfirmedRepairRequestPresenter
 
     }
 
-    public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAOMemory)
+    /**
+     * set repairRequestDAO
+     * @param repairRequestDAO The RepairRequestDAO
+     */
+    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO)
     {
-        this.repairRequestDAO = repairRequestDAOMemory;
+        this.repairRequestDAO = repairRequestDAO;
     }
 
-    public void clearView()
-    {
-        this.view = null;
-    }
-
+    /**
+     * set view
+     * @param view The CustomerUnconfirmedRepairRequestView
+     */
     public void setView(CustomerUnconfirmedRepairRequestView view)
     {
         this.view = view;
+    }
+
+    /**
+     * clear view
+     */
+    public void clearView()
+    {
+        this.view = null;
     }
 
 }

@@ -193,9 +193,14 @@ public class Repair
         return payment;
     }
 
+    /**
+     * calculate cost for this repair
+     * @return repair's cost
+     */
     public double calculateCost(){
         return quantity * repairRequest.getJob().getPrice();
     }
+
     @Override
     public boolean equals(Object o)
     {

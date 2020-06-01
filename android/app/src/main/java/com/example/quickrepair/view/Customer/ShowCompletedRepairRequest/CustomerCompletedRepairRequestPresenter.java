@@ -14,6 +14,10 @@ public class CustomerCompletedRepairRequestPresenter {
     private CustomerCompletedRepairRequestView view;
     private RepairRequest repairRequest;
 
+    /**
+     * search data for the repair request with the given id and show them
+     * @param repairRequestId The repairRequest id
+     */
     public void searchRepairRequestData(int repairRequestId){
         if(repairRequestId == 0){
             view.showError("Something went wrong");
@@ -48,6 +52,12 @@ public class CustomerCompletedRepairRequestPresenter {
         }
     }
 
+    /**
+     * Response to customer payment and evaluation
+     * @param title evaluation's title
+     * @param comments evaluation's comments
+     * @param rate evaluation's rate
+     */
     public void payAndEvaluate(String title, String comments, int rate){
         if(title != null && title.length() > 0 && comments != null && comments.length() > 0 ) {
             // pay
@@ -62,15 +72,28 @@ public class CustomerCompletedRepairRequestPresenter {
         }
 
     }
+
+    /**
+     * set repairRequestDAO
+     * @param repairRequestDAO The RepairRequestDAO
+     */
+    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO) {
+        this.repairRequestDAO = repairRequestDAO;
+    }
+
+    /**
+     * set view
+     * @param view The CustomerCompletedRepairRequestView
+     */
     public void setView(CustomerCompletedRepairRequestView view) {
         this.view = view;
     }
 
+    /**
+     * clear view
+     */
     public void clearView() {
         this.view = null;
     }
 
-    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO) {
-        this.repairRequestDAO = repairRequestDAO;
-    }
 }

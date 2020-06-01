@@ -13,6 +13,10 @@ public class TechnicianCompletedRepairRequestPresenter {
     private RepairRequest repairRequest;
 
 
+    /**
+     * search data for the repair request with the given id and show them
+     * @param repairRequestId The repairRequest id
+     */
     public void searchRepairRequestData(int repairRequestId){
         if(repairRequestId == 0){
             view.showError("Something went wrong");
@@ -37,14 +41,28 @@ public class TechnicianCompletedRepairRequestPresenter {
             view.setCost("Cost: " + "\n" +" - ");
         }
     }
+
+    /**
+     * set repairRequestDAO
+     * @param repairRequestDAO The RepairRequestDAO
+     */
+    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO) {
+        this.repairRequestDAO = repairRequestDAO;
+    }
+
+    /**
+     * set view
+     * @param view The TechnicianCompletedRepairRequestView
+     */
     public void setView(TechnicianCompletedRepairRequestView view) {
         this.view = view;
     }
 
+    /**
+     * clear view
+     */
     public void clearView() {
         this.view = null;
     }
-    public void setRepairRequestDAO(RepairRequestDAOMemory repairRequestDAO) {
-        this.repairRequestDAO = repairRequestDAO;
-    }
+
 }

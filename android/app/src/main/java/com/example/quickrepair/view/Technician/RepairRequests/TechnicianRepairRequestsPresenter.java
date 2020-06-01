@@ -17,6 +17,11 @@ public class TechnicianRepairRequestsPresenter
     {
     }
 
+    /**
+     * Responds to the technician selecting search repair requests given customer ID and status
+     * @param technicianID given technicianID
+     * @param status given repairRequest's status
+     */
     public ArrayList<RepairRequest> searchRepairRequests(int technicianID, RepairRequest.Status status)
     {
         if (technicianID != 0 && status != null)
@@ -29,6 +34,10 @@ public class TechnicianRepairRequestsPresenter
         return null;
     }
 
+    /**
+     * Responds to the customer selecting a unconfirmed repair request
+     * @param repairRequest  repairRequest
+     */
     public void onRepairRequestSelectedUnconfirmed(RepairRequest repairRequest)
     {
         if (repairRequest == null || repairRequest.getUid() == 0)
@@ -41,6 +50,10 @@ public class TechnicianRepairRequestsPresenter
         }
     }
 
+    /**
+     * Responds to the technician selecting a confirmed repair request
+     * @param repairRequest  repairRequest
+     */
     public void onRepairRequestSelectedConfirmed(RepairRequest repairRequest)
     {
         if (repairRequest == null || repairRequest.getUid() == 0)
@@ -53,6 +66,10 @@ public class TechnicianRepairRequestsPresenter
         }
     }
 
+    /**
+     * Responds to the technician selecting a completed repair request
+     * @param repairRequest repairRequest
+     */
     public void onRepairRequestSelectedCompleted(RepairRequest repairRequest)
     {
         if (repairRequest == null || repairRequest.getUid() == 0)
@@ -65,21 +82,35 @@ public class TechnicianRepairRequestsPresenter
         }
     }
 
-    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO)
-    {
-        this.repairRequestDAO = repairRequestDAO;
-    }
-
+    /**
+     * Responds to the customer clicking edit data
+     */
     public void onEditDataPage()
     {
         view.editData();
     }
 
+    /**
+     * set repair request DAO
+     * @param repairRequestDAO The RepairRequestDAO
+     */
+    public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO)
+    {
+        this.repairRequestDAO = repairRequestDAO;
+    }
+
+    /**
+     * set view
+     * @param view The CustomerRepairRequestsView
+     */
     public void setView(TechnicianRepairRequestsView view)
     {
         this.view = view;
     }
 
+    /**
+     * clear view
+     */
     public void clearView()
     {
         this.view = null;
