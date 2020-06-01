@@ -75,7 +75,7 @@ public class TechnicianConfirmedRepairRequestTest {
      * (Για κάλυψη πιθανότητας σφάλματος του συστήματος)
      */
     @Test
-    public void testSearchErrorNull(){
+    public void testSearchError(){
         presenter.searchRepairRequestData(100);
         Assert.assertEquals(2, view.getState());
     }
