@@ -1,9 +1,5 @@
 package com.example.quickrepair.view.User.LoginUser;
 
-import android.util.Log;
-
-import androidx.lifecycle.ViewModel;
-
 import com.example.quickrepair.dao.CustomerDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.memorydao.CustomerDAOMemory;

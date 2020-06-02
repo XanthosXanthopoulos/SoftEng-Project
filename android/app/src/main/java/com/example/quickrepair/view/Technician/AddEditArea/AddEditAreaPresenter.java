@@ -2,8 +2,6 @@ package com.example.quickrepair.view.Technician.AddEditArea;
 
 import com.example.quickrepair.dao.AreaDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
-import com.example.quickrepair.domain.Address;
-import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.domain.Technician;
 import com.example.quickrepair.view.Base.BasePresenter;
 
@@ -32,7 +30,7 @@ public class AddEditAreaPresenter extends BasePresenter<AddEditAreaView>
      *
      * @param areaDAO The area DAO.
      */
-    public void setAreaDAO(AreaDAO areaDAO)
+    void setAreaDAO(AreaDAO areaDAO)
     {
         this.areaDAO = areaDAO;
     }
@@ -63,7 +61,7 @@ public class AddEditAreaPresenter extends BasePresenter<AddEditAreaView>
      *
      * @param areaID the area id.
      */
-    public void addArea(Integer areaID)
+    void addArea(Integer areaID)
     {
         if (areaID == 0)
         {
@@ -92,7 +90,7 @@ public class AddEditAreaPresenter extends BasePresenter<AddEditAreaView>
      *
      * @param areaID The area's id to be removed.
      */
-    public void removeArea(int areaID)
+    void removeArea(int areaID)
     {
         technician.getAreas().remove(areas.remove(areaID));
         view.setSelectedArea(areas);

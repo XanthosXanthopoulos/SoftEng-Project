@@ -8,8 +8,8 @@ import com.example.quickrepair.view.Base.BasePresenter;
 
 public class CustomerRegisterPresenter extends BasePresenter<CustomerRegisterView>
 {
-    CustomerDAO customerDAO;
-    TechnicianDAO technicianDAO;
+    private CustomerDAO customerDAO;
+    private TechnicianDAO technicianDAO;
 
     Customer customer;
 
@@ -24,7 +24,7 @@ public class CustomerRegisterPresenter extends BasePresenter<CustomerRegisterVie
      * @param username      The username of the customer.
      * @param password      The password of the customer.
      */
-    public void registerCustomer(String name, String surname, String phoneNumber, String email, String accountNumber, String username, String password)
+    void registerCustomer(String name, String surname, String phoneNumber, String email, String accountNumber, String username, String password)
     {
         if (customer == null)
         {

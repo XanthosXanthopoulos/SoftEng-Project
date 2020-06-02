@@ -1,7 +1,5 @@
 package com.example.quickrepair.view.Customer.RegisterCustomer;
 
-import androidx.lifecycle.ViewModel;
-
 import com.example.quickrepair.dao.CustomerDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.memorydao.CustomerDAOMemory;

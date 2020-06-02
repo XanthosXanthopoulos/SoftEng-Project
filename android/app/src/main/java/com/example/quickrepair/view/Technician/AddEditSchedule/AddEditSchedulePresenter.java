@@ -51,7 +51,7 @@ public class AddEditSchedulePresenter extends BasePresenter<AddEditScheduleView>
      *
      * @param schedule The new schedule of the technician.
      */
-    public void submit(Integer[][] schedule)
+    void submit(Integer[][] schedule)
     {
         try
         {

@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegisterView>
 {
-    CustomerDAO customerDAO;
-    TechnicianDAO technicianDAO;
-    SpecialtyDAO specialtyDAO;
+    private CustomerDAO customerDAO;
+    private TechnicianDAO technicianDAO;
+    private SpecialtyDAO specialtyDAO;
 
     Technician technician;
 
@@ -41,7 +41,7 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
      * @param password The password of the technician.
      * @param specialityID The speciality id of the technician.
      */
-    public void registerTechnician(String name, String surname, String phoneNumber, String email, String AFM, String accountNumber, String username, String password, int specialityID)
+    void registerTechnician(String name, String surname, String phoneNumber, String email, String AFM, String accountNumber, String username, String password, int specialityID)
     {
         if (technician == null)
         {
@@ -114,7 +114,7 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
      *
      * @param customerDAO The customer DAO.
      */
-    public void setCustomerDAO(CustomerDAO customerDAO)
+    void setCustomerDAO(CustomerDAO customerDAO)
     {
         this.customerDAO = customerDAO;
     }
@@ -124,7 +124,7 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
      *
      * @param technicianDAO The technician DAO.
      */
-    public void setTechnicianDAO(TechnicianDAO technicianDAO)
+    void setTechnicianDAO(TechnicianDAO technicianDAO)
     {
         this.technicianDAO = technicianDAO;
     }
@@ -134,7 +134,7 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
      *
      * @param specialityDAO The speciality DAO.
      */
-    public void setSpecialtyDAO(SpecialtyDAO specialityDAO)
+    void setSpecialtyDAO(SpecialtyDAO specialityDAO)
     {
         this.specialtyDAO = specialityDAO;
     }
@@ -142,7 +142,7 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
     /**
      * Initialize the view.
      */
-    public void setUpDataSource()
+    void setUpDataSource()
     {
         ArrayList<String> specialities = new ArrayList<>();
         for (Specialty speciality : specialtyDAO.findAll())

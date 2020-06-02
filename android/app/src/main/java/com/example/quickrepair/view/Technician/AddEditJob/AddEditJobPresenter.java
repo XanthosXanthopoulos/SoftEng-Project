@@ -1,6 +1,5 @@
 package com.example.quickrepair.view.Technician.AddEditJob;
 
-import com.example.quickrepair.dao.JobTypeDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.domain.Job;
 import com.example.quickrepair.domain.JobType;
@@ -10,6 +9,7 @@ import com.example.quickrepair.view.Base.BasePresenter;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class AddEditJobPresenter extends BasePresenter<AddEditJobView>
 {
@@ -63,7 +63,7 @@ public class AddEditJobPresenter extends BasePresenter<AddEditJobView>
      * @param jobTypeID the job type id.
      * @param price The price offer for the job.
      */
-    public void addJob(Integer jobTypeID, String price)
+    void addJob(Integer jobTypeID, String price)
     {
         if (jobTypeID == 0)
         {
@@ -71,11 +71,11 @@ public class AddEditJobPresenter extends BasePresenter<AddEditJobView>
             return;
         }
 
-        double priceConverted = 0;
+        double priceConverted;
         try
         {
             NumberFormat format = NumberFormat.getInstance();
-            priceConverted = format.parse(price).doubleValue();
+            priceConverted = Objects.requireNonNull(format.parse(price)).doubleValue();
         }
         catch (ParseException e)
         {
@@ -90,7 +90,7 @@ public class AddEditJobPresenter extends BasePresenter<AddEditJobView>
         }
 
         JobType type = jobTypes.get(jobTypeID - 1);
-        Job job = null;
+        Job job;
 
         try
         {
@@ -111,7 +111,7 @@ public class AddEditJobPresenter extends BasePresenter<AddEditJobView>
      *
      * @param jobPosition the job position in the list of jobs of the technician.
      */
-    public void removeJob(int jobPosition)
+    void removeJob(int jobPosition)
     {
         technician.removeJob(jobs.remove(jobPosition));
         view.setJobList(jobs);

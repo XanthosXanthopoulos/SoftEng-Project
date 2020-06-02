@@ -1,12 +1,8 @@
 package com.example.quickrepair.view.Technician.RegisterTechnician;
 
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-
 import com.example.quickrepair.dao.CustomerDAO;
 import com.example.quickrepair.dao.SpecialtyDAO;
 import com.example.quickrepair.dao.TechnicianDAO;
-import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.memorydao.CustomerDAOMemory;
 import com.example.quickrepair.memorydao.SpecialtyDAOMemory;
 import com.example.quickrepair.memorydao.TechnicianDAOMemory;

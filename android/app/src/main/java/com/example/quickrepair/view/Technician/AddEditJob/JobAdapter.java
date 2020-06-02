@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quickrepair.R;
 import com.example.quickrepair.domain.Job;
-import com.example.quickrepair.view.Technician.RepairRequests.ItemSelectionListener;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder>
 {
     private List<Job> jobs;
 
-    public JobAdapter(List<Job> jobs)
+    JobAdapter(List<Job> jobs)
     {
         this.jobs = jobs;
     }
@@ -49,11 +48,11 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder>
 
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-        public ViewGroup listItem;
-        public TextView jobTitle;
+        ViewGroup listItem;
+        TextView jobTitle;
         public TextView price;
 
-        public ViewHolder(ViewGroup viewGroup)
+        ViewHolder(ViewGroup viewGroup)
         {
             super(viewGroup);
 

@@ -15,7 +15,7 @@ public class AreaAdapter extends RecyclerView.Adapter<AreaAdapter.ViewHolder>
 {
     private List<String> areas;
 
-    public AreaAdapter(List<String> areas)
+    AreaAdapter(List<String> areas)
     {
         this.areas = areas;
     }
@@ -26,8 +26,7 @@ public class AreaAdapter extends RecyclerView.Adapter<AreaAdapter.ViewHolder>
     {
         ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_area, parent, false);
-        AreaAdapter.ViewHolder vh = new AreaAdapter.ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
     }
 
     @Override
@@ -46,10 +45,10 @@ public class AreaAdapter extends RecyclerView.Adapter<AreaAdapter.ViewHolder>
 
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-        public ViewGroup listItem;
+        ViewGroup listItem;
         public TextView area;
 
-        public ViewHolder(ViewGroup viewGroup)
+        ViewHolder(ViewGroup viewGroup)
         {
             super(viewGroup);
 
