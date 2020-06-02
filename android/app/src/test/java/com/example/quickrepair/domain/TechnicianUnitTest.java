@@ -221,12 +221,6 @@ public class TechnicianUnitTest
     }
 
     @Test(expected = NullPointerException.class)
-    public void setNullUsername()
-    {
-        technicianToTest.setUsername(null);
-    }
-
-    @Test(expected = NullPointerException.class)
     public void setNullName()
     {
         technicianToTest.setTechnicianInfo(null, "", ""

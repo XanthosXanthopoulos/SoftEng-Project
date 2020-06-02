@@ -39,87 +39,29 @@ public class User
      */
     public void setUserInfo(String name, String surname, String phoneNumber, String email, String bankAccount, String username)
     {
-        setName(name);
-        setSurname(surname);
-        setPhoneNumber(phoneNumber);
-        setEmail(email);
-        setBankAccount(bankAccount);
-        setUsername(username);
-    }
-
-    private void setName(String name)
-    {
         if (name == null) throw new NullPointerException("Name can not be null.");
-
         if (name.isEmpty()) throw new IllegalArgumentException("Name can not empty.");
 
-        this.name = name;
-    }
-
-    private void setSurname(String surname)
-    {
         if (surname == null) throw new NullPointerException("Surname can not be null.");
-
         if (surname.isEmpty()) throw new IllegalArgumentException("Surname can not empty.");
 
-        this.surname = surname;
-    }
+        if (phoneNumber == null) throw new NullPointerException("Phone number can not be null.");
+        if (!phoneNumber.matches("\\d{10}")) throw new IllegalArgumentException("Wrong phone number format. Must have exactly ten digits.");
 
-    /**
-     * Sets the user's phone number if it matches the \\d{10} regex
-     * (it's exactly 10 digits)
-     *
-     * @throws IllegalArgumentException if the input is not
-     *                                  in the form \d{10}
-     */
-    private void setPhoneNumber(String phoneNumber)
-    {
-        if (surname == null) throw new NullPointerException("Phone number can not be null.");
-        if (!phoneNumber.matches("\\d{10}"))
-            throw new IllegalArgumentException("Wrong phone number format. Must have exactly ten digits.");
-
-        this.phoneNumber = phoneNumber;
-    }
-
-    /**
-     * Sets the user's phone number if it matches the  regex
-     * is xxx@xxxxx.xxxx
-     *
-     * @throws IllegalArgumentException if the input is not
-     *                                  in the form ((\w|\d)+\@(\w|\d)+\.\w+)
-     */
-    private void setEmail(String email)
-    {
         if (email == null) throw new NullPointerException("Email can not be null.");
+        if (!email.matches("((\\w|\\d|\\.)+\\@(\\w|\\d)+\\.\\w+)"))throw new IllegalArgumentException("Wrong email address format.");
 
-        if (!email.matches("((\\w|\\d|\\.)+\\@(\\w|\\d)+\\.\\w+)"))
-            throw new IllegalArgumentException("Wrong email address format.");
-
-        this.email = email;
-    }
-
-    /**
-     * Sets the user's bank account if it matches the  regex
-     * ????
-     *
-     * @throws IllegalArgumentException if the input is not
-     *                                  *       in the form ????
-     */
-    private void setBankAccount(String bankAccount)
-    {
         if (bankAccount == null) throw new NullPointerException("Bank number can not be null.");
-
         if (bankAccount.length() != 22) throw new IllegalArgumentException("Wrong bank account format. Must have length 22.");
 
-        this.bankAccount = bankAccount;
-    }
-
-    public void setUsername(String username)
-    {
         if (username == null) throw new NullPointerException("Username can not be null.");
-
         if (username.isEmpty()) throw new IllegalArgumentException("Username can not be empty.");
 
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.bankAccount = bankAccount;
         this.username = username;
     }
 
@@ -190,7 +132,7 @@ public class User
                 Objects.equals(email, user.email) &&
                 Objects.equals(bankAccount, user.bankAccount) &&
                 Objects.equals(username, user.username) &&
-                Objects.equals(password, password);
+                Objects.equals(password, user.password);
     }
 
     @Override

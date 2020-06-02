@@ -16,6 +16,7 @@ import com.example.quickrepair.R;
 import com.example.quickrepair.view.Base.BaseActivity;
 import com.example.quickrepair.view.HomePage.HomePageActivity;
 import com.example.quickrepair.view.Technician.AddEditSchedule.AddEditScheduleActivity;
+import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
 
 import java.util.List;
 
@@ -306,8 +307,17 @@ public class TechnicianRegisterActivity extends BaseActivity<TechnicianRegisterV
     @Override
     public void onBackPressed()
     {
-        Intent intent = new Intent(this, HomePageActivity.class);
-        startActivity(intent);
+        if (getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0) == 0)
+        {
+            Intent intent = new Intent(this, HomePageActivity.class);
+            startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);
+            intent.putExtra(TECHNICIAN_ID_EXTRA, getIntent().getIntExtra(TECHNICIAN_ID_EXTRA, 0));
+            startActivity(intent);
+        }
 
         finish();
     }

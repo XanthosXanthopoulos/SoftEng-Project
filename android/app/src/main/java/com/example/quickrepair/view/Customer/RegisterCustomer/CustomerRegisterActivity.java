@@ -242,8 +242,17 @@ public class CustomerRegisterActivity extends BaseActivity<CustomerRegisterViewM
     @Override
     public void onBackPressed()
     {
-        Intent intent = new Intent(this, HomePageActivity.class);
-        startActivity(intent);
+        if (getIntent().getIntExtra(CUSTOMER_ID_EXTRA, 0) == 0)
+        {
+            Intent intent = new Intent(this, HomePageActivity.class);
+            startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);
+            intent.putExtra(CUSTOMER_ID_EXTRA, getIntent().getIntExtra(CUSTOMER_ID_EXTRA, 0));
+            startActivity(intent);
+        }
 
         finish();
     }

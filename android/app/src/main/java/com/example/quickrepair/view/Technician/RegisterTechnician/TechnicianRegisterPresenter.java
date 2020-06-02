@@ -45,7 +45,6 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
     {
         if (technician == null)
         {
-
             for (Technician technician : technicianDAO.findAll())
             {
                 if (technician.getUsername().equals(username))
