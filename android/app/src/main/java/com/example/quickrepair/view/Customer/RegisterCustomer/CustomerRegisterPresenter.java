@@ -53,6 +53,7 @@ public class CustomerRegisterPresenter extends BasePresenter<CustomerRegisterVie
         try
         {
             customer.setUserInfo(name, surname, phoneNumber, email, accountNumber, username);
+            customer.setPassword(password);
         }
         catch (Exception e)
         {
@@ -60,8 +61,6 @@ public class CustomerRegisterPresenter extends BasePresenter<CustomerRegisterVie
             customer = null;
             return;
         }
-
-        customer.setPassword(password);
 
         if (customer.getUid() == 0)
         {
