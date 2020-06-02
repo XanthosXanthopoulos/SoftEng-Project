@@ -1,7 +1,5 @@
 package com.example.quickrepair.view.Technician.AddEditSchedule;
 
-import android.text.style.ForegroundColorSpan;
-
 import com.example.quickrepair.dao.Initializer;
 import com.example.quickrepair.memorydao.MemoryInitializer;
 import com.example.quickrepair.memorydao.TechnicianDAOMemory;
@@ -10,13 +8,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Calendar;
-
-
 public class AddEditScheduleTest
 {
-    AddEditSchedulePresenter presenter;
-    AddEditScheduleViewStub view;
+    private AddEditSchedulePresenter presenter;
+    private AddEditScheduleViewStub view;
 
     @Before
     public void setup()
@@ -30,6 +25,9 @@ public class AddEditScheduleTest
         presenter.setView(view);
     }
 
+    /**
+     * Submit a correct schedule.
+     */
     @Test
     public void submitTest()
     {
@@ -52,6 +50,9 @@ public class AddEditScheduleTest
         Assert.assertNull(view.getErrorMessage());
     }
 
+    /**
+     * Try submitting invalid or incomplete schedule.
+     */
     @Test
     public void submitFailTest()
     {

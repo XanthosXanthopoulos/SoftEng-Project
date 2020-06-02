@@ -4,8 +4,6 @@ import com.example.quickrepair.dao.Initializer;
 import com.example.quickrepair.memorydao.CustomerDAOMemory;
 import com.example.quickrepair.memorydao.MemoryInitializer;
 import com.example.quickrepair.memorydao.TechnicianDAOMemory;
-import com.example.quickrepair.view.User.LoginUser.LoginPresenter;
-import com.example.quickrepair.view.User.LoginUser.LoginViewStub;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,8 +11,8 @@ import org.junit.Test;
 
 public class CustomerRegisterTest
 {
-    CustomerRegisterPresenter presenter;
-    CustomerRegisterViewStub view;
+    private CustomerRegisterPresenter presenter;
+    private CustomerRegisterViewStub view;
 
     @Before
     public void setup()
@@ -29,6 +27,9 @@ public class CustomerRegisterTest
         presenter.setView(view);
     }
 
+    /**
+     * Test a successful register.
+     */
     @Test
     public void registerTest()
     {
@@ -43,6 +44,9 @@ public class CustomerRegisterTest
         Assert.assertNotEquals(0, presenter.customer.getUid());
     }
 
+    /**
+     * Try to register a customer while the username ia taken by another customer and another technician.
+     */
     @Test
     public void alreadyExistTest()
     {
@@ -60,6 +64,9 @@ public class CustomerRegisterTest
         Assert.assertNull(presenter.customer);
     }
 
+    /**
+     * Try register using invalid info.
+     */
     @Test
     public void registerFailTest()
     {
@@ -71,6 +78,9 @@ public class CustomerRegisterTest
         Assert.assertNull(presenter.customer);
     }
 
+    /**
+     * Test correct load of customer info.
+     */
     @Test
     public void updateTest()
     {

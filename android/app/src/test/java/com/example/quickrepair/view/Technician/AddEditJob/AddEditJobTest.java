@@ -11,8 +11,8 @@ import org.junit.Test;
 
 public class AddEditJobTest
 {
-    AddEditJobPresenter presenter;
-    AddEditJobViewStub view;
+    private AddEditJobPresenter presenter;
+    private AddEditJobViewStub view;
 
     @Before
     public void setup()
@@ -26,6 +26,9 @@ public class AddEditJobTest
         presenter.setView(view);
     }
 
+    /**
+     * Add a job successfully.
+     */
     @Test
     public void addJobTest()
     {
@@ -41,6 +44,7 @@ public class AddEditJobTest
                 if (job.getJobType().getName().equals(view.getJobs().get(i)))
                 {
                     found = true;
+                    break;
                 }
             }
 
@@ -53,6 +57,9 @@ public class AddEditJobTest
         }
     }
 
+    /**
+     * Try adding a job with invalid price or already existing.
+     */
     @Test
     public void addJobFailedTest()
     {
@@ -89,6 +96,9 @@ public class AddEditJobTest
         }
     }
 
+    /**
+     * Remove a job.
+     */
     @Test
     public void removeJob()
     {

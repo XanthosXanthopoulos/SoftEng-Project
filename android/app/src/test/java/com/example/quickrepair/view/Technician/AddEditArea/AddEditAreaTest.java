@@ -11,8 +11,8 @@ import org.junit.Test;
 
 public class AddEditAreaTest
 {
-    AddEditAreaPresenter presenter;
-    AddEditAreaViewStub view;
+    private AddEditAreaPresenter presenter;
+    private AddEditAreaViewStub view;
 
     @Before
     public void setup()
@@ -27,6 +27,9 @@ public class AddEditAreaTest
         presenter.setView(view);
     }
 
+    /**
+     * Add area successfully.
+     */
     @Test
     public void addAreaTest()
     {
@@ -42,6 +45,7 @@ public class AddEditAreaTest
                 if (area.equals(view.getAreaList().get(i)))
                 {
                     found = true;
+                    break;
                 }
             }
 
@@ -54,6 +58,9 @@ public class AddEditAreaTest
         }
     }
 
+    /**
+     * Try adding an area already existing or not selected.
+     */
     @Test
     public void AddAreaFailedTest()
     {
@@ -81,6 +88,9 @@ public class AddEditAreaTest
         }
     }
 
+    /**
+     * Remove an area.
+     */
     @Test
     public void removeAreaTest()
     {

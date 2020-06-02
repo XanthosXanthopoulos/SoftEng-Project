@@ -12,8 +12,8 @@ import org.junit.Test;
 
 public class TechnicianRegisterTest
 {
-    TechnicianRegisterPresenter presenter;
-    TechnicianRegisterViewStub view;
+    private TechnicianRegisterPresenter presenter;
+    private TechnicianRegisterViewStub view;
 
     @Before
     public void setup()
@@ -29,6 +29,9 @@ public class TechnicianRegisterTest
         presenter.setView(view);
     }
 
+    /**
+     * Test a successful register.
+     */
     @Test
     public void registerTest()
     {
@@ -43,6 +46,9 @@ public class TechnicianRegisterTest
         Assert.assertNotEquals(0, presenter.technician.getUid());
     }
 
+    /**
+     * Try to register a customer while the username ia taken by another customer and another technician and with the same AFM.
+     */
     @Test
     public void alreadyExistTest()
     {
@@ -65,6 +71,9 @@ public class TechnicianRegisterTest
         Assert.assertNull(presenter.technician);
     }
 
+    /**
+     * Try register using invalid info and without selecting speciality.
+     */
     @Test
     public void registerFailTest()
     {
@@ -81,6 +90,9 @@ public class TechnicianRegisterTest
         Assert.assertNull(presenter.technician);
     }
 
+    /**
+     * Test correct load of customer info.
+     */
     @Test
     public void updateTest()
     {

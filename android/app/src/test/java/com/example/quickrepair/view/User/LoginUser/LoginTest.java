@@ -27,6 +27,9 @@ public class LoginTest
         presenter.setView(view);
     }
 
+    /**
+     * Try successful login.
+     */
     @Test
     public void loginTest()
     {
@@ -36,7 +39,14 @@ public class LoginTest
 
         presenter.login("ann", "123");
         Assert.assertEquals(1, view.getCustomerID());
+    }
 
+    /**
+     * Try failed login.
+     */
+    @Test
+    public void loginFailTest()
+    {
         presenter.login("", "");
         Assert.assertEquals(1, view.getErrorCount());
 
