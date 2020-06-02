@@ -12,17 +12,30 @@ public final class Address
     private String streetName;
     private String number;
 
+    /**
+     * Constructor
+     * @param streetName street's name
+     * @param number number
+     */
     public Address(String streetName, String number)
     {
         setStreetName(streetName);
         setNumber(number);
     }
 
+    /**
+     * returns street's name
+     * @return streetName
+     */
     public String getStreetName()
     {
         return streetName;
     }
 
+    /**
+     * set street's name
+     * @param streetName street's name
+     */
     private void setStreetName(String streetName)
     {
         if (streetName == null)
@@ -33,11 +46,19 @@ public final class Address
         this.streetName = streetName;
     }
 
+    /**
+     * return number
+     * @return address's number
+     */
     public String getNumber()
     {
         return number;
     }
 
+    /**
+     * set number
+     * @param number address's number
+     */
     private void setNumber(String number)
     {
         if (number == null) throw new NullPointerException();
@@ -50,6 +71,7 @@ public final class Address
 
         this.number = number;
     }
+
 
     @Override
     public boolean equals(Object o)

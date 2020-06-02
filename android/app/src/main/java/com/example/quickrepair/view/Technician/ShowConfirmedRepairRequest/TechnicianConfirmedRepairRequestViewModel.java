@@ -13,7 +13,7 @@ public class TechnicianConfirmedRepairRequestViewModel extends ViewModel {
         //create Presenter
         presenter = new TechnicianConfirmedRepairRequestPresenter();
         RepairRequestDAOMemory repairRequestDAOMemory = new RepairRequestDAOMemory();
-        presenter.setRepairRequestDAOMemory(repairRequestDAOMemory);
+        presenter.setRepairRequestDAO(repairRequestDAOMemory);
     }
 
     public TechnicianConfirmedRepairRequestPresenter getPresenter() {

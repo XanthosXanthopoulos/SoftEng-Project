@@ -12,6 +12,10 @@ public class CustomerConfirmedRepairRequestPresenter {
 
     CustomerConfirmedRepairRequestPresenter(){}
 
+    /**
+     * search data for the repair request with the given id and show them
+     * @param repairRequestId The repairRequest id
+     */
     public void searchRepairRequestData(int repairRequestId){
         if(repairRequestId == 0){
             view.showError("Something went wrong");
@@ -31,14 +35,25 @@ public class CustomerConfirmedRepairRequestPresenter {
         view.setEstimatedDuration("Estimated Duration: " + "\n" + repairRequest.getEstimatedDuration());
     }
 
-    public void setView(CustomerConfirmedRepairRequestView view) {
-        this.view = view;
-    }
-
+    /**
+     * set repairRequestDAO
+     * @param repairRequestDAO The RepairRequestDAO
+     */
     public void setRepairRequestDAO(RepairRequestDAO repairRequestDAO) {
         this.repairRequestDAO = repairRequestDAO;
     }
 
+    /**
+     * set view
+     * @param view The CustomerConfirmedRepairRequestView
+     */
+    public void setView(CustomerConfirmedRepairRequestView view) {
+        this.view = view;
+    }
+
+    /**
+     * clear view
+     */
     public void clearView() {
         this.view = null;
     }

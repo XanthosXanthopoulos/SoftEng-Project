@@ -16,6 +16,9 @@ public class CustomerCompletedRepairRequestTest {
     private static int repairRequestPayedID;
     private RepairRequestDAO repairRequestDAO;
 
+    /**
+     * Αρχικοποίηση
+     */
     @Before
     public void setUp(){
         view = new CustomerCompletedRepairRequestViewStub();
@@ -25,6 +28,11 @@ public class CustomerCompletedRepairRequestTest {
         repairRequestDAO = new RepairRequestDAOMemory();
         presenter.setRepairRequestDAO((RepairRequestDAOMemory) repairRequestDAO);
     }
+
+    /**
+     * Έλεγχος στην αναζητηση για Ολοκληρωμένο Μη πληρωμένο ραντεβού
+     * γίνεται ορθά η εμφάνιση των απαραίτητων στοιχείων
+     */
     @Test
     public void checkSettersNotPayed(){
         repairRequestNotPayedID = 7;
@@ -33,6 +41,10 @@ public class CustomerCompletedRepairRequestTest {
         Assert.assertEquals(2, view.getState());
     }
 
+    /**
+     * Έλεγχος στην αναζητηση για Ολοκληρωμένο Πληρωμένο ραντεβού
+     * γίνεται ορθά η εμφάνιση των απαραίτητων στοιχείων
+     */
     @Test
     public void checkSettersPaid(){
         repairRequestPayedID = 5;
@@ -41,16 +53,32 @@ public class CustomerCompletedRepairRequestTest {
         Assert.assertEquals(3, view.getState());
     }
 
+    /**
+     * Έλεγχος ότι δε γίνεται αναζήτηση μηδενικού αναγνωριστικού
+     * Προβολή Μηνύματος λάθους
+     * (Για κάλυψη πιθανότητας σφάλματος του συστήματος)
+     */
     @Test
     public void checkSearchErrorZero(){
         presenter.searchRepairRequestData(0);
         Assert.assertEquals(1, view.getState());
     }
+
+    /**
+     * Έλεγχος ότι δε γίνεται αναζήτηση μη υπαρκτού αναγνωριστικού
+     * Προβολή Μηνύματος λάθους
+     * (Για κάλυψη πιθανότητας σφάλματος του συστήματος)
+     */
     @Test
     public void checkSearchError(){
         presenter.searchRepairRequestData(100);
         Assert.assertEquals(1, view.getState());
     }
+
+    /**
+     * Έλεγχος πληρωμής και αξιολόγησης
+     * και μετάβαση
+     */
     @Test
     public void checkPayAndEvaluate(){
         repairRequestNotPayedID = 7;
@@ -58,6 +86,12 @@ public class CustomerCompletedRepairRequestTest {
         presenter.payAndEvaluate("title", "coms", 5);
         Assert.assertEquals(4, view.getState());
     }
+
+    /**
+     * Έλεγχος πληρωμής και αξιολόγησης με null στοιχεία αξιολόγησης,
+     * προβολή μηνύματος λάθους
+     * και μετάβαση
+     */
     @Test
     public void checkPayAndEvaluateNullFields(){
         repairRequestNotPayedID = 7;
@@ -66,6 +100,11 @@ public class CustomerCompletedRepairRequestTest {
         Assert.assertEquals(1, view.getState());
     }
 
+    /**
+     * Έλεγχος πληρωμής και αξιολόγησης με κενά στοιχεία αξιολόγησης,
+     * προβολή μηνύματος λάθους
+     * και μετάβαση
+     */
     @Test
     public void checkPayAndEvaluateEmptyFields(){
         repairRequestNotPayedID = 7;
