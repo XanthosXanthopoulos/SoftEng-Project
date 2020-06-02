@@ -5,7 +5,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>230</x>
-      <y>110</y>
+      <y>70</y>
       <w>210</w>
       <h>30</h>
     </coordinates>
@@ -16,7 +16,7 @@
     <id>Relation</id>
     <coordinates>
       <x>320</x>
-      <y>130</y>
+      <y>90</y>
       <w>30</w>
       <h>1350</h>
     </coordinates>
@@ -27,7 +27,7 @@
     <id>UMLFrame</id>
     <coordinates>
       <x>240</x>
-      <y>190</y>
+      <y>150</y>
       <w>1220</w>
       <h>780</h>
     </coordinates>
@@ -40,7 +40,7 @@ customer == null</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>320</x>
-      <y>150</y>
+      <y>110</y>
       <w>20</w>
       <h>1280</h>
     </coordinates>
@@ -51,7 +51,7 @@ customer == null</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>60</x>
-      <y>150</y>
+      <y>110</y>
       <w>280</w>
       <h>40</h>
     </coordinates>
@@ -63,7 +63,7 @@ registerCustomer(registerInfo...)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>470</x>
-      <y>110</y>
+      <y>70</y>
       <w>140</w>
       <h>30</h>
     </coordinates>
@@ -74,7 +74,7 @@ registerCustomer(registerInfo...)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>530</x>
-      <y>130</y>
+      <y>90</y>
       <w>30</w>
       <h>1350</h>
     </coordinates>
@@ -85,7 +85,7 @@ registerCustomer(registerInfo...)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>640</x>
-      <y>110</y>
+      <y>70</y>
       <w>140</w>
       <h>30</h>
     </coordinates>
@@ -96,7 +96,7 @@ registerCustomer(registerInfo...)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>700</x>
-      <y>130</y>
+      <y>90</y>
       <w>30</w>
       <h>1350</h>
     </coordinates>
@@ -107,7 +107,7 @@ registerCustomer(registerInfo...)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>530</x>
-      <y>250</y>
+      <y>210</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -118,7 +118,7 @@ registerCustomer(registerInfo...)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>240</y>
+      <y>200</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -130,7 +130,7 @@ findAll()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>280</y>
+      <y>240</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -142,7 +142,7 @@ customers</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>250</x>
-      <y>320</y>
+      <y>280</y>
       <w>1200</w>
       <h>240</h>
     </coordinates>
@@ -155,7 +155,7 @@ for each customer</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>260</x>
-      <y>450</y>
+      <y>410</y>
       <w>1180</w>
       <h>100</h>
     </coordinates>
@@ -168,7 +168,7 @@ username.equals(usernameNew)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>820</x>
-      <y>110</y>
+      <y>70</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -179,7 +179,7 @@ username.equals(usernameNew)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>860</x>
-      <y>130</y>
+      <y>90</y>
       <w>30</w>
       <h>1350</h>
     </coordinates>
@@ -190,7 +190,7 @@ username.equals(usernameNew)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>860</x>
-      <y>380</y>
+      <y>340</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -201,7 +201,7 @@ username.equals(usernameNew)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>370</y>
+      <y>330</y>
       <w>550</w>
       <h>40</h>
     </coordinates>
@@ -213,7 +213,7 @@ getUsername()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>410</y>
+      <y>370</y>
       <w>550</w>
       <h>40</h>
     </coordinates>
@@ -225,7 +225,7 @@ username</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>960</x>
-      <y>110</y>
+      <y>70</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -236,7 +236,7 @@ username</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1000</x>
-      <y>130</y>
+      <y>90</y>
       <w>30</w>
       <h>1350</h>
     </coordinates>
@@ -247,7 +247,7 @@ username</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1110</x>
-      <y>110</y>
+      <y>70</y>
       <w>170</w>
       <h>30</h>
     </coordinates>
@@ -258,7 +258,7 @@ username</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1190</x>
-      <y>130</y>
+      <y>90</y>
       <w>30</w>
       <h>1350</h>
     </coordinates>
@@ -269,7 +269,7 @@ username</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1190</x>
-      <y>510</y>
+      <y>470</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -280,7 +280,7 @@ username</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>500</y>
+      <y>460</y>
       <w>880</w>
       <h>40</h>
     </coordinates>
@@ -292,7 +292,7 @@ showErrorMessage("Username already exist", "This username is already in use by a
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>570</y>
+      <y>530</y>
       <w>390</w>
       <h>40</h>
     </coordinates>
@@ -304,7 +304,7 @@ findAll()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>610</y>
+      <y>570</y>
       <w>390</w>
       <h>40</h>
     </coordinates>
@@ -316,7 +316,7 @@ technicians</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>250</x>
-      <y>650</y>
+      <y>610</y>
       <w>1200</w>
       <h>240</h>
     </coordinates>
@@ -329,7 +329,7 @@ for each technician</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>260</x>
-      <y>780</y>
+      <y>740</y>
       <w>1180</w>
       <h>100</h>
     </coordinates>
@@ -342,7 +342,7 @@ username.equals(usernameNew)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>740</y>
+      <y>700</y>
       <w>690</w>
       <h>40</h>
     </coordinates>
@@ -354,7 +354,7 @@ username</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>700</y>
+      <y>660</y>
       <w>690</w>
       <h>40</h>
     </coordinates>
@@ -366,7 +366,7 @@ getUsername()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1000</x>
-      <y>710</y>
+      <y>670</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -377,7 +377,7 @@ getUsername()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>830</y>
+      <y>790</y>
       <w>880</w>
       <h>40</h>
     </coordinates>
@@ -389,7 +389,7 @@ showErrorMessage("Username already exist", "This username is already in use by a
     <id>UMLGeneric</id>
     <coordinates>
       <x>1190</x>
-      <y>840</y>
+      <y>800</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -400,7 +400,7 @@ showErrorMessage("Username already exist", "This username is already in use by a
     <id>UMLGeneric</id>
     <coordinates>
       <x>700</x>
-      <y>580</y>
+      <y>540</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -411,7 +411,7 @@ showErrorMessage("Username already exist", "This username is already in use by a
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>920</y>
+      <y>880</y>
       <w>990</w>
       <h>40</h>
     </coordinates>
@@ -422,19 +422,8 @@ create</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
-      <y>490</y>
-      <w>140</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>1360</x>
-      <y>940</y>
+      <y>900</y>
       <w>30</w>
       <h>540</h>
     </coordinates>
@@ -445,7 +434,7 @@ create</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1300</x>
-      <y>920</y>
+      <y>880</y>
       <w>140</w>
       <h>30</h>
     </coordinates>
@@ -456,7 +445,7 @@ create</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1360</x>
-      <y>1000</y>
+      <y>960</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -467,7 +456,7 @@ create</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>990</y>
+      <y>950</y>
       <w>1050</w>
       <h>40</h>
     </coordinates>
@@ -479,7 +468,7 @@ setInfo(info...)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>1030</y>
+      <y>990</y>
       <w>1050</w>
       <h>40</h>
     </coordinates>
@@ -491,7 +480,7 @@ getUid()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1360</x>
-      <y>1040</y>
+      <y>1000</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -502,7 +491,7 @@ getUid()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>1070</y>
+      <y>1030</y>
       <w>1050</w>
       <h>40</h>
     </coordinates>
@@ -514,7 +503,7 @@ uid</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>240</x>
-      <y>1110</y>
+      <y>1070</y>
       <w>1220</w>
       <h>240</h>
     </coordinates>
@@ -527,7 +516,7 @@ uid == 0</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>530</x>
-      <y>1170</y>
+      <y>1130</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -538,7 +527,7 @@ uid == 0</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>1160</y>
+      <y>1120</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -550,7 +539,7 @@ getNextUid()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>1200</y>
+      <y>1160</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -562,7 +551,7 @@ newUid</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>1230</y>
+      <y>1190</y>
       <w>1050</w>
       <h>40</h>
     </coordinates>
@@ -574,7 +563,7 @@ setUid(newUid)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1360</x>
-      <y>1240</y>
+      <y>1200</y>
       <w>20</w>
       <h>40</h>
     </coordinates>
@@ -585,7 +574,7 @@ setUid(newUid)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>530</x>
-      <y>1310</y>
+      <y>1270</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -596,7 +585,7 @@ setUid(newUid)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>1300</y>
+      <y>1260</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -608,7 +597,7 @@ save(customer)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>1370</y>
+      <y>1330</y>
       <w>880</w>
       <h>40</h>
     </coordinates>
@@ -620,7 +609,7 @@ onSuccessfulRegister(uid)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1190</x>
-      <y>1380</y>
+      <y>1340</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
