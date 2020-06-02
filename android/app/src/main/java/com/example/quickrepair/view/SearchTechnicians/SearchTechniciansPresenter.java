@@ -49,6 +49,10 @@ public class SearchTechniciansPresenter
         this.areaDAO = areaDAO;
     }
 
+    /**
+     * Sets the view for this presenter. Should be called immediately after construction
+     * @param view the view
+     */
     public void setView(SearchTechniciansView view)
     {
         this.view = view;
@@ -57,7 +61,7 @@ public class SearchTechniciansPresenter
     /**
      * Sets the user that is currently logged in
      *
-     * @param userId
+     * @param userId the user Id
      */
     public void setLoggedInUser(int userId)
     {
@@ -84,6 +88,7 @@ public class SearchTechniciansPresenter
 
     /**
      * Responds to the user selecting a specialty
+     * @param specialtyId the selected specialty
      */
     public void selectSpecialty(int specialtyId)
     {
@@ -106,7 +111,10 @@ public class SearchTechniciansPresenter
     }
 
     /**
-     * Sets the date the customer wants the technician to be available
+     * Sets the date the customer wants the technician to be available and preforms validity checks
+     * @param yearString the year as entered by the user
+     * @param monthString the month as entered by the user
+     * @param dayOfMonthString the day of the month as entered by the user
      */
     public void setDate(String yearString, String monthString, String dayOfMonthString)
     {
@@ -161,7 +169,6 @@ public class SearchTechniciansPresenter
      *
      * @param input the input maximum price
      */
-
     public void setMaxPrice(String input)
     {
         //If the input is null or empty we don't set an upper bound
@@ -183,6 +190,7 @@ public class SearchTechniciansPresenter
 
     /**
      * Called when a user clicks on a technician on the list
+     * @param technicianId the id of the technician that was selected
      */
     public void onTechnicianClick(int technicianId)
     {
@@ -202,6 +210,16 @@ public class SearchTechniciansPresenter
         }
     }
 
+    /**
+     * Called when the search button is pressed from the view and repopulates the technician list
+     * if the user has entered correct data
+     * @param jobID the job type id
+     * @param price the price id
+     * @param area the area
+     * @param year the year
+     * @param month the month
+     * @param day the day
+     */
     public void search(int jobID, String price, String area, String year, String month, String day)
     {
         selectedJobTypeId = -1;
@@ -254,6 +272,9 @@ public class SearchTechniciansPresenter
 
     /**
      * Checks if the technician offers the given jobtype
+     * @param technicianId the technician id
+     * @param jobTypeId the job type id
+     * @return true if technician offers the jobtype
      */
     private boolean offersJobType(int technicianId, int jobTypeId)
     {
@@ -270,6 +291,10 @@ public class SearchTechniciansPresenter
 
     /**
      * Checks if the technician offers the given jobtype for less than the given amount of money
+     * @param technicianId the tehcnician id
+     * @param jobTypeId the jobtype id
+     * @param price the price
+     * @return true of technician offers the job type for less than price
      */
     private boolean offersJobTypeForLessThan(int technicianId, int jobTypeId, double price)
     {
@@ -289,6 +314,9 @@ public class SearchTechniciansPresenter
 
     /**
      * Returns the technicians price for the given jobtype
+     * @param  technicianId the technician's id
+     * @param jobTypeId the job type id
+     * @return  the technicians price for the job type
      */
     private double getTechnicianPriceForJobType(int technicianId, int jobTypeId)
     {
@@ -305,6 +333,8 @@ public class SearchTechniciansPresenter
 
     /**
      * Calculates the average ratings for a technician
+     * @param technicianId the technicians id
+     * @return the average of all ratings for the technician
      */
     private double getTechnicianAverageRatings(int technicianId)
     {

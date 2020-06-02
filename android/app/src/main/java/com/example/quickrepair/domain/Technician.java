@@ -100,32 +100,57 @@ public class Technician extends User
         }
     }
 
+    /**
+     * get Schedule for the given day
+     * @param day the day
+     * @return Schedule for this day
+     */
     public Schedule.ScheduleEntry getSchedule(int day)
     {
         return schedule.getSchedule(day);
     }
 
+    /**
+     * set AFM
+     * @param AFM The AFM
+     */
     public void setAFM(String AFM)
     {
         if (AFM == null) throw new NullPointerException("null AFM");
         this.AFM = AFM;
     }
 
+    /**
+     * return all jobs
+     * @return all Jobs
+     */
     public Set<Job> getJobs()
     {
         return jobs;
     }
 
+    /**
+     * return specialty
+     * @return The Specialty
+     */
     public Specialty getSpecialty()
     {
         return specialty;
     }
 
+    /**
+     * return areas that this technician works
+     * @return Areas
+     */
     public HashSet<String> getAreas()
     {
         return areas;
     }
 
+    /**
+     * return AFM
+     * @return The AFM
+     */
     public String getAFM()
     {
         return AFM;

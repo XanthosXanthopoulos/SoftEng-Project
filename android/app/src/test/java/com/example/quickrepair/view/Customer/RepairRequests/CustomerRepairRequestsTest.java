@@ -17,6 +17,9 @@ public class CustomerRepairRequestsTest
     CustomerRepairRequestsPresenter presenter;
     RepairRequestDAOMemory repairRequestDAOMemory;
 
+    /**
+     * Αρχικοποίηση
+     */
     @Before
     public void setUp()
     {
@@ -28,6 +31,9 @@ public class CustomerRepairRequestsTest
         presenter.setRepairRequestDAO(repairRequestDAOMemory);
     }
 
+    /**
+     * Ελεγχός ότι η αναζήτηση στον Presenter για repairRequest Μη Επιβεβαιωμένα γίνεται ορθά
+     */
     @Test
     public void searchForUnconfirmedRepairRequests()
     {
@@ -35,6 +41,9 @@ public class CustomerRepairRequestsTest
         Assert.assertEquals(2, repairRequests.size());
     }
 
+    /**
+     * Ελεγχός ότι η αναζήτηση στον Presenter για repairRequest Επιβεβαιωμένα γίνεται ορθά
+     */
     @Test
     public void searchForConfirmedRepairRequests()
     {
@@ -42,6 +51,9 @@ public class CustomerRepairRequestsTest
         Assert.assertEquals(1, repairRequests.size());
     }
 
+    /**
+     * Ελεγχός ότι η αναζήτηση στον Presenter για repairRequest Ολοκληρωμένα γίνεται ορθά
+     */
     @Test
     public void searchForCompletedRepairRequests()
     {
@@ -49,6 +61,10 @@ public class CustomerRepairRequestsTest
         Assert.assertEquals(2, repairRequests.size());
     }
 
+    /**
+     * Ελεγχός ότι όταν επιλέγουμε ένα συγκεκριμένο Μη επιβεβαιωμένα repairRequest το βρίσκετε ορθά
+     * και παρέχετε η πληροφορία γι' αυτό
+     */
     @Test
     public void clickedParticularUnconfirmed()
     {
@@ -58,6 +74,10 @@ public class CustomerRepairRequestsTest
         Assert.assertEquals(1, view.getCurrentState());
     }
 
+    /**
+     * Ελεγχός ότι όταν επιλέγουμε ένα συγκεκριμένο Επιεβαιβεωμένο repairRequest το βρίσκετε ορθά
+     * και παρέχετε η πληροφορία γι' αυτό
+     */
     @Test
     public void clickedParticularConfirmed()
     {
@@ -67,6 +87,10 @@ public class CustomerRepairRequestsTest
         Assert.assertEquals(2, view.getCurrentState());
     }
 
+    /**
+     * Ελεγχός ότι όταν επιλέγουμε ένα συγκεκριμένο Ολοκληρωμένο repairRequest το βρίσκετε ορθά
+     * και παρέχετε η πληροφορία γι' αυτό
+     */
     @Test
     public void clickedParticularCompleted()
     {
@@ -76,6 +100,9 @@ public class CustomerRepairRequestsTest
         Assert.assertEquals(3, view.getCurrentState());
     }
 
+    /**
+     * Έλεγχος ότι όταν επιλέγετε τη σελίδα τροποποίσης στοιχείων γίνεται μεταφορά σε αυτήν
+     */
     @Test
     public void clickedEditPage()
     {
@@ -83,6 +110,9 @@ public class CustomerRepairRequestsTest
         Assert.assertTrue(view.getPressEdit());
     }
 
+    /**
+     * Έλεγχος ότι όταν επιλέγετε τη σελίδα αναζήτησης γίνεται μεταφορά σε αυτήν
+     */
     @Test
     public void clickedSearch()
     {
@@ -90,6 +120,10 @@ public class CustomerRepairRequestsTest
         Assert.assertTrue(view.isPressSearch());
     }
 
+    /**
+     * Έλεγχος ότι δεν μπορεί να γίνει επιλογή κενού Μη επιβεβαιωμένου Αιτήματος Επισκευής
+     * (Για κάλυψη πιθανότητας σφάλματος του συστήματος)
+     */
     @Test
     public void testError1()
     {
@@ -97,6 +131,10 @@ public class CustomerRepairRequestsTest
         Assert.assertTrue(view.isError());
     }
 
+    /**
+     * Έλεγχος ότι δεν μπορεί να γίνει επιλογή κενού Επιβεβαιωμένου Αιτήματος Επισκευής
+     * (Για κάλυψη πιθανότητας σφάλματος του συστήματος)
+     */
     @Test
     public void testError2()
     {
@@ -104,6 +142,10 @@ public class CustomerRepairRequestsTest
         Assert.assertTrue(view.isError());
     }
 
+    /**
+     * Έλεγχος ότι δεν μπορεί να γίνει επιλογή κενού Ολοκληρωμένου Αιτήματος Επισκευής
+     * (Για κάλυψη πιθανότητας σφάλματος του συστήματος)
+     */
     @Test
     public void testError3()
     {

@@ -18,7 +18,14 @@ public class Customer extends User
     }
 
     /**
-     * Costumer's constructor
+     *  Costumer's constructor
+     * @param name  Costumer's name
+     * @param surname  Costumer's surname
+     * @param phoneNumber  Costumer's phone number
+     * @param email  Costumer's email
+     * @param bankAccount  Costumer's bankAccount
+     * @param username  Costumer's username
+     * @param password  Costumer's password
      */
     public Customer(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password)
     {
@@ -26,6 +33,10 @@ public class Customer extends User
         requests = new HashSet<>();
     }
 
+    /**
+     * add a new request for the customer
+     * @param request Customer's new request
+     */
     public void addRequest(RepairRequest request)
     {
         if (request == null)
@@ -35,6 +46,10 @@ public class Customer extends User
         requests.add(request);
     }
 
+    /**
+     * return repair requests
+     * @return set with customer's repair requests
+     */
     public Set<RepairRequest> getRequests()
     {
         return requests;

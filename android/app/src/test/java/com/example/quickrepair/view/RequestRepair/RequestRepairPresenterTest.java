@@ -32,6 +32,9 @@ public class RequestRepairPresenterTest {
     CustomerDAO customerDAO;
     RepairRequestDAO repairRequestDAO;
 
+    /**
+     * Sets up the tests by creating a presenter with some preset values
+     */
     @Before
     public void setUp(){
         Initializer initializer = new MemoryInitializer();
@@ -53,6 +56,10 @@ public class RequestRepairPresenterTest {
 
 
     }
+
+    /**
+     * Tests  the presenter by simulating an execution where the user inputs correct values
+     */
     @Test
     public void normalExecution(){
         presenter.onStart();
@@ -85,6 +92,10 @@ public class RequestRepairPresenterTest {
         }
         Assert.assertTrue(found);
     }
+
+    /**
+     * Tests the case where a user inputs a badly formatted address
+     */
     @Test
     public void invalidAddress(){
         presenter.onStart();
@@ -95,6 +106,9 @@ public class RequestRepairPresenterTest {
         Assert.assertNotNull(stub.errorMessage);
     }
 
+    /**
+     * Tests the case where the user inputs a time which is not valid
+     */
     @Test
     public void invalidTime(){
         presenter.onStart();
@@ -104,6 +118,10 @@ public class RequestRepairPresenterTest {
         presenter.requestRepair();
         Assert.assertNotNull(stub.errorMessage);
     }
+    /**
+     * Tests the case where the user inputs a time which is not within the available hour ranges
+     * of the technician
+     */
     @Test
     public void timeNotWithinGap(){
         presenter.onStart();

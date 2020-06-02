@@ -122,6 +122,10 @@ public class Job
         this.uid = uid;
     }
 
+    /**
+     * add a new repair request
+     * @param repairRequest repair request that will be added
+     */
     public void addRepairRequest(RepairRequest repairRequest)
     {
         if (repairRequest == null) throw new NullPointerException();
@@ -130,6 +134,10 @@ public class Job
         repairRequests.add(repairRequest);
     }
 
+    /**
+     * remove given repair request
+     * @param repairRequest repair request that will be removed
+     */
     public void removeRepairRequest(RepairRequest repairRequest)
     {
         if (repairRequest == null) throw new NullPointerException();
@@ -137,6 +145,10 @@ public class Job
         repairRequests.remove(repairRequest);
     }
 
+    /**
+     * return repair requests
+     * @return repair requests
+     */
     public ArrayList<RepairRequest> getRepairRequests()
     {
         return repairRequests;

@@ -48,11 +48,19 @@ public class RequestRepairPresenter
         this.repairRequestDAO = repairRequestDAO;
     }
 
+    /**
+     * Sets the view for the presenter
+     * @param view the view
+     */
     public void setView(RequestRepairView view)
     {
         this.view = view;
     }
 
+    /**
+     * Sets the technician id for whom the repair request will take place
+     * @param technicianId the technician's id
+     */
     public void setTechnicianId(int technicianId)
     {
         selectedTechnician = technicianDAO.find(technicianId);
@@ -65,6 +73,7 @@ public class RequestRepairPresenter
 
     /**
      * Sets the jobType Id the customer requests a repair for
+     * @param jobTypeId the id of the jobtype
      */
     public void setJobTypeId(int jobTypeId)
     {
@@ -73,6 +82,7 @@ public class RequestRepairPresenter
 
     /**
      * Sets the current user logged in. To request a repair the user must be a customer
+     * @param userId The Id of the logged in customer
      */
     public void setLoggedInUser(int userId)
     {
@@ -81,6 +91,9 @@ public class RequestRepairPresenter
 
     /**
      * Sets the date the repair request will take place
+     * @param day the day
+     * @param year  the year
+     * @param month the month
      */
     public void setDate(int year, int month, int day)
     {
@@ -94,6 +107,7 @@ public class RequestRepairPresenter
 
     /**
      * Sets the comments from the customer to the repairRequest
+     * @param comments  the comments from the customer
      */
     public void setComments(String comments)
     {
@@ -104,6 +118,7 @@ public class RequestRepairPresenter
 
     /**
      * Sets the address for the repair Request
+     * @param  address the address in the form <i>StreetName</i> , <i>Number</i>
      */
     public void setAddress(String address)
     {
@@ -121,6 +136,8 @@ public class RequestRepairPresenter
 
     /**
      * Sets the time for the repair request
+     * @param hourOfDay  the hour of the day [0 ,23]
+     * @param minutes the minutes [0, 59]
      */
     public void setTime(int hourOfDay, int minutes)
     {
@@ -185,6 +202,9 @@ public class RequestRepairPresenter
 
     /**
      * returns the job the techcnician has for the job type
+     * @param technician the technician
+     * @param jobType the job type of the returned job
+     * @return the job of the jobtype for the technician
      */
     private Job getJobFromJobType(Technician technician, JobType jobType)
     {
@@ -201,13 +221,16 @@ public class RequestRepairPresenter
     /**
      * Returns true if the input time is between the range of the calendars (taking into consideration
      * only the hourofday and minutes)
+     * @param hourOfDay the hour of the day
+     * @param minutes the minutes
+     * @param  start the gregorian calendar containing the start hour and minutes
+     * @param  end the gregorian calendar containing the end hour and minutes
      */
     private boolean timeInRange(int hourOfDay, int minutes, GregorianCalendar start, GregorianCalendar end)
     {
         int year = start.get(Calendar.YEAR);
         int month = start.get(Calendar.MONTH);
         int dayOfMonth = start.get(Calendar.DAY_OF_MONTH);
-
 
         GregorianCalendar target = new GregorianCalendar(year, month, dayOfMonth, hourOfDay, minutes);
         //Using gregorianCalendar's built in compare to test if the target is between the range
@@ -219,6 +242,13 @@ public class RequestRepairPresenter
 
     /**
      * Checks if the technician is available on the certain time
+     * @param hourOfDay the hour of day
+     * @param minutes the minutes
+     * @param technician the technician to check if he is available
+     * @param year the year
+     * @param month the month
+     * @param dayOfMonth the day of the month
+     * @return true if the technician is available on the given date and time
      */
     private boolean timeInRange(int hourOfDay, int minutes, Technician technician, int year, int month, int dayOfMonth)
     {
@@ -238,6 +268,8 @@ public class RequestRepairPresenter
 
     /**
      * Creates a list to print from the hour ranges of the technician
+     * @param technician the technician
+     * @return a list containing string representations of the technicians hour ranges
      */
     List<String> createListFromHourRanges(Technician technician)
     {

@@ -11,25 +11,44 @@ public class Specialty
 
     private Set<JobType> jobTypes = new HashSet<>();
 
+    /**
+     * Empty Constructor
+     */
     public Specialty()
     {
     }
 
+    /**
+     * Specialty's Constructor
+     * @param name Specialty's name
+     */
     public Specialty(String name)
     {
         setName(name);
     }
-    
+
+    /**
+     * return specialty's name
+     * @return Specialty's name
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * return job types for this specialty
+     * @return
+     */
     public Set<JobType> getJobTypes()
     {
         return new HashSet<>(jobTypes);
     }
 
+    /**
+     * set specialty's name
+     * @param name specialty's name
+     */
     public void setName(String name)
     {
         if (name == null) throw new NullPointerException("Speciality name can not be null.");
