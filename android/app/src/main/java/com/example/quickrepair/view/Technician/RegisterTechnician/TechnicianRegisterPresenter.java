@@ -74,6 +74,8 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
         try
         {
             technician.setTechnicianInfo(name, surname, phoneNumber, email, accountNumber, username);
+            technician.setPassword(password);
+            technician.setAFM(AFM);
         }
         catch (Exception e)
         {
@@ -91,14 +93,10 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
             return;
         }
 
-        technician.setPassword(password);
-
         if (technician.getSpecialty() == null || technician.getSpecialty().getUid() != specialityID)
         {
             technician.setSpecialty(speciality);
         }
-
-        technician.setAFM(AFM);
 
         if (technician.getUid() == 0)
         {
