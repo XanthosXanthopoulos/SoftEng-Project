@@ -1,6 +1,5 @@
 package com.example.quickrepair.view.Technician.RegisterTechnician;
 
-import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.view.Base.BaseView;
 
 import java.util.List;

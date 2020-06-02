@@ -2,7 +2,6 @@ package com.example.quickrepair.view.Technician.AddEditJob;
 
 import com.example.quickrepair.dao.Initializer;
 import com.example.quickrepair.domain.Job;
-import com.example.quickrepair.memorydao.JobTypeDAOMemory;
 import com.example.quickrepair.memorydao.MemoryInitializer;
 import com.example.quickrepair.memorydao.TechnicianDAOMemory;
 

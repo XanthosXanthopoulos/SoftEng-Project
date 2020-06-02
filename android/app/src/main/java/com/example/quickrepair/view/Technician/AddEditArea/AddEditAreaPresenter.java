@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 public class AddEditAreaPresenter extends BasePresenter<AddEditAreaView>
 {
-    TechnicianDAO technicianDAO;
-    AreaDAO areaDAO;
+    private TechnicianDAO technicianDAO;
+    private AreaDAO areaDAO;
 
-    Technician technician;
-    ArrayList<String> areas;
+    private Technician technician;
+    private ArrayList<String> areas;
 
     /**
      * Set the technician DAO for the presenter.
