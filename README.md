@@ -195,6 +195,30 @@ EK8 | Δεν μπορεί να διαγραφεί λογαριασμός πελ�
 
 ![Customer completed repair requests](design/mvp_TechnicianUnConfirmedRepairRequest.png)
 
+#### Διάγραμμα κλάσεων για το login
+
+![Customer completed repair requests](design/mvp_login.png)
+
+#### Διάγραμμα κλάσεων για την εγγραφή τεχνικού
+
+![Customer completed repair requests](design/mvp_registerTechnician.png)
+
+#### Διάγραμμα κλάσεων για την εγγραφή πελάτη
+
+![Customer completed repair requests](design/mvp_registerCustomer.png)
+
+##### Διαγραμμα κλάσεων για προσθήκη η τροποποίηση περιοχής τεχνικού
+
+![Complete](design/mvp_addEditArea.png)
+
+##### Διαγραμμα κλάσεων για προσθήκη η τροποποίηση εργασίας τεχνικού
+
+![Complete](design/mvp_addEditJob.png)
+
+##### Διαγραμμα κλάσεων για προσθήκη η τροποποίηση ωραρίου τεχνικού
+
+![Complete](design/mvp_addEditSchedule.png)
+
 ### Διαγράμματα ακολουθίας
 
 #### Διαγράμματα ακολουθίας για σημαντικές μεθόδους του πεδίου
@@ -276,4 +300,16 @@ EK8 | Δεν μπορεί να διαγραφεί λογαριασμός πελ�
 ##### searchTechnicians στο SearchTechnician
 
 ![Complete](design/mvp_sq_searchTechnicians.png)
+
+##### customerRegister στο CustomerRegister
+
+![Complete](design/sq_customerRegister.png)
+
+##### technicianRegister στο TechnicianRegister
+
+![Complete](design/sq_technicianRegister.png)
+
+##### login στο Login
+
+![Complete](design/sq_login.png)
 
