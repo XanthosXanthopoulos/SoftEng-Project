@@ -62,6 +62,7 @@ public class RepairRequest implements Comparable<RepairRequest>
         {
             throw new IllegalArgumentException("Null conductionDate");
         }
+
         this.conductionDate = conductionDate;
     }
 
@@ -193,7 +194,7 @@ public class RepairRequest implements Comparable<RepairRequest>
      */
     public GregorianCalendar getCreationDate()
     {
-        return creationDate;
+        return (GregorianCalendar) creationDate.clone();
     }
 
     /**
@@ -202,7 +203,7 @@ public class RepairRequest implements Comparable<RepairRequest>
      */
     public GregorianCalendar getConductionDate()
     {
-        return conductionDate;
+        return (GregorianCalendar) conductionDate.clone();
     }
 
     /**

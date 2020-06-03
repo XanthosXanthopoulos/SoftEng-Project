@@ -19,6 +19,7 @@ public class User
     private String bankAccount;
     private String username;
     private String password;
+    private NotificationMethod notificationMethod;
 
     public User()
     {
@@ -141,5 +142,22 @@ public class User
         int result = Objects.hash(name, surname, phoneNumber, email, bankAccount, username);
         result = 31 * result + Objects.hashCode(password);
         return result;
+    }
+
+    public NotificationMethod getNotificationMethod()
+    {
+        return notificationMethod;
+    }
+
+    public void setNotificationMethod(NotificationMethod notificationMethod)
+    {
+        this.notificationMethod = notificationMethod;
+    }
+
+    public enum NotificationMethod
+    {
+        EMAIL,
+
+        SMS
     }
 }

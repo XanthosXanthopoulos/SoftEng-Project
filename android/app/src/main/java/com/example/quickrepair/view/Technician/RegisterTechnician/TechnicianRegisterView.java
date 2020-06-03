@@ -70,6 +70,13 @@ public interface TechnicianRegisterView extends BaseView
     void setSpecialityID(int specialityID);
 
     /**
+     * Set the notification method of the user trying to register or edit.
+     *
+     * @param notificationMethodID The notification method id of the technician.
+     */
+    void setNotificationMethodID(int notificationMethodID);
+
+    /**
      * Get the name of the technician trying to register or edit.
      *
      * @return The name of the technician trying to register or edit.
@@ -133,12 +140,27 @@ public interface TechnicianRegisterView extends BaseView
     Integer getSpecialityID();
 
     /**
+     *  Get the notification method id of the technician trying to register or edit.
+     *
+     * @return The notification method id of the technician trying to register or edit.
+     */
+    Integer getNotificationMethodID();
+
+    /**
      * Populate the list holding all available specialities.
      *
      * @param specialityList The list of specialities.
      * @param defaultName A default speciality placeholder.
      */
     void setSpecialityList(List<String> specialityList, String defaultName);
+
+    /**
+     * Populate the list holding all available notification methods.
+     *
+     * @param notificationMethods The list of notification methods.
+     * @param defaultName A default notification placeholder.
+     */
+    void setNotificationList(List<String> notificationMethods, String defaultName);
 
     /**
      * Navigate a valid technician to the technician schedule page.

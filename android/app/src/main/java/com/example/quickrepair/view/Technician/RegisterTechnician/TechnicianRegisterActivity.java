@@ -56,7 +56,7 @@ public class TechnicianRegisterActivity extends BaseActivity<TechnicianRegisterV
             @Override
             public void onClick(View v)
             {
-                presenter.registerTechnician(getName(), getSurname(), getPhoneNumber(), getEmail(), getAFM(), getAccountNumber(), getUsername(), getPassword(), getSpecialityID());
+                presenter.registerTechnician(getName(), getSurname(), getPhoneNumber(), getEmail(), getAFM(), getAccountNumber(), getUsername(), getPassword(), getSpecialityID(), getNotificationMethodID());
             }
         });
     }
@@ -172,6 +172,17 @@ public class TechnicianRegisterActivity extends BaseActivity<TechnicianRegisterV
     }
 
     /**
+     * Set the notification method of the user trying to register or edit.
+     *
+     * @param specialityID The notification method id of the technician.
+     */
+    @Override
+    public void setNotificationMethodID(int specialityID)
+    {
+        ((Spinner) findViewById(R.id.NotificationMethod)).setSelection(specialityID);
+    }
+
+    /**
      * Get the name of the technician trying to register or edit.
      *
      * @return The name of the technician trying to register or edit.
@@ -271,6 +282,17 @@ public class TechnicianRegisterActivity extends BaseActivity<TechnicianRegisterV
     }
 
     /**
+     * Get the notification method id of the technician trying to register or edit.
+     *
+     * @return The notification method id of the technician trying to register or edit.
+     */
+    @Override
+    public Integer getNotificationMethodID()
+    {
+        return ((Spinner) findViewById(R.id.NotificationMethod)).getSelectedItemPosition();
+    }
+
+    /**
      * Populate the list holding all available specialities.
      *
      * @param specialityList The list of specialities.
@@ -284,6 +306,22 @@ public class TechnicianRegisterActivity extends BaseActivity<TechnicianRegisterV
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         ((Spinner) findViewById(R.id.Speciality)).setAdapter(adapter);
+    }
+
+    /**
+     * Populate the list holding all available notification methods.
+     *
+     * @param notificationMethods The list of notification methods.
+     * @param defaultName         A default notification placeholder.
+     */
+    @Override
+    public void setNotificationList(List<String> notificationMethods, String defaultName)
+    {
+        notificationMethods.add(0, defaultName);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, notificationMethods);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ((Spinner) findViewById(R.id.NotificationMethod)).setAdapter(adapter);
     }
 
     /**

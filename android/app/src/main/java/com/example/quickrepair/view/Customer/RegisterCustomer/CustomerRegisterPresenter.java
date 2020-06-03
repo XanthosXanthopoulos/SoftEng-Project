@@ -26,7 +26,7 @@ public class CustomerRegisterPresenter extends BasePresenter<CustomerRegisterVie
      */
     void registerCustomer(String name, String surname, String phoneNumber, String email, String accountNumber, String username, String password)
     {
-        if (customer == null)
+        if (customer == null || customer.getUid() == 0)
         {
 
             for (Technician technician : technicianDAO.findAll())
@@ -58,7 +58,6 @@ public class CustomerRegisterPresenter extends BasePresenter<CustomerRegisterVie
         catch (Exception e)
         {
             view.showErrorMessage("Invalid value", e.getMessage());
-            customer = null;
             return;
         }
 

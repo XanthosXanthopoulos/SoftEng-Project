@@ -15,6 +15,7 @@ public class TechnicianRegisterViewStub implements TechnicianRegisterView
     private String password;
     private int technicianID;
     private int specialityID;
+    private int notificationMethodID;
     private ArrayList<String> specialities;
     private String errorTitle;
     private String errorMessage;
@@ -73,6 +74,17 @@ public class TechnicianRegisterViewStub implements TechnicianRegisterView
         this.specialityID = specialityID;
     }
 
+    /**
+     * Set the notification method of the user trying to register or edit.
+     *
+     * @param notificationMethodID The notification method id of the technician.
+     */
+    @Override
+    public void setNotificationMethodID(int notificationMethodID)
+    {
+        this.notificationMethodID = notificationMethodID;
+    }
+
     @Override
     public String getName()
     {
@@ -127,11 +139,34 @@ public class TechnicianRegisterViewStub implements TechnicianRegisterView
         return specialityID;
     }
 
+    /**
+     * Get the notification method id of the technician trying to register or edit.
+     *
+     * @return The notification method id of the technician trying to register or edit.
+     */
+    @Override
+    public Integer getNotificationMethodID()
+    {
+        return notificationMethodID;
+    }
+
     @Override
     public void setSpecialityList(List<String> specialityList, String defaultName)
     {
         specialities = new ArrayList<>(specialityList);
         specialities.add(0, defaultName);
+    }
+
+    /**
+     * Populate the list holding all available notification methods.
+     *
+     * @param notificationMethods The list of notification methods.
+     * @param defaultName         A default notification placeholder.
+     */
+    @Override
+    public void setNotificationList(List<String> notificationMethods, String defaultName)
+    {
+
     }
 
     @Override

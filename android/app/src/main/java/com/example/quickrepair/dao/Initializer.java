@@ -13,6 +13,7 @@ import com.example.quickrepair.domain.Repair;
 import com.example.quickrepair.domain.RepairRequest;
 import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.domain.User;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -125,6 +126,7 @@ public abstract class Initializer {
 
         Technician technicianTmp;
         technicianTmp = new Technician("ΓΙΑΝΝΗΣ", "ΑΓΓΕΛΪΔΗΣ", "1010101010", "aggelidisgiannis@repair.gr", "0034560101011234567890","aggelidis","123", getSpecialtyDAO().find(1),"2122772");
+        technicianTmp.setNotificationMethod(User.NotificationMethod.EMAIL);
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Agia Varvara");
         technicianTmp.addArea("Alimos");
@@ -140,6 +142,7 @@ public abstract class Initializer {
         technicianDAO.save(technicianTmp);
 
         technicianTmp = new Technician("ΠΑΝΑΓΙΩΤΗΣ", "ΖΑΧΟΣ", "1010101010", "zaxosohlktrologos@repair.gr", "0034560101011234567890","zaxos","123", getSpecialtyDAO().find(1),"212272");
+        technicianTmp.setNotificationMethod(User.NotificationMethod.SMS);
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Acharnes");
         technicianTmp.addArea("Alimos");
@@ -155,6 +158,7 @@ public abstract class Initializer {
         technicianDAO.save(technicianTmp);
 
         technicianTmp = new Technician("ΔΗΜΗΤΡΗΣ", "ΔΑΜΑΣΚΗΝΟΣ", "1010101010", "damaskhnos@repair.gr", "0034560101011234567890","damaskhnos","123", getSpecialtyDAO().find(2),"210072");
+        technicianTmp.setNotificationMethod(User.NotificationMethod.EMAIL);
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Amaliada");
         technicianTmp.addArea("Alimos");
@@ -170,6 +174,7 @@ public abstract class Initializer {
         technicianDAO.save(technicianTmp);
 
         technicianTmp = new Technician("ΗΛΙΑΣ", "ΑΡΓΥΡΙΑΔΗΣ", "7500830008", "hlias_argiriadis@repair.gr", "0034560101011234567890","argyriadis","123", getSpecialtyDAO().find(2),"200072");
+        technicianTmp.setNotificationMethod(User.NotificationMethod.EMAIL);
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Acharnes");
         technicianTmp.addArea("Alimos");
@@ -185,6 +190,7 @@ public abstract class Initializer {
         technicianDAO.save(technicianTmp);
 
         technicianTmp = new Technician("ΝΙΚΟΣ", "ΣΜΥΡΝΙΟΥΔΗΣ", "7599030003", "smyrnioudis@repair.gr", "0034560101011234567890","smyrnioudis","123", getSpecialtyDAO().find(3),"211002");
+        technicianTmp.setNotificationMethod(User.NotificationMethod.SMS);
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Artemida");
         technicianTmp.addArea("Aspropyrgos");
@@ -200,6 +206,7 @@ public abstract class Initializer {
         technicianDAO.save(technicianTmp);
 
         technicianTmp = new Technician("ΞΑΝΘΟΣ", "ΞΑΝΘΟΠΟΥΛΟΣ", "7599030903", "xanthopoulos@repair.gr", "0034560101011234567890","xanthopoulos","123", getSpecialtyDAO().find(3),"211202");
+        technicianTmp.setNotificationMethod(User.NotificationMethod.SMS);
         technicianTmp.setUid(technicianDAO.nextId());
         technicianTmp.addArea("Artemida");
         technicianTmp.addArea("Aspropyrgos");
@@ -317,6 +324,11 @@ public abstract class Initializer {
         repairRequest.setUid(repairRequestDAO.nextId());
         repairRequestDAO.save(repairRequest);
         repairRequestDAO.find(9).reject();
+
+        //uncormirmed another technician
+        repairRequest = customerDAO.find(1).requestRepair(gregorianCalendar1, gregorianCalendar2, jobDAO.find(4),"Έχω 6 χαλασμένες λάμπες. Είναι επίγον", address1);
+        repairRequest.setUid(repairRequestDAO.nextId());
+        repairRequestDAO.save(repairRequest);
 
 
         RepairDAO repairDAO = getRepairDAO();

@@ -6,6 +6,7 @@ import com.example.quickrepair.dao.TechnicianDAO;
 import com.example.quickrepair.domain.Customer;
 import com.example.quickrepair.domain.Specialty;
 import com.example.quickrepair.domain.Technician;
+import com.example.quickrepair.domain.User;
 import com.example.quickrepair.view.Base.BasePresenter;
 
 import java.util.ArrayList;
@@ -41,9 +42,9 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
      * @param password The password of the technician.
      * @param specialityID The speciality id of the technician.
      */
-    void registerTechnician(String name, String surname, String phoneNumber, String email, String AFM, String accountNumber, String username, String password, int specialityID)
+    void registerTechnician(String name, String surname, String phoneNumber, String email, String AFM, String accountNumber, String username, String password, int specialityID, int notificationMethodID)
     {
-        if (technician == null)
+        if (technician == null || technician.getUid() == 0)
         {
             for (Technician technician : technicianDAO.findAll())
             {
@@ -80,7 +81,6 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
         catch (Exception e)
         {
             view.showErrorMessage("Invalid value", e.getMessage());
-            technician = null;
             return;
         }
 
@@ -89,7 +89,6 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
         if (speciality == null)
         {
             view.showErrorMessage("No speciality selected", "You must choose a speciality.");
-            technician = null;
             return;
         }
 
@@ -97,6 +96,14 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
         {
             technician.setSpecialty(speciality);
         }
+
+        if (notificationMethodID < 1)
+        {
+            view.showErrorMessage("No notification methods selected", "You must choose a notification method.");
+            return;
+        }
+
+        technician.setNotificationMethod(User.NotificationMethod.values()[notificationMethodID - 1]);
 
         if (technician.getUid() == 0)
         {
@@ -149,6 +156,13 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
         }
         view.setSpecialityList(specialities, "Επιλέξτε ειδικότητα");
 
+        ArrayList<String> notificationMethods = new ArrayList<>();
+        for (User.NotificationMethod method : User.NotificationMethod.values())
+        {
+            notificationMethods.add(method.name().trim());
+        }
+        view.setNotificationList(notificationMethods, "Επιλέξτε τρόπο ενημέρωσης");
+
         if (technician != null)
         {
             view.setName(technician.getName());
@@ -160,6 +174,7 @@ public class TechnicianRegisterPresenter extends BasePresenter<TechnicianRegiste
             view.setPassword(technician.getPassword());
             view.setAFM(technician.getAFM());
             view.setSpecialityID(technician.getSpecialty().getUid());
+            view.setNotificationMethodID(technician.getNotificationMethod().ordinal() + 1);
         }
     }
 }

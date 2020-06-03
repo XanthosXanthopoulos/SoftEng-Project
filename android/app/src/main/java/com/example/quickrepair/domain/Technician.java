@@ -102,6 +102,7 @@ public class Technician extends User
 
     /**
      * get Schedule for the given day
+     *
      * @param day the day
      * @return Schedule for this day
      */
@@ -112,6 +113,7 @@ public class Technician extends User
 
     /**
      * set AFM
+     *
      * @param AFM The AFM
      */
     public void setAFM(String AFM)
@@ -122,6 +124,7 @@ public class Technician extends User
 
     /**
      * return all jobs
+     *
      * @return all Jobs
      */
     public Set<Job> getJobs()
@@ -131,6 +134,7 @@ public class Technician extends User
 
     /**
      * return specialty
+     *
      * @return The Specialty
      */
     public Specialty getSpecialty()
@@ -140,6 +144,7 @@ public class Technician extends User
 
     /**
      * return areas that this technician works
+     *
      * @return Areas
      */
     public HashSet<String> getAreas()
@@ -149,6 +154,7 @@ public class Technician extends User
 
     /**
      * return AFM
+     *
      * @return The AFM
      */
     public String getAFM()

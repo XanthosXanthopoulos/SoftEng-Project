@@ -15,6 +15,7 @@ public class Customer extends User
     public Customer()
     {
         requests = new HashSet<>();
+        setNotificationMethod(NotificationMethod.EMAIL);
     }
 
     /**
