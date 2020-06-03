@@ -6,7 +6,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>686</x>
-      <y>315</y>
+      <y>259</y>
       <w>252</w>
       <h>63</h>
     </coordinates>
@@ -21,7 +21,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>1022</x>
-      <y>301</y>
+      <y>245</y>
       <w>147</w>
       <h>35</h>
     </coordinates>
@@ -33,7 +33,7 @@ TechnicianDAO</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>742</x>
-      <y>532</y>
+      <y>476</y>
       <w>203</w>
       <h>91</h>
     </coordinates>
@@ -51,7 +51,7 @@ BasePresenter
     <id>Relation</id>
     <coordinates>
       <x>819</x>
-      <y>448</y>
+      <y>392</y>
       <w>112</w>
       <h>105</h>
     </coordinates>
@@ -63,7 +63,7 @@ BasePresenter
     <id>UMLClass</id>
     <coordinates>
       <x>1022</x>
-      <y>371</y>
+      <y>315</y>
       <w>147</w>
       <h>35</h>
     </coordinates>
@@ -75,7 +75,7 @@ CustomerDAO</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>931</x>
-      <y>308</y>
+      <y>252</y>
       <w>105</w>
       <h>49</h>
     </coordinates>
@@ -88,7 +88,7 @@ has &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>931</x>
-      <y>357</y>
+      <y>301</y>
       <w>105</w>
       <h>49</h>
     </coordinates>
@@ -101,7 +101,7 @@ has &gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>364</x>
-      <y>56</y>
+      <y>0</y>
       <w>203</w>
       <h>98</h>
     </coordinates>
@@ -120,7 +120,7 @@ BaseViewModel
     <id>UMLClass</id>
     <coordinates>
       <x>322</x>
-      <y>336</y>
+      <y>280</y>
       <w>252</w>
       <h>35</h>
     </coordinates>
@@ -133,7 +133,7 @@ BaseViewModel
     <id>Relation</id>
     <coordinates>
       <x>448</x>
-      <y>147</y>
+      <y>91</y>
       <w>133</w>
       <h>105</h>
     </coordinates>
@@ -145,7 +145,7 @@ BaseViewModel
     <id>Relation</id>
     <coordinates>
       <x>567</x>
-      <y>336</y>
+      <y>280</y>
       <w>133</w>
       <h>35</h>
     </coordinates>
@@ -158,7 +158,7 @@ has &gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>329</x>
-      <y>532</y>
+      <y>476</y>
       <w>252</w>
       <h>105</h>
     </coordinates>
@@ -177,7 +177,7 @@ has &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>133</x>
-      <y>497</y>
+      <y>441</y>
       <w>133</w>
       <h>91</h>
     </coordinates>
@@ -189,7 +189,7 @@ has &gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>7</x>
-      <y>406</y>
+      <y>350</y>
       <w>294</w>
       <h>98</h>
     </coordinates>
@@ -208,7 +208,7 @@ BaseActivity
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>574</y>
+      <y>518</y>
       <w>252</w>
       <h>21</h>
     </coordinates>
@@ -219,7 +219,7 @@ BaseActivity
     <id>Relation</id>
     <coordinates>
       <x>245</x>
-      <y>574</y>
+      <y>518</y>
       <w>98</w>
       <h>21</h>
     </coordinates>
@@ -230,7 +230,7 @@ BaseActivity
     <id>Relation</id>
     <coordinates>
       <x>448</x>
-      <y>630</y>
+      <y>574</y>
       <w>21</w>
       <h>98</h>
     </coordinates>
@@ -241,7 +241,7 @@ BaseActivity
     <id>UMLClass</id>
     <coordinates>
       <x>329</x>
-      <y>714</y>
+      <y>658</y>
       <w>252</w>
       <h>70</h>
     </coordinates>
@@ -257,7 +257,7 @@ BaseActivity
     <id>UMLClass</id>
     <coordinates>
       <x>308</x>
-      <y>847</y>
+      <y>791</y>
       <w>294</w>
       <h>49</h>
     </coordinates>
@@ -271,7 +271,7 @@ BaseView
     <id>Relation</id>
     <coordinates>
       <x>448</x>
-      <y>777</y>
+      <y>721</y>
       <w>21</w>
       <h>84</h>
     </coordinates>
@@ -282,7 +282,7 @@ BaseView
     <id>Relation</id>
     <coordinates>
       <x>448</x>
-      <y>364</y>
+      <y>308</y>
       <w>49</w>
       <h>182</h>
     </coordinates>
@@ -295,7 +295,7 @@ has &gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>322</x>
-      <y>238</y>
+      <y>182</y>
       <w>252</w>
       <h>21</h>
     </coordinates>
@@ -306,7 +306,7 @@ has &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>448</x>
-      <y>252</y>
+      <y>196</y>
       <w>21</w>
       <h>98</h>
     </coordinates>
@@ -317,7 +317,7 @@ has &gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>693</x>
-      <y>434</y>
+      <y>378</y>
       <w>252</w>
       <h>21</h>
     </coordinates>
@@ -328,11 +328,24 @@ has &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>819</x>
-      <y>371</y>
+      <y>315</y>
       <w>21</w>
       <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>574</x>
+      <y>301</y>
+      <w>126</w>
+      <h>413</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+&lt; has</panel_attributes>
+    <additional_attributes>10.0;560.0;110.0;560.0;110.0;10.0;160.0;10.0</additional_attributes>
   </element>
 </diagram>
