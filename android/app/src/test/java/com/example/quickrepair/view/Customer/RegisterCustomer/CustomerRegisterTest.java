@@ -75,7 +75,6 @@ public class CustomerRegisterTest
 
         presenter.registerCustomer("", "Doe", "1234567890", "example@example.com", "1234567890123456789012", "joe", "123");
         Assert.assertEquals(view.getErrorTitle(), "Invalid value");
-        Assert.assertNull(presenter.customer);
     }
 
     /**

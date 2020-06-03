@@ -38,7 +38,7 @@ public class CustomerRepairRequestsTest
     public void searchForUnconfirmedRepairRequests()
     {
         ArrayList<RepairRequest> repairRequests = presenter.searchRepairRequests(1, RepairRequest.Status.UNCONFIRMED);
-        Assert.assertEquals(2, repairRequests.size());
+        Assert.assertEquals(3, repairRequests.size());
     }
 
     /**
