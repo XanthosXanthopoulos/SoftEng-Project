@@ -124,12 +124,6 @@ Actor | Περιγραφή
 
 ![Class diagram](requirements/diagrams/class-diagram.png)
 
-### Διάγραμμα κλάσεων
-
-![Full Class diagram](requirements/diagrams/full-class-diagram.png)
-
-
-
 ### Συμπεριφορές
 
 #### Εγγραφή τεχνικού
@@ -157,16 +151,165 @@ EK8 | Δεν μπορεί να διαγραφεί λογαριασμός πελ�
 
 ![Domain Coverage](requirements/coverage-reports/domain-coverage.png)
 
-## Διαγράμματα ακολουθίας για την λογική του πεδίου
+## Σχεδιασμός έργου
 
-### Pay
+### Διαγράμματα κλάσεων
+
+#### Διάγραμμα κλάσεων πεδίου
+
+![Full Class diagram](design/full-class-diagram.png)
+
+#### Διάγραμμα κλάσεων για την προβολή ολοκληρωμένων ραντεβού του πελάτη 
+
+![Customer completed repair requests](design/mvp_CustomerCompletedRepairRequest.png)
+
+#### Διάγραμμα κλάσεων για την προβολή επιβεβαιωμένων ραντεβού του πελάτη 
+
+![Customer completed repair requests](design/mvp_CustomerConfirmedRepairRequest.png)
+
+#### Διάγραμμα κλάσεων για την προβολή μη επιβεβαιωμέων ραντεβού του πελάτη 
+
+![Customer completed repair requests](design/mvp_CustomerUnconfirmedRepairRequest.png)
+
+#### Διάγραμμα κλάσεων για την προβολή όλων των ραντεβού του πελάτη 
+
+![Customer completed repair requests](design/mvp_RepairRequestsCustomer.png)
+
+#### Διάγραμμα κλάσεων για την δημιουργια ραντεβού
+
+![Customer completed repair requests](design/mvp_requestRepair.png)
+
+#### Διάγραμμα κλάσεων για την αναζήτηση τεχνικού
+
+![Customer completed repair requests](design/mvp_searchTechnicians.png)
+
+#### Διάγραμμα κλάσεων για την προβολή των ολοκληρωμένων ραντεβού του τεχνικού
+
+![Customer completed repair requests](design/mvp_TechnicianCompletedRepairRequest.png)
+
+#### Διάγραμμα κλάσεων για την προβολή των επιβεβαιωμένων ραντεβού του τεχνικού
+
+![Customer completed repair requests](design/mvp_TechnicianConfirmedRepairRequest.png)
+
+#### Διάγραμμα κλάσεων για την προβολή των  μη επιβεβαιωμένων ραντεβού του τεχνικού
+
+![Customer completed repair requests](design/mvp_TechnicianUnconfirmedRepairRequest.png)
+
+#### Διάγραμμα κλάσεων για το login
+
+![Customer completed repair requests](design/mvp_login.png)
+
+#### Διάγραμμα κλάσεων για την εγγραφή τεχνικού
+
+![Customer completed repair requests](design/mvp_registerTechnician.png)
+
+#### Διάγραμμα κλάσεων για την εγγραφή πελάτη
+
+![Customer completed repair requests](design/mvp_registerCustomer.png)
+
+##### Διαγραμμα κλάσεων για προσθήκη η τροποποίηση περιοχής τεχνικού
+
+![Complete](design/mvp_addEditArea.png)
+
+##### Διαγραμμα κλάσεων για προσθήκη η τροποποίηση εργασίας τεχνικού
+
+![Complete](design/mvp_addEditJob.png)
+
+##### Διαγραμμα κλάσεων για προσθήκη η τροποποίηση ωραρίου τεχνικού
+
+![Complete](design/mvp_addEditSchedule.png)
+
+### Διαγράμματα ακολουθίας
+
+#### Διαγράμματα ακολουθίας για σημαντικές μεθόδους του πεδίου
+
+##### Pay
 
 ![sq_pay](requirements/diagrams/sq_pay.png)
 
-### RequestRepair
+##### RequestRepair
 
 ![sq_requestRepair](requirements/diagrams/sq_requestRepair.png)
 
-### GetGaps
+##### GetGaps
 
 ![sq_getGaps](requirements/diagrams/sq_getGaps.png)
+
+#### Διαγράμματα ακολουθίας για μεθόδους των presenter
+
+##### Complete στο TechnicianConfirmedRepairRequest
+
+![Complete](design/seq_complete_TechnicianConfirmedRepairRequest.png)
+
+##### Confirm στο TechnicianUnconfirmedRepairRequest
+
+![Complete](design/seq_confirm_TechnicianUnconfirmedRepairRequest.png)
+
+##### onRepairRequestSelectedCompleted στο CustomerRepairRequests
+
+![Complete](design/seq_onRepairReqestSelectedCompleted_CustomerRepairRequests.png)
+
+##### onRepairRequestSelectedCompleted στο TechnicanRepairRequests
+
+![Complete](design/seq_onRepairReqestSelectedCompleted_TechnicianRepairRequests.png)
+
+##### onRepairRequestSelectedConfirmed στο CustomerRepairRequests
+
+![Complete](design/seq_onRepairReqestSelectedConfirmed_CustomerRepairRequests.png)
+
+##### onRepairRequestSelectedConfirmed στο TechnicianRepairRequests
+
+![Complete](design/seq_onRepairReqestSelectedConfirmed_TechnicianRepairRequests.png)
+
+##### onRepairRequestSelectedUnConfirmed στο TechnicianRepairRequests
+
+![Complete](design/seq_onRepairReqestSelectedUnconfirmed_TechnicianRepairRequests.png)
+
+##### searchRepairRequestData στο CustomerCompletedRepairRequest
+
+![Complete](design/seq_searchRepairRequestData_CustomerCompletedRepairRequest.png)
+
+##### searchRepairRequestData στο CustomerConfirmedRepairRequest
+
+![Complete](design/seq_searchRepairRequestData_CustomerConfirmedRepairRequest.png)
+
+##### searchRepairRequestData στο CustomerUnConfirmedRepairRequest
+
+![Complete](design/seq_searchRepairRequestData_CustomerUnconfirmedRepairRequest.png)
+
+##### searchRepairRequestData στο TechnicianCompletedRepairRequest
+
+![Complete](design/seq_searchRepairRequestData_TechnicianCompletedRepairRequest.png)
+
+##### searchRepairRequestData στο TechnicianConfirmedRepairRequest
+
+![Complete](design/seq_searchRepairRequestData_TechnicianConfirmedRepairRequest.png)
+
+##### searchRepairRequestData στο TechnicianUnConfirmedRepairRequest
+
+![Complete](design/seq_searchRepairRequestData_TechnicianUnconfirmedRepairRequest.png)
+
+##### searchRepairRequests στο TechnicianRepairRequests
+
+![Complete](design/seq_searchRepairRequests_TechnicianRepairRequests.png)
+
+##### requestRepair στο RequestRepair
+
+![Complete](design/mvp_sq_requestRepair.png)
+
+##### searchTechnicians στο SearchTechnician
+
+![Complete](design/mvp_sq_searchTechnicians.png)
+
+##### customerRegister στο CustomerRegister
+
+![Complete](design/sq_customerRegister.png)
+
+##### technicianRegister στο TechnicianRegister
+
+![Complete](design/sq_technicianRegister.png)
+
+##### login στο Login
+
+![Complete](design/sq_login.png)
+
