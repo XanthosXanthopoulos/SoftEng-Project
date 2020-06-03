@@ -169,7 +169,7 @@ EK8 | Δεν μπορεί να διαγραφεί λογαριασμός πελ�
 
 #### Διάγραμμα κλάσεων για την προβολή μη επιβεβαιωμέων ραντεβού του πελάτη 
 
-![Customer completed repair requests](design/mvp_CustomerUnConfirmedRepairRequest.png)
+![Customer completed repair requests](design/mvp_CustomerUnconfirmedRepairRequest.png)
 
 #### Διάγραμμα κλάσεων για την προβολή όλων των ραντεβού του πελάτη 
 
@@ -193,7 +193,7 @@ EK8 | Δεν μπορεί να διαγραφεί λογαριασμός πελ�
 
 #### Διάγραμμα κλάσεων για την προβολή των  μη επιβεβαιωμένων ραντεβού του τεχνικού
 
-![Customer completed repair requests](design/mvp_TechnicianUnConfirmedRepairRequest.png)
+![Customer completed repair requests](design/mvp_TechnicianUnconfirmedRepairRequest.png)
 
 #### Διάγραμμα κλάσεων για το login
 
@@ -275,7 +275,7 @@ EK8 | Δεν μπορεί να διαγραφεί λογαριασμός πελ�
 
 ##### searchRepairRequestData στο CustomerUnConfirmedRepairRequest
 
-![Complete](design/seq_searchRepairRequestData_CustomerUnConfirmedRepairRequest.png)
+![Complete](design/seq_searchRepairRequestData_CustomerUnconfirmedRepairRequest.png)
 
 ##### searchRepairRequestData στο TechnicianCompletedRepairRequest
 
@@ -287,7 +287,7 @@ EK8 | Δεν μπορεί να διαγραφεί λογαριασμός πελ�
 
 ##### searchRepairRequestData στο TechnicianUnConfirmedRepairRequest
 
-![Complete](design/seq_searchRepairRequestData_TechnicianUnConfirmedRepairRequest.png)
+![Complete](design/seq_searchRepairRequestData_TechnicianUnconfirmedRepairRequest.png)
 
 ##### searchRepairRequests στο TechnicianRepairRequests
 
