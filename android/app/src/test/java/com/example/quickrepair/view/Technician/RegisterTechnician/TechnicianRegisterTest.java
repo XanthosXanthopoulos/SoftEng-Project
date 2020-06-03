@@ -38,7 +38,7 @@ public class TechnicianRegisterTest
         presenter.setTechnician(0);
         presenter.setUpDataSource();
 
-        presenter.registerTechnician("John", "Doe", "1234567890", "example@example.com", "1234", "1234567890123456789012", "joe", "123", 1, 0);
+        presenter.registerTechnician("John", "Doe", "1234567890", "example@example.com", "1234", "1234567890123456789012", "joe", "123", 1, 1);
         Assert.assertNull(view.getErrorTitle());
         Assert.assertNull(view.getErrorMessage());
         Assert.assertNotNull(presenter.technician);
@@ -82,12 +82,14 @@ public class TechnicianRegisterTest
 
         presenter.registerTechnician("", "Doe", "1234567890", "example@example.com", "1234", "1234567890123456789012", "joe", "123", 1, 0);
         Assert.assertEquals(view.getErrorTitle(), "Invalid value");
-        Assert.assertNull(presenter.technician);
 
         presenter.registerTechnician("John", "Doe", "1234567890", "example@example.com", "1234", "1234567890123456789012", "joe", "123", 0, 0);
         Assert.assertEquals(view.getErrorTitle(), "No speciality selected");
         Assert.assertEquals(view.getErrorMessage(), "You must choose a speciality.");
-        Assert.assertNull(presenter.technician);
+
+        presenter.registerTechnician("John", "Doe", "1234567890", "example@example.com", "1234", "1234567890123456789012", "joe", "123", 1, 0);
+        Assert.assertEquals(view.getErrorTitle(), "No notification methods selected");
+        Assert.assertEquals(view.getErrorMessage(), "You must choose a notification method.");
     }
 
     /**
